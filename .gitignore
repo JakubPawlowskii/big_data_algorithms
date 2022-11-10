@@ -1,2 +1,33 @@
+#### scala ####
 *.class
 *.log
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# bloop and metals
+**/.bloop
+**/.bsp
+**/.metals
+**/project/metals.sbt
+
+# vs code
+**/.vscode
+
+# scala 3
+**/.tasty
+**/*.tasty
+
+# sbt
+**/project/project/
+**/project/target/
+**/target/
+**/.scala-build
+
+# other?
+.history
+.scala_dependencies
+.cache-main
+
+# general
+*.class
