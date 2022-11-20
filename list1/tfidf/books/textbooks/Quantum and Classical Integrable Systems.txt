@@ -1,0 +1,3913 @@
+Quantum and Classical Integrable Systems
+M.A. Semenov-Tian-Shansky
+1
+
+arXiv:q-alg/9703023v1 12 Mar 1997
+
+2
+
+Physique Mathématique, Université de Bourgogne, Dijon, France
+Steklov Mathematical Institute, St.Petersburg, Russia
+
+Abstract. The key concept discussed in these lectures is the relation between the Hamiltonians of a
+quantum integrable system and the Casimir elements in the underlying hidden symmetry algebra. (In
+typical applications the latter is either the universal enveloping algebra of an affine Lie algebra, or its
+q-deformation.) A similar relation also holds in the classical case. We discuss different guises of this
+very important relation and its implication for the description of the spectrum and the eigenfunctions
+of the quantum system. Parallels between the classical and the quantum cases are thoroughly discussed.
+
+1
+
+Introduction
+
+The study of exactly solvable quantum mechanical models is at least as old as Quantum Mechanics itself. Over the last fifteen years there has been a major development aimed at a unified
+treatment of many examples known previously and, more importantly, at a systematic construction of new ones. The new method nicknamed the Quantum Inverse Scattering Method
+was largely created by L. D. Faddeev and his school in St. Petersburg as a quantum counterpart
+of the Classical Inverse Scattering Method, and has brought together many ideas believed to be
+unrelated. [Besides the Classical Inverse Scattering Method, one should mention the profound
+results of R.Baxter in Quantum Statistical Mechanics (which, in turn, go back to the work of
+L. Onsager, E. Lieb and many others) and the seminal paper of H. Bethe on the ferromagnet
+model in which the now famous Bethe Ansatz was introduced.] It also allowed to unravel highly
+nontrivial algebraic structures, the Quantum Group Theory being one of its by-products.
+The origins of QISM lie in the study of concrete examples; it is designed as a working
+machine which produces quantum systems together with their spectra, the quantum integrals of
+motion, and their joint eigenvectors. In the same spirit, the Classical Inverse Scattering Method
+(along with its ramifications) is a similar tool to produce examples of classical integrable systems
+together with their solutions. In these lectures it is virtually impossible to follow the historic way
+in which this method has been developed, starting with the famous papers of Gardner, Greene,
+Kruskal and Miura (1967), and Lax (1968). (A good introduction close to the ideas of QISM may
+be found in (Faddeev and Takhtajan (1987)).) I would like to comment only on one important
+turning point which gave the impetus to invent the Quantum Inverse Scattering Method. In
+1979 L. D. Faddeev exposed in his seminar the draft paper of B. Kostant on the quantization
+of the Toda lattice (Kostant (1979)) which reduced the problem to the representation theory of
+semisimple Lie groups. This was an indication that classical completely integrable systems have
+an intimate relation to Lie groups and should also have exactly solvable quantum counterparts.
+In the same talk Faddeev introduced the now famous RL1 L2 = L2 L1 R commutation relations
+
+2
+
+M.A. Semenov-Tian-Shansky
+
+for quantum Lax matrices which could be extracted from R. Baxter’s works on quantum transfer
+matrices. The research program outlined in that talk and implemented over the next few years
+was twofold: On the one hand, the Yang-Baxter equation and the related algebra have directly
+led to exact solutions of several quantum models, such as the quantum sine-Gordon equation. On
+the other hand, connections with group theory and the orbits method resulted in a systematic
+treatment of numerous examples in the classical setting (Reyman and Semenov-Tian-Shansky
+(1994)). One major problem which has remained unsettled for more than a decade is to fill the
+gap between the two approaches, and in particular, to explain the group theoretical meaning
+of the Bethe Ansatz.
+With hindsight we can now understand why this problem could not be resolved immediately.
+First of all, while classical integrable systems are related to ordinary Lie groups, quantum
+systems quite often (though not always, cf. the discussion in section 3) require the full machinery
+of Quantum Groups. The background took several years to prepare (Drinfeld (1987a)). Second,
+even the simplest systems such as the open Toda lattice require a very advanced technique
+of representation theory (Kostant (1979), Semenov-Tian-Shansky (1994a)). The Toda lattice is
+peculiar, since the underlying ’hidden symmetry’ group is finite-dimensional. All main examples
+are related to (classical or quantum) affine Lie algebras. The representation theory of affine
+algebras which is instrumental in the study of integrable systems has been developed only in
+recent years (semi-infinite cohomologies,Wakimoto modules, critical level representations, cf.
+Feigin and Frenkel (1992), Feigin, Frenkel and Reshetikhin (1994), Frenkel (1995)).
+The present lectures do not give a systematic overview of the Quantum Inverse Scattering
+Method (several good expositions are available, cf. Bogolyubov et al. (1994), Faddeev (1980,
+1984, 1995), Faddeev and Takhtajan (1979), Kulish and Sklyanin (1981), Sklyanin (1992)).
+Instead, I shall try to explain the parallels between quantum and classical systems and the
+’correspondence principles’ which relate the quantum and the classical case.
+As already mentioned, the first key observation is that integrable systems always have
+an ample hidden symmetry. (Fixing this symmetry provides some rough classification of the
+associated examples. A nontrivial class of examples is related to loop algebras or, more generally,
+to their q-deformations. This is the class of examples I shall consider below.) Two other key
+points are the role of (classical or quantum) R-matrices and of the Casimir elements which give
+rise to the integrals of motion.
+This picture appears in several different guises depending on the type of examples in question. The simplest (so-called linear) case corresponds to classical systems which are modelled
+on coadjoint orbits of Lie algebras; a slightly more complicated group of examples is classical
+systems modelled on Poisson Lie groups or their Poisson submanifolds. In the quantum setting
+the difference between these two cases is deeper: while in the former case the hidden symmetry
+algebra remains the same, quantization of the latter leads to Quantum Groups. Still, for loop
+algebras the quantum counterpart of the main construction is nontrivial even in the linear case;
+the point is that the universal enveloping algebra of a loop algebra has a trivial center which
+reappears only after central extension at the critical value of the central charge. Thus to tackle
+the quantum case one needs the full machinery of representation theory of loop algebras. (By
+contrast, in the classical case one mainly deals with the evaluation representations which allow
+to reduce the solution of the equations of motion to a problem in algebraic geometry.)
+
+Quantum and Classical Integrable Systems
+
+3
+
+The study of integrable models may be divided into two different parts. The first one is,
+so to say, kinematic: it consists in the choice of appropriate models together with their phase
+spaces or the algebra of observables and of their Hamiltonians. The second one is dynamical; it
+consists, classically, in the description of solutions or of the action-angle variables. The quantum counterpart consists in the description of the spectra, the eigenvectors, and of the various
+correlation functions. The algebraic scheme proved to be very efficient in the description of kinematics. (Quantum Group Theory may be regarded as a by-product of this kinematic problem.)
+The description of spectra at the present stage of the theory remains model dependent. The
+standard tool for constructing the eigenvectors of the quantum Hamiltonians which was the
+starting point of QISM is the algebraic Bethe Ansatz. Until very recently, its interpretation in
+terms of the representation theory was lacking. This problem has been finally settled by Feigin,
+Frenkel and Reshetikhin (1994) for an important particular model with linear commutation relations (the Gaudin model); remarkably, their results follow the general pattern outlined above.
+A similar treatment of quantum models related to q-deformed affine algebras is also possible,
+although the results in this case are still incomplete. One should be warned that much of the
+’experimental material’ on Quantum Integrability still resists general explanations. I would like
+to mention in this respect the deep results of E.K.Sklyanin (Sklyanin (1992), Sklyanin (1995))
+relating the Bethe Ansatz to the separation of variables; see also (Harnad and Winternitz
+(1993), Kuznetsov (1994)).
+Acknowledgements. The present lectures were prepared for the CIMPA Winter School on
+Nonlinear Systems which was held in Pondicherry, India, in January 1996. I am deeply grateful
+to the Organizing Committee of the School and to the staff of the Pondicherry University for
+their kind hospitality. I would also like to thank Prof. Y. Kosmann-Schwarzbach for her remarks
+on the draft text of these lectures.
+
+2
+
+Generalities
+
+A quantum mechanical system is a triple consisting of an associative algebra with involution
+A called the algebra of observables, an irreducible ⋆-representation π of A in a Hilbert space
+H and a distinguished self-adjoint observable H called the Hamiltonian. A typical question to
+study is the description of the spectrum and the eigenvectors of π(H). Quantum mechanical
+systems usually appear with their classical counterparts. By definition, a classical mechanical
+system is again specified by its algebra of observables Acl which is a commutative associative
+algebra equipped with a Poisson bracket (i.e., a Lie bracket which also satisfies the Leibniz rule
+{a, bc} = {a, b} c + {a, c} b;
+in other words, a Poisson bracket is a derivation of Acl with respect to both its arguments), and
+a Hamiltonian H ∈ Acl . A commutative algebra equipped with a Poisson bracket satisfying the
+Leibniz rule is called a Poisson algebra. Speaking informally, a quantum algebra of observables
+A arises as a deformation of the commutative algebra Acl determined by the Poisson bracket.
+
+4
+
+M.A. Semenov-Tian-Shansky
+
+In these lectures we shall not be concerned with the quantization problem in its full generality
+(cf. Bayen, Flato et al. (1977), Weinstein (1994)). However, it will always be instructive to
+compare quantum systems with their classical counterparts.
+The algebraic language which starts with Poisson algebras makes the gap between classical
+and quantum mechanics as narrow as possible; in practice, however, we also need the dual
+language based on the notion of the phase space. Roughly speaking, the phase space is the
+spectrum of the Poisson algebra. Accurate definition depends on the choice of a topology in
+the Poisson algebra. We shall not attempt to discuss these subtleties and shall always assume
+that the underlying phase space is a smooth manifold and that the Poisson algebra is realized
+as the algebra of functions on this manifold. In the examples we have in mind, Poisson algebras
+always have an explicit geometric realization of this type. The Poisson bracket itself is then as
+usual represented by a bivector field on the phase space satisfying certain differential constraints
+which account for the Jacobi identity. This gives the definition of a Poisson manifold which is
+dual to the notion of a Poisson algebra. Geometry of Poisson manifolds has numerous obvious
+parallels with the representation theory. Recall that the algebraic version of the representation
+theory is based on the study of appropriate ideals in an associative algebra. For a Poisson
+algebra we have a natural notion of a Poisson ideal (i.e., a subalgebra which is an ideal with
+respect to both structures); the dual notion is that of a Poisson submanifold of a Poisson
+manifold. The classical counterpart of Hilbert space representations of an associative algebra is
+the restriction of functions to various Poisson submanifolds. Poisson submanifolds are partially
+ordered by inclusion; minimal Poisson submanifolds are those for which the induced Poisson
+structure is nondegenerate. (This means that the center of the Lie algebra of functions contains
+only constants.) Minimal Poisson submanifolds always carry a symplectic structure and form a
+stratification of the Poisson manifold; they are called symplectic leaves. Restriction of functions
+to symplectic leaves gives a classical counterpart of the irreducible representations of associative
+algebras.
+Let M be a Poisson manifold, H ∈ C ∞ (M). A classical system (M, H) is called integrable
+if the commutant of the Hamiltonian H in Acl contains an abelian algebra of the maximal
+possible rank. (A technical definition is provided by the well known Liouville theorem.)
+Let us recall that the key idea which has started the modern age in the study of classical
+integrable systems is to bring them into Lax form. In the simplest case, the definition of a Lax
+representation may be given as follows. Let (A, M, H) be a classical mechanical system. Let
+Ft : M → M be the associated flow on M (defined at least locally). Suppose that g is a Lie
+algebra. A mapping L : M → g is called a Lax representation of (A, M, H) if the following
+conditions are satisfied:
+(i) The flow Ft factorizes over g, i.e., there exists a (local) flow Ft : g → g such that the
+following diagram is commutative.
+Ft
+M
+M −→
+|
+|
+L
+↓
+↓ L
+F
+
+t
+g
+g −→
+
+(ii) The quotient flow Ft on g is isospectral, i.e., it is tangent to adjoint orbits in g.
+
+Quantum and Classical Integrable Systems
+
+5
+
+Clearly, L(x) ∈ g for any x ∈ M ; hence we may regard L as a ’matrix with coefficients
+in A = C ∞ (M)’, i.e., as an element of g ⊗A; the Poisson bracket on A extends to g ⊗A by
+linearity. Property (ii) means that there exists an element M ∈ g ⊗ A such that {H, L} =
+[L, M ].
+Let (ρ, V ) be a (finite-dimensional) linear representation of g. Then LV = ρ ⊗ id(L) ∈
+EndV ⊗ A is a matrix valued function on M; the coefficients of its characteristic polynomial
+P (λ) = det(LV − λ) are integrals of the motion.
+One may replace in the above definition a Lie algebra g with a Lie group G; in that case
+isospectrality means that the flow preserves conjugacy classes in G. In a more general way, the
+Lax operator may be a difference or a differential operator. The difference case is of particular
+importance, since the quantization of difference Lax equations is the core of QISM and a natural
+source of Quantum Groups. (Cf. section 3 below)
+There is no general way to find a Lax representation for a given system (even if it is known
+to be completely integrable). However, there is a systematic way to produce examples of such
+representations. An ample source of such examples is provided by the general construction
+described in the next section.
+2.1
+
+Basic Theorem: Linear Case
+
+The basic construction outlined in this section (summarized in Theorem 2.3 below) goes back
+to Kostant (1979) and Adler (1979) in some crucial cases; its relation with the r-matrix method
+was established in (Semenov-Tian-Shansky (1983)). We shall state it using the language of
+symmetric algebras which simplifies its generalization to the quantum case. Let g be a Lie
+algebra over k (where k = R or C). Let S(g) be the symmetric algebra of g. Recall that
+there is a unique Poisson bracket on S (g) (called the Lie-Poisson bracket) which extends the
+Lie bracket on g (see, for example, (Cartier (1994)). This Poisson bracket is more frequently
+discussed from the ’spectral’ point of view. Namely, let g∗ be the linear dual of g; the natural
+pairing g × g∗ → k extends to the ’evaluation map’ S (g) × g∗ → k which induces a canonical
+isomorphism of S (g) with the space of polynomials P (g∗ ) ; thus g∗ is a linear Poisson manifold
+and S (g) ≃ P (g∗ ) is the corresponding algebra of observables. Linear functions on g∗ form a
+subspace in P (g∗ ) which may be identified with g. The Lie-Poisson bracket on g∗ is uniquely
+characterized by the following properties:
+1. The Poisson bracket of linear functions on g∗ is again a linear function.
+2. The restriction of the Poisson bracket to g ⊂ P (g∗ ) coincides with the Lie bracket in g.
+Besides the Lie-Poisson structure on S(g) we shall need its Hopf structure. Further on we
+shall deal with other more complicated examples of Hopf algebras, so it is probably worth
+recalling the general definitions (though we shall not use them in full generality until section
+4). Recall that a Hopf algebra is a set (A, m, ∆, ǫ, S) consisting of an associative algebra A over
+k with multiplication m : A ⊗ A → A and unit element 1, the coproduct ∆ : A → A ⊗ A, the
+counit ǫ : A → k and the antipode S : A → A which satisfy the following axioms
+
+6
+
+M.A. Semenov-Tian-Shansky
+
+– m : A ⊗ A → A, ∆ : A → A ⊗ A, i : k → A : α 7−→ α · 1, ǫ : A → k are homomorphisms of
+algebras.
+– The following diagrams are commutative:
+
+id⊗m
+A
+→
+A⊗ A
+A ⊗ A⊗A → A⊗A
+|
+|
+|
+| ,
+,
+∆
+∆⊗id
+m⊗id
+↓
+↓
+↓
+↓
+id⊗∆
+A ⊗A
+→
+A
+A⊗A → A⊗A ⊗ A
+
+(2.1)
+
+(these diagrams express associativity of the product m and the coassociativity of the coproduct
+∆, respectively),
+i⊗id
+
+id⊗i
+
+A ⊗ A ←− A ⊗ k A ⊗ A ←− A ⊗ k
+|
+|
+|
+|
+,
+, m
+m
+↓
+↓
+↓
+↓
+A
+
+id
+
+←−
+
+id
+
+A
+
+A
+
+←−
+
+A
+
+ǫ⊗id
+
+id⊗ǫ
+
+A ⊗ A −→ A ⊗ k A ⊗ A −→ A ⊗ k
+↑
+|
+|
+∆ ↑
+, ∆
+|
+↓
+|
+↓
+A
+
+id
+
+−→
+
+(2.2)
+
+id
+
+A
+
+A
+
+−→
+
+(2.3)
+
+A
+
+(these diagrams express, respectively, the properties of the unit element 1 ∈ A and of the counit
+ǫ ∈ A∗ ).
+– The antipode S is an antihomomorphism of algebras and the following diagrams are commutative:
+∆
+id⊗S
+m
+A −→ A ⊗ A −→ A ⊗ A −→ A
+ցǫ
+
+i
+
+,
+
+ր
+
+(2.4)
+
+k
+∆
+
+S⊗id
+
+m
+
+A −→ A ⊗ A −→ A ⊗ A −→ A
+ցǫ
+
+րi
+
+.
+
+(2.5)
+
+k
+If (A, m, 1, ∆, ǫ, S) is a Hopf algebra, its linear dual A∗ is also a Hopf algebra; moreover,
+the coupling A ⊗ A∗ → k interchanges the roles of product and coproduct. Thus we have
+hm (a ⊗ b) , ϕi = ha ⊗ b, ∆ϕi .
+
+Quantum and Classical Integrable Systems
+
+7
+
+The Hopf structure on the symmetric algebra S (g) is determined by the structure of the
+additive group on g∗ . Namely, let S (g) × g∗ → k : (a, X) 7−→ a (X) be the evaluation map;
+since S (g) ⊗ S (g) ≃ S (g ⊕ g) ≃ P (g∗ ⊕ g∗ ) , this map extends to S (g) ⊗ S (g) . We have
+∆a (X, Y ) = a (X + Y ) , ǫ (a) = a (0) , S (a) (X) = a (−X)
+
+(2.6)
+
+(we shall sometimes write S (a) = a′ for brevity).
+For future reference we recall also that the coproducts in the universal enveloping algebra U (g) and in S (g) coincide (in other words, U (g) is canonically isomorphic to S (g) as a
+coalgebra).
+Let us now return to the discussion of the Poisson structure on S (g) , i.e., of the Lie-Poisson
+bracket of the Lie algebra g. It is well known that the Lie-Poisson bracket is always degenerate;
+its symplectic leaves are precisely the coadjoint orbits of the corresponding Lie group.
+Proposition 2.1 The center of S(g) (regarded as a Poisson algebra) coincides with the subalgebra I = S(g)g of adg-invariants in S(g) (called Casimir elements).
+Restrictions of Casimir elements to symplectic leaves are constants; so fixing the values of
+Casimirs provides a rough classification of symplectic leaves, although it is not true in general
+that different symplectic leaves are separated by the Casimirs. (In the semisimple case there
+are enough Casimirs to separate generic orbits.)
+Fix an element H ∈ S (g) ; it defines a derivation DH of S (g) ,
+DH ϕ = {H, ϕ} .
+By duality, this derivation determines a (local) Hamiltonian flow on g∗ . Since the Lie-Poisson
+bracket on g∗ is degenerate, this flow splits into a family of independent flows which are confined
+to Poisson submanifolds in g∗ . Thus a Hamiltonian H defines Hamiltonian flows on the coadjoint
+orbits in g∗ . In the special case when H ∈ I all these flows are trivial. However, one may still
+use Casimir elements to produce nontrivial equations of motion if the Poisson structure on S(g)
+is properly modified, and this is the way in which Lax equations associated with g do arise.
+The formal definition is as follows.
+Let r ∈ End g be a linear operator; we shall say that r is a classical r-matrix if the r-bracket
+[X, Y ]r =
+
+1
+([rX, Y ] + [X, rY ]) , X, Y ∈ g,
+2
+
+(2.7)
+
+satisfies the Jacobi identity. In that case we get two different Lie brackets on the same underlying
+linear space g. We shall assume that r satisfies the following stronger condition called the
+modified classical Yang-Baxter identity:
+[rX, rY ] − r ([rX, Y ] + [X, rY ]) = − [X, Y ] , X, Y ∈ g.
+
+Proposition 2.2 Identity (2.8) implies the Jacobi identity for (2.7).
+
+(2.8)
+
+8
+
+M.A. Semenov-Tian-Shansky
+
+Remark 2.1 Identity (2.8) is of course only a sufficient condition; however, we prefer to impose it from the very beginning, since it assures a very important factorization property (see
+below).
+Let (g, r) be a Lie algebra equipped with a classical r-matrix r ∈ Endg satisfying (2.8) . Let
+gr be the corresponding Lie algebra (with the same underlying linear space). Put r± = 21 (r±id);
+then (2.8) implies that r± : gr → g are Lie algebra homomorphisms. Let us extend them to
+Poisson algebra morphisms S(gr ) → S(g) which we shall denote by the same letters. These
+morphisms also agree with the standard Hopf structure on S(g), S(gr ). Define the action
+S(gr ) ⊗ S(g) → S(g)
+by setting
+x·y =
+where ∆x =
+
+P
+
+(1)
+
+xi
+
+(2)
+
+⊗ xi
+
+X
+
+(1)
+
+(2)
+
+r+ (xi ) y r− (xi )′ , x ∈ S(gr ), y ∈ S(g),
+
+(2.9)
+
+is the coproduct and a 7→ a′ is the antipode map.
+
+Theorem 2.3 (i) S(g) is a free graded S(gr )-module generated by 1 ∈ S(g). (ii) Let ir : S(g)
+→ S(gr ) be the induced isomorphism of graded linear spaces; its restriction to I = S(g)g is a
+morphism of Poisson algebras. (iii) Assume, moreover, that g is equipped with a nondegenerate invariant bilinear form; the induced mapping g∗r → g defines a Lax representation for all
+b H
+b ∈ S(g)g .
+Hamiltonians H = ir (H),
+
+The geometric meaning of theorem 2.3 is very simple. In fact, it becomes more transparent
+if one uses the language of Poisson manifolds rather than the dual language of Poisson algebras.
+(However, it is this more cumbersome language that may be generalized to the quantum case.)
+Since g ≃ gr as linear spaces, the polynomial algebras P (g∗ ) and P (g∗r ) are also isomorphic
+as graded linear spaces (though not as Poisson algebras). The subalgebra I ⊂ P (g∗ ) remains
+commutative with respect to the Lie-Poisson bracket of gr ; moreover, the flows in g∗ which
+correspond to the Hamiltonians H ∈ I are tangent to two systems of coadjoint orbits in g∗ , the
+orbits of g and of gr . The latter property is trivial, since all Hamiltonian flows in g∗r are tangent
+g
+to coadjoint orbits; the former is an immediate corollary of the fact that I = S(g)g ≃P (g∗ )
+is the subalgebra of coadjoint invariants. (As we mentioned, in the semisimple case generic
+orbits are level surfaces of the Casimirs.) Finally, if g carries an invariant inner product, the
+coadjoint and the adjoint representations of g are equivalent and I consists precisely of spectral
+invariants.
+Let u ⊂ gr be an ideal, s = gr /u the quotient algebra, p : S (gr ) → S (s) the canonical projection; restricting p to the subalgebra Ir = ir (S(g)g ) we get a Poisson commutative subalgebra
+in S (s) ; we shall say that the corresponding elements of S (s) are obtained by specialization.
+The most common examples of classical r-matrices are associated with decompositions of
+Lie algebras. Let g be a Lie algebra with a nondegenerate invariant inner product, g+ , g− ⊂ g
+its two Lie subalgebras such that g = g+ +̇g− as a linear space. Let P+ , P− be the projection
+operators associated with this decomposition; the operator
+r = P+ − P−
+
+(2.10)
+
+Quantum and Classical Integrable Systems
+
+9
+
+satisfies (2.8); moreover, the Lie algebra gr splits into two parts, gr ≃ g+ ⊕ g− . Let us choose
+⊥
+A = S(g+ ) as our algebra of observables. Let g⊥
++ , g− be the orthogonal complements of g+ , g−
+⊥
+⊥
+∗
+⊥ ∗
+⊥
+⊥
+⊥
+in g. Then g = g+ ⊕g− and we may identify
+P g+ ≃ ig− , g− ≃ g+i . Let L ∈ g− ⊗ g+ ⊂ g− ⊗ S(g+ )
+be the canonical element (that is, L =
+ei ⊗ e , where e is a basis in g+ and {ei } the
+∗
+⊥
+∗
+⊥
+dual basis in g+ ≃ g− ); using the canonical isomorphism g⊥
+− ⊗ g+ ≃ Hom g+ , g− , we may
+∗
+⊥
+regard L as an embedding g+ ֒→ g− . Let P : S(g) → S(g− ) be the projection onto S(g− ) in
+the decomposition
+S(g) = S(g− ) ⊕ g+ S(g).
+Corollary 2.4 (i) The restriction of P to the subalgebra I = S(g)g of Casimir elements is a
+Poisson algebra homomorphism. (ii) L defines a Lax representation for all Hamiltonian equations of motion defined by the Hamiltonians H = P (H), H ∈ I . (iii) The corresponding
+Hamiltonian flows on g∗+ ≃ g⊥
+− ⊂g preserve intersections of coadjoint orbits of g+ with the
+adjoint orbits of g.
+One sometimes calls L the universal Lax operator; restricting the mapping L : g∗+ ֒→ g⊥
+− to
+various Poisson submanifolds in g∗+ we get Lax representations for particular systems.
+The situation is especially simple when g+ , g− ⊂ g are isotropic subspaces with respect to
+⊥
+∗
+the inner product in g; then g+ = g⊥
++ , g− = g− , g+ ≃ g− . In that case (g+ , g− , g) is referred
+to as a Manin triple. This case is of particular importance, since then both g and its Lie
+subalgebras g+ , g− carry an additional structure of Lie bialgebra.
+Definition 2.1 Let a be a Lie algebra, a∗ its dual; assume that a∗ is equipped with a Lie
+bracket [, ]∗ : a∗ ∧ a∗ → a∗ . The brackets on a and a∗ are said to be compatible if the dual map
+δ : a → a ∧ a is a 1-cocycle on a (with values in the wedge square of the adjoint module). A pair
+(a, a∗ ) with consistent Lie brackets is called a Lie bialgebra.
+One can prove that this definition is actually symmetric with respect to a, a∗ ; in other words,
+if (a, a∗ ) is a Lie bialgebra, so is (a∗ , a) .
+Proposition 2.5 Let (g+ , g− , g) be a Manin triple. Identify g∗ with g by means of the inner
+∗
+product and equip it with
+ the r-bracket associated with∗ r = P+ − P− ; then (i) (g, g∗ ) is a Lie
+bialgebra. (ii) g+ , g− is a Lie sub-bialgebra of (g, g ) . (iii) Conversely, if (a, a ) is a Lie
+bialgebra there exists a unique Lie algebra d = d (a, a∗ ) called the double of (a, a∗ ) such that
+– d = a+̇a∗ as a linear space,
+– a, a∗ ⊂ d are Lie subalgebras,
+– The canonical bilinear form on d induced by the natural pairing between a and a∗ is add
+-invariant.
+In a more general way, let r ∈ Endg be a classical r-matrix on a Lie algebra g which is
+equipped with a fixed inner product. Identify gr with the dual of g by means of the inner
+product. Assume that r is skew and satisfies the modified Yang-Baxter identity. Then (g, g∗ )
+is a Lie bialgebra; it is usually called a factorizable Lie bialgebra. Let us once more list the
+properties of factorizable Lie bialgebras for future reference:
+
+10
+
+M.A. Semenov-Tian-Shansky
+
+– g is equipped with a nondegenerate inner product.
+– g∗ is identified with g as a linear space by means of the inner product; the Lie bracket in g∗
+is given by
+1
+[X, Y ]∗ = ([rX, Y ] + [X, rY ]) , X, Y ∈ g,
+2
+∗
+= −r− , and r+ −
+– r± = 21 (r ± id) are Lie algebra homomorphisms g∗ → g ; moreover, r+
+r− = id.
+
+Lie bialgebras are particularly important, since the associated Lie-Poisson structures may
+be extended to Lie groups (cf. section 3).
+2.1.1. Hamiltonian Reduction. Theorem 2.3 admits a very useful global version which
+survives quantization. To formulate this theorem we shall first recall some basic facts about
+Hamiltonian reduction.
+Let G be a Lie group with Lie algebra g. Let T ∗ G be the cotangent bundle of G equipped
+with the canonical symplectic structure. Let B ⊂ G be a Lie subgroup with Lie algebra b. The
+action of B on G by right translations extends canonically to a Hamiltonian action B × T ∗ G
+→ T ∗ G. This means that the vector fields on T ∗ G generated by the corresponding infinitesimal
+action of b are globally Hamiltonian; moreover, the mapping
+b → C ∞ (T ∗ G) : X 7−→ hX
+which assigns to each X ∈ b the Hamiltonian of the corresponding vector field is a homomorphism of Lie algebras. In particular, this map is linear and hence for each X ∈ g, x ∈ T ∗ G
+hX (x) = hX, µ (x)i ,
+where µ : T ∗ G → b∗ is the so-called moment mapping. Choose a trivialization T ∗ G≃G×g∗ by
+means of left translations; then the action of B is given by
+
+
+−1
+b : (g, ξ) 7−→ gb−1 , (Ad∗ b) ξ .
+
+The corresponding moment map µ : T ∗ G → b∗ is
+
+µ : (g, ξ) 7−→ −ξ |b ,
+where ξ |b means the restriction of ξ ∈ g∗ to b ⊂ g. The moment mapping is equivariant; in
+other words, the following diagram is commutative
+B × T ∗G → T ∗G
+↓
+↓
+,
+B × b∗ → b∗
+where B × b∗ → b∗ is the ordinary coadjoint action.
+Recall that the reduction procedure consists of two steps:
+
+Quantum and Classical Integrable Systems
+
+11
+
+– Fix the value of the moment map µ and consider the level surface
+MF = {x ∈ T ∗ G; µ (x) = F } , F ∈ b∗
+Speaking in physical terms, we impose on T ∗ G linear constraints which fix the moment
+µ : T ∗ G → b∗ .
+– Take the quotient of MF over the action of the stabilizer of F in B.
+(Due to the equivariance of µ, the stabilizer B F ⊂ B preserves MF .)
+The resulting manifold MF is symplectic; it is called the reduced phase space obtained by
+reduction over F ∈ b∗ . A particularly simple case is the reduction over 0 ∈ b∗ ; in that case the
+stabilizer coincides with B itself. We shall denote the reduced space M0 /B by T ∗ G//B.
+In a slightly more general fashion, we may start with an arbitrary Hamiltonian B-space M
+and perform the reduction over the zero value of the moment map getting the reduced space
+M//B.
+Let SG be the category of Hamiltonian G-spaces; recall that (up to a covering) homogeneous
+Hamiltonian G-spaces are precisely the coadjoint orbits of G. We shall define a functor (called
+symplectic induction, cf. Kazhdan, Kostant and Sternberg (1978)),
+IndG
+B : SB
+
+SG ,
+
+which associates to each Hamiltonian B-space a Hamiltonian G-space. Namely, we put
+∗
+IndG
+B (M) = T G × M//B,
+
+where the manifold T ∗ G × M is equipped with the symplectic structure which is the difference
+of symplectic forms on T ∗ G and on M and B acts on T ∗ G × M diagonally (hence the moment
+map on T ∗ G × M is the difference of the moment maps on T ∗ G and on M). The structure
+of the Hamiltonian G-space is induced on T ∗ G × M//B by the action of G on T ∗ G by left
+translations.
+The most simple case of symplectic induction is when the coadjoint orbit consists of a single
+point. In representation theory, this corresponds to representations induced by 1-dimensional
+representations of a subgroup. Let now F ∈ b∗ be an arbitrary element; let OF be its coadjoint
+orbit, KF = IndG
+B (OF ) . It is sometimes helpful to have a different construction of KF (in much
+the same way as in representation theory it is helpful to have different realizations of a given
+representation). In many case it is possible to induce KF starting from a smaller subgroup L ⊂ B
+and its single-point orbit (a similar trick in representation theory means that we wish to induce
+a given representation from a 1-dimensional one). The proper choice of L is the Lagrangian
+subgroup LF ⊂ B subordinate to F (whenever it exists). Recall that a Lie subalgebra lF ⊂ b
+is called a Lagrangian subalgebra subordinate to F ∈ b∗ if ad∗ lF · F ⊂ TF OF is a Lagrangian
+subspace of the tangent space to the coadjoint orbit of F (with respect to the Kirillov form
+on TF OF ). This condition implies that F |[lF ,lF ] = 0; in other words, F defines a character of
+lF . This is of course tantamount to saying that F is a single-point orbit of lF . To define the
+corresponding Lagrangian subgroup LF ⊂ B let us observe that lF always coincides with its
+own normalizer in b. Let us define LF ⊂ B as the normalizer of lF in B (this definition fixes
+the group of components of LF which may be not necessarily connected).
+
+12
+
+M.A. Semenov-Tian-Shansky
+
+Proposition 2.6 Let LF ⊂ B be a Lagrangian subgroup subordinate to F ; then T ∗ G×OF //B ≃
+T ∗ G × {F } //LF .
+In the next section we shall discuss an example of a coadjoint orbit with real polarization.
+Let us now return to the setting of theorem 2.3. Consider the action G × G × G → G by
+left and right translations:
+(h, h′ ) : x 7−→ hxh′−1 ;
+(2.11)
+this action may be lifted to the Hamiltonian action G × G × T ∗ G → T ∗ G. Let us choose again
+a trivialization T ∗ G ≃ G × g∗ by means of left translations; then
+
+
+−1
+(h, h′ ) : (g, ξ) 7−→ hgh′−1 , (Ad∗ h′ ) ξ .
+(2.12)
+The corresponding moment map µ : T ∗ G → g∗ ⊕g∗ is
+
+
+µ : (g, ξ) 7−→ ξ, − (Ad∗ g)−1 ξ .
+
+(2.13)
+
+Using the left trivialization of T ∗ G we may extend polynomial functions ϕ ∈ P (g∗ ) ≃ S (g)
+to left-invariant functions on T ∗ G which are polynomial on the fiber. The Casimir elements
+g
+H ∈ S (g) give rise to bi-invariant functions; thus the corresponding Hamiltonian systems
+admit reduction with respect to any subgroup S ⊂ G × G .
+Lemma 2.7 Let S ⊂ G × G be a Lie subgroup, s ⊂ g ⊕ g its Lie subalgebra, p : g∗ ⊕ g∗ → s∗
+the canonical projection, S × T ∗ G → T ∗ G the restriction to H of the action (2.12) . This action
+is Hamiltonian and the corresponding moment map is µS = p ◦ µ.
+Now let us assume again that (g, r) is a Lie algebra equipped with a classical r-matrix
+r ∈ End g satisfying (2.8) . Combining the Lie algebra homomorphisms r± : gr → g we get an
+embedding ir : gr → g ⊕ g; we may identify the Lie group which corresponds to gr with the
+subgroup Gr ⊂ G × G which corresponds to the Lie subalgebra gr ⊂ g ⊕ g. Fix F ∈ g∗r and let
+OF ⊂ g∗r be its coadjoint orbit. We want to apply to OF the ‘symplectic induction’ procedure.
+Since half of Gr is acting by left translations and the other half by right translations, the action
+of G on the reduced space will be destroyed. However, the Casimir elements survive reduction.
+Theorem 2.8 (i) The reduced symplectic manifold T ∗ G × OF //Gr is canonically isomorphic
+g
+to OF . (ii) Extend Casimir elements H ∈ S (g) ≃ P (g∗ ) to G × G -invariant functions on
+∗
+T G; these functions admit reduction with respect to Gr ; the reduced Hamiltonians coincide
+with those described in theorem 2.3, namely, Hred = ir (H) |OF ; the quotient Hamiltonian flow
+g
+on OF which corresponds to H ∈ S (g) is described by the Lax equation.
+Theorem 2.8 allows to get explicit formulae for the solutions of Lax equations in terms
+of the factorization problem in G. In these lectures we are mainly interested in its role for
+quantization.
+The construction of Lax equations based on theorem 2.3 may be applied to finite-dimensional
+semisimple Lie algebras (Kostant (1979)). However, its really important applications are connected with loop algebras, which possess sufficiently many Casimirs. We shall describe two
+
+Quantum and Classical Integrable Systems
+
+13
+
+examples both of which have interesting quantum counterparts: the open Toda lattice (this is
+the example first treated in (Kostant (1979))) and the so-called generalized Gaudin model (its
+quantum counterpart was originally proposed in (Gaudin (1983))).
+2.2
+
+Two Examples
+
+2.2.1. Generalized Toda Lattice. The Toda Hamiltonian describes transverse oscillations of
+a 1-dimensional cyclic molecule with the nearest-neighbour interaction around the equilibrium
+configuration. Thus the phase space is M = R2n with the canonical Poisson bracket; the
+Hamiltonian is
+n−1
+n
+1X 2 X
+exp (qi − qi+1 ) + exp (qn − q1 ) .
+pi +
+H=
+2 i=1
+i=1
+
+Removing the last term in the potential energy gives the open Toda lattice whose behaviour is
+qualitatively different (all potentials are repulsive, and the Hamiltonian describes the scattering
+of particles in the conical valley
+C+ = {q = (q1 , ..., qn ) ∈ Rn ; qi − qi+1 ≤ 0, i = 1, ..., n − 1}
+
+with steep walls). The generalized open Toda lattice may be associated to an arbitrary semisimple Lie algebra. (Generalized periodic Toda lattices correspond to affine Lie algebras.) I
+shall briefly recall the corresponding construction (cf. Kostant (1979), Goodman and Wallach
+(1982), Reyman and Semenov-Tian-Shansky (1994)).
+Let g be a real split semisimple Lie algebra, σ : g → g a Cartan involution, g = k ⊕ p
+the corresponding Cartan decomposition (i.e., σ = id on k, σ = −id on p). Fix a split Cartan
+subalgebra a ⊂ p ; let ∆ ⊂ a∗ be the root system of (g, a) . For α ∈ ∆ let
+gα = {X ∈ g; adH · X = α (H) X, H ∈ a}
+
+(2.14)
+
+be the corresponding root space. Fix an order in the system of roots and let ∆+ ⊂ ∆ be the
+set of positive roots, P ⊂ ∆+ the corresponding set of simple roots. Put n = ⊕α∈∆+ gα . Let
+b = a + n ; recall that b is a maximal solvable subalgebra in g (Borel subalgebra). We have
+g = k+̇a+̇n
+
+(2.15)
+
+(the Iwasawa decomposition). Equip g with the standard inner product (the Killing form).
+Clearly, we have k⊥ = p, b⊥ = n; thus the dual of b is modelled on p, and we may regard p as a
+b -module with respect to the coadjoint representation. Let G be a connected split semisimple
+Lie group with finite center which corresponds to g, G = AN K its Iwasawa decomposition
+which corresponds to the decomposition (2.15) of its Lie algebra.
+Remark 2.2 The Iwasawa decomposition usually does not give rise to a Lie bialgebra structure on g; indeed, the subalgebras k and b are not isotropic (unless g is a complex Lie algebra
+considered as an algebra over R). In other words, the classical r-matrix associated with the decomposition (2.15) is not skew. We shall briefly recall the construction of the so-called standard
+skew-symmetric classical r-matrix on a semisimple Lie algebra in Section 2.2.3 below.
+
+14
+
+M.A. Semenov-Tian-Shansky
+
+(1)
+The Borel subalgebra admits ah decreasing
+⊃ b(2) ⊃ ..., where b(1) =
+i filtration b ⊃ b
+[b, b] = n, b(2) = [n, n] , ..., b(k) = n, b(k−1) . By duality, there is an increasing filtration of
+p ≃ b∗ by ad∗ b -invariant subspaces. To describe it let us introduce some notation. For α ∈ ∆
+let
+X
+α=
+mi αi
+(2.16)
+αi ∈P
+
+be its decomposition with respect to the simple roots; put d (α) =
+dp =
+
+M
+
+gα , p 6= 0, d0 = a, n(k) =
+
+P
+
+M
+
+αi ∈P mi . Put
+
+dp .
+
+(2.17)
+
+p≥k
+
+{α∈∆;d(α)=p}
+
+Define the mapping s : g → p : X 7−→ 21 (id − σ) X, and let pk = ⊕0≤p≤k s (dp ) , k = 0, 1, ...
+It is easy to see that a = p0 ⊂ p1 ⊂ ... are invariant with respect to the coadjoint action
+of b; moreover, pk is the annihilator of b(k+1) in p. Thus pk is set in duality with b/b(k+1) .
+Put s = b/b(2) and let L ∈ p1 ⊗ s ⊂ p1 ⊗ S (s) be the corresponding canonical element. Let Is
+g
+be the specialization to s of the subalgebra I = S (g) of Casimir elements. An example of a
+Hamiltonian H ∈ Is is constructed from the Killing form:
+H=
+
+1
+(L, L) ,
+2
+
+(2.18)
+
+in obvious notation. To describe all others we may use the following trick. Fix a faithful representation (ρ, V ) of g and put LV = (ρ ⊗ id) L. (ρ, V ) is usually called the auxiliary linear
+representation.
+Proposition 2.9 (i) Is is generated by Hk = trV LkV ∈ S (s) , k = 1, 2, ... (ii) L defines a Lax
+representation for any Hamiltonian equation on S (s) with the Hamiltonian H ∈ Is .
+We have s = a⋉u, where u = n/ [n, n] ; the corresponding Lie group is S = A⋉U, U = N/N ′ .
+Choose eα ∈ gα , α ∈ P, in such a way that (eα , e−α ) = 1, and put
+(
+)
+X
+OT = p +
+bα (eα + e−α ) ; p ∈ a, bα > 0 ;
+(2.19)
+α∈P
+
+by construction, OT ⊂ p1 . It is convenient to introduce the parametrization bα = exp α (q) ,
+q ∈ a.
+Proposition 2.10 (i) OT is an open coadjoint orbit of S in p1 ≃ s∗ (ii) Restriction to OT of
+the Hamiltonian (2.18) is the generalized Toda Hamiltonian
+HT =
+
+X
+1
+(p, p) +
+exp 2α (q) .
+2
+α∈P
+
+Quantum and Classical Integrable Systems
+
+15
+
+The Toda orbit has the natural structure of a polarized symplectic manifold, that is, OT
+admits an S-invariant fibering whose fibers are Lagrangian submanifolds; the description of
+this Lagrangian structure is a standard
+part of the geometric quantization program (Kirillov
+P
+(1976)). More precisely, put f = α∈P (eα + e−α ); let us choose f as a marked point on OT .
+Proposition 2.11 (i) We have S/U ≃ A; the isomorphism OT = S · f induces a Lagrangian
+fibering OT → A with fiber U. (ii) OT is isomorphic to T ∗ A as a polarized symplectic manifold.
+(iii) The Lagrangian subalgebra lf ⊂ s subordinate to f is lf = u.
+
+Remark 2.3 We may of course regard OT as a coadjoint orbit of the group B = AN itself;
+indeed, there is an obvious projection B → S and its kernel lies in the stabilizer of f. The ’big’
+Lagrangian subgroup L̂f ⊂ B subordinate to f coincides with N.
+An alternative description of the open Toda lattice which provides more detailed information
+on its behavior and survives quantization is based on Hamiltonian reduction. The following
+result is a version of theorem 2.8. Let us consider again the Hamiltonian action of G × G
+on T ∗ G. To get the generalized Toda lattice we shall restrict this action to the subgroup
+Gr = K × B ⊂ G × G. We may regard OT as a Gr -orbit, the action of K being trivial.
+Theorem 2.12 (i) T ∗ G × OT // Gr is isomorphic to OT as a symplectic manifold. (ii) Let H2
+be the quadratic Casimir element which corresponds to the Killing form on g. The Toda flow is
+the reduction of the Hamiltonian flow on T ∗ G generated by H2 .
+Theorem 2.12 leads to explicit formulae for the trajectories of the Toda lattice in terms
+of the Iwasawa decomposition of matrices (Olshanetsky and Perelomov (1994), Goodman and
+Wallach (1982), Reyman and Semenov-Tian-Shansky (1994)).
+Since OT admits a real polarization, we may state the following version of proposition 2.6.
+Observe that if we regard OT as a Gr -orbit, the Lagrangian subgroup subordinate to f ∈ OT
+is K × N.
+Theorem 2.13 (i) T ∗ G× {f } //K × N is isomorphic to OT as a symplectic manifold. (ii)
+The standard Lagrangian polarization on T ∗ G by the fibers of projection T ∗ G → G gives rise
+to the Lagrangian polarization on OT described in proposition 2.11.
+It is easy to see that the Toda flow is again reproduced as the reduction of the Hamiltonian
+flow on T ∗ G generated by the quadratic Hamiltonian H2 .
+As discussed in Section 4.1.2, theorem 2.13 gives a very simple hint to the solution of the
+quantization problem.
+2.2.2. More examples: standard r-matrices on semisimple Lie algebras and on loop
+algebras. As already noted, the classical r-matrix associated with the Iwasawa decomposition
+of a simple Lie algebra g is not skew and hence does not give rise to a Lie bialgebra structure on
+g. While this is not a disadvantage for the study of the Toda lattice, the bialgebra structure is
+
+16
+
+M.A. Semenov-Tian-Shansky
+
+of course basic in the study of the q-deformed case. Let us briefly recall the so-called standard
+Lie bialgebra structure on g. We shall explicitly describe the corresponding Manin triple.
+Let g be a complex simple Lie algebra, a ⊂ g its Cartan subalgebra, ∆ ⊂ a∗ the root system
+of (g, a) , b+ = a + n+ a positive Borel subalgebra which corresponds to some choice of order in
+∆, b− the opposite Borel subalgebra. For α ∈ ∆ let eα be the corresponding root space vector
+normalized in such a way that (eα , e−α ) = 1. We may identify a with the quotient algebra
+b± /n± ; let π± : b± → a be the corresponding canonical projection. Put d = g ⊕ g (direct sum
+of two copies); we equip d with the inner product which is the difference of the Killing forms
+on the first and the second copy. Let gδ ⊂ d be the diagonal subalgebra,
+g∗ = {(X+ , X− ) ∈ b+ ⊕ b− ; π+ (X+ ) = −π− (X− )} .
+(Mind the important minus sign in this definition!)
+
+Proposition 2.14 (i) d, gδ , g∗ is a Manin triple. (ii) The corresponding Lie bialgebra structure on g is associated with the classical r-matrix
+X
+r=
+eα ∧ e−α .
+(2.20)
+α∈∆+
+
+(iii) The Lie bialgebra gδ , g
+
+
+∗
+
+is factorizable.
+
+The construction described above admits a straightforward generalization for loop algebras.
+The associated r-matrix is called trigonometric. For future reference we shall recall its definition
+as well.
+
+
+Let g be a complex semisimple Lie algebra, let Lg = g ⊗ C z, z −1 be the loop algebra of
+g consisting of rational functions with values in g which are regular on CP (1) r {0, ∞} . Let
+Lg0 , Lg∞ be its local completions at 0 and ∞; by definition, Lg0 , Lg∞ consist of formal Laurent
+series in local parameters z, z −1 , respectively. Put b
+d = Lg0 ⊕ Lg∞ (direct sum of Lie algebras).
+Clearly, the diagonal embedding Lg ֒→ b
+d : X 7−→ (X, X) is a homomorphism of Lie algebras.
+Let
+
+
+Lg± = g ⊗ C[ z ±1 ],
+b
+b+ = {X ∈ Lg+ ; X (0) ∈ b+ } ,
+b
+b− = {X ∈ Lg− ; X (∞) ∈ b− }
+(where X (0) , X (∞) denote the constant term of the formal series). Combining the ’evaluation
+at 0’ (respectively, at ∞) with the projections π± : b± → a we get two canonical projection
+maps π
+b± : b
+b± → a. Put
+n
+o
+∗
+(Lg) = (X+ , X− ) ∈ b
+b+ ⊕ b
+b− ; π
+b+ (X+ ) = −b
+π− (X− ) ⊂ b
+d.
+∗
+
+Let us set (Lg) and Lg in duality by means of the bilinear form on b
+d
+
+h(X+ , X− ) , (Y+ , Y− )i =
+Resz=0 (X+ (z), Y+ (z)) dz/z + Resz=∞ (X− (z), Y− (z)) dz/z.
+
+(2.21)
+
+Quantum and Classical Integrable Systems
+∗
+Proposition 2.15 b
+d, Lg, (Lg) is a Manin triple.
+
+17
+
+∗
+
+Remark 2.4 Properly
+speaking, with our choice of a completion for (Lg) the Lie
+
+bialgebra Lg, (Lg)∗ is not factorizable; indeed, our definition requires that the Lie algebra
+and its dual should be isomorphic as linear spaces. However, a slightly weaker assertion
+∗
+◦
+still holds true: the dual Lie algebra (Lg) contains an open dense subalgebra (Lg) =
+
+∗
+◦
+(X+ , X− ) ∈ (Lg) ; X± ∈ Lg such that the mappings (Lg) → Lg : (X+ , X− ) 7−→ X± are
+◦
+Lie algebra homomorphisms and (Lg) is isomorphic to Lg as a linear space. This subtlety is
+quite typical of infinite-dimensional Lie algebras.
+Let us finally say a few words on the trigonometric r-matrix itself. Define the cobracket
+δ : Lg →Lg ⊗ Lg by
+E
+D
+hδX, Y ⊗ Zi = X, [Y, Z]Lg∗ , X ∈ Lg, Y, Z ∈ (Lg)∗ ,
+
+(2.22)
+
+i.e. as the dual of the Lie bracket in (Lg)∗ with respect to the pairing (2.21). The element
+δ(X) ∈ Lg ⊗ Lg may be regarded as a Laurent polynomial in two variables with values in g;
+the cobracket (2.22) is then given by
+z
+h
+i
+δ(X) (z, w) = rtrig
+, X1 (z) + X2 (w) ,
+w
+where rtrig (z/w) is a rational function in z/w with values in g ⊗ g. (We use the dummy indices
+1, 2, ... to denote different copies of linear spaces; in other words,
+X1 (z) := X (z) ⊗ 1, X2 (w) := 1 ⊗ X (w) ;
+below we shall frequently use this abridged tensor notation.) The explicit expression for rtrig
+is given by
+rtrig (x) = t ·
+
+x+1
++ r,
+x−1
+
+(2.23)
+
+where t ∈ g ⊗ g is the canonical element (tensor Casimir) which represents the inner product
+h, i in g and r ∈ g ∧ g is the standard classical r-matrix in g given by (2.20).
+Remark 2.5 Note that the expression for rtrig which may be found in Belavin and Drinfeld
+(1983) is different from (2.23), since these authors use a different grading in the loop algebra
+(the so-called principal grading, as compared to the standard grading which we use in these
+lectures.)
+
+18
+
+M.A. Semenov-Tian-Shansky
+
+2.2.3. Generalized Gaudin Model. We shall return to the bialgebras described in the
+previous section when we shall discuss the q-deformed algebras and the quadratic Poisson Lie
+groups. In order to deal with our next example of an integrable system we shall use another
+important Lie bialgebra associated with the Lie algebra of rational functions. The example to
+be discussed is a model of spin-spin interaction (the so-called Gaudin model) which may be
+deduced as a limiting case of lattice spin models (such as the Heisenberg XXX model) for small
+values of the coupling constant (Gaudin (1983)). The original Gaudin model is related to the
+sl (2) or su (2) algebras; below we shall discuss its generalization to arbitrary simple Lie algebras.
+The generalized Gaudin Hamiltonians also arise naturally in the semiclassical approximation to
+the Knizhnik-Zamolodchikov equations (Reshetikhin and Varchenko (1993)). The underlying
+r-matrix associated with the Gaudin model is the so called rational r-matrix which is described
+below.
+Let g be a complex simple Lie algebra. Fix a finite set D = {z1 , ..., zN } ⊂ C ⊂ CP1
+and let g(D) be the algebra of rational functions on CP1 with values in g which vanish at
+infinity and are regular outside D. Let gzi = g ⊗ C((z − zi )) be the localization of g(D) at
+zi ∈ D. [As usual, we denote by C((z)) the algebra of formal Laurent series in z, and by
+C [[z]] its subalgebra consisting of formal Taylor series.] Put gD = ⊕zi ∈D gzi . There is a natural
+embedding g(D) ֒→ gD which assigns to a rational function the set of its Laurent expansions
++
+at each point zi ∈ D. Put g+
+zi = g ⊗ C [[z − zi ]] , gD = ⊕zi ∈D gzi . Then
+gD = g+
+D +̇ g(D)
+
+(2.24)
+
+as a linear space. [This assertion has a very simple meaning. Fix an element X = (Xi )zi ∈D ∈ gD ;
+truncating the formal series Xi , we get a finite set of Laurent polynomials which may be
+regarded as principal parts of a rational function. Let X 0 be the rational function defined by
+these principal parts; it is unique up to a normalization constant which may be fixed by a
+condition at infinity. Expand X 0 in its Laurent series at z = zi ; by construction, Xi − Xi0 ∈ g+
+zi
+; thus P : X 7−→ X0 is a projection operator from gD onto g(D) parallel to g+
+D . In other words,
+the direct sum decomposition (2.24) is equivalent to the existence of a rational function with
+prescribed principal parts; this is the assertion of the well known Mittag-Leffler theorem in
+complex analysis. ]
+Fix an inner product on g and extend it to gD by setting
+X
+hX, Y i =
+Res (Xi , Yi ) dz, X = (Xi )zi ∈D , Y = (Yi )zi ∈D .
+(2.25)
+zi ∈D
+
+(One may notice that the key difference from the formula (2.21) in the previous section is in
+the choice of the differential dz instead of dz/z.) Both subspaces g(D), g+
+D are isotropic
+ with
+respect to the inner product (2.25) which sets them into duality. Thus gD , g+
+,
+g(D)
+is a
+D
++
+Manin triple. The linear space g(D) may be regarded as a gD −module with respect to the
+N
+coadjoint representation. The action of g+
+D preserves the natural Z -filtration of g(D) by the
+order of poles. In particular, rational functions with simple poles form an invariant subspace
+⊂ g+
+g(D)1 ⊂ g(D). Let g++
+zi be the subalgebra consisting of formal series without constant
+zi
+++
++
+++
+terms. Put gD = ⊕zi ∈D g++
+zi ; clearly, gD is an ideal in gD and its action in g(D)1 is trivial.
+
+Quantum and Classical Integrable Systems
+
+19
+
+++
+N
+The quotient algebra g+
+= ⊕zi ∈D g. The inner product (2.25) sets the
+D /gD is isomorphic to g
+N
+linear spaces g(D)1 and g in duality. Let L(z) ∈ g(D)1 ⊗ gN be the canonical element; we shall
+regard L(z) as a matrix-valued rational function with coefficients in gN ⊂ S(gN ). Fix a faithful
+linear representation (ρ, V ) of g (the auxiliary linear representation); it extends canonically to
+a representation (ρ, V (z)) of the Lie algebra g(z) = g ⊗ C(z) in the space V (z) = V ⊗ C(z). (In
+section 2.2.1 we have already used this auxiliary linear representation for a similar purpose, cf.
+proposition 2.9 .) Put
+LV (z) = (ρ ⊗ id)L(z).
+(2.26)
+
+The matrix coefficients of LV (z) generate the algebra of observables S(gN ). The Poisson bracket
+relations in this algebra have a nice expression in ’tensor form’, the brackets of the matrix
+coefficients of LV forming a matrix in EndV ⊗ EndV with coefficients in C(u, v) ⊗ S(gN );
+the corresponding formula, suggested for the first time by Sklyanin (1979), was the starting
+point of the whole theory of classical r-matrices. To describe it let us first introduce the rational
+r-matrix,
+tV
+rV (u, v) =
+,
+(2.27)
+u−v
+P
+Here t is the tensor Casimir of g which corresponds to the inner product in g (i.e., t = ea ⊗ea ,
+where {ea } is an orthonormal basis in g) and tV = ρV ⊗ρV (t) . Notice that rV (u, v) is essentially
+the Cauchy kernel solving the Mittag-Leffler problem on CP1 with which we started.
+Proposition 2.16 The matrix coefficients of LV (u) satisfy the Poisson bracket relations
+{LV (u) ⊗, LV (v)} = [rV (u, v), LV (u) ⊗ 1 + 1 ⊗ LV (v)] .
+
+(2.28)
+
+We shall now specialize corollary 2.4 to the present setting; it shows that in some way
+spectral invariants of the Lax operator L(z) may be regarded as ’radial parts’ of the Casimir
+elements.
+Remark 2.6 One should use some caution, as Casimir elements do not lie in the symmetric
+algebra S(gD ) itself but rather in its appropriate local completion; however, their projections to
+S(gN ) are well defined. More precisely, for each zi ∈ D consider the projective limit
+←−
+
+S̃ (gzi ) = lim S (gzi ) /S (gzi ) (g ⊗ zin C [[zi ]])
+n→+∞
+
+and put S̃(gD ) = ⊗i S̃ (gzi ) . Passing to the dual language let us observe that the inner product
+on gD induces the evaluation map g(D) × S(gD ) → C ; the completion is chosen in such a way
+that this map makes sense for S̃(gD ). To relate Casimir elements lying in S̃(gD ) to the more
+conventional spectral invariants, let us notice that if L(z) ∈ g(D) is a ’Lax matrix’, its spectral
+invariants, e.g., the coefficients of its characteristic polynomial
+X
+P (z, λ) = det (L (z) − λ) =
+σk (z) λk ,
+(2.29)
+are rational functions in z. To get numerical invariants we may expand σk (z) in a local parameter (at any point ζ ∈ CP1 ) and take any coefficient of this expansion. The resulting functionals
+
+20
+
+M.A. Semenov-Tian-Shansky
+
+are well defined as polynomial mappings from g(D) into C . It is easy to see that any such
+functional is obtained by applying the evaluation map to an appropriate Casimir element ζ ∈
+S̃(gD )gD .
+Clearly, we have gD = g(D) +̇ gN +̇ g++
+D , and hence
+S(gD ) = S(gN ) ⊕ (g(D) S(gD ) + S(gD ) g++
+D ).
+Let γ : S(gD ) → S(gN ) be the projection map associated with this decomposition.
+e D )gD of Casimir elements is a
+Proposition 2.17 The restriction of γ to the subalgebra S(g
+morphism of Poisson algebras; under the natural pairing S(gN ) × g(D)1 → C induced by the
+inner product (2.25) the restricted Casimirs coincide with the spectral invariants of L(z).
+The mapping γ is an analogue of the Harish-Chandra homomorphism (Dixmier (1974)); its
+definition may be extended to the quantum case as well.
+Corollary 2.18 Spectral invariants of L(z) are in involution with respect to the standard LiePoisson bracket on gN ; L(z) defines a Lax representation for any of these invariants (regarded
+as a Hamiltonian on (gN )∗ ≃ gN .)
+The generalized Gaudin Hamiltonians are, by definition, the quadratic Hamiltonians contained in this family; one may take, e.g.,
+HV (u) =
+
+1
+trV L(u)2 .
+2
+
+(2.30)
+
+(Physically, they describe, e.g., the bilinear interaction of several ’magnetic momenta’.)
+Corollary 2.18 does not mention the ’global’ Lie algebra gD (and may in fact be proved
+by elementary means). However, of the three Lie algebras involved, it is probably the most
+important one, as it is responsible for the dynamics of the system. It is this ’global’ Lie algebra
+that may be called the hidden symmetry algebra.
+Setting P (z, λ) = 0 in (2.29), we get an affine algebraic curve (more precisely, a family of
+curves parametrized by the values of commuting Hamiltonians); this switches on the powerful
+algebraic-geometric machinery and makes the complete integrability of the generalized Gaudin
+Hamiltonians almost immediate (Reyman and Semenov-Tian-Shansky (1994)).
+Remark 2.7 In the exposition above we kept the divisor D fixed. A more invariant way is of
+course to use adèlic language. Thus one may replace the algebra gD with the global algebra gA
+defined over the ring A of adèles of C(z); fixing a divisor amounts to fixing a Poisson subspace
+inside the Lie algebra g(z) of rational functions (which is canonically identified with the dual
+space of the subalgebra g+
+A ). The use of adèlic freedom allowing us to add new points to the
+divisor is essential in the treatment of the quantum Gaudin model.
+
+Quantum and Classical Integrable Systems
+
+21
+
+Remark 2.8 Further generalizations consist in replacing the rational r-matrix with more complicated ones. One is of course tempted to repeat the construction above, replacing CP1 with
+an arbitrary algebraic curve. There are obvious obstructions which come from the MittagLeffler theorem for curves: the subalgebra g(C) of rational functions on the curve C does
+not admit a complement in gA which is again a Lie subalgebra; for elliptic curves (and g =
+sl(n)) this problem may be solved (Belavin and Drinfeld (1983), Reyman and Semenov-TianShansky (1994)) by considering quasiperiodic functions on C, and in this way we recover elliptic r-matrices (which were originally the first example of classical r-matrices ever considered
+(Sklyanin (1979)))!
+
+3
+
+Quadratic Case
+
+The integrable systems which we have considered so far are modelled on Poisson submanifolds
+of linear spaces, namely on the dual spaces of appropriate Lie algebras equipped with the LiePoisson bracket. As we shall see, quantization of such systems (whenever possible) still leaves
+us in the realm of ordinary (i.e., non-quantum) Lie groups and algebras. Let us note in passing
+that, in the context of the Integrability phenomena, the name ‘Quantum Groups’ leads to some
+confusion: one is tempted to believe that quantization of integrable systems implies that the
+corresponding ‘hidden symmetry groups’ also become quantum. As a matter of fact, the real
+reason to introduce Quantum groups is different. (This is clear from the fact that the Planck
+constant and the deformation parameter q which enters the definition of Quantum groups
+are independent of each other!) The point is that we are usually interested not in individual
+integrable systems, but rather in families of such systems with an arbitrary number of ’particles’.
+(This is particularly natural for problems arising in Quantum Statistical Mechanics.) A good
+approximation is obtained if one assumes that the phase space of a multiparticle system is
+the direct product of phase spaces for single particles. However, the definition of observables
+for multiparticle systems is not straightforward and tacitly assumes the existence of a Hopf
+structure (or some of its substitutes) on the algebra A of observables, i.e. of a map ∆(N ) : A →
+⊗N A which embeds the algebra of observables of a single particle into that of the multiparticle
+system and thus allows us to speak of individual particles inside the complex system. For
+systems which are modelled on dual spaces of Lie algebras the underlying Hopf structure is
+that of S (g) or U (g) which is derived from the additive structure on g∗ (cf. section 2). There is
+an important class of integrable systems (difference Lax equations) for which the natural Hopf
+structure is different; it is derived from the multiplicative structure in a nonabelian Lie group.
+Let me briefly recall the corresponding construction.
+As already mentioned, difference Lax equations arise when the ’auxiliary linear problem’
+which underlies the construction is associated with a difference equation. A typical example is
+a first order difference system,
+ψn+1 = Ln ψn , n ∈ Z.
+(3.1)
+The discrete variable n ∈ Z labels the points of an infinite 1-dimensional lattice; if we impose the periodic boundary condition Ln = Ln+N , it is replaced with a finite periodic lattice
+
+22
+
+M.A. Semenov-Tian-Shansky
+
+parametrized by Z/N Z. It is natural to assume that the Lax matrices Ln belong to a matrix
+Lie group G. Difference Lax equations arise as compatibility conditions for the linear system,
+ψn+1 = Ln ψn ,
+∂t ψn = An ψn ,
+
+(3.2)
+
+with an appropriately chosen An . They have the form of finite-difference zero-curvature equations,
+∂t Ln = Ln An+1 − An Ln .
+(3.3)
+Let Ψ be the fundamental solution of the difference system (3.1) normalized by Ψ0 = I. The
+value of Ψ at n = N is called the monodromy matrix for the periodic problem and is denoted
+by ML . Clearly,
+Q
+←
+−
+Ψn = 0≤k<n Lk ,
+Q
+←
+−
+ML = 0≤k<N Lk .
+
+Spectral invariants of the difference operator associated with the periodic difference system
+(3.1) are the eigenvalues of the monodromy matrix. Thus one expects
+Is = trMLs , s = 1, 2, ...,
+to be the integrals of motion for any Lax equation associated with the linear problem (3.1).
+This will hold if the monodromy matrix itself evolves isospectrally, i.e. ,
+∂t ML = [ML , A(ML )]
+
+(3.4)
+
+for some matrix A(TL ). Let us now discuss possible choices of the Poisson structure on the
+phase space which will turn (3.3) into Hamiltonian equations of motion. Observe first of all
+QN
+G; if we assume that the variables
+that the phase space of our system is the product G =
+corresponding to different copies of G are independent of each other, we may equip G with
+the product Poisson structure. The monodromy may be regarded as a mapping M : G → G
+Q
+←
+−
+which assigns to a sequence (L0 , ..., LN −1 ) the ordered product ML = Lk . Let Ft : G → G
+be the (local) dynamical flow associated with equation (3.3) and Ft : G → G the corresponding
+flow associated with equation (3.4) for the monodromy. We expect the following diagram to be
+commutative:
+F
+G →t G
+|
+|
+.
+M
+↓
+↓ M
+F
+
+G →t G
+In other words, the dynamics in G factorizes over G. It is natural to demand that all maps in
+this diagram should be Poissonian; in particular,
+monodromy map M : G → G should be
+Qthe
+N
+compatible with the product structure on G =
+G. By induction, this property is reduced
+to the following one:
+Multiplication m : G × G → G is a Poisson mapping.
+
+Quantum and Classical Integrable Systems
+
+23
+
+This is precisely the axiom introduced by Drinfeld (1983) as a definition of Poisson Lie
+groups. In brief, one can say that the multiplicativity property of the Poisson bracket on G
+matches perfectly with the kinematics of one-dimensional lattice systems.
+3.1
+
+. Abstract Case: Poisson Lie Groups and Factorizable Lie Bialgebras
+
+To construct lattice Lax system one may start with an arbitrary Manin triple, or, still more
+generally, with a factorizable Lie bialgebra. Let us briefly describe this construction which is
+parallel to the linear case but involves the geometry of Poisson Lie groups. Although main applications are connected with infinite-dimensional groups (e.g., loop groups) it is more instructive
+to start with the finite-dimensional case.
+Let (g, g∗ ) be a finite-dimensional factorizable Lie bialgebra. Recall that in this case r± =
+1
+(r
+± id) are Lie algebra homomorphisms from g∗ ≃ gr into g. Let G, G∗ be the connected
+2
+simply connected Lie groups which correspond to g, g∗ , respectively. Let us assume that G
+is a linear group; let (ρ, V ) be its faithful linear representation. We extend r± to Lie group
+homomorphisms from G∗ into G which we denote by the same letters; we shall also write
+h± = r± (h) , h ∈ G∗ . Both G and G∗ carry a natural Poisson structure which makes them
+Poisson Lie groups. The description of the Poisson bracket on G is particularly simple. For
+ϕ ∈ F (G) let Dϕ, D′ ϕ ∈ g∗ be its left and right differentials defined by
+d
+ϕ (exp tX · L) |t=0 ,
+dt
+d
+hD′ ϕ (L) , Xi = ϕ (L exp tX) |t=0 , L ∈ G, X ∈ g.
+dt
+
+hDϕ (L) , Xi =
+
+(3.5)
+
+The Sklyanin bracket on G is defined by
+{ϕ, ψ} = hr, D′ ϕ ∧ D′ ψi − hr, Dϕ ∧ Dψi .
+
+(3.6)
+
+An equivalent description which makes sense when G is a linear group: For L ∈ G put LV =
+ρV (L) ; the matrix coefficients of LV generate the affine ring F [G] of G. It is convenient
+not to fix a representation (ρV , V ) but to consider all finite-dimensional representations of
+G simultaneously. The reason is that the Hamiltonians which are used to produce integrable
+systems are spectral invariants of the Lax matrix. To get a complete set of invariants one may
+consider either trV LnV for a fixed representation and all n ≥ 1 or, alternatively, trV LV for all
+linear representations. The second version is more convenient in the quantum case. If (ρW , W )
+is another linear representation, we get from the definition (3.6) :
+
+
+(3.7)
+LV ⊗ LW = [rV W , LV ⊗ LW ] , where rV W = (ρV ⊗ ρW ) (r) .
+,
+
+To avoid excessive use of tensor product signs one usually puts
+L1V = LV ⊗ I, L2W = I ⊗ LW ;
+
+24
+
+M.A. Semenov-Tian-Shansky
+
+formula (3.7) is then condensed to
+ 1 2
+LV , LW
+
+
+
+= rV W , L1V L2W .
+
+(3.8)
+
+Let I ⊂ F [G] be the subalgebra generated by trV LV , V ∈ Rep G. Formula (3.8) immediately
+implies the following assertion.
+Proposition 3.1 I ⊂ F [G] is a commutative subalgebra with respect to the Poisson bracket
+(3.6) .
+The dual Poisson bracket on G∗ may be described in similar terms. Extend r± to Lie group
+homomorphisms r± : G∗ → G; it is easy to see that ir : G∗ → G × G : T 7−→ (r+ (T ) , r− (T ))
+is an injection; hence G∗ may be identified with a subgroup in G × G. We shall write r± (T ) =
+T± for short. Let again (ρV , V ) , (ρW , W ) be two linear representation of G; put TV± = ρV ◦
+±
+T± , TW
+= ρW ◦ T± T ∈ G∗ . Matrix coefficients of TV± , ρV ∈ RepG, generate the affine ring
+∗
+F [G ] of G∗ .
+±
+The Poisson bracket relations for the matrix coefficients of TV± , TW
+are given by
+ ±1 ±2
+
+
+±2
+TV , TW = rV W , TV±1 TW
+,
+(3.9)
+ +1 −2
+
+
++1 −2
+TV , TW = rV W + tV W , TV TW ;
+
+here t ∈ g ⊗ g is the tensor Casimir which corresponds to the inner product on g and tV W =
+ρV ⊗ ρW (t) .
+Consider the action
+G∗ × G → G : (h, x) 7−→ h+ xh−1
+(3.10)
+− .
+
+Lemma 3.2 G∗ acts locally freely on an open cell in G containing unit element.
+In other words, almost all elements x ∈ G admit a decomposition x = h+ h−1
+− , where
+h± = r± (h) for some h ∈ G∗ . (Moreover, this decomposition is unique if both h and (h+ , h− )
+are sufficiently close to the unit element.) This explains the term ’factorizable group’.
+Lemma 3.2 allows us to push forward the Poisson bracket from G∗ to G. More precisely, we
+have the following result.
+Proposition 3.3 There exists a unique Poisson structure {, }∗ on G such that
+F : G∗ → G : (x+ , x− ) 7−→ x+ x−1
+−
+is a Poisson mapping; it is given by
+{ϕ, ψ}∗ = hr, Dϕ ∧ Dψi + hr, D′ ϕ ∧ D′ ψi
+− h2r+ , Dϕ ∧ D′ ψi − h2r− , D′ ϕ ∧ Dψi , ϕ, ψ ∈ C ∞ (G) .
+∗
+
+(3.11)
+
+Equivalent description of the bracket {, } for linear groups: let again LV = ρV (L) , LW =
+ρW (L) ; then
+ 1 2 ∗
+LV , LW =
+(3.12)
+rV W L1V L2W + L1V L2W rV W
+−L1V rV W L2W − L2W rV W L1V − L1V tV W L2W + L2W tV W L1V .
+
+Quantum and Classical Integrable Systems
+
+25
+
+∗
+
+Remark 3.1 (i) A priori the bracket {, } is defined only on the big cell in G (i.e., on the
+image of G∗ ); however, formulae (3.11,3.12) show that it extends smoothly to the whole G. (ii)
+One may notice that the choice of F is actually rigid: this is essentially the only combination of
+x+ , x− such that the bracket for x = F (x+ , x− ) is expressed in terms of x (not of its factors).
+Recall that I ⊂ F [G] consists of spectral invariants; thus we are again in the setting of the
+generalized Kostant-Adler theorem: there are two Poisson structures on the same underlying
+space and the Casimirs of the former are in involution with respect to the latter.
+Theorem 3.4 Hamiltonians H ∈ I generate Lax equations on G with respect to the Sklyanin
+bracket .
+Geometrically, this means that the Hamiltonian flow generated by H ∈ I preserves two
+∗
+systems of symplectic leaves in G, namely, the symplectic leaves of {, } and {, } . The latter
+coincide with the conjugacy classes in G (for a proof see jjciteCIMPA). In order to include
+lattice Lax equations into our general framework we have to introduce the notion of twisting
+which is discussed in the next section.
+Remark 3.2 The Hamiltonian reduction picture discussed in section 2.1.1 may be fully generalized to the present case as well (Semenov-Tian-Shansky (1994b)). To define the symplectic
+induction functor we now need the nonabelian moment map (see Reyman (1996) for a review).
+In the present exposition we shall not describe this construction.
+3.2
+
+Duality theory for Poisson Lie groups and twisted spectral invariants
+
+Our key observation so far has been the duality between the Hamiltonians of integrable systems
+on a Lie group and the Casimir functions of its Poisson dual. In section 4.2 we shall see that a
+similar relation holds for quantized universal enveloping algebras. In order to keep the parallel
+between the two cases as close as possible we must introduce into the picture still another
+ingredient: the twisted Poisson structure on the dual group. This notion will also allow us
+to include lattice Lax equations into our general framework. Roughly speaking, twisting is
+possible whenever there is an automorphism τ ∈ Autg which preserves the r-matrix (i.e., τ ⊗
+τ · r = r). Outer automorphisms are particularly interesting. However, even in the case of inner
+automorphisms the situation does not become completely trivial. The natural explanation of
+twisting requires the full duality theory which involves the notions of the double, the Heisenberg
+double and the twisted double of a Poisson Lie group (Semenov-Tian-Shansky (1994c)). In the
+present exposition we shall content ourselves by presenting the final formulae for the twisted
+Poisson brackets. The structure of these formulae is fairly uniform; we list them starting with
+the case of finite-dimensional simple Lie algebras (where all automorphisms are inner) and then
+pass to the lattice case (which accounts for the treatment of Lax equations on the lattice) and
+to the case of affine Lie algebras. In the quantum case which will be considered in the next
+section twisting will play an important role in the description of quantum Casimirs.
+
+26
+
+M.A. Semenov-Tian-Shansky
+
+3.2.1. Finite dimensional simple Lie groups. We begin with a finite dimensional example
+and return to the setting of section 2.2.2. Let again g be a complex simple Lie algebra, b+ =
+a + n+ its Borel subalgebra, b− the opposite Borel subalgebra, and π± : b± → a the canonical
+projection,
+g∗ = {(X+ , X− ) ∈ b+ ⊕ b− ⊂ g ⊕ g; π+ (X+ ) = −π− (X− )} .
+Let B± ⊂ G be the corresponding Borel subgroups, and π± : B± → A the canonical projections,
+o
+n
+−1
+.
+(3.13)
+G∗ = (x+ , x− ) ∈ B+ × B− ; π+ (x+ ) = π− (x− )
+
+Define rd ∈
+
+V2
+
+(g ⊕ g) by
+
+rd =
+
+
+
+r −r − t
+−r + t r
+
+
+
+,
+
+(3.14)
+
+where t ∈ g ⊗ g is the tensor Casimir. (One may notice that rd equips g ⊕ g with the structure
+of a Lie bialgebra which coincides, up to an isomorphism, with that of the Drinfeld double of
+g.) Our next assertion specializes the results stated in the previous section. Let us define the
+Poisson bracket on G∗ by the formula
+{ϕ, ψ} = hhrd , D′ ϕ ∧ D′ ψii − hhrd , Dϕ ∧ Dψii ,
+(3.15)
+
+D ′ ϕ
+D+ ϕ
+where Dϕ = D
+, D′ ϕ = D′+ ϕ are left and right differentials of ϕ with respect to its two
+−ϕ
+−
+V
+arguments and hh, ii is the natural coupling between 2 (g ⊕ g) and its dual.
+Proposition 3.5 (i) G∗ is the dual Poisson Lie group of G which corresponds to the standard
+r-matrix described in (2.20). (ii) The mapping G∗ → G : (x+ , x− ) 7−→ x+ x−1
+− is a bijection
+of G∗ onto the ’big Schubert cell’ in G. (iii) The dual Poisson bracket on G∗ extends smoothly
+from the big cell to the whole of G; it is explicitly given by (3.11) and its Casimirs are central
+functions on G.
+The next definition prepares the introduction of twisting.
+Definition 3.1 Let (g, gr ) be a factorizable Lie bialgebra with the classical r-matrix r ∈ g ⊗ g.
+An automorphism of (g, gr ) is an automorphism ϕ ∈ Aut g which preserves the r-matrix and
+the inner product on g.
+We have the following simple result.
+Proposition 3.6 Let g be a finite-dimensional simple Lie algebra with the standard classical
+r-matrix. Then Aut (g, gr )coincides with the Cartan subgroup A ⊂ G.
+The action of A on ∧2 g is the restriction to A ⊂ G of the wedge square of the standard
+adjoint action.
+Remark 3.3 If g is only semisimple, Aut (g, gr )may have a nontrivial group of components.
+
+Quantum and Classical Integrable Systems
+
+27
+
+The Sklyanin bracket on G is invariant with respect to the action A × G → G by right
+translations. By contrast, the dual bracket is not invariant, and in this way we get a family
+of Poisson structures on G∗ with different Casimir functions. More precisely, define the action
+A × G∗ → G∗ by
+
+h : (x+ , x− ) 7−→ hx+ , h−1 x−
+(3.16)
+(Note that this action is compatible with (3.13); the flip h 7−→ h−1 is possible, since A
+is abelian.) We denote by λh the contragredient action of h on F [G∗ ] : λh ϕ (x+ , x− ) =
+ϕ h−1 x+ , hx− . Define the twisted Poisson bracket {, }∗h on G∗ by
+∗
+
+{ϕ, ψ}h = λ−1
+h {λh ϕ, λh ψ} .
+
+Explicitly we get
+∗
+
+{ϕ, ψ}h =
+
+rdh D′ ϕ, D′ ψ
+
+− hhrd Dϕ, Dψii ,
+
+where
+rdh =
+
+2
+^
+
+Ad h ⊕ Ad h
+
+−1
+
+
+
+· rd =
+
+r
+(−r − t)h
+−1
+(−r + t) h
+r
+
+(3.17)
+!
+
+,
+
+or, in matrix form,
+ ±1 ±2 ∗ 
+
+±2
+TV , TW h = rV W , TV±1 TW
+,
+ +1 −2 ∗
++1 −2
+−2
+h
+h
+(rV W + tV W ),
+TV , TW h = (rV W + tV W )TV TW − TV+1 TW
+
+(3.18)
+
+where rVh W = Ad h ⊗ Ad h−1 · rV W = Ad h2 ⊗ id · rV W and similarly for thV W .
+Let us denote by Ih (G) the set of twisted spectral invariants; by definition, φ ∈ Ih (G) if
+φ (gx) = φ (xgh) for any x, g ∈ G.
+Example 3.1 Let (ρ, V ) be a linear representation of G; then φ : x 7−→ trV ρ(hx) is a twisted
+spectral invariant.
+Proposition 3.7 (i) There exists a unique Poisson structure on G such that the twisted factorization map Fh : G∗ → G : (x+ , x− ) 7−→ h2 x+ x− is a Poisson mapping. (ii) Fh transforms
+the Casimir functions of {, }∗h into the set of twisted spectral invariants Ih2 (G) . (ii) Twisted
+spectral invariants also commute with respect to the Sklyanin bracket on G and generate on G
+generalized Lax equations
+dL
+= AL − LB, A = Ad h2 · B.
+dt
+.
+
+28
+
+M.A. Semenov-Tian-Shansky
+
+It is instructive to write an explicit formula for the bracket on G which is the push-forward
+∗
+of {, }h with respect to the factorization map. We get
+∗
+
+{ϕ, ψ}h = hr, Dϕ ∧ Dψi +D hr, D′ ϕ ∧ D′ ψi E
+−1
+
+− rh , Dϕ ∧ D′ ψ − rh , D′ ϕ ∧ Dψ
+D −1
+E
+− th , Dϕ ∧ D′ ψ + th , D′ ϕ ∧ Dψ , ϕ, ψ ∈ C ∞ (G) ,
+
+(3.19)
+
+where t is the tensor Casimir, and we put rh = Ad h ⊗ ·Ad h−1 · r and th = Ad h ⊗ Ad h−1j · t.
+This bracket again extends smoothly to the whole of G (cf. (3.11). Equivalently,
+ 1 2 ∗
+LV , LW h = rV W L1V L2V + L1V L2W rV W
+−1
+
+−L1V rVh W L2V − L2W rVh W L1V
+
+(3.20)
+
+−1
+
+−L1V thV W L2W + L2W tVh W L1V .
+∗
+
+The twisted bracket {, }h on G∗ is not multiplicative with respect to the group structure on
+G ; to explain its relation to the Poisson group theory we shall need some more work.
+Let a ⋉ g∗ be the semidirect product of Lie algebras which corresponds to action (3.16); in
+other words, we set
+∗
+
+[H, (X+ , X− )] = ([H, X+ ] , − [H, X− ]) , H ∈ a, X± ∈ b± .
+
+Fix a basis {Hi } of a and let H i be the dual basis of a∗ . We define a (trivial) 2-cocycle
+on g with values in a∗ by
+X
+(Hi , [X, Y ]) H i .
+(3.21)
+ω (X, Y ) =
+i
+
+∗
+
+Let b
+g = g ⊕ a be the central extension of g by a∗ which corresponds to this cocycle.
+
+Proposition 3.8 (a ⋉ g∗ , b
+g) is a Lie bialgebra.
+
+The Poisson Lie group which corresponds to a ⋉ g∗ is the semidirect product A ⋉ G∗ associated with action (3.16). It is easy to see that the variable h ∈ A is central with respect to
+this bracket; thus the bracket on A ⋉ G∗ splits into a family of brackets on G∗ parametrized by
+∗
+h ∈ A. This is precisely the family {, }h .
+3.2.2.Twisting on the lattice. One may notice that the previous example is in fact trivial,
+since the twisted bracket differs from the original one by a change of variables1. This is of course
+closely related to the fact that the central extension associated with the cocycle (3.21) is also
+trivial. Our next example is more interesting; it is adapted to the study of Lax equations on the
+lattice. Put Γ = Z/N Z. Let again g be a finite dimensional simple Lie algebra equipped with a
+standard r-matrix. Let g = gΓ be the Lie algebra of functions on Γ with values in g; obviously,
+1
+
+However, even in this case twisted spectral invariants give rise to a different set of Hamiltonians, as
+compared with the non-twisted case.
+
+Quantum and Classical Integrable Systems
+
+29
+
+V2
+g inherits from g the natural Lie bialgebra structure; the corresponding r-matrix r ∈
+g is
+V2
+given by rmn = δmn r, m, n ∈ Γ. We define rd ∈
+(g ⊕ g) by
+
+
+r −r − t
+rd =
+,
+(3.22)
+−r + t r
+where t ∈ g ⊗ g is the tensor Casimir which corresponds to the standard inner product on g,
+X
+hhX, Y ii =
+hXn , Yn i .
+n
+
+Let τ be the cyclic permutation on g, (τ X)n = Xn+1 mod N .
+Lemma 3.9 τ ∈ Aut (g, g∗ ) .
+Let us extend the action of τ to g ⊕ g in the following way:
+τ · (X, Y ) = (τ X, Y ) .
+(By analogy with (3.16), one might rotate the second copy of g in the opposite sense, but then
+the total shift in formulae below would be by two units, which is less natural on the lattice.)
+Put
+
+
+2
+^
+r
+−rτ − tτ
+−1
+−1
+(τ ⊕ id) · rd =
+,
+rdτ =
+−rτ + tτ
+r
+rτ = τ ⊗ id · r, rτ
+
+−1
+
+= τ −1 ⊗ id · r =id ⊗ τ · r.
+
+Put G = GΓ , G∗ = G∗ Γ . The action of τ extends to G and to G∗ in an obvious way. As
+in section 3.2.1 we may embed G∗ into the direct product G × G. By definition, the twisted
+Poisson bracket on G∗ is given by
+∗
+
+{ϕ, ψ}τ = hhrdτ , Dϕ ∧ Dψii − hhrd D′ ϕ ∧ D′ ψii ,
+where Dϕ, D′ ϕ ∈ g ⊕ g are the two-component left and right differentials of ϕ.
+We may push forward the Poisson bracket from G∗ to G using the factorization map. More
+precisely:
+Proposition 3.10 There exists a unique Poisson structure on G (which we shall still denote
+∗
+by {, }τ ) such that the twisted factorization map G∗ → G : (x+ , x− ) 7−→ xτ+ x−1
+− becomes a
+Poisson mapping. This Poisson structure is given by
+∗
+
+′
+′
+{ϕ, ψ}τ = hr, Dϕ ∧ Dψi +
+D hr, D ϕ ∧ D ψi E
+−1
+
+− hrτ , Dϕ ∧ D′ ψi − rτ , D′ ϕ ∧ Dψ
+D −1
+E
+− htτ , Dϕ ∧ D′ ψi + tτ , D′ ϕ ∧ Dψ , ϕ, ψ ∈ C ∞ (G) ,
+
+(3.23)
+
+30
+
+M.A. Semenov-Tian-Shansky
+
+We shall denote the Lie group G equipped with the Poisson structure (3.23) by Gτ , for
+∗
+short. Equivalent description of the bracket {, }τ for linear groups: let again LV = ρV (L) ; then
+ 1 2
+LV , LV
+
+∗
+
+= rL1V L2V + L1V L2V r − L1V rτ L2V − L2V rτ
+−L1V tτ L2V − L2V tτ
+
+−1
+
+−1
+
+L1V
+
+(3.24)
+
+L1V
+
+Another obvious Poisson structure on G is the Sklyanin bracket which corresponds to the Lie
+bialgebra (g, g∗ ) . Let us consider the following action of G on Gτ called the (lattice) gauge
+action:
+x : T 7−→ xτ T x−1 .
+Theorem 3.11 (i) The gauge action G×Gτ → Gτ is a Poisson group action. (ii) The Casimir
+∗
+functions of {, }τ coincide with the gauge invariants. (iii) Let M : Gτ → G be the monodromy
+map,
+M : T = (T1 , T2 , ..., TN ) 7−→ TN · ·T1 ;
+we equip the target space with Poisson structure (3.11). Then M is a Poisson map and the
+Casimirs of Gτ coincide with the spectral invariants of the monodromy. (iv) Spectral invariants
+of the monodromy are in involution with respect to the Sklyanin bracket on G and generate
+lattice Lax equations on G.
+Parallels with theorem 2.3 are completely obvious.
+3.2.3. Twisting for loop algebras. Our last example of twisting is based on the outer automorphisms of loop algebras. We shall use the notation and definitions introduced in section
+2.2.2. Let g be a simple Lie algebra, Lg the corresponding loop algebra with the standard
+∗
+trigonometric r-matrix, and let Lgr = (Lg) be the dual algebra. The Lie group which corresponds to Lg is the group LG of polynomial loops with values in G; the elements
+of the dual
+
+Poisson group may be identified with pairs of formal series T + (z), T − (z −1 ) ,
+T ± (z) =
+
+X
+
+n≥0
+
+
+
+T ± [±n] z ±n , T ± [0] ∈ B± , π+ T + [0] · π− T − [0] = 1
+
+(here π± : B± → H are canonical projections). The group (LG)∗ is pro-algebraic and its affine
+ring is generated by the matrix coefficients of T ± [n] .
+The next proposition describes the Poisson structure on the affine ring of (LG)∗ . Let t ∈ g⊗g
+be the canonical element (tensor Casimir) which represents the inner product h, i in g. Let δ (x)
+be the Dirac delta,
+∞
+X
+δ (x) =
+xn
+n=−∞
+
+(observe that t · δ (z/w) represents the kernel of the identity operator acting in Lg).
+
+Quantum and Classical Integrable Systems
+
+31
+
+∗
+
+Proposition 3.12 The Poisson bracket on (LG) which corresponds to the standard Lie bialgebra structure on Lg is given by
+h z
+i
+T1± (z), T2± (w) = r
+, T1± (z)T2±(w) ,
+h z
+i
+ zw 
+ +
+
+−
++
+−
+T1 (z), T2 (w) = r
+, T1 (z)T2 (w) + δ
+t, T1+ (z)T2− (w) ,
+w
+w
+
+
+(3.25)
+
+where r (x) is the trigonometric r-matrix.
+
+∗
+
+We pass to the description of the twisted structure on (LG) .
+Lemma 3.13 Aut (Lg, Lgr ) is the extended Cartan subgroup Ĥ = H × C×
+By definition, p ∈ C× acts on Lg by sending X (z) 7−→ X (pz) ; we shall denote the corresponding dilation operator by Dp . The action of H gives nothing new, as compared with our
+∗
+first example (section 2.2.1). To describe the twisting of the Poisson structure on (LG) by the
+action of C× we start with the r-matrix
+
+
+r(z/w)
+−r(z/w) − tδ(z/w)
+rd (z/w) =
+−r(z/w) + tδ(z/w)
+r(z/w)
+V
+(as usual, rd (z/w) does not belong to the 2 (Lg ⊕ Lg), but is well defined as a kernel of a
+linear operator acting in Lg ⊕ Lg). For p ∈ C× we define the twisted r-matrix by
+
+2
+^
+−1
+rd (z/w) = (Dp ⊕ Dp ) · rd (z/w) =
+p
+
+r(z/w)
+−r(pz/w) − tδ(pz/w)
+−r(z/pw) + tδ(z/pw)
+r(z/w)
+
+
+
+.
+
+∗
+
+Definition 3.2 The twisted Poisson bracket on (LG) is given by
+i
+h z
+∗
+, T1± (z)T2± (w) ,
+T1± (z), T2± (w) p = r
+w
+ pz 
+z
+ +
+∗
+−
++
+−
+T1 (z), T2 (w) p = r
+T1 (z)T2 (w) − T1+ (z)T2− (w)r
+w
+ zw
+ pz 
++
+−
++
+−
++δ
+t T1 (z)T2 (w) − T1 (z)T2 (w)δ
+t
+w
+w
+
+
+(3.26)
+
+Define the new generating function (‘full current’) by
+T (z) = T + (pz)T − (p−1 z)−1 ;
+clearly, the coefficients of T (z) generate the affine ring of (LG)∗ .
+
+(3.27)
+
+32
+
+M.A. Semenov-Tian-Shansky
+
+Proposition 3.14 The current T (z) satisfies the following Poisson bracket relations:
+∗
+
+{T1 (z) , T2 (w)}p =
+z
+r
+T1 (z) T2 (w) + T1 (z) T2 (w) r
+
+ w
+w 2 
+z
+p z
+T2 (w) − T2 (w) r
+T1 (z)
+−T1 (z) r
+w
+p2 w
+ 2 
+
+
+p z
+z
+−T1 (z) δ
+t T2 (w) + T2 (w) δ
+t T1 (z) .
+w
+p2 w
+z
+
+(3.28)
+
+The existence of twisting in the affine case is due to the existence of the non-trivial central
+extension of the loop algebra. (This should be compared with the situation in our first example,
+where the central extension is trivial because all automorphisms of simple Lie algebras are
+inner.) More precisely, we have the following result. Let ω be the 2-cocycle on Lg defined by
+ω (X, Y ) = Resz=0 hX (z) , z∂z Y (z)i dz/z.
+
+(3.29)
+∗
+
+c be the central extension of Lg determined by this cocycle, and Lg
+c the semidirect
+Let Lg
+∗
+×
+product of (Lg) and C .
+
+
+∗
+c Lg
+c
+Proposition 3.15 Lg,
+is a Lie bialgebra.
+∗
+
+c is the semidirect product C× ⋉ (LG)∗ ; it
+The Poisson Lie group which corresponds to Lg
+×
+is easy to see that the affine coordinate on C is central with respect to the Poisson structure
+on C× ⋉ (LG)∗ ; fixing its value, we get the family of Poisson brackets {, }∗p on (LG)∗ .
+In section 4.2 we shall discuss a similar phenomenon for quantum systems associated with
+quasitriangular Hopf algebras.
+3.3
+
+Sklyanin Bracket on G (z)
+
+In our previous example we have described the Poisson structure associated with the loop
+∗
+algebra, namely, the bracket on the dual group (LG) ; applications to lattice systems involve
+the Poisson structure on the loop group itself. As a matter of fact, this was the first example of
+a Poisson Lie group which appeared prior to their formal definition (Sklyanin (1979)). To put it
+more precisely, let g be a complex semisimple Lie algebra, G a linear complex Lie group with the
+Lie algebra g. Let G(z) be the associated loop group, i.e., the group of rational functions with
+values in G. We may regard G(z) as an affine algebraic group defined over C (z) . Let us again fix
+a faithful representation (ρ, V ) of G; the affine ring Aaf f of G(z) is generated by ‘tautological
+functions’ which assign to L ∈ G (z) the matrix coefficients of LV (z) ∈ EndV ⊗ C(z). The
+Poisson bracket on the affine ring of G(z) is defined by the following formula (Sklyanin (1979)),
+ 1
+
+
+LV (u), L2V (v) = rV (u, v), L1V (u)L2V (v) .
+(3.30)
+
+Quantum and Classical Integrable Systems
+
+33
+
+(By an abuse of notation, we do not distinguish between the generators of Aaf f and their values
+at L ∈ G (z) in the l.h.s. of this formula.) Bracket (3.30) defines the structure of a Poisson-Lie
+group on G(z). Equivalent formulation:
+Let ∆ : Aaf f → Aaf f ⊗ Aaf f be the coproduct in Aaf f induced by the group multiplication
+in G (z) :
+˙ V (z) ,
+∆ (LV (z)) = LV (z) ⊗L
+or, in a less condensed notation,
+
+ X
+kj
+∆ Lij
+(z)
+=
+Lik
+V (z) ⊗ LV (z) .
+V
+
+(3.31)
+
+k
+
+Then ∆ is a morphism of Poisson algebras (in other words,
+{∆ϕ, ∆ψ} = ∆ {ϕ, ψ}
+for any ϕ, ψ ∈ Aaf f ).
+The Lax matrix LV (u) in this context is basically a tautological mapping which assigns to
+an element L ∈ G(z) the matrix LV (u) ∈ End V ⊗ C (u) . Alternatively, for any Poisson submanifold M ⊂ G(z) the Lax matrix may be regarded as an embedding map M ֒→ G(z) → End
+V ⊗C (u) . An explicit description of all Poisson submanifolds in G(z) follows from the theory of
+dressing transformations (Semenov-Tian-Shansky (1994b)); for our present goals it suffices to
+know that rational functions with a prescribed divisor of poles form a finite-dimensional Poisson submanifold in G(z); moreover, since the Poisson structure is multiplicative, the product of
+Poisson submanifolds is again a Poisson submanifold. Generic Poisson submanifolds correspond
+to functions with simple poles which may be written in multiplicative form
+LV (z) =
+
+x
+Y
+i
+
+(I −
+
+Xi
+).
+z − zi
+
+(3.32)
+
+In other words, the description of Poisson submanifolds is tantamount to the choice of an Ansatz
+for the Lax matrix; the free parameters in this Ansatz (e.g., the residues Xi ) become dynamical
+variables. Spectral invariants of ’Lax matrices’ of this type may be used to generate completely
+integrable lattice Lax equations. More precisely, to get such system one may proceed as follows:
+– Pick a Poisson submanifold M ⊂ G(z).
+– Consider the product space MN ⊂ G(z) Z/N Z and the monodromy map m : G(z) × ... ×
+G(z) → G(z) (more precisely, its restriction to MN ).
+– Choose any central function H on G(z) as a Hamiltonian; its pullback to MN defines a
+lattice Lax equation.
+Under some
+mild assumptions on the choice of M, H defines a completely integrable system
+
+on m MN ; its pullback to MN still remains completely integrable; this may be regarded as
+the main content of the Inverse Scattering Method (in this slightly simplified setting).
+The study of Lax systems on the lattice thus breaks naturally into two parts: (a) Solve the
+Lax equation for the monodromy. (b) Lift the solutions back to G(z)N . The second stage (by
+no means trivial) is the inverse problem, sensu strictu.
+
+34
+
+M.A. Semenov-Tian-Shansky
+
+4
+
+Quantization
+
+4.1
+
+Linear case
+
+Speaking informally, quantization consists in replacing Poisson bracket relations with commutation relations in an associative algebra. We shall have to distinguish between linear and
+quadratic cases (as explained in the previous section, this difference stems from the different
+Hopf structures on the algebras of observables). The linear case is easier, since we remain in the
+conventional setting of Lie groups and Lie algebras. Quantization of quadratic Poisson bracket
+relations (3.7) leads to quasitriangular Hopf algebras.
+The standard way to quantize the algebra Acl = S(g) (equipped, as usual, with the LiePoisson bracket of g ) is to replace it with the universal enveloping algebra U(g). Let me briefly
+recall the corresponding
+construction.
+S
+Let U(g) = n≥0 Un be the canonical filtration of U(g), and S(g) = ⊕n≥0 Sn the canonical
+grading of S(g). Clearly, Sn ≃ Un /Un−1 . Let grn : Un → Sn be the canonical projection. If
+u ∈ Un , v ∈ Um , their commutator [u, v] ∈ Un+m−1 . It is easy to see that grn+m−1 ([u, v]) =
+{grn u, grm v} is precisely the Lie-Poisson bracket; hence U(g) is a quantization of S(g).
+Alternatively, let ~ be a formal parameter. Put g~ = g ⊗k k [[~]]; we rescale the commutator
+in g~ by putting [X, Y ]~ = ~ [X, Y ] . Let U (g~ )be the universal enveloping algebra of g~ , and
+~ U (g~ ) be its maximal ideal consisting of formal series in ~ with zero constant term; the
+quotient algebra U (g~ ) /~ U (g~ ) is canonically isomorphic to S(g) . Let p : U (g~ ) → S (g) be
+the canonical projection; then {p (x) , p (y)} = p ~−1 (xy − yx) for any x, y ∈ U (g~ ). (In the
+sequel we prefer to set ~ = 1 and so the first definition will be more convenient.)
+Let r ∈ Endg be a classical r-matrix. As we have seen, the phase spaces of Lax systems
+associated with (g, r) are coadjoint orbits of gr ; the Hamiltonians are obtained from the Casimir
+g
+elements H ∈ S (g) via the isomorphism S (gr ) → S (g) described in theorem 2.3. The quantum
+g
+counterpart of S (g) is the center Z ⊂ U (g) of the universal enveloping algebra. Moreover,
+under favorable conditions there is a nice correspondence between coadjoint orbits of a Lie
+algebra and unitary representations of the corresponding Lie group. Thus we may establish
+the following heuristic vocabulary which describes the correspondence between classical and
+quantum systems:
+Linear Classical Case
+Linear Quantum case
+S(g)
+U(g)
+Classical r-matrices
+Classical r-matrices
+g
+Casimir functions (S (g)) ⊂ S (g) Casimir operators Z ⊂ U (g)
+S(gr )
+U(gr )
+Coadjoint orbits in g∗r
+Irreducible U (gr )-modules
+Notice that, in the linear case, classical r-matrices are used in the quantum case as well!
+The following theorem is an exact analogue of theorem 2.3
+Let (g, r) be a Lie algebra equipped with a classical r-matrix r ∈ Endg satisfying (2.8) .
+Let gr be the corresponding Lie algebra (with the same underlying linear space). Put r± =
+1
+2 (r ± id); then (2.8) implies that r± : gr → g are Lie algebra homomorphisms. Extend them
+
+Quantum and Classical Integrable Systems
+
+35
+
+to homomorphisms U(gr ) → U(g) which we denote by the same letters. These morphisms also
+agree with the standard Hopf structure on U(g), U(gr ). Define the action
+U(gr ) ⊗ U(g) → U (g)
+by setting
+x·y =
+where ∆x =
+
+P
+
+(1)
+
+xi
+
+(2)
+
+⊗ xi
+
+X
+
+(2)
+
+(1)
+
+r+ (xi ) y r− (xi )′ , x ∈ U(gr ), y ∈ U(g),
+
+(4.1)
+(4.2)
+
+is the coproduct and a 7→ a′ is the antipode map.
+
+Theorem 4.1 (i) U(g) is a free filtered Hopf U(gr )-module generated by 1 ∈ U(g). (ii) Let
+i : U(g) → U(gr ) be the induced isomorphism of filtered linear spaces; its restriction to Z ⊂ U (g)
+is an algebra homomorphism; in particular, i (Z) ⊂ U(gr ) is commutative.
+Let u ⊂ gr be an ideal, s = gr /u the quotient algebra, and p : U (gr ) → U (s) be the canonical
+projection; restricting p to the subalgebra Ir = ir (Z) we get a commutative subalgebra in U (s) ;
+we shall say that the corresponding elements of U (s) are obtained by specialization.
+In particular, let g = g+ +g− be a splitting of g into a linear sum of two its Lie subalgebras;
+let P : U(g) → U(g− ) be the projection onto U(g− ) in the decomposition
+U(g) = U(g− ) ⊕ g+ U(g).
+Corollary 4.2 The restriction of P to the subalgebra Z ⊂ U(g) of Casimir elements is an
+algebra homomorphism.
+4.1.1. Quantum reduction. The quantum analogue of symplectic induction discussed in
+section 2.1.1 is the ordinary induction. For completeness we recall the standard definitions (cf.,
+for example, Dixmier (1974)). Let g be a Lie algebra. Let us denote by Repg the category of
+U (g) -modules. Let b ⊂ g be a Lie subalgebra. In complete analogy with section 2.2.1 we
+construct the induction functor Indgb : Repb
+Rep
+Ng which associates to each U (b)-module an
+U (g)-module. Namely, we put Indgb (V ) = U (g) U (b) V, where U (g) is regarded as a right
+N
+N
+U (b)-module. [By definition, U (g) U (b) V is the quotient of U (g) C V over its submodule
+N
+generated by (u ⊗ v) · X, u ∈ U (g) , v ∈ V, X ∈ U (b) ; the (right) action of U (b) on U (g) C V
+is defined by
+
+
+X
+uS X (i) ⊗ X(i) v,
+(u ⊗ v) · X =
+P
+
+i
+
+(i)
+
+⊗ X(i) is the coproduct in U (b) and S is its antipode. In physical
+where ∆X =
+iX
+terms passing to the quotient means that we impose ’constraints on the wave functions’; these
+constraints express invariance of wave functions with respect to the diagonal action of U (b) .]
+The structure of a U (g)-module in Indgb (V ) is induced by the left action of U (g) on itself.
+Fix a point F ∈ b∗ and assume that lF is a Lagrangian subalgebra subordinate to F. In that
+case F defines
+N a character of lF ; let VF be the corresponding 1-dimensional U (lF )-module. Put
+V = U (b) U (lF ) VF . V is a natural U (b)-module associated with the coadjoint orbit of F.
+
+36
+
+M.A. Semenov-Tian-Shansky
+
+Proposition 4.3 Indgb (V ) ≃ IndglF (VF ) .
+Informally, we may say that an U(g)-module associated with a coadjoint orbit admitting a
+Lagrangian polarization may be induced from a 1-dimensional module.
+Let us now return to the setting of theorem 4.1. Let (g, r) be a Lie algebra equipped with a
+classical r-matrix r ∈ End g satisfying (2.8) . We regard U (g) as a U (gr )-module with respect
+to the action (4.2). Let V be a U (gr )-module.
+Proposition 4.4 V ≃ U (g)
+
+N
+
+U (gr ) V
+
+as a linear space.
+
+Since half of U (gr ) is acting
+N on U (g) on the left and the other half on the right, the structure
+of a U (g)-module in U (g) U (gr ) V is destroyed. However, the structure of Z-module in U (g)
+survives tensoring with V over U (gr ).
+Proposition 4.5 For any ζ ∈ Z, u ∈ U (g) , v ∈ V, ζu ⊗ v = u ⊗ ir (ζ) v.
+This gives a new proof of theorem 4.1.
+Fix F ∈ g∗r and let lF ⊂ gr be a Lagrangian subalgebra
+N subordinate to F . Let VF be the
+corresponding 1-dimensional U (lF ) -module. Then U (g) U (lF ) VF may be identified with V.
+Let us assume now that g = g+ +̇ g− and the r-matrix is given
+N by (2.10); in that case
+U (gr ) ≃ U (g+ ) ⊗ U (g− ) . Let W be a U (g− )-module, W = U (g) U (g− ) W ; we regard W as
+a left U (g)-module. There is a canonical embedding W ֒→ W : w 7→ 1 ⊗ w. Let W∗ be the dual
+module regarded as a right U (g)-module, and let W0∗ ⊂ W be the subspace of U (g+ )-invariants.
+Lemma 4.6 W0∗ is isomorphic to the dual of W.
+This is an easy corollary of the decomposition
+U (g) ≃ U (g+ ) ⊗ U (g− ) ≃ g+ U (g) ⊕ U (g− ) .
+
+P i
+e ⊗ ei ∈ W0∗ ⊗W be
+Fix a basis {ei } in W, and let ei be the dual basis in W0∗ . Let Ω =
+the canonical element; it defines a natural mapping
+W → W : ϕ 7→ hϕiΩ =
+
+X
+
+ei , ϕ ei .
+
+i
+
+Proposition 4.7 For any ς ∈ Z, ϕ ∈ W, hςϕiΩ = iς hϕiΩ .
+Informally, we may say that quantum Hamiltonians acting in W are radial parts of the
+Casimir operators. (The reasons for this terminology will be obvious from our next example.)
+
+Quantum and Classical Integrable Systems
+
+37
+
+4.1.2. Toda lattice. Our first example is the generalized open Toda lattice. We retain the
+notation of section 2.2.1. Let again g be a real split semisimple Lie algebra, g = k+̇a+̇n its
+Iwasawa decomposition, b = a+̇n the Borel subalgebra. Let dp ⊂ b (p ≥ 0) be the generalized
+diagonals defined in (2.17). The subalgebras b(p) = ⊕r≥p dr define a decreasing ad b-invariant
+filtration in b. Put pk = ⊕0≤p≤k s (dp ) , where s : g → p : X 7−→ 12 (id − σ) X is the projection
+onto the subspace of anti-invariants of the Cartan involution σ. Put s = b/b(2) . Let L ∈ p1 ⊗s ⊂
+p1 ⊗ U (s) be the canonical element induced by the natural pairing p1 × b/b(2) → R. Let
+P : U(g) → U (b) be the projection map onto U (b) in the decomposition U(g) = U(b) ⊕ U(g)k ,
+p : U(b) → U (s) the specialization map. Let us put Is = p ◦ P (Z) , where as usual Z is the
+center of U (g) . Fix a faithful representation (ρ, V ) of g and put LV = (ρ ⊗ id) L.
+Proposition 4.8 (i) Is is a commutative subalgebra in U (s) ; moreover, Z → Is : z 7−→ Hz is
+an algebra isomorphism. (ii) Is is generated by Hk = trV LkV ∈ U (s) , k = 1, 2, ...
+Recall that s = a ⋉ u, where u = n/ [n, n] , and the corresponding Lie
+P group is S = A ⋉ U,
+U = N/N ′ . Let OT be the coadjoint orbit of S described in (2.19), f = α∈P (eα + e−α ) ∈ OT
+the marked point, Lf = U the corresponding Lagrangian subgroup, Vf = C the 1-dimensional
+U -module which corresponds to f ; we may also regard it as a U (u)-module.
+Proposition 4.9 (i) The irreducible U (s)-module associated with OT is the induced module
+U (s) ⊗U (u) Vf . (ii) The corresponding unitary representation space H may be identified with
+L2 (a) . (iii) Let ∆ ∈ Z be the quadratic Casimir operator which corresponds to the Killing
+form. Then H∆ is precisely the Toda Hamiltonian HT acting in H; it is given by
+
+
+X
+∂
+∂
+HT = − (∂, ∂) +
+.
+exp 2α (q) , ∂ =
+, ...,
+∂q1
+∂qn
+α∈P
+
+In other words, geometric quantization of the Toda Hamiltonian agrees with its ‘naive’
+Schroedinger quantization. What is nontrivial, of course, is the consistent definition of the
+quantum integrals of motion which correspond to higher Casimirs.
+Let us now turn to the description of the Toda lattice based on the reduction procedure.
+In section 4.1.1 we discussed the reduction using the language of U (g)-modules; in the present
+setting we may assume that all these modules are actually integrable, i.e., come from representations of the corresponding Lie groups. In particular, the action of U (g) on itself by left (right)
+multiplications corresponds to the regular representation of G; we may regard H = L2 (G) as a
+result of quantization of T ∗ G.
+We are led to the following construction. Let χf be the character of N defined by
+χf (exp X) = exp if (X) , X ∈ n.
+Let Hf be the space of smooth functions on G satisfying the functional equation
+ψ (kxn) = χf (n) ψ (x) , k ∈ K, n ∈ N
+
+(4.3)
+
+By Iwasawa decomposition, any such function is uniquely determined by its restriction to
+A ⊂ G. Thus there is an isomorphism i : C ∞ (a) → Hf : i (ψ) (kan) = χf (n) ψ (log a) .
+
+38
+
+M.A. Semenov-Tian-Shansky
+
+Lemma 4.10 Hf is invariant with respect to the action of Z ⊂ U (g) .
+For ζ ∈ Z let δ (ζ) ∈ EndC ∞ (a) be its radial part defined by
+ζi (ψ) = i (δ (ζ) ψ) , ψ ∈ C ∞ (a) .
+Proposition 4.11 We have δ (ζ) = Hζ , i.e., the radial parts of the Casimir operators coincide
+with the quantum integrals of the Toda lattice.
+We are interested in eigenfunctions of the Toda Hamiltonian and higher Toda integrals.
+By proposition 4.11 this is equivalent to description of the eigenfunctions of Casimir operators
+on G which satisfy the functional equation (4.3) . At the formal level this problem may be
+solved as follows. Let (π, V) be an infinitesimally irreducible representation of G, V∗ , the dual
+representation. Assume that w ∈ V satisfies
+π (n) w = χf (n) w for n ∈ N.
+
+(4.4)
+
+(In that case w is called a Whittaker vector.) Assume, moreover, that in the dual space V∗
+there is a K-invariant vector v ∈ V∗ . Put
+ψ (x) = hv, π (x) wi .
+
+(4.5)
+
+Proposition 4.12 ψ is an eigenfunction of Z and satisfies the functional equation (4.3) .
+Thus ψ is essentially a Toda lattice eigenfunction.
+This formal argument can be made rigorous. Since the Toda Hamiltonian describes scattering in a repulsive potential, its spectrum is continuous; so there are no chances that ψ (which is
+called a Whittaker function) is in L2 . The problem is to find representations of G such that ψ has
+the usual properties of a continuous spectrum eigenfunction (i.e., the wave packets smoothed
+down with appropriate amplitudes are in L2 ). As it appears, the correct class are spherical
+principal series representations.
+Definition 4.1 Let B = M AN be the Borel subgroup in G, λ ∈ a∗ ; let χλ : B → C be the
+1-dimensional representation defined by
+χλ (man) = exp hλ − ρ, log ai .
+The spherical principal series πλ is the induced representation, πλ = indG
+B χλ .
+Principal series representations are infinitesimally irreducible and hence define a homomorphism π : Z → P (a∗ ) into the algebra of polynomials on a∗
+π : z 7−→ πz , where πλ (z) := πz (λ) · id.
+By a classical Harish Chandra theorem (Dixmier (1974)) π is actually an isomorphism onto the
+W
+subalgebra P (a∗ ) ⊂ P (a∗ ) of the Weyl group invariants. Hence the set of principal series
+representations is sufficiently ample to separate points of the algebraic spectrum of Z.
+
+Quantum and Classical Integrable Systems
+
+39
+
+The algebraic theory of Whittaker vectors is exposed in Kostant (1978), the analytic theory
+leading to the Plancherel theorem for the Toda lattice is outlined in Semenov-Tian-Shansky
+(1994a). A remarkable point is that the eigenfunctions of the quantum system are expressed
+as matrix coefficients of appropriate representations of the ’hidden symmetry group’. This is a
+special case of a very general situation. Below we shall discuss another example of this kind,
+for which the hidden symmetry algebra is infinite-dimensional.
+4.1.2. Gaudin model. The treatment of the Gaudin model is considerably more difficult,
+since in this case the hidden symmetry group is infinite-dimensional. Remarkably, the general
+pattern described in section 4.1.1 is fully preserved in this case as well.
+The algebra of observables for the Gaudin model is simply U(gN ). Let Vλ be a finitedimensional highest weight representation of g with dominant integral highest weight λ. Let
+λ = (λ1 , ...λN ) be the set of such weights; put Vλ = ⊗i Vλi . The space Vλ is a natural Hilbert
+space associated with the Gaudin model; so the ‘kinematical’ part of quantization problem in
+this case is fairly simple. Let us fix also an auxiliary representation (ρ, V ). By analogy with the
+classical case, we may introduce the quantum Lax operator,
+LV (z) ∈ EndV (z) ⊗ gN ⊂ EndV (z) ⊗ U(gN );
+
+(4.6)
+
+the definition remains exactly the same, but now we embed gN into the universal enveloping
+algebra U(gN ) instead of the symmetric algebra S(gN ). The commutation relations for LV (z)
+essentially reproduce the Poisson brackets relations (2.28), but this time the l.h.s. is a matrix
+of true commutators:
+[LV (u) ⊗, LV (v)] = [rV (u, v), LV (u) ⊗ 1 + 1 ⊗ LV (v)] .
+
+(4.7)
+
+The key point in (4.7) is the interplay of commutation relations in the quantum algebra U(gN )
+and the auxiliary matrix algebra EndV (z). Formula (4.7) was the starting point of QISM (as
+applied to models with linear commutation relations). Put
+S(u) =
+
+1
+trV (LV (u))2 ;
+2
+
+(4.8)
+
+using (4.7), it is easy to check that S(u) form a commutative family of Hamiltonians (called
+Gaudin Hamiltonians) in U(gN )(see, e.g., Jurčo (1989) ). An important property of this commuting family is that it possesses at least one ‘obvious’ eigenvector | 0 >∈ H, the tensor product
+of highest weight vectors in Vλi ; it is usually called the vacuum vector .
+One of the key ideas of QISM is to construct other eigenvectors by applying to the vacuum
+creation operators which are themselves rational functions of z. This construction is calledthe
+algebraic Bethe Ansatz. Assume that g = sl2 and let {E, F, H} be its standard basis. Put
+F (z) =
+
+X F (i)
+,
+z − zi
+
+zi ∈D
+
+(4.9)
+
+40
+
+M.A. Semenov-Tian-Shansky
+
+where F (i) acts as F in the i-th copy of sl2 and as id in other places. The Bethe vector is, by
+definition,
+| w1 , w2 , ...wm >= F (w1 )F (w2 )...F (wm ) | 0 > .
+(4.10)
+The Lax matrix (4.6) applied to | w1 , w2 , ...wm > becomes triangular, i.e.,
+
+
+a(u, w1 , w2 , ...wm )
+∗
+L(u) | w1 , w2 , ...wm >=
+;
+0
+d(u, w1 , w2 , ...wm )
+after a short computation this yields
+S(u) | w1 , w2 , ...wm >=
+sm (u) | w1 , w2 , ...wm > +
+where
+fj =
+
+PN
+
+fj
+j=1 u−wj | w1 , w2 , ..., wj−1 , u, wj+1 , ..., wm >,
+
+N
+X
+
+X
+2
+λi
+−
+wj − zi
+wj − ws
+i=1
+s6=j
+
+and sm (u) is a rational function,
+sm (u) = c2V χm (u)2 − cV ∂u χm (u),
+PN λi
+Pm
+2
+χm (u) = i=1 u−z
+− i=1 u−w
+.
+i
+j
+
+(4.11)
+
+(The constant cV depends on the choice of V.) If all fj vanish, | w1 , w2 , ...wm > is an eigenvector
+of S(u) with the eigenvalue sm (u); equations
+N
+X
+
+X
+2
+λi
+−
+=0
+w
+−
+z
+w
+−
+ws
+j
+i
+j
+i=1
+
+(4.12)
+
+s6=j
+
+are called the Bethe Ansatz equations. (Notice that (4.12) is precisely the condition that sm (u)
+be nonsingular at u = wi .)
+For general simple Lie algebras the study of spectra of the Gaudin Hamiltonians becomes
+rather complicated; one way to solve this problem is to treat it inductively by choosing in
+g a sequence of embedded Lie subalgebras of lower rank and applying the algebraic Bethe
+Ansatz to these subalgebras. An alternative idea (which is completely parallel to the treatment
+of the Toda lattice in section 4.1) is to interpret the Hamiltonians as radial parts of (infinite
+dimensional) Casimir operator of the ‘global’ Lie algebra gD .
+It is impossible to apply theorem 4.1 immediately in the affine case, since the center of U(gD )
+is trivial. The point is that the invariants in the (suitably completed) symmetric algebra S(gD )
+are infinite series; an attempt to quantize these expression leads to divergent expressions, unless
+some kind of ordering prescription is introduced. The commutation relations for the normally
+ordered operators are already nontrivial and they do not lie in the center of U(gD ). However, the
+situation can be amended by first passing to the central extension of U(gD ) and then considering
+the quotient algebra Uk ( gD ) = U (^gD )/(c − k). It is known that for the critical value of the
+
+Quantum and Classical Integrable Systems
+
+41
+
+central charge k = −h∨ (here h∨ is the dual Coxeter number of g) the (appropriately completed)
+algebra U−h∨ (gD ) possesses an ample center.
+Let us recall first of all the construction of Sugawara operators. Let Lg = g ((z)) be the
+‘local’ algebra of formal Laurent series with coefficients in g,Let ω be the 2-cocycle on Lg defined
+by
+ω(X, Y ) = Resz=0 hX, ∂z Y i dz
+It is well known that highest weight representations of Lg are actually projective and correspond
+c Lg ⊕ C c of Lg defined by this cocycle. Let us consider formally
+to the central extension Lg≃
+the canonical element J ∈ Lg ⊗ Lg which corresponds to the inner product
+(X, Y ) = Resz=0 hX, Y i dz
+
+in Lg . Fix a finite-dimensional representation (ρ, V ) of g; it extends to the ‘evaluation reprec
+sentation’ of Lg in V ⊗C C ((z)) . Let (πk , V) be any level k highest weight representation of Lg.
+c
+(This means that the central element c ∈ Lg acts by πk (c) = k · id.) Put J(z) = (πk ⊗ ρ) J.
+Since J is not a proper element in Lg ⊗ Lg , J(z) is a formal series infinite in both directions;
+however, its coefficients are well defined. Namely, let {ea } be a basis in g ; the algebra Lg is
+spanned by the vectors ea (n) = ea ⊗ z n , n ∈ Z. It is easy to see that the coefficients of J(z)
+are finite linear combinations of the vectors πk (ea (n) .)
+Put
+∞
+X
+1
+2
+Tn un ,
+(4.13)
+T (u) = : trJ (u) :, T (u) =
+2
+n=−∞
+where the normal ordering :: is defined in the following way:
+
+: ea (n) eb (m) := e b (m) ea (n) , if n < 0, m ≥ 0,
+: ea (n) eb (m) := ea (n) eb (m) otherwise.
+Due to normal ordering the coefficients of T (u) are well defined operators in EndV. It is well
+known that
+h
+i
+
+g
+[Tm , Tn ] = (k + h∨ ) (m − n) Tm+n + k dim
+n3 − n δn,−m ,
+12
+(4.14)
+[Tm , πk (ea (n))] = − (k + h∨ ) πk (ea (n + m)) .
+Therefore, if k 6= −h∨ , Tn generate the Virasoro algebra; for k = −h∨ the elements Tn , n ∈ Z,
+are central.
+c is generated by Tn , n ∈ Z, ; for
+One can show that for g = sl2 the center of U−h∨ (Lg)
+higher rank algebras there are other Casimirs. An attempt to construct these higher Casimir
+n
+elements by considering : trJ (u) : for arbitrary n ≥ 2 runs into trouble. However, by applying
+a different technique Feigin and Frenkel (1992) have proved that for the critical central charge
+the algebra of Casimirs is very ample: essentially, there exists
+ element with prescribed
+ a Casimir
+c .
+symbol and hence there is an isomorphism S(Lg)Lg → Z U−h∨ Lg
+The situation with the Lie algebra gD is basically the same as described above. This allows
+to realize the Gaudin Hamiltonians as radial parts of appropriate Casimir operators. Let us
+
+42
+
+M.A. Semenov-Tian-Shansky
+
+describe this construction (due to Feigin, Frenkel and Reshetikhin (1994)) more precisely. Let
+++
+the Lie algebras gD , g+
+D , gD , g(D) be as above. It will be convenient to add one more point
+{u} to the divisor D and to attach to it the trivial representation V0 of g. (This will not affect
+the Hilbert space of our model, since ⊗zi ∈D Vλi ⊗ V0 = (⊗zi ∈D Vλi ) ⊗ C ≃ ⊗zi ∈D Vλi .) Thus we
+write D′ = D ∪ {u} , etc. Let ω be the 2-cocycle on gD′ defined by
+X
+ω(X, Y ) =
+Res(Xi , dYi ).
+(4.15)
+zi ∈D′
+
+Let ^gD′ = gD′ ⊕ Cc be the central extension of gD′ defined by this cocycle. Note that since the
+restriction of ω to the subalgebra g(D′ ) ⊂ gD′ is zero, the algebra g(D′ ) is canonically embedded
++
+g+
+into ^gD′ . Put ^
+D′ = gD′ ⊕ Cc. Fix a highest weight representation V(λ,0) = ⊗zi ∈D Vλi ⊗ V0 of the
++
+N +1
+k
+Lie algebra g
+= gD′ /g++
+g+
+D′ as above and let V(λ,0) be the associated representation of ^
+D′ on
+k
+which the center Cc acts by multiplication by k ∈ Z.. Let V(λ,0) be the induced representation
+of ^gD′ ,
+k
+k
+.
+(4.16)
+= U(^gD ) ⊗U (^g+ ′ ) V(λ,0)
+V(λ,0)
+D
+∗
+
+k
+k
+k
+be the dual of V(λ,0) ,
+There is a canonical embedding V(λ,0)
+֒→ V(λ,0)
+: v 7→ 1⊗v. Let V(λ,0)
+∗
+
+k
+the subspace of g(D′ )−invariants. Decomposition (2.24) together with the
+Hk(λ,0) ⊂ V(λ,0)
+obvious isomorphism V(λ,0) ≃ Vλ immediately implies that H(λ,0) is canonically isomorphic
+k,
+→
+to Vλ∗ . Let Ω ∈ Hλ ⊗ Vλ be the canonical element; it defines a natural mapping V(λ,0)
+Vλ :ϕ 7→ hϕiΩ . (In Conformal Field Theory hϕiΩ are usually called correlation functions.) For
+any x ∈ U (ĝD ) let γλ (x) ∈ EndVλ be the linear operator defined by the composition mapping
+v 7→ hx(1 ⊗ v)iΩ , v ∈ Vλ.
+Now suppose that k = −h∨ ; let again J be the canonical element which corresponds to
+the inner product (2.25) in g((z)), J(z) = (id ⊗ ρ)T , T (z) = tr : J(z)2 : Let us embed
+U−h∨ (g((z))) into U−h∨ (gD ) sending it to the extra place {u} ⊂ D′ to which we attached the
+trivial representation of g.
+Proposition 4.13 S(u) = γλ (JV (−2)) coincides with the Gaudin Hamiltonian.
+Remark 4.1 Besides quadratic Hamiltonians associated with the Sugawara current there are
+also higher commuting Hamiltonians which may be obtained using the methods of Feigin and
+Frenkel (1992).
+k
+In the calculation above we started with a generalized Verma module V(λ,0)
+; however, any
+representation of the critical level will do. The problem is to find a sufficiently ample class of
+critical level representations which will account for the spectrum of the Gaudin model. Note
+that this construction is exactly similar to the description of the Toda eigenfunctions in the
+finite-dimensional case. In the Toda case the correct class consisted of the spherical principal
+series representations; an important point is that principal series representations separate points
+of the algebraic spectrum of Z. Now, at the critical level the algebra of the Casimir operators
+
+Quantum and Classical Integrable Systems
+
+43
+
+is extraordinary rich; hence generalized Verma modules which are parametrized by the dual
+of the extended Cartan subalgebra b
+a = a ⊕ C (i.e. depend on a finite number of parameters)
+can not be used. Remarkably, there is another class of representations of gD , the Wakimoto
+modules, which play the role of the principal series representations. Roughly, the idea is to use
+the loop algebra La = a ⊗ C ((z)) as the substitute of the Cartan subalgebra, to extend its
+characters trivially to Ln and to take the induced Lg -module. Due to normal ordering (which
+is necessary, since after central extension La becomes a Heisenberg algebra), this construction
+should be modified (among other things, this leads to a shift of the level, i.e., of the value of
+the central charge, which becomes −h∨ ).
+For g = sl2 the Wakimoto module of the critical level has the following explicit realization
+(Frenkel (1995)). Let H be the Heisenberg algebra with generators an , a∗n , n ∈ Z, and relations
+[an , a∗m ] = δn,−m .
+
+(4.17)
+
+Let F be the Fock representation of H with vacuum vector v satisfying an v = 0, n ≥ 0, a∗n v =
+0, n > 0. Put
+X
+X
+a (u) =
+an u−n−1 , a∗ (u) =
+a∗n u−n .
+(4.18)
+n∈Z
+
+n∈Z
+
+Let {E, F, H} be the standard basis of sl2 . Put E (n) = E ⊗z n , F (n) = F ⊗z n , H (n) = H ⊗z n ;
+let
+X
+X
+X
+E [u] =
+E (n) un , F [u] =
+F (n) un , H [u] =
+F (n) un
+n∈Z
+
+n∈Z
+
+n∈Z
+
+be the corresponding ‘generating functions’. For any formal power series χ (u) =
+define the (projective) action of Lg on F by
+E [u] = a (u) , H [u] = −2 : a (u) a∗ (u) : +χ (u) ,
+F [u] = − : a (u) a∗ (u) a∗ (u) : −2∂u a∗ (u) + χ (u) a∗ (u) .
+
+P
+
+n∈Z χn u
+
+−n−1
+
+(4.19)
+
+Thus we get an Lg-module structure in F which depends on χ (u) ; this is the Wakimoto module
+of the critical level k = −2 (usually denoted by Wχ(u) ).
+P
+The Virasoro generators Tn , n ∈ Z, are scalar in Wχ(u) , Tn = qn ·id. Put q (u) = n∈Z qn un .
+One can show that
+1
+1
+2
+(4.20)
+q (u) = χ (u) − ∂u χ (u) ,
+4
+2
+i.e., q is the Miura transform of χ. This means of course that
+
+
+
+1
+1
+2
+∂u − q (u) = ∂u − ∂u χ
+∂u + ∂u χ ;
+2
+2
+as a matter of fact, due to normal ordering, if we make a change of coordinates on the (formal)
+disk, q transforms as a projective connection. Now a comparison with formula (4.11) suggests
+
+44
+
+M.A. Semenov-Tian-Shansky
+
+that the Bethe Ansatz is related to a Wakimoto module with an appropriate choice of χ. Namely,
+we consider the following global rational function
+λ (u) =
+
+N
+X
+
+m
+X
+λi
+2
+−
+.
+u − zi j=1 u − wj
+i=1
+
+Denote by λi (u − zi ) its expansion at the points zi, i = 1, ..., N, and by µj (u − wj ) its expansion
+at the points wj , j = 1, ..., m. We have
+λi (t) =
+
+λi
+2
++ ..., µj (t) = − + µj (0) + ...,
+t
+t
+
+where
+µj (0) =
+
+N
+X
+
+X
+λi
+2
+−
+.
+w
+−
+z
+w
+−
+ws
+j
+i
+j
+i=1
+s6=j
+
+We want to attach the Wakimoto modules to the points on the Riemann sphere. To this end let
+us observe that creation and annihilation operators (4.18) define a projective representation of
+the ‘local’ algebra Γ = C ((u)) ⊕C ((u)) du consisting of formal series and formal differentials
+with the cocycle
+Ω0 ((ϕ1 , α1 ) , (ϕ2 , α2 )) = Resu=0 (ϕ1 α2 − ϕ2 α1 ) .
+‘Global’ algebra is the direct sum of local algebras with the cocycle
+X
+Reszi (ϕ1 α2 − ϕ2 α1 ) .
+Ω ((ϕ1 , α1 ) , (ϕ2 , α2 )) =
+i
+
+Now let us consider the tensor product of the Wakimoto modules attached to the points zi , wj ,
+W=
+
+N
+O
+i=1
+
+Wλi (t)
+
+m
+O
+
+Wµj (t) .
+
+j=1
+
+Let H be the corresponding ‘big’ Heisenberg algebra. The eigenfunctions of the Gaudin Hamiltonians may be constructed as the appropriate correlation functions associated with W . To
+formulate the exact statement we need one more definition. Let V be a g ((t)) -module. For
+X ∈ g, n ∈ Z we put X (n) = X ⊗ tn ∈ g ((t)) . A vector v ∈ V is called a singular vector of
+imaginary weight if X (n) v = 0 for all X ∈ g, n ∈ Z , n ≥ 0. Let vj ∈ Wµj (t) be the vacuum
+vector; put wj = a−1 vj , where a−1 is the creation operator introduced in (4.17) .
+Lemma 4.14 . The vector wj is a singular vector of imaginary weight if and only if µj (0) = 0.
+Note that this condition coincides with (4.12) .
+Let M̃λi be the subspace of Wλi (t) ≃ F generated from the vacuum vector by the creation
+operators a∗0 .
+
+Quantum and Classical Integrable Systems
+
+45
+
+Lemma 4.15 M̃λi is stable with respect to the subalgebra g ⊂ Lg of constant loops and is
+isomorphic to the dual of the Verma module Mλi over g = sl2 with the highest weight λi =
+Rest=0 λi (t) .
+c2 -action on F .
+This assertion is immediate from the definition (4.19) of the sl
+∗
+Let W be the dual of W. . Let hz,w be the algebra of rational functions with values in the
+Cartan subalgebra h ⊂ sl2 which are regular outside {z1 , ..., zN , w1 , ..., wm } . There is a natural
+embedding of hz,w into the ‘big’ Heisenberg algebra H defined via expansion at each point of
+the divisor {z1 , ..., zN , w1 , ..., wm } . Let Hz,w be the maximal abelian subalgebra of H which
+contains Hz,w .
+Lemma 4.16 The space of Hz,w -invariants in W∗ is 1-dimensional; it is generated by a functional τ whose value on the tensor product of the vacuum vectors of Wλi (t) , Wµj (t) is equal to
+1; the restriction of τ to ⊗N
+i=1 M̃λi ⊗ w1 ⊗ ... ⊗ wm is nontrivial.
+N
+Let ψ ∈ ⊗N
+i=1 M̃λi . We may write τ (ψ) = hψ, φi where φ ∈ ⊗i=1 Mλi is a vector in the tensor
+product of Verma modules over sl2 .
+
+Theorem 4.17 (Feigin, Frenkel and Reshetikhin (1994)) If the Bethe equations (4.12) are
+N
+satisfied, φ ∈ ⊗N
+i=1 Mλi is an eigenvector of the Gaudin Hamiltonians in ⊗i=1 Mλi with the
+eigenvalue 4.11.
+Remark 4.2 If the weights λi are dominant integral, there is a natural projection
+N
+π : ⊗N
+i=1 Mλi → ⊗i=1 Vλi .
+
+It is easy to see that π maps the eigenvectors of the Gaudin Hamiltonians in ⊗N
+i=1 Mλi onto
+those in ⊗N
+i=1 Vλi .
+The construction described above admits a generalization to arbitrary semisimple Lie algebras. We shall only write down the generalized Bethe equations. To parametrize a Bethe vector
+
+N
+first choose a set {w1 , ..., wm }, wj ∈ C, and assign to each wj a set of simple roots αij i=1 ,
+one for each copy of g in gN . Let Fiij be the corresponding Chevalley generator of g acting nontrivially in the i-th copy of g. The straightforward generalization of the Bethe creation operator
+(4.9) to the higher rank case is
+N
+X
+Fiij
+(4.21)
+F (wj ) =
+wj − zi
+i=1
+(Babujian and Flume (1993)). The problem with (4.21) is that these operators no longer commute with each other. Hence one cannot use a string of creation operators to produce an
+eigenvector as it is done in (4.10) . The correct way to decouple them is to use the Wakimoto
+modules Wµj (t) which correspond to the poles of the creation operator; as above, the eigenvectors are generated by the singular vectors of imaginary weight which exist if and only if the
+
+46
+
+M.A. Semenov-Tian-Shansky
+
+constant term in the expansion of µj (t) satisfies certain orthogonality conditions. This leads to
+the generalized Bethe equations:
+
+N
+X
+(λi , αij ) X αis , αij
+−
+= 0, j = 1, ..., m.
+(4.22)
+wj − zi
+wj − ws
+i=1
+s6=j
+
+Bethe vectors are again computed as correlation functions.
+Let us end this section with a brief remark on the Knizhnik-Zamolodchikov equations. Recall
+that this is a system of equations satisfied by the correlation functions for an arbitrary value
+of the central charge; the critical value c = −h∨ corresponds to the semiclassical limit for the
+KZ system (small parameter before the derivatives). The outcome of this is two-fold: first, the
+Bethe vectors for the Gaudin model appear naturally in the semiclassical asymptotics of the
+solutions of the KZ system (Reshetikhin and Varchenko (1993)). Moreover, the exact integral
+representation of the solutions (for any value of the central charge) also involves the Bethe
+vectors (Feigin, Frenkel and Reshetikhin (1994)).
+4.2
+
+Quadratic case. Quasitriangular Hopf Algebras
+
+For an expert in Quantum Integrability the Gaudin model is certainly a sort of a limiting
+special case. The real thing starts with the quantization of quadratic Poisson bracket relations
+(3.7). This is a much more complicated problem which eventually requires the whole machinery
+of Quantum Groups (and has led to their discovery). The substitute for the Poisson bracket
+relations (3.30) is the famous relation
+R(u v −1 )L1 (u)L2 (v)R(u v −1 )−1 = L2 (v)L1 (u),
+
+(4.23)
+
+where R(u) is the quantum R-matrix satisfying the quantum Yang-Baxter identity
+R12 (u)R13 (u v)R23 (v) = R23 (v)R13 (u v)R12 (u).
+
+(4.24)
+
+To bring a quantum mechanical system into Lax form one has to arrange quantum observables
+into a Lax matrix L(u) (which is a rational function of u) and to find an appropriate R-matrix
+satisfying (4.23), (4.24). The first examples of quantum Lax operators were constructed by
+trial and error method; in combination with the Bethe Ansatz technique this has led to the
+explicit solution of important problems (Sklyanin, Takhtajan and Faddeev (1979), Faddeev and
+Takhtajan (1979), Faddeev (1980, 1984)).
+The algebraic concept which brings order to the subject is that of quasitriangular Hopf algebra (Drinfeld (1987a)). Main examples of quasitriangular Hopf algebras arise as q-deformations
+of universal enveloping algebras associated with Manin triples. Remarkably, the general pattern represented by Theorems 2.3, 4.1 survives q-deformation. The standard way to describe
+quantum deformations of simple finite-dimensional or affine Lie algebras is by means of generators and relations generalizing the classical Chevalley-Serre relations (Drinfeld (1987a), Jimbo
+(1986)). We shall recall this definition below in section 4.2.2 in the finite-dimensional case, and
+in section 4.2.3 for the quantized universal enveloping algebra of the loop algebra L (sl2 ) . A
+
+Quantum and Classical Integrable Systems
+
+47
+
+dual approach, due to Faddeev, Reshetikhin and Takhtajan (1989), is to construct quantum
+universal enveloping algebras as deformations of coordinate rings on Lie groups (regarded as linear algebraic groups). Of course, construction of a quantum deformation of the Poisson algebra
+F (G) was one of the first results of the quantum group theory and is, in fact, a direct generalization of the Baxter commutation relations RT 1 T 2 = T 2 T 1 R. A nontrivial fact, first observed
+by Faddeev, Reshetikhin and Takhtajan, is that the dual Hopf algebra (usually described as a
+q-deformation of the universal enveloping algebra) may also be regarded as a deformation of a
+Poisson algebra of functions on the dual group. More generally, the FRT construction is related
+to the quantum duality principle, which we shall now briefly discuss.
+Let (g, g∗ ) be a factorizable Lie bialgebra, G, G∗ the corresponding dual Poisson groups,
+F (G) , F (G∗ ) the associated Poisson-Hopf algebras of functions on G, G∗ , and Fq (G) , Fq (G∗ )
+their quantum deformations. (For simplicity we choose the deformation parameter q to be the
+same for both algebras.) The quantum duality principle asserts that these algebras are dual to
+each other as Hopf algebras. More precisely, there exists a nondegenerate bilinear pairing
+Fq (G) ⊗ Fq (G∗ ) → C [[q]]
+which sets the algebras Fq (G) , Fq (G∗ ) into duality as Hopf algebras. Hence, in particular, we
+have, up to an appropriate completion,
+Fq (G∗ ) ≃ Uq (g) .
+In the dual way, we have also
+
+Fq (G) ≃ Uq (g∗ ) .
+
+For factorizable Lie bialgebras the quantum deformations Fq (G) , Fq (G∗ ) may easily be constructed once we know the corresponding quantum R-matrices. An equivalence of this formulation to the definition of Drinfeld and Jimbo is not immediate and requires the full theory
+of universal R-matrices. Namely, starting with Drinfeld’s definition of a quasitriangular Hopf
+algebra we may construct ‘quantum Lax operators’ whose matrix coefficients generate the quantized algebras of functions Fq (G) , Fq (G∗ ) . Using explicit formulae for universal R-matrices
+one can, in principle, express these generators in terms of the Drinfeld-Jimbo generators. In the
+context of integrable models the FRT formulation has several important advantages: it allows
+to state the quantum counterpart of the main commutativity theorem as well as a transparent
+correspondence between classical and quantum integrable systems. The analogue of the FRT
+realization in the affine case is nontrivial, the key point being the correct treatment of the
+central element which corresponds to the central extension; it was described by Reshetikhin
+and Semenov-Tian-Shansky (1990).
+4.2.1. Factorizable Hopf algebras and the Faddeev-Reshetikhin-Takhtajan realization of quantized universal enveloping algebras.
+Definition 4.2 Let A be a Hopf algebra with coproduct ∆ and antipode S; let ∆′ be the opposite
+coproduct in A; A is called quasitriangular if
+∆′ (x) = R∆(x)R−1
+
+(4.25)
+
+48
+
+M.A. Semenov-Tian-Shansky
+
+for all x ∈ A and for some distinguished invertible element R ∈ A ⊗ A (the universal R-matrix)
+and, moreover,
+(∆ ⊗ id) R = R13 R23 , (id ⊗ ∆) R = R13 R12 .
+(4.26)
+Identities (4.26) imply that R satisfies the Yang-Baxter identity
+R12 R13 R23 = R23 R13 R12 .
+
+(4.27)
+
+(We use standard tensor notation to denote different copies of the spaces concerned.)
+Let A0 be the dual Hopf algebra equipped with the opposite coproduct (in other words,
+its coproduct is dual to the opposite product in A). Put R+ = R, R− = σ(R−1 ) (here σ is
+the permutation map in A ⊗ A, σ(x ⊗ y) = y ⊗ x) and define the mappings R± : A0 → A :
+f 7→ hf ⊗ id, R± i ; axioms (4.26) imply that R± are Hopf algebra homomorphisms. Define the
+action A0 ⊗ A → A by
+X (1)
+X
+(2)
+(2)
+(1)
+(4.28)
+fi ⊗ fi .
+R+ (fi ) x S(R− (fi ), where ∆0 f =
+f ◦x =
+i
+
+i
+
+Definition 4.3 A is called factorizable if A is a free A0 -module generated by 1 ∈ A.
+(Let us denote the corresponding linear isomorphism A0 → A by F for future reference.)
+There are several important examples of factorizable Hopf algebras:
+– Let A be an arbitrary Hopf algebra; then its Drinfeld double D (A) is factorizable
+(Reshetikhin and Semenov-Tian-Shansky (1991)).
+– Let g be a finite-dimensional semisimple Lie algebra; then A = Uq (g) is factorizable.
+– Let ^
+g be an affine Lie algebra; then A = Uq (^g) is factorizable.
+(Observe that the last two cases are actually special cases of the first one; up to now, the
+double remains the principal (if not the only) source of factorizable Hopf algebras.)
+Let g be a simple Lie algebra. Let A = Uq (g) be the corresponding quantized enveloping
+algebra, A0 be the dual of A with the opposite coproduct. Let R be the universal R-matrix of
+A. Let V, W be finite-dimensional irreducible representations of Uq (g). Let L ∈ A ⊗ A0 be the
+canonical element. Put
+LV = (ρV
+
+VW
+⊗ id)L, R±
+= (ρV ⊗ ρW )R± .
+
+(4.29)
+
+We may call LV ∈ EndV ⊗ A0 the universal quantum Lax operator (with auxiliary space V ).
+Property (4.25) immediately implies that
+
+V W −1
+VW
+.
+(4.30)
+L2W L1V = R+
+L1V L2W R+
+
+Proposition 4.18 The associative algebra Fq (G) generated by the matrix coefficients of LV
+satisfying the commutation relations (4.30) and with the matrix coproduct
+.
+
+∆LV = LV ⊗ LV
+is a quantization of the Poisson-Hopf algebra F (G) with the Poisson bracket (3.6) , (3.8) .
+
+Quantum and Classical Integrable Systems
+
+49
+
+The dual algebra Fq (G∗ ) is described in the following way. Let again L ∈ A ⊗ A0 be the
+canonical element. Put
+TV ± = ( ρV ⊗ R± ) L ∈ EndV ⊗ A,
+(4.31)
+TV = TV + (id ⊗ S) TV − .
+Proposition 4.19 (i) The matrix coefficients of TV ± satisfy the following commutation relations:
+−1
+±2
+±2
+TW
+TV±1 = RV W TV±1 TW
+RV W
+,
+
+(4.32)
+−2 +1
+V W +1 −2
+V W −1
+TW TV = R
+TV TW R
+.j
+(ii) The associative algebra Fq (G∗ ) generated by the matrix coefficients of T ±V satisfying the
+commutation relations (4.32) and with the matrix coproduct
+.
+
+∆T ±V = T ±V ⊗ T ±V
+is a quantization of the Poisson-Hopf algebra F (G∗ ) with Poisson bracket (3.9), (3.12) .
+(iii) TV = (id⊗F )LV . The matrix coefficients of TV satisfy the following commutation relations:
+
+
+V W −1 2
+VW 1
+V W −1 2
+VW
+R+
+TW R+
+TV = TV1 R−
+TW R−
+.
+(4.33)
+
+(iv) The associative algebra generated by the matrix coefficients of TV satisfying the commutation relations (4.32) is a quantization of the Poisson-Hopf algebra F (G∗ ) with Poisson bracket
+( 3.12).
+(v) The pairing
+VW
+TV±1 , L2W = R+
+sets the algebras Fq (G) , Fq (G∗ ) into duality as Hopf algebras.
+
+Formulae (4.30, 4.32, 4.33) are the exact quantum analogues of the Poisson bracket relations
+(3.8, 3.9, 3.12), respectively.
+4.2.2. Quantum commutativity theorem and quantum Casimirs. In complete analogy
+with the linear case the appropriate algebra of observables which is associated with quantum Lax
+equations is not the quasitriangular Hopf algebra A but rather its dual A0 ; the Hamiltonians
+arise from the Casimir elements of A. We may summarize this picture in the following heuristic
+correspondence principle.
+Quadratic Classical Case Quadratic Quantum case
+F (G)
+A0 = Uq (g∗ ) ≃ Fq (G)
+∗
+F (G )
+A = Uq (g) ≃ Fq (G∗ )
+Classical r-matrices
+Quantum R-matrices
+Casimir functions in F (G∗ ) Casimir operators Z ⊂ Uq (g)
+Symplectic leaves in G
+Irreducible representations of A0
+∗
+Symplectic leaves in G
+Irreducible representations of A
+According to this correspondence principle, in order to get a ‘quantum Lax system’ associated with a given factorizable Hopf algebra A we may proceed as follows:
+
+50
+
+M.A. Semenov-Tian-Shansky
+
+– Choose a representation (π, V) of A0 .
+– Choose a Casimir element ζ ∈ Z (A) and compute its inverse image F −1 (ζ) ∈ A0 with
+respect to the factorization
+map F : A0 → A.
+
+– Put Hζ = π F −1 (ζ) .
+
+Moreover, we expect that the eigenvectors of the quantum Hamiltonian Hζ can be expressed
+as matrix coefficients of appropriate representations of A.
+In order to describe quantum Casimirs explicitly we have to take into account the effect of
+twisting. We shall start with their description in the finite-dimensional case. The results stated
+below are the exact quantum counterparts of those described in section 3.2.2.
+Let g be a finite-dimensional simple Lie algebra, A = Uq (g) the quantized universal enveloping algebra of g. We shall recall its standard definition in terms of the Chevalley generators
+(Drinfeld (1987a), Jimbo (1986)). Let P be the set of simple roots of g. For αi ∈ P we set
+qi = q hαi ,αi i . We denote the Cartan matrix of g. by Aij
+
+Definition 4.4 Uq (g) is a free associative algebra with the generators ki , ki−1 , ei , fi i∈P and
+relations
+ki · ki−1 = ki−1 ki = 1, [ki , kj ] = 0,
+−Aij
+
+A
+
+[ai , ej ] = qi ij ej , [ai , fj ] = qi
+[ei , fj ] = δij
+
+ej ,
+
+
+ki2 − ki−2
+qi2 − qi−2
+
+and the following q-Serre relations:
+1−Aij
+
+X
+
+n
+
+(−1)
+
+n=0
+1−Aij
+
+X
+
+n=0
+
+(Here
+
+m
+
+(−1)n
+
+
+
+
+
+
+1 − Aij
+1−A −n
+ei ij ej eni = 0,
+n
+q2
+i
+
+
+
+1 − Aij
+1−A −n
+fi ij fj fin = 0.
+n
+q2
+i
+
+n q are the q-binomial coefficients.)
+
+Theorem 4.20 (Drinfeld (1987a)) Uq (g) is a quasitriangular Hopf algebra.
+As usual, we denote by R ∈ Uq (g)⊗Uq (g) its universal R-matrix and put RV W = (ρV ⊗ ρW ) R
+We recall the following well known corollary of definition 4.4. Let H be the ‘Cartan subgroup’ generated by the elements ki , i ∈ P, C [H] its group algebra. We denote by Uq (n± ),
+Uq (b± ) ⊂ Uq (g) the subalgebras generated by ei , fi (respectively, by ki , ei and by ki , fi ).
+Proposition 4.21 (i) C [H] , Uq (n± ), Uq (b± ) are Hopf subalgebras in Uq (g).(ii) Uq (n± ) is a
+two-sided Hopf ideal in Uq (b± ) and Uq (b± )/Uq (n± ) ≃ C [H] .
+
+Quantum and Classical Integrable Systems
+
+51
+
+Let π± : Uq (b± ) → C [H] be the canonical projection. Consider the embedding
+i : C [H] → C [H] ⊗ C [H] : a 7−→ (id ⊗ S) ∆a.
+(Here ∆ is the coproduct in commutative and cocommutative Hopf algebra C [H] and S is its
+antipode.)
+Proposition 4.22 The dual of Uq (g) may be identified with the subalgebra
+A0 = {x ∈ Uq (b+ ) ⊗ Uq (b− ); π+ ⊗ π− (x) ∈ i (C [H])} .
+Lemma 4.23 For any h ∈ H, h ⊗ hR = Rh ⊗ h.
+The algebra A admits a (trivial) family of deformations Ah = Uq (g)h , h ∈ H, defined by the
+following prescription:
+ei 7−→ hei , fi 7−→ hfi , ki 7−→ hki .
+
+(4.34)
+
+It is instructive to look at the commutation relations of Ah in the FRT realization. Let V, W ∈
+±
+RepA; we define the ‘generating matrices’ TV± ∈ A ⊗ EndV, TW
+∈ A ⊗ EndW , as in (4.31).
+Proposition 4.24 (i) The deformation (4.34) transforms TV± into ρV (h∓1 )TV± ; the commutation relations in the deformed algebra Ah amount to
+±2
+TV±1 = RV W TV±1 TV±2 RV W
+TW
+−1
+−2 +1
+−2
+TW
+TV = RhV W TV+1 TW
+RV W
+,
+
+−1
+
+,
+
+(4.35)
+
+where RhV W = ρV ⊗ ρW (Rh ) and Rh = h ⊗ h−1 Rh−1 ⊗ h.
+
+−1
+(ii) Put Th = ρV h2 TV+ TV−
+; the ‘operator-valued matrix’ Th satisfies the following commutation relations
+
+
+VW
+V W −1 2
+VW 1
+V W −1 2
+TW R−
+.
+(4.36)
+TW R+
+TV = TV1 R−
+R+
+Let LV ∈ A∗ ⊗ EndV be the ‘universal Lax operator’ introduced in (4.29). Fix h ∈ H and
+
+put
+lVh = trV ρV (h2 )LV .
+
+(4.37)
+
+Elements lVh ∈ A0 are usually called (twisted) transfer matrices. The following theorem is one
+of the key results of QISM (as applied to the finite-dimensional case).
+Theorem 4.25 For any representations V, W and for any h ∈ H ,
+h
+h
+lVh lW
+= lW
+lVh .
+
+(4.38)
+
+52
+
+M.A. Semenov-Tian-Shansky
+
+The mutual commutativity of transfer matrices is a direct corollary of the commutation
+relations (4.30); twisting by elements h ∈ H is compatible with these relations, since
+(h ⊗ h) R = R (h ⊗ h) .
+We want to establish a relation between the transfer matrices and the Casimirs of Uq (g)h′
+(where h′ ∈ H may be different from h). To account for twisting we must slightly modify the
+factorization map.
+Let H ×A → A be the natural action of H on A by right translations, and let H ×A0 → A0
+be the contragredient action. The algebra A = Uq (g) is factorizable; let F : A0 → A be the
+isomorphism induced by the action (4.28); for h ∈ H put F h = F ◦ h. Let us compute the image
+
+of the universal Lax operator LV ∈ EndV ⊗ A0 under the ‘factorization mapping’ id ⊗ F h ;
+it is easy to see that
+
+
+id ⊗ F h (LV ) := TVh± = id ⊗ h±1 TV1±
+Put
+
+clearly, we have thV
+
+thV = trV TVh+ TVh−
+
+= F (lVh ).
+
+−1
+
+= trV ρV (h)2 TV1 ;
+
+(4.39)
+
+Theorem 4.26 (i) (Faddeev, Reshetikhin and Takhtajan (1989)) Suppose that h = q −ρ , where
+h
+2ρ ∈ h is the sum of positive roots of
+ g . Then all coefficients of tV are central in A = Uq (g) . (ii)
+The center of A is generated by thV (with V ranging over all irreducible finite-dimensional
+−1
+representations of Uq (g)).(iii) For any s ∈ H we have lVs = F sh (thV ).
+Theorem 4.26 is an exact analogue of theorem 4.1 for finite-dimensional factorizable quantum
+groups. Its use is twofold: first, it provides us with commuting quantum Hamiltonians; second,
+the eigenfunctions of these Hamiltonians may be constructed as appropriate matrix coefficients
+(‘correlation functions’) of irreducible representations of Uq (g) . Again, to apply the theorem
+to more interesting and realistic examples we must generalize it to the affine case.
+4.2.3. Quantized affine Lie algebras. Two important classes of infinite-dimensional quasitriangular Hopf algebras are quantum affine Lie algebras and the full Yangians (that is, the
+doubles of the Yangians defined in (Drinfeld (1987a))). For concreteness I shall consider only
+the first class. To avoid technical difficulties we shall consider the simplest nontrivial case, that
+of the affine sl2 .
+d
+The standard definition of Uq (sl
+2 ) is by means of generators and relations:
+
+ −1 
+d
+with generators ei , fi , Ki ,
+Definition 4.5 Uq (sl
+2 ) is a free associative algebra over C q, q
+Ki−1 , i = 0, 1, which satisfy the following relations:
+Ki Kj = Kj Ki ,
+
+Ki ej = q Aij ej Ki , Ki fj = q −Aij fj Ki ,
+
+
+[ei , fj ] = δij q − q −1 Ki − Ki−1 ,
+
+(4.40)
+
+Quantum and Classical Integrable Systems
+
+53
+
+where Aij is the Cartan matrix of the affine sl2 , A00 = A11 = −A01 = −A10 = 2. In addition
+to (4.40) the following q-Serre relations are imposed:
+
+
+e3i ej − 1 + q + q −1 e2i ej ei − ei ej e2i − ej e3i = 0,
+
+
+fi3 fj − 1 + q + q −1 fi2 fj fi − fi fj fi2 − fj fi3 = 0.
+
+(4.41)
+
+d
+The Hopf structure in Uq (sl
+2 ) is defined by
+
+∆Ki = Ki ⊗ Ki ,
+∆ei = ei ⊗ 1 + Ki ⊗ ei ,
+
+(4.42)
+
+∆fi = fi ⊗ 1 + Ki ⊗ ei .
+d
+d
+The element K0 K1 is central in Uq (sl
+2 ); the quotient of Uq (sl2 ) over the relation
+K0 K1 = q k , k ∈ Z,
+
+d
+is called the level k quantized universal enveloping algebra Uq (sl
+2 )k .
+
+d
+An alternative realization of Uq (sl
+2 )k is based on the explicit use of the quantum R-matrix;
+in agreement with the quantum duality principle, this realization may be regarded as an explicit
+quantization of the Poisson algebra of functions Fq (G∗ ), where G∗ is the Poisson dual of the
+loop group L(SL2 ). The relevant Poisson structure on G∗ has to be twisted in so as to take into
+account the central charge k; moreover, in complete analogy with the non-deformed case, the
+d
+center of Uq (sl
+2 )k is nontrivial only for the critical value of the central charge kcrtit = −2. (The
+critical value k = −2 is a specialization, for g = sl2 , of the general formula k = −h∨ ; thus the
+value of kcrit is not affected by q-deformation.)
+Introduce the R-matrix
+
+
+1
+
+0
+
+0
+
+0
+
+
+
+z (q−q ) 
+
+ 0 1−z−1 q−zq−1 0 
+R(z) =  q−zq
+.
+−1
+1−z
+ 0 q−q −1
+0
+−1
+−1
+
+q−zq
+
+q−zq
+
+0
+
+0
+
+0
+
+(4.43)
+
+1
+
+[) be an associative algebra with generators l± [n] , i, j = 1, 2, n ∈ ±Z + . In order to
+Let Uq′ (gl
+2 k
+ij
+[) we introduce the generating series L± (z) = l± (z) ,
+describe commutation relations in U ′ (gl
+q
+
+2 k
+
+±
+lij
+(z) =
+
+ij
+
+∞
+X
+
+n=0
+
+±
+lij
+[±n] z ±n ;
+
+(4.44)
+
+54
+
+M.A. Semenov-Tian-Shansky
+
+±
++
+−
+we assume, moreover, that lij
+[0] are upper (lower) triangular: lij
+[0] = lji
+[0] = 0 for i < j. The
+[) are
+defining relations in U ′ (gl
+q
+
+2 k
+
++
+−
+−
++
+lii
+[0] lii
+[0] = lii
+[0] lii
+[0] = 1, i = 1, 2,
+z
+±
+±
+±
+R
+L±
+,
+(4.45)
+1 (z) L2 (w) = L2 (w) L1 (z) R
+ z w
+w
+
+z k
+−
+−
++
+R
+q −k L+
+q
+1 (z) L2 (w) = L2 (w) L1 (z) R
+w
+w
+(we use again the standard tensor notation). Relations (4.45) are understood as relations between formal power series in wz . Observe the obvious parallels between (4.45) and (4.35): the
+shift in the argument of R reflects the effects of the central extension; in the finite-dimensional
+case this extension is of course trivial and the shift may be eliminated by a change of variables.
+The commutation relations (4.45) are the exact quantum analogue of the Poisson bracket relations (3.26) with p = q k .
+
+z
+
+Lemma 4.27 The coefficients of the formal power series
+
+ ±
+−1 ±
+±
+±
+±
+(z) − l21
+(z) l11
+(z) l12
+q det(L± (z)) := l11
+(z)
+zq 2 l22
+d) .
+are central in Uq′ (gl
+2 k
+
+d) over the relations q det(L± (z)) = 1 is isomorphic to
+Theorem 4.28 The quotient of Uq′ (gl
+2 k
+d
+Uq (sl
+2) .
+k
+
+The accurate proof of this theorem (and of its generalization to arbitrary quantized affine Lie
+algebras) is far from trivial (see Ding and Frenkel (1994)); it relies on a still another realization
+of quantized affine Lie algebras, the so-called Drinfeld’s new realization (Drinfeld (1987b)); the
+important point for us is that the realization described in theorem 4.28 is adapted to the explicit
+description of the Casimir elements.
+Let us put
+
+
+
+−1
+L (z) = L+ q −k/2 z L− zq k/2
+(4.46)
+
+(this is the so-called full quantum current)
+
+Theorem 4.29 (Reshetikhin and Semenov-Tian-Shansky (1990)) (i) The quantum current
+(4.46) satisfies the commutation relations
+z
+q −k/2 z
+L1 (z)R−1 (
+)L2 (w) =
+(4.47)
+R
+w
+w
+ z −1
+q k/2 z
+.
+L2 (w)R(
+)L1 (z)R
+w
+w
+(ii) Suppose that k = −2; then the coefficients of the formal series
+t(z) = tr q 2ρ L (z)
+d
+are central elements in the algebra Uq (sl
+2 )k .
+
+(4.48)
+
+Quantum and Classical Integrable Systems
+
+55
+
+As 
+usual, ρstands for half the sum of positive roots. In the present setting we have simply
+q 0
+q 2ρ =
+. The critical value k = −2 is a special case of the general formula k = −h∨
+0 q −1
+(the dual Coxeter number); thus the critical value remains the same as in the non-deformed
+case.
+The definition of the quantum current and formulae (4.47,4.48) are in fact quite general and
+apply to arbitrary quantized loop algebras. There are all reasons to expect that the center of
+the quotient algebra A−h∨ = A/(c + h∨ ) for the critical value of the central charge is generated
+by (4.48) (with V ranging over all irreducible finite-dimensional representations of Uq (^g)) (cf.
+(Ding and Etingof (1994), Frenkel (1995))).There are two main subtle points:
+1. Our construction involved the 2-dimensional ‘evaluation representation’ Uq (sl2 ) →
+EndC((z)). In the general case we must describe finite-dimensional representations V (z) of
+Uq (g) with spectral parameter; this requires additional technical efforts.
+2. In the sl2 case it was possible to use the generating series (4.44) as an exact alternative to
+the Drinfeld-Jimbo definition; in the general case the analogues of relations (4.45) are still
+valid but there may be others; anyway, the generating series L±
+V (z) may be defined as the
+image of the canonical element:
+
+L±
+V (z) = id ⊗ ρV (z) ◦ (R± ⊗ id)L;
+the definition of the quantum current and theorem 4.29 are still valid.
+
+We may now use theorem 4.29 to relate the elements of the center to quantum Hamiltonians. Our main pattern remains the same. For concreteness let us again assume that A =
+0
+0
+d
+Uq (sl
+2 ). Let us take its dual A as the algebra of observables. Let L ∈ A ⊗ A be the canonical element. For any finite-dimensional sl2 -module V there is a natural representation of A
+in V ((z)) (evaluation representation) Let W be another finite-dimensional sl2 -module. Put
+LV (z) = (ρV (z) M ⊗ id)L, LW (z) = (ρW (z) ⊗ id)L, RV W (z) = (ρV (z) ⊗ ρW (z) )R. We may call
+LV (z) ∈ EndV ((z)) ⊗ A0 the universal quantum Lax operator (with auxiliary space V ). Fix
+a finite-dimensional representation π of A0 ; one can show that (id ⊗ π) LV (z) is rational in z.
+(Moreover, Tarasov (1985) showed how to use this dependence on z to classify finite-dimensional
+representations of A0 .) Property (4.25) immediately implies that
+−1
+V
+VW
+VW
+LW
+(vw−1 )LV1 (v)LW
+(vw−1 )
+.
+2 (w)L1 (v) = R
+2 (w) R
+
+(4.49)
+
+Moreover, RV W (z) satisfies the Yang-Baxter identity (4.24).
+Let H be the Cartan subgroup of G. Fix h ∈ H and put lVh (v) = trV ρV (h2 )LV (v), then
+h
+h
+h
+lV (v)lW
+(w) = lW
+(w)lVh (v). Elements lVh (v) are called (twisted) transfer matrices.
+It is convenient to extend A by adjoining to it group-like elements which correspond to the
+^ = h ⊕ Cd in ^g. Let Ĥ = H × C∗ be the corresponding ‘extended
+extended Cartan subalgebra h
+Cartan subgroup’ in A generated by elements h = q λ , λ ∈ h, t = q kd . Let Ĥ × A → A be
+
+56
+
+M.A. Semenov-Tian-Shansky
+
+its natural action on A by right translations, Ĥ × A0 → A0 the contragredient action. The
+algebra A = Uq (^
+g) is factorizable; let F : A0 → A be the isomorphism induced by the action
+(4.28); for h ∈ Ĥ put F h = F ◦ h.
+
+
+LhV (z)± = ( id ⊗ R± ◦ h) LV (z) ∈ EndV z ±1 ⊗ A,
+(4.50)
+LhV (z) = LhV (z)+ (id ⊗ S) LhV (z)− , h ∈ Ĥ;
+it is easy to see that
+and hence
+
+
+LhV (z)± = id ⊗ h±1 L1V (z)±
+
+TVh (z) = (id ⊗ h) TV1 (z) (id ⊗ h) ;
+moreover, if h = s−1 t, where s ∈ H and t = q kd , we have also
+TVh (z) = (ρV (s) ⊗ id) TVt (z) (ρV (s) ⊗ id) .
+Put thV = trV TVh (z) = trV ρV (s)2 TVt (z); clearly, we have thV (z) = F t (lVs (z)). Let 2ρ be the sum
+of positive roots of g = sl2 , h∨ = 2 its dual Coxeter number (our notation again hints at the
+general case).
+Theorem 4.30 (i) (Reshetikhin and Semenov-Tian-Shansky (1990)) Suppose that h =
+∨
+q −ρ q −h d . Then all coefficients of thV (z) are central in U. (ii) For any s ∈ H we have lVs (z) =
+−1
+F sh (thV (z)).
+Thus the duality between Hamiltonians and Casimir operators holds for quantum affine
+algebras as well. This allows to anticipate connections between the generalized Bethe Ansatz,
+representation theory of quantum affine algebras at the critical level and the q-KZ equation
+(Frenkel and Reshetikhin (1992), Smirnov (1992)). The results bearing on these connections are
+already abundant (Ding and Etingof (1994), Tarasov and Varchenko (1994), Frenkel (1995)),
+although they are still not in their final form.
+As we have already observed in the classical context, the Hopf structure on A0 is perfectly
+suited to the study of lattice systems. Let ∆(N ) : A0 → ⊗N A0 be the iterated coproduct
+map. ⊗N A0 may be interpreted as the algebra of observables associated with a multiparticle
+system. Put t̂hV (z) = ∆(N ) thV (z); Laurent coefficients of t̂hV (z) provide a commutative family of
+Hamiltonians in ⊗N A0 . Let in : A0 → ⊗N A0 be the natural embedding, in : x 7→ 1 ⊗ ... ⊗ x ⊗
+... ⊗ 1; put LnV = (id ⊗ in ) LV . Then
+!
+←
+−
+Y
+n
+h
+(4.51)
+t̂V (z) = trV ρV (h) LV .
+n
+
+Formula (4.51) has a natural interpretation in terms of lattice systems: LnV may be regarded
+as ‘local’ Lax operators attached to the points of a periodic lattice Γ = Z/N Z; commuting
+Q
+←
+− n
+Hamiltonians for the big system arise from the monodromy matrix MV =
+LV associated
+with the lattice. Finally, the twist h ∈ H defines a quasiperiodic boundary condition on the
+
+Quantum and Classical Integrable Systems
+
+57
+
+lattice. The study of the lattice system again breaks into two parts: (a) Find the joint spectrum of
+l̂V (z). (b) Reconstruct the Heisenberg operators corresponding to ’local’ observables and compute
+their correlation functions. This is the Quantum Inverse Problem (profound results on it are
+due to Smirnov (1992).)
+
+References
+Adler M. (1979). On a trace functional for formal pseudodifferential operators and the symplectic
+structure for the KdV type equations, Invent. Math. 50, 219-248.
+Baxter R.J. (1982) Exactly Solved Models in Statistical Mechanics. Academic Press, London.
+Belavin A.A., Drinfeld V.G. (1983). Triangle equations and simple Lie algebras, Sov. Sci. Rev., 4C,
+93-165.
+Babujian H.M., Flume R. (1993). Off-shell Bethe ansatz equations for Gaudin magnets and solutions
+of KZ equations, Preprint Bonn-HE-93-30.
+Bogolyubov N.M., Izergin A.G., Korepin V.E. (1994). Correlation Functions of Integrable Systems and
+Quantum Inverse Scattering Method. Cambridge University Press, Cambridge.
+Bayen F., Flato M., Fronsdal C., Lichnerowicz A., Sternheimer D. (1977). Deformation theory and
+quantization, I, II. Ann. Phys., 111, 61-151.
+Cartier P. (1994). Some fundamental techniques in the theory of integrable systems, in: Lectures on
+integrable systems, O. Babelon, P. Cartier, Y. Kosmann-Schwarzbach, eds. World Scientific.
+Ding J., Etingof P. (1994). Center of a quantum affine algebra at the critical level. Math. Res. Lett. 1,
+469-480.
+Ding J,. Frenkel I. (1993). Commun. Math. Phys.156,277-300.
+Dixmier J. (1974). Algèbres enveloppantes. Cahiers Scientifiques, fasc. XXXVII. Gauthier-Villars,
+Paris.
+Drinfeld V.G. (1983). Hamiltonian structures on Lie groups, Lie bialgebras and the geometric meaning
+of the classsical Yang-Baxter equation. Sov. Math. Dokl., 27, 68-71.
+Drinfeld V.G. (1987). Quantum Groups. Proc. ICM-86 (Berkeley), vol. 1, p. 798. AMS.
+Drinfeld V.G. (1987). Sov. Math. Dokl., 36, 212-216.
+Faddeev L.D. (1980). Quantum Completely Integrable Systems in Quantum Field Theory. Sov. Sci.
+Rev.1C, 107-155.
+Faddeev L.D. (1984). Integrable Models in (1+1)-dimensional Quantum Field Theory. Les Houches
+1982. Elsevier Science Publ.
+Faddeev L.D. (1995). Algebraic aspects of Bethe ansatz, Int. J. Mod. Phys. A10, 1845-1878, e-print
+archive: hep-th/9404013.
+Faddeev L.D., Reshetikhin N.Yu., Takhtajan L.A. (1989). Quantization of Lie groups and Lie algebras.
+Leningrad Math. J., 1, 178-207.
+Faddeev L.D., Takhtajan L.A. (1979). Quantum Inverse Scattering Method. Russian Math. Surveys,
+34:5, 11-68.
+Faddeev L.D., Takhtajan L.A. (1987). Hamiltonian Methods in the Theory of Solitons. Springer.
+Faddeev L.D., Volkov A.Yu. (1993). Abelian current algebra and the Virasoro algebra on the lattice.
+Phys. Lett. B315, 311-318.
+Feigin B, Frenkel E. (1992). Affine Kac-Moody algebras at the critical level and Gelfand-Dikij algebras,
+Int. J. Mod. Phys.A 7, Suppl. 1A, 197-215.
+
+58
+
+M.A. Semenov-Tian-Shansky
+
+Feigin B., Frenkel E., and Reshetikhin N. (1994). Gaudin model, Bethe ansatz and correlation functions
+at the critical level. Commun. Math.Phys, 166, 27-62.
+Frenkel E. (1995). Affine algebras, Langlands duality and Bethe ansatz. Proc. International Congr. of
+Math. Physics, Paris 1994. Paris, International Press, pp.606-642.
+Frenkel I.B., Reshetikhin N.Yu. (1992). Quantum affine algebras and holonomic difference equations.
+Commun. Math. Phys. 146, 1-60.
+Gardner C.S., Greene J.M., Kruskal M.D., Miura R.M. (1967). Method for solving the KdV equation,
+Phys. Rev. Lett. 19, 1095-1097.
+Gaudin M. (1983). La Fonction d’Onde de Bethe. Masson, Paris.
+Goodman R., and Wallach N.R. (1982). Classical and quantum-mechanical systems of Toda lattice
+type. I. Commun. Math. Phys., 83, 355-386.
+Goodman R., and Wallach N.R. (1984). Classical and quantum-mechanical systems of Toda lattice
+type.II. Commun. Math. Phys., 94, 177-217
+Harnad J., Winternitz P. (1993). Classical and quantum integrable systems in g̃l(2)+∗ and separation
+of variables. Preprint CRM 1921, Montreal 1993.
+Jimbo M. (1986). A q-difference analogue of U (g) and the Yang-Baxter equation. Lett. Math. Phys.
+10, 62-69.
+Jurčo B. (1989). Classical Yang-Baxter equation and quantum integrable systems. J. Math. Phys. 30,
+1289-1293.
+Kazhdan D., Kostant B., Sternberg S. (1978). Hamiltonian group actions and dynamical systems of
+Calogero type. Commun. Pure Appl. Math. 31, 481-508.
+Kirillov A.A. (1976). Elements of representation theory. Springer Verlag. Berlin a.o.
+Kirillov A.N., Reshetikhin N.Yu. (1990). q-Weyl group and a multiplicative formula for the universal
+R-matrix, Commun. Math. Phys. 134, 421- 431
+Kostant B. (1978). On Whittaker vectors and representation theory, Inventiones Math. 48, 101-184.
+Kostant B. (1979). Quantization and Representation Theory, in: Representation Theory of Lie Groups,
+Proc. SRC/LMS Res. Symp., Oxford 1977. London Math. Soc. Lecture Notes Series, 34, 287-316,
+1979.
+Kulish P.P., Sklyanin E.K. (1981). Quantum Spectral Transform Method. In: Integrable Quantum Field
+Theories. Lecture Notes in Physics 151, 61-119, Springer.
+Kuznetsov V. (1994). Equivalence of two graphical calculi. J.Phys. A25, 6005-6026.
+Lax P.D. (1968). Integrals of nonlinear equations and solitary waves. Commun. Pure Appl. Math., 21,
+467-490.
+Olshanetsky M.A., Perelomov A.M. (1994). Integrable systems and finite-dimensional Lie algebras, in:
+Encyclopaedia of Math. Sciences, vol. 16. Springer-Verlag, Berlin a.o.
+Reshetikhin N.Yu., Semenov-Tian-Shansky M.A. (1990). Central extensions of quantum current groups.
+Lett. Math. Phys. 19, 133-142 (1990).
+Reshetikhin N.Yu., Semenov-Tian-Shansky M.A. (1991). Quantum R-matrices and factorization problems, in: Geometry and Physics, essays in honour of I.M.Gelfand, S.Gindikin and I.M.Singer, eds.
+North Holland, Amsterdam - London - New York, 1991, pp. 533-550.
+Reshetikhin N., Varchenko A. (1993). Quasiclassical asymptotics of the KZ equations. Preprint.
+Reyman A.G. (1996). Poisson structures related to quantum groups, in: International School of Physics
+“E. Fermi”, Course 127, Varenna, 1994. Quantum Groups and their Applications in Physics, L.
+Castellani and J. Wess, eds. Amsterdam, 1996.
+
+Quantum and Classical Integrable Systems
+
+59
+
+Reyman A.G., Semenov-Tian-Shansky M.A. (1994). Group-theoretical methods in the theory of finitedimensional integrable systems, in: Encyclopaedia of Math. Sciences, vol. 16. Springer-Verlag, Berlin
+a.o.
+Semenov-Tian-Shansky M.A. (1983). What is the classical r-matrix. Funct Anal. Appl. 17, 259-272.
+Semenov-Tian-Shansky M.A. (1994a) Quantization of open Toda lattice, in: Encyclopaedia of Math.
+Sciences, vol. 16. Springer-Verlag, Berlin a.o. 1994.
+Semenov-Tian-Shansky M.A. (1994b). Lectures on r-matrices, Poisson Lie groups and integrable systems, in: Lectures on integrable systems, O. Babelon, P. Cartier, Y. Kosmann-Schwarzbach, eds.
+World Scientific, 1994.
+Semenov-Tian-Shansky M.A. (1994c). Poisson Lie groups, quantum duality principle and the quantum
+double. Contemporary Math., 175, 219-248.
+Sklyanin E.K. (1979) On complete integrability of the Landau-Lifshitz equation. Preprint LOMI E-3-79,
+Leningrad, 1979.
+Sklyanin E.K. (1992). Quantum Inverse Scattering Method. Selected Topics, in: Quantum Groups and
+Quantum Integrable Systems. Ge M.L., ed. World Scientific, Singapore, 1992.
+Sklyanin E.K. (1995). Separation of variables. New trends, in: QFT, Integrable Models and beyond, T.
+Inami and R. Sasaki, eds. Progr. Theor. Phys. Suppl.118, 35-60.
+Sklyanin E.K., Takhtajan L.A., Faddeev L.D. (1979). The quantum inverse scattering method. I. Theor.
+Math. Phys. 101, 194-220.
+Smirnov F.A. (1992). Form Factors in Completely Integrable Models of Quantum Field Theory. Adv.
+Series in Math. Phys. 14. World Scientific, Singapore.
+Tarasov V.O. (1985). Irreducible monodromy matrices for the R-matrix of the XXZ-model and lattice
+local quantum Hamiltonians. Theor. Math. Phys. 63, 440-454.
+Tarasov V.O., Varchenko A. (1994). Jackson integral representations for solutions of the quantized KZ
+equation. St. Petersburg Math. J. 6, no 2.
+Weinstein A. (1994). Deformation quantization. Seminaire Bourbaki, exposé no 789.
+
+
