@@ -1,0 +1,1889 @@
+Chapter 1
+
+Ground State and Finite Temperature
+Lanczos Methods
+P. Prelovšek and J. Bonča
+
+Abstract The present review will focus on recent development of exactdiagonalization (ED) methods that use Lanczos algorithm to transform large sparse
+matrices onto the tridiagonal form. We begin with a review of basic principles of the
+Lanczos method for computing ground-state static as well as dynamical properties.
+Next, generalization to finite-temperatures in the form of well established finitetemperature Lanczos method is described. The latter allows for the evaluation of
+temperatures T > 0 static and dynamic quantities within various correlated models.
+Several extensions and modification of the latter method introduced more recently
+are analysed. In particular, the low-temperature Lanczos method and the microcanonical Lanczos method, especially applicable within the high-T regime. In order
+to overcome the problems of exponentially growing Hilbert spaces that prevent ED
+calculations on larger lattices, different approaches based on Lanczos diagonalization
+within the reduced basis have been developed. In this context, recently developed
+method based on ED within a limited functional space is reviewed. Finally, we briefly
+discuss the real-time evolution of correlated systems far from equilibrium, which can
+be simulated using the ED and Lanczos-based methods, as well as approaches based
+on the diagonalization in a reduced basis.
+
+1.1 Introduction
+Models of strongly correlated systems have been one of the most intensively studied
+theoretical subjects in the last two decades, stimulated at first by the discovery of
+compounds superconducting at high-temperatures and ever since by the emergence
+P. Prelovšek (B) · J. Bonča
+Jožef Stefan Institute, 1000 Ljubljana, Slovenia
+e-mail: peter.prelovsek@ijs.si
+P. Prelovšek · J. Bonča
+Faculty of Mathematics and Physics, University of Ljubljana, 1000 Ljubljana, Slovenia
+e-mail: janez.bonca@ijs.si
+A. Avella and F. Mancini (eds.), Strongly Correlated Systems,
+Springer Series in Solid-State Sciences 176, DOI: 10.1007/978-3-642-35106-8_1,
+© Springer-Verlag Berlin Heidelberg 2013
+
+1
+
+2
+
+P. Prelovšek and J. Bonča
+
+of various novel materials and phenomena which could be traced back to strongly
+correlated electrons in these systems. Recently, cold atoms in optical lattice offer a
+different realization of strongly correlated quantum entities, whereby these systems
+can be even tuned closer to theoretical models.
+One of the most straightforward methods to numerically deal with the lattice (discrete) models of correlated particles, which are inherently many-body (MB) quantum
+systems, is exact diagonalization (ED) of small-size systems. In view of the absence
+of well-controlled analytical methods, ED method has been employed intensively to
+obtain results for static and dynamical properties of various models with different
+aims: (a) to search and confirm novel phenomena specific for strongly correlated
+systems, (b) to test theoretical ideas and analytical results, (c) to get reference results
+for more advanced numerical techniques.
+MB quantum lattice models of interacting particles are characterized with a dimension of the Hilbert space given by the number of basis states Nst ∝ K N that is in
+turn exponentially increasing with the lattice size N , where K is the number of local
+quantum states. It is therefore clear that ED methods can treat fully only systems
+with limited Nst , i.e., both K and N must be quite modest.
+Among the ED approaches the full ED within the Hilbert space of the model
+Hamiltonian, yielding all eigenenergies and eigenfunctions, is the simplest to understand, most transparent and easy to implement. In principle it allows the evaluation of
+any ground state (g.s.) property as well as finite temperature T > 0 static or dynamic
+quantity, at the expense of very restricted Nst . In spite of that, it represents a very
+instructive approach but also remains essentially the only practical method when all
+exact levels are needed, e.g., for studies of level statistics.
+Lanczos-based ED methods have already long history of applications since
+Cornelius Lanczos [1] proposed the diagonalization of sparse matrices using the iterative procedure, allowing for much bigger Hilbert spaces Nst relative to full ED. Lanczos diagonalization technique is at present a part of standard numerical linear algebra
+procedures [2, 3] and as such in solid state physics mainly used to obtain the g.s. energies and wavefunction with corresponding expectation values. The approach has been
+quite early on extended to calculation of the dynamical response functions within the
+g.s. [4]. The method has been in the last 20 years extensively used in connection with
+models related to high-Tc materials, for which we can refer to an earlier overview [5].
+The present review will focus on recent development of ED-based and Lanczosbased methods. The basics of the Lanczos method are presented in Sect. 1.2 and its
+application for g.s. properties in Sect. 1.3. One of already established generalizations
+is the finite-temperature Lanczos method (FTLM) [6, 7], reviewed in Sect. 1.4, which
+allows for the evaluation of T > 0 static and dynamic properties within simplest
+models. Several extensions and modifications of the latter have been introduced
+more recently, in particular the low-temperature Lanczos method (LTLM) [8] and
+the microcanonical Lanczos method (MCLM) [9], particularly applicable within the
+high-T regime.
+Since the application of the ED methods there have been attempts and proposals for the proper choice of reduced basis which could allow for the study
+of bigger systems. While this is clearly very broad subject with most substantial
+
+1 Ground State and Finite Temperature Lanczos Methods
+
+3
+
+achievements in one-dimensional (1D) systems within the framework of the densitymatrix renormalization-group (DMRG) idea, there are also successful applications
+in higher D > 1 combined with the Lanczos procedure being reviewed in Sect. 1.5.
+Recently, there is also quite an intensive activity on studies of real-time evolution of
+correlated systems, both under the equilibrium and the non-equilibrium conditions
+that can be simulated using the ED and Lanczos-based methods, as discussed in
+Sect. 1.6.
+
+1.2 Exact Diagonalization and Lanczos Method
+1.2.1 Models, Geometries and System Sizes
+ED-based methods are mostly restricted to simple models with only few local quantum states K per lattice site in order to reach reasonable system sizes N . Consequently, there are only few classes of MB models that so far exhaust the majority
+of ED and Lanczos-method studies, clearly also motivated and influenced by the
+challenging physics and relevance to novel materials and related experiments.
+To get some feeling for available sizes reachable within the ED-based approaches,
+it should be reminded that in full ED routines the CPU time scales with the number
+of operations O p ∝ Nst3 , while the memory requirement is related to the storage
+of the whole Hamiltonian matrix and all eigenvectors, i.e., Mem ∝ Nst2 . This limits at present stage of computer facilities the full ED method to Nst < 2 · 104 MB
+states. On the other hand, using the Lanczos-based iterative methods for the diagonalization of sparse matrices (Hamiltonians), CPU and memory requirements scale
+as O p, Mem ∝ Nst , at least in their basic application, to calculate the g.s. and
+its wavefunction. In present-day applications this allows the consideration of much
+larger basis sets, i.e., Nst < 109 . Still, lattice sizes N reached using the Lanczos technique remain rather modest, compared to some other numerical approaches as the
+DMRG and quantum-Monte-Carlo (QMC) methods, if the full Hilbert basis space
+relevant for the model is used.
+The simplest nontrivial class of MB lattice models are spin models, the prototype
+being the anisotropic Heisenberg model for coupled S = 1/2 spins,
+H=
+
+
+
+α α
+Jiαα
+j Si S j ,
+
+(1.1)
+
+i jα
+
+where the sum i j runs over pairs of lattice sites with an arbitrary interaction Jiαα
+j
+(being in principle anisotropic) and Siα are component of local S = 1/2 operator.
+The model has K = 2 quantum states per lattice site and therefore allows for biggest
+N in the ED-based approaches where Nst ∝ 2 N basis states. To reduce Nst as
+many symmetries and good quantum numbers as practically possible are used to
+decompose the Hamiltonian into separate blocks. Evident choice are sectors with
+
+4
+
+P. Prelovšek and J. Bonča
+
+z
+the (z-component of) total spin Stot
+and the wavevector q for systems with periodic
+boundary conditions, but further also rotational symmetries of particular lattices have
+been used. In this way system sizes up to N ∼ 36 (for largest and most interesting
+z
+= 0) have been reached so far using the Lanczos technique without any
+sector Stot
+basis reduction.
+On the basis of this simple model one can already discuss the feasibility of the
+Lanczos-based methods with respect to other numerical quantum MB methods. For
+the g.s. in 1D spin systems more powerful methods allowing for much bigger systems
+are DMRG and related approaches. For unfrustrated models in D > 1 the QMC
+methods are superior for the evaluation of static quantities at any T . Still, Lanczosbased methods become competitive or at least not superseded for frustrated spin
+models (where QMC can run into minus-sign problem) or for dynamical properties
+at T > 0.
+Next in complexity and very intensively studied prototype model is the t-J model,
+representing strongly correlated itinerant electrons with an antiferromagnetic (AFM)
+interaction between their spins,
+
+H =−
+
+
+i js
+
+(ti j c̃†js c̃is + H.c.) + J
+
+
+
+Si · S j ,
+
+(1.2)
+
+i j
+
+where due to the strong on-site repulsion doubly occupied sites are forbidden and
+one is dealing with projected fermion operators c̃is = cis (1 − n i,−s ). The model
+can be considered as a good microscopic model for superconducting cuprates which
+are doped Mott insulators and has been therefore one of the most studied using the
+Lanczos method [5]. For a theoretical and experimental overview of Mott insulators
+and metal-insulator transitions see Ref. [10].
+z
+and q, also the
+It has K = 3 quantum states per lattice site and besides Stot
+number of electrons Ne (or more appropriate the number of holes Nh = N − Ne ) are
+the simplest quantum numbers to implement. Since the model reveals an interesting
+physics in D > 1, the effort was in connection with high-Tc cuprates mostly on 2D
+square lattice. Here the alternative numerical methods have more drawbacks (e.g.,
+minus sign problem in QMC methods due to the itinerant character of fermions) so
+Lanczos-based methods are still competitive, in particular for getting information on
+T > 0 dynamics and transport. The largest systems considered with Lanczos method
+so far are 2D square lattice with N = 32 sites and Nh = 4 holes [11].
+Clearly, one of the most investigated within the MB community is the standard
+single-band Hubbard model, which has K = 4 states per lattice site. Due to the
+complexity Nst ∝ 4 N the application of ED and Lanczos-based method is already
+quite restricted reaching so far N = 20 sites [12] requiring already Nst ∼ 109 basis
+states. The model is also the subject of numerous studies using more powerful QMC
+method and various cluster dynamical-mean-field-theory (DMFT) methods for much
+larger lattices so Lanczos-based approaches have here more specific goals.
+Since reachable lattices for above mentioned models are rather small it is important to choose properly their geometries. This is not the problem in 1D models,
+but becomes already essential for 2D lattices, analysed in connection with novel
+
+1 Ground State and Finite Temperature Lanczos Methods
+
+5
+
+Fig. 1.1 Tilted clusters used in 2D square-lattice studies
+
+materials, in particular high-Tc cuprates and related materials. In order to keep the
+periodic boundary conditions for 2D square lattice the choice of Pythagorean lattices with N = λ2x + λ2y with λx , λ y [13] has significantly extended available sizes.
+Some of frequently used are presented in Fig. 1.1. Taking into account only even
+N such lattices include N = 8, 10, 16, 18, 20, 26, 32, 36 sites. While unit cells of
+such lattices are squares, it has been observed that they are not always optimal with
+respect to the number of next-nearest-neighbors and further nearest neighbors. It has
+been claimed and partly tested that better result are obtained with slightly deformed
+lattices (still with periodic boundary conditions) which at the same time offer an even
+bigger choice of sizes [14, 15].
+
+1.2.2 Lanczos Diagonalization Technique
+The Lanczos technique is a general procedure to transform and reduce a symmetric
+Nst × Nst matrix A to a symmetric M × M tridigonal matrix TM . From the chosen
+initial Nst -dimensional vector v1 one generates an orthogonal basis of {v1 , · · · , vM }
+vectors which span the Krylow space {v1 , Av1 , · · · , AM−1 v1 } [1–3, 16].
+In usual applications for the quantum MB system defined with the Hamiltonian
+operator H the Lanczos algorithm starts with a normalized vector |φ0 , chosen as
+a random vector in the relevant Hilbert space with Nst basis states. The procedure
+generates orthogonal Lanczos vectors L M = {|φm , m = 0 · · · M} spanning the
+Krylow space {|φ0 , H |φ0 , · · · , H M |φ0 }. Steps are as follows: H is applied to
+|φ0  and the resulting vector is split in components parallel to |φ0 , and normalized
+|φ1  orthogonal to it, respectively,
+H |φ0  = a0 |φ0  + b1 |φ1 .
+
+(1.3)
+
+Since H is Hermitian, a0 = φ0 |H |φ0  is real, while the phase of |φ1  can be chosen
+so that b1 is also real. In the next step H is applied to |φ1 ,
+H |φ1  = b1 |φ0  + a1 |φ1  + b2 |φ2 ,
+
+(1.4)
+
+6
+
+P. Prelovšek and J. Bonča
+
+where |φ2  is orthogonal to |φ0  and |φ1 . It follows also b1 = φ0 |H |φ1  = b1 .
+Proceeding with the iteration one gets in i steps
+H |φi  = bi |φi−1  + ai |φi  + bi+1 |φi+1 , 1 ≤ i ≤ M,
+
+(1.5)
+
+where in Eq. (1.5) by construction there are no terms involving |φi−2  etc. By stopping
+the iteration at i = M and setting b M+1 = 0, the Hamiltonian can be represented
+in the basis of orthogonal Lanczos functions |φi  as the tridiagonal matrix HM with
+diagonal elements ai , i = 0 . . . M, and off-diagonal ones bi , i = 1 . . . M. Such a
+matrix is easily diagonalized using standard numerical routines to obtain approximate
+eigenvalues  j and corresponding orthonormal eigenvectors |ψ j ,
+|ψ j  =
+
+M
+
+
+v ji |φi ,
+
+j = 0 . . . M.
+
+(1.6)
+
+i=0
+
+It is important to realize that |ψ j  are (in general) not exact eigenfunctions of H , but
+show a remainder. On the other hand, it is evident from the diagonalization of HM
+that matrix elements
+ψi |H |ψ j  =  j δi j , i, j = 0 . . . M,
+
+(1.7)
+
+are diagonal independently of L M (but provided i, j ≤ M), although the values  j
+can be only approximate.
+If in the Eq. (1.5) b M+1 = 0, we have found a (M + 1)-dimensional eigenspace
+where HM is already an exact representation of H . This inevitably happens when
+M = Nst − 1, but for M < Nst − 1 it can only occur if the starting vector is
+orthogonal to some invariant subspace of H which we avoid by choosing the input
+vector |φ0  as a random one.
+It should be recognized that the Lanczos approach is effective only for sparse
+Hamiltonians, characterized by the connectivity of each basis state with K n  Nst
+basis states. All prototype discrete tight-binding models discussed in Sect. 1.2.1 are
+indeed of such a type in the local MB basis. Estimating the computation requirements,
+the number of operations O p needed to perform M Lanczos iterations scales as
+O p ∝ K n M Nst . The main restriction is still in memory requirements due to large
+Nst . A straightforward application of Eq. (1.5) would require the fast storage of all
+|φi , i = 0 . . . M, i.e., also the memory capacity Mem ∝ M Nst . However, for the
+evaluation of the eigenvalues alone during the iteration, Eq. (1.5), only three |φi  are
+successively required, so this leads to Mem ∝ 3Nst . If the Hamiltonian matrix is
+not evaluated on the fly (simultaneously), then also Mem ∝ K n Nst for the nonzero
+Hamilton matrix elements is needed.
+The Lanczos diagonalization is in essence an iterative power method which is
+known to converge fast for the extreme lower and upper eigenvalues [2, 3], clearly
+in physical application most relevant is the search for the g.s. energy E 0 and corresponding wavefunction |Ψ0 . Typically, M > 50 are enough to reach very high
+
+1 Ground State and Finite Temperature Lanczos Methods
+
+7
+
+accuracy for both. It is evident that for such modest M  Nst one cannot expect
+any reliable results for eigenstates beyond the few at the bottom and the top of the
+spectrum. On the other hand, the Lanczos procedure is subject to roundoff errors,
+introduced by the finite-precision arithmetics which usually only becomes severe at
+larger M > 100 after the convergence of extreme eigenvalues and is seen as the loss
+of the orthogonality of vectors |φi . It can be remedied by successive reorthogonalization [2, 3, 16] of new states |φi , plagued with errors, with respect to previous
+ones. However this procedure requires O p ∼ M 2 Nst operations, and can become
+computationally more demanding than Lanczos iterations themselves. This effect
+also prevents one to use the Lanczos method, e.g., to efficiently tridiagonalize full
+large matrices [3].
+
+1.3 Ground State Properties and Dynamics
+After |Ψ0  is obtained, the g.s. static properties can be evaluated in principle for any
+operator A as
+(1.8)
+Ā0 = Ψ0 |A|Ψ0 .
+Clearly, the procedure (1.8) for large basis is effective only if operator A is in the
+same basis also sparse, as it is in most cases of interest.
+It is, however, the advantage of the Lanczos procedure that also g.s. dynamical
+functions can be calculated within the same framework [4]. Let us consider the
+dynamical (autocorrelation) response function
+C(ω) = Ψ0 |A†
+
+1
+A|Ψ0 ,
+ω+ + E 0 − H
+
+(1.9)
+
+for the observable given by the operator A where ω+ = ω + i,  > 0. To calculate
+C(ω) one has to run the second Lanczos procedure with a new initial function |φ̃0 ,
+|φ̃0  =
+
+
+1
+A|Ψ0 , α = Ψ0 |A† A|Ψ0 .
+α
+
+(1.10)
+
+Starting with |φ̃0  one generates another Lanczos subspace L̃ M̃ = {|φ̃ j , j = 0, M̃}
+with (approximate) eigenvectors |ψ̃ j  and eigenenergies ˜ j . The matrix for H in the
+new basis is again a tridiagonal one with ã j and b̃ j elements, respectively. Terminating the Lanczos procedure at given M̃, one can evaluate Eq. (1.9) as a resolvent of
+the HM̃ matrix expressed in the continued-fraction form [4, 5, 17],
+
+8
+
+P. Prelovšek and J. Bonča
+
+α2
+
+C(ω) =
+ω+ + E
+
+,
+
+b̃12
+
+0 − ã0 −
+
+ω+ + E 0 − ã1 −
+
+ω+ + E
+
+(1.11)
+
+b̃22
+0 − ã2 − . . .
+
+terminating with b̃ M̃+1 = 0, although other termination functions can also be
+employed and well justified.
+We note that frequency moments of the spectral function
+μl = −
+
+1
+π
+
+ ∞
+−∞
+
+ωl ImC(ω)dω = Ψ0 |A† (H − E 0 )l A|Ψ0 
+
+= α 2 φ̃0 |(H − E 0 )l |φ̃0 ,
+
+(1.12)
+
+are exact for given |Ψ0  provided l ≤ M̃, since the operator H l , l < M̃, is exactly
+reproduced within the Lanczos (or corresponding Krylow) space L̃ M̃ .
+Finally, C(ω) (1.11) can be presented as a sum of j = 0, M̃ poles at ω = ˜ j − E 0
+with corresponding weights w j . As a practical matter we note that in analogy to
+Eq. (1.6)
+(1.13)
+w j = |ψ̃ j |A|Ψ0 |2 = α 2 |ψ̃ j |φ̃0 |2 = α 2 ṽ 2j0 ,
+hence no matrix elements need to be evaluated within this approach. In contrast to the
+autocorrelation function (1.11), the procedure allows also the treatment of general
+correlation functions C AB (ω), with B = A† . In this case matrix elements Ψ0 |B|ψ̃ j 
+have to be evaluated explicitly. It should be also mentioned that at least lowest poles
+of C(ω), Eq. (1.11), should coincide with eigenenergies ω = E i − E 0 if |φ̃0  is
+not orthogonal to |Ψ0 . However, using M̃ > 50 spurious poles can emerge (if no
+reorthogonalization is used) which, however, carry no weight as also evident from
+exact moments (1.12).
+In this chapter we do not intend to present an overview of applications of the full
+ED and Lanczos-type studies of g.s. static and dynamical properties of correlated
+systems. Such investigations have been numerous even before the high-Tc era but
+intensified strongly with studies of prototype models relevant for high-T cuprates
+[5] and other novel materials with correlated electrons. Although variety of models
+have been investigated they are still quite restricted in the number of local degrees
+and sizes.
+
+1.4 Static Properties and Dynamics at T > 0
+Before describing the Finite temperature Lanczos method (FTLM) we should note
+that the Lanczos basis is very useful and natural basis to evaluate the matrix elements
+of the type
+
+1 Ground State and Finite Temperature Lanczos Methods
+
+9
+
+Wkl = n|H k B H l A|n,
+
+(1.14)
+
+where |n is an arbitrary normalized vector, and A, B are general operators. One
+can calculate this expression exactly by performing two Lanczos procedures with
+M = max(k, l) steps. The first one, starting with the vector |φ0  = |n, produces
+the Lanczos basis L M along with approximate eigenstates |ψ j  and  j . The second
+Lanczos procedure is started with the normalized vector |φ̃0  ∝ A|φ0  = A|n,
+Eq. (1.10), and generates L̃ M with corresponding |ψ̃ j  and ˜ j . We can now define
+projectors onto limited subspaces
+PM =
+
+M
+
+
+|ψi ψi |,
+
+P̃M =
+
+i=0
+
+M
+
+
+|ψ̃i ψ̃i |.
+
+(1.15)
+
+i=0
+
+Provided that (l, k) < M projectors PM and P̃M span the whole relevant basis for
+the operators H k and H l , respectively, so that one can rewrite Wkl in Eq. (1.14) as
+Wkl = φ0 |PM H PM H . . . H PM B P̃M H . . . P̃M H P̃M A|φ0 .
+
+(1.16)
+
+Since H is diagonal in the basis |ψ j  and |ψ̃ j , respectively, one can write finally
+Wkl =
+
+M 
+M
+
+φ0 |ψi ψi |B|ψ̃ j ψ̃ j |A|φ0 (i )k (˜ j )l .
+
+(1.17)
+
+i=0 j=0
+
+It is important to note that matrix element expression (1.17) is exact, independent of
+how (in)accurate representation |ψi , i and |ψ̃ j ,  j , respectively, are to true system
+eigenvalues. The only condition remains that number of Lanczos steps is sufficient,
+i.e., M > (l, k).
+
+1.4.1 Finite Temperature Lanczos Method: Static Quantities
+A straightforward calculation of canonical thermodynamic average of an operator
+A at T > 0 (in a finite system) requires the knowledge of all eigenstates |Ψn  and
+corresponding energies E n , obtained, e.g., by the full ED of H ,
+A =
+
+Nst
+
+n=1
+
+e−β E n Ψn |A|Ψn 
+
+
+Nst
+
+e−β E n ,
+
+(1.18)
+
+n=1
+
+where β = 1/k B T . Such direct evaluation is both CPU time and storage demanding
+for larger systems and is at present accessible only for Nst ∼ 20000.
+
+10
+
+P. Prelovšek and J. Bonča
+
+In a general orthonormal basis |n for finite system with Nst basis states one can
+express the canonical expectation value A as
+
+Nst
+Nst
+
+−β H
+A =
+n|e
+A|n
+n|e−β H |n,
+n=1
+
+(1.19)
+
+n=1
+
+The FTLM for T > 0 is based on the evaluation of the expectation value in Eq. (1.19)
+for each starting |n using the Lanczos basis. We note that such a procedure guarantees
+correct high-T expansion series (for given finite system) to high order. Let us perform
+the high-T expansion of Eq. (1.19),
+A = Z −1
+
+Nst 
+∞
+
+(−β)k
+n=1 k=0
+
+Z=
+
+Nst 
+∞
+
+(−β)k
+n=1 k=0
+
+k!
+
+k!
+
+n|H k A|n,
+
+n|H k |n.
+
+(1.20)
+
+Terms in the expansion n|H k A|n can be calculated exactly using the Lanczos
+procedure with M ≥ k steps (with |φ0n  = |n as the starting function) since this is
+a special case of the expression (1.14). Using relation (1.17) with l = 0 and B = 1,
+we get
+M
+
+n|ψin ψin |A|n(in )k .
+(1.21)
+n|H k A|n =
+i=0
+
+Working in a restricted basis k ≤ M, we can insert the expression (1.21) into sums
+(1.20), extending them to k > M. The final result can be expressed as
+A = Z
+
+−1
+
+Nst 
+M
+
+
+e−βi n|ψin ψin |A|n,
+n
+
+n=1 i=0
+
+Z=
+
+Nst 
+M
+
+
+e−βi n|ψin ψin |n,
+n
+
+(1.22)
+
+n=1 i=0
+
+and the error of the approximation is O(β M+1 ).
+Evidently, within a finite system Eq. (1.22), expanded as a series in β, reproduces
+exactly the high-T series to the order M. In addition, in contrast to the usual high-T
+expansion, Eq. (1.22) remains accurate also for T → 0. Let us assume for simplicity
+that the g.s. |Ψ0  is nondegenerate. For initial states |n not orthogonal to |Ψ0 , already
+at modest M ∼ 50 the lowest eigenstate |ψ0n  converges to |Ψ0 . We thus have for
+β → ∞,
+
+1 Ground State and Finite Temperature Lanczos Methods
+
+A =
+
+Nst
+
+
+11
+
+
+Nst
+n|Ψ0 Ψ0 |A|n
+n|Ψ0 Ψ0 |n = Ψ0 |A|Ψ0 /Ψ0 |Ψ0 ,
+
+n=1
+
+(1.23)
+
+n=1
+
+where we have taken into account the completeness of the set |n. Obtained result is
+just the usual g.s. expectation value of an operator.
+The computation of static quantities (1.22) still involves the summation over the
+complete set of Nst states |n, which is clearly not feasible in practice. To obtain a
+useful method, a further essential approximation replaces the full summation over
+|n by a partial one over a much smaller set of random states [18, 19]. Such an
+approximation is analogous to Monte Carlo methods and leads to a statistical error
+which can be well estimated and is generally quite small. Let us first consider only
+the expectation value (1.19) with respect to a single random state |r , which is a
+linear combination of basis states
+|r  =
+
+Nst
+
+
+ηr n |n,
+
+(1.24)
+
+n=1
+
+where ηr n are assumed to be distributed randomly. Then the random quantity can be
+expressed as
+Ãr = r |e−β H A|r /r |e−β H |r 
+=
+
+Nst
+
+
+ηr∗n ηr m n|e−β H A|m
+
+ 
+Nst
+
+n,m=1
+
+ηr∗n ηr m n|e−β H |m.
+
+(1.25)
+
+n,m=1
+
+Assuming that due to the random sign (phase) offdiagonal terms with ηr∗n ηr m , m = n
+on average cancel for large Nst , we remain with
+Ār =
+
+Nst
+
+
+|ηr n | n|e
+2
+
+−β H
+
+A|n
+
+
+Nst
+
+n=1
+
+|ηr n |2 n|e−β H |n.
+
+(1.26)
+
+n=1
+
+We can express |ηr n |2 = 1/Nst +δr n . Random deviations δr n should not be correlated
+with matrix elements n|e−β H |n = Z n and n|e−β H A|n = Z n An , therefore Ār is
+close to A with an statistical error related to the effective number of terms Z̄ in the
+thermodynamic sum, i.e.
+
+Ār = A(1 + O(1/ Z̄ )),
+Z̄ = eβ E 0
+
+
+n
+
+Zn =
+
+Nst
+
+n|e−β(H −E 0 ) |n.
+n=1
+
+(1.27)
+(1.28)
+
+12
+
+P. Prelovšek and J. Bonča
+
+Note that for T → ∞ we have Z̄ → Nst and therefore at large Nst very accurate
+average (1.28) can be obtained even from a single random state [18, 19]. On the
+other hand, at finite T < ∞ the statistical error of Ãr increases with decreasing Z̄ .
+To reduce statistical error, in particular at modest T > 0, within the FTLM we
+sum in addition over R different randomly chosen |r , so that in the final application
+Eq. (1.22) leads to
+Nst   −βrj
+e
+r |ψ rj ψ rj |A|r ,
+A =
+ZR
+R
+
+M
+
+r =1 j=0
+
+Nst   −βrj
+e
+|r |ψ rj |2 .
+R
+R
+
+Z=
+
+M
+
+(1.29)
+
+r =1 j=0
+
+Random states |r  = |φ0r  serve as initial functions for the Lanczos iteration, resulting
+in M eigenvalues  rj with corresponding |ψ rj . The relative statistical error is reduced
+by sampling (both for A and Z ) and behaves as
+
+δA/A = O(1/ R Z̄ ).
+
+(1.30)
+
+For general operator A the calculation of |ψ rj  and corresponding matrix elements
+ψ rj |A|r  is needed. On the other hand, the calculation effort is significantly reduced
+if A is conserved quantity, i.e., [H, A] = 0, and can be diagonalized simultaneously
+with H . Then
+R M
+Nst   −βrj
+e
+|r |ψ rj |2 Arj .
+(1.31)
+A =
+ZR
+r =1 j=0
+
+In this case the evaluation of eigenfunctions is not necessary since the element
+r |ψ rj  = vrj0 , Eq. (1.6), is obtained directly from eigenvectors of the tridiagonal
+r . There are several quantities of interest which can be evaluated in this
+matrix HM
+way, in particular the thermodynamic properties as internal energy, specific heat,
+entropy, as well as uniform susceptibility etc. [7, 20].
+Taking into account all mentioned assumptions, the approximation A (1.29)
+yields a good estimate of the thermodynamic
+average at all T . For low T the error
+√
+R),
+while
+for high T the error is expected
+is expected to be of the
+order
+of
+O(1/
+√
+to scale even as O(1/ Nst R). Since arguments leading to these estimates are not
+always easy to verify, it is essential to test the method for particular cases.
+
+1.4.2 Finite Temperature Lanczos Method: Dynamical Response
+The essential advantage of the FTLM with respect to other methods is nevertheless in
+the calculation of dynamical quantities. Let us consider the dynamical susceptibility
+
+1 Ground State and Finite Temperature Lanczos Methods
+
+13
+
+as given by the autocorrelation function C(ω) (procedure for the general correlation
+function C AB (ω) is given in Ref. [7]),
+
+
+χ (ω) = π(1 − e
+
+−βω
+
+1
+)C̃(ω), C̃(ω) = Re
+π
+
+with
+C(t) = A† (t)A(0) =
+
+ +∞
+
+dteiωt C(t),
+
+(1.32)
+
+1 
+n|e(−β+it)H A† e−i H t A|n.
+Z n
+
+(1.33)
+
+0
+
+Expanding the exponentials in analogy to static quantities, Eq. (1.20), we get
+C(t) = Z −1
+
+Nst 
+∞
+
+(−β + it)k (−it)l
+
+k!
+
+n=1 k,l=0
+
+l!
+
+n|H k A† H l A|n.
+
+(1.34)
+
+Expansion coefficients in Eq. (1.34) can be again obtained via the Lanczos method,
+as discussed in Sect. 1.4.1. Performing two Lanczos iterations with M steps, started
+with normalized |φ0n  = |n and |φ̃0n  ∝ A|n, respectively, we calculate coefficients
+Wkl following the Eq. (1.17). We again note that (within the full basis |n) the series
+are via Wkl exactly evaluated within the Lanczos basis up to order l, k ≤ M. The
+latter yields through Eq. (1.34) a combination of (β, t) expansion, i.e. a combination
+of high-T , short-t (in frequency high-ω) expansion to very high order. Extending
+and resuming series in k and l into exponentials, we get in analogy with Eq. (1.20)
+C(t) = Z −1
+
+Nst 
+M
+
+
+e−βi eit (i −˜ j ) n|ψin ψin |A† |ψ̃ nj ψ̃ nj |A|n,
+n
+
+n
+
+n
+
+(1.35)
+
+n=1 i, j=0
+
+Finally replacing the full summation with the random sampling the FTLM recipe for
+the correlation function is
+Nst   −βi
+C̃(ω) =
+e
+r |ψir ψir |A† |ψ̃ rj ψ̃ rj |A|r δ(ω − ˜ j r + ir ). (1.36)
+ZR
+R
+
+M
+
+r =1 i, j=0
+
+We check the nontrivial T = 0 limit of above expression. If |r  are not orthogonal
+to the g.s. |Ψ0 , then for large enough M the lowest-lying state converges to 0r ∼ E 0
+and |ψ0r  ∼ |Ψ0 , respectively. In this case we have
+Nst  
+Ψ0 |A† |ψ̃ rj ψ̃ rj |A|r r |Ψ0 δ(ω + E 0 − ˜ rj ) (1.37)
+R
+R
+
+C̃(ω, T = 0) ≈
+
+M
+
+r =1 j=0
+
+At T ∼ 0 one needs in general M ∼ 100 in order that low-lying states relevant
+to Eq. (1.37) approach |ψ̃ rj  → |Ψ j  and ˜ rj → E j . Also a considerable sampling
+
+14
+
+P. Prelovšek and J. Bonča
+
+R > 1 is required to get correct also amplitudes of separate peaks in the spectrum of
+Eq. (1.37) which are a subject of a statistical error due to the incomplete projection
+on different random |r  in ψ̃ rj |A|r r |Ψ0 . Similar statistical error can in fact appear
+also for static quantities in Eq. (1.29).
+
+1.4.3 Finite Temperature Lanczos Method: Implementation
+Most straightforward is the implementation of the FTLM for static quantities,
+Eq. (1.29). In particular for conserved quantities, Eq. (1.31), the computation load
+is essentially that of the g.s. Lanczos iteration repeated R times and only a minor
+changes are needed within the usual g.s. Lanczos code.
+On the other hand, for the dynamical correlation function (1.36) the memory
+requirement as well as the CPU time is dominated mostly by the evaluation of the
+matrix element ψir |A† |ψ̃ rj  where the operations scale as O p ∝ R M 2 Nst and
+memory as Mem ∝ M Nst . This effectively limits the application of the FTLM to
+50 < M < 500 where the lower bound is determined by the convergence of the g.s.
+|Ψ0 . Still, it should be noted that the calculation can be done simultaneously (without
+any additional cost) for all desired T , since matrix elements are evaluated only once.
+Evidently, one should use as much as possible symmetries of the Hamiltonian, e.g.,
+z
+, q to reduce effective Nst by splitting the sampling over different symmetry
+Ne , Stot
+sectors.
+The effect of finite M is less evident. Since M ∼ 100 is enough to converge well
+few lowest levels, it is also generally satisfactory for reliable dynamical correlation
+functions at low T . At high T , however, one can observe very regular oscillations
+which are the artifact of the Lanczos iterations with M  Nst . Namely, the procedure
+generates between extreme eigenvalues quite equidistant spectrum of quasi-states
+with the level spacing Δ ∼ ΔE/M, where ΔE is the full energy span of MB
+eigenstates. The effect is well visible in Fig. 1.2 where the high-T result for the spin
+structure factor S(q = π, ω) for the 1D Heisenberg model, Eq. (1.1), is presented
+for various M. It is evident that for the presented case (N = 24 and ΔE ∼ 16J )
+M > 200 is sufficient to obtain smooth spectra even for high T  J . However,
+larger M are advisable if sharper structures persist at high T .
+The role of random sampling R is less important for intermediate and high T
+since the relative error is largely determined via Z̄ as evident from Eq. (1.28). Larger
+R  1 is necessary only for the correct limit T → 0 (for given system size) and for
+off-diagonal operators A.
+One can claim that the FTLM in general obtains for all reachable systems results
+which are at any T very close to exact (full ED) results for the same finite (given N )
+system and the accuracy can be improved by increasing M and R. Still, it remains
+nontrivial but crucial to understand and have in control finite size effects.
+At T = 0 both static and dynamical quantities are calculated from the g.s. |Ψ0 ,
+which can be quite dependent on the size and on the shape of the system. At least
+in 1D for static quantities the finite-size scaling N → ∞ can be performed in a
+
+1 Ground State and Finite Temperature Lanczos Methods
+0.08
+
+S(q, )
+
+Fig. 1.2 High-T spin structure factor S(q = π, ω) for
+the 1D Heisenberg model,
+as calculated with different
+number of Lanczos steps M
+
+15
+M=100
+200
+300
+
+N=24
+T/J=100
+
+0.04
+
+0
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+/J
+
+controlled way, although in this case more powerful methods as, e.g., the DMRG
+are mostly available. In higher dimensional lattices, e.g., in 2D systems finite-size
+scaling is practically impossible due to very restricted choice of small sizes and
+different shapes. Also g.s. (T = 0) dynamical quantities are often dominated by
+few (typically N p < M) peaks which are finite-size dependent [5]. On the other
+hand, T > 0 generally introduces the thermodynamic averaging over a large number
+of eigenstates. This directly reduces finite-size effects for static quantities, whereas
+for dynamical quantities spectra become denser. From Eq. (1.36) it follows that we
+get in spectra at elevated T > 0 typically N p ∝ R M 2 different peaks resulting in
+nearly continuous spectra. This is also evident from the example of a high-T result
+in Fig. 1.2.
+It is plausible that finite-size effects at T > 0 become weaker. However, it should
+be recognized that there could exist several characteristic length scales in the considered physical (and model) system, e.g. the antiferromagnetic (AFM) correlation
+length ξ , the transport mean free path ls etc. These lengths generally decrease with
+increasing T and results for related quantities get a macroscopic relevance provided
+that ξ(T ), ls (T ) < L where L ∝ N 1/D is the linear size of the system. However,
+there exist also anomalous cases, e.g., in an integrable system ls can remain infinite
+even at T → ∞ [21, 22].
+A simple criterion for finite size effects one can use the normalized thermodynamic
+sum Z̄ (T ), Eq. (1.28), which provides the effective number of MB states contributing
+at chosen T (note that for a system with a nondegenerate g.s. Z̄ (T = 0) = 1). Finitesize temperature T f s can be thus defined with the relation Z̄ (T f s ) = Z ∗ where in
+practice the range 10 < Z ∗ < 50 is reasonable. Clearly, the FTLM is best suited just
+for systems with a large density of low lying MB states, i.e., for large Z̄ at low T .
+Since Z̄ (T ) is directly related to the entropy density s and the specific heat Cv of
+the system, large Z̄ at low T is the signature of frustrated quantum MB systems which
+are generally difficult to cope with other methods (e.g., the QMC method). Such are
+typically examples of strongly correlated electrons with an inherent frustration, e.g.,
+the doped AFM and the t-J model, Eq. (1.2), in the strong correlation regime J < t.
+We present in Fig. 1.3 as an example the variation of T f s in the 2D t-J model with
+
+16
+
+P. Prelovšek and J. Bonča
+
+Fig. 1.3 Finite-size temperature T f s versus hole doping
+ch in the 2D t-J model with
+J/t = 0.3, as calculated
+with the FTLM in system of
+N = 18 sites [7]
+
+0.8
+
+Tfs /t
+
+0.6
+
+N=18
+J/t=0.3
+
+Z *=300
+Z *=100
+
+0.4
+
+Z *=30
+0.2
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+ch
+
+the hole doping ch = Nh /N , as calculated for different Z ∗ = 30 − 300 for the fixed
+system of N = 18 sites and J/t = 0.3 as relevant for high-T cuprates. It is indicative
+that T f s reaches the minimum for intermediate (optimum) doping ch = ch∗ ∼ 0.15,
+where we are able to reach T f s /t ∼ 0.1. Away from the optimum doping T f s is
+larger, i.e., low-energy spectra are quite sparse both for undoped AFM and even
+more for effectively noninteracting electrons far away from half-filling (for nearly
+empty or full band).
+
+1.4.4 Low Temperature Lanczos Method
+The standard FTLM suffers at T → 0 from a statistical error due to finite sampling
+R, both for the static quantities, Eqs. (1.29) and (1.30), as well as for the dynamical
+correlations, Eqs. (1.36), and (1.37). The discrepancy can be easily monitored by
+the direct comparison with the g.s. Lanczos method, Eqs. (1.8, 1.11). To avoid this
+problem, a variation of the FTLM method, named Low-temperature Lanczos method
+(LTLM) has been proposed [8] which obtains correct g.s. result (for finite systems)
+independent of the sampling R.
+The idea of LTLM is to rewrite Eq. (1.19) in a symmetric form
+st
+1 
+n|e−β H/2 Ae−β H/2 |n,
+Z
+
+N
+
+A =
+
+(1.38)
+
+n=1
+
+and insert the Lanczos basis in analogy with the FTLM, Eq. (1.19), now represented
+with a double sum
+Nst   −β(rj +lr )/2
+e
+r |ψ rj ψ rj |A|ψlr ψlr |r ,
+ZR
+R
+
+A =
+
+M
+
+r =1 j,l=0
+
+(1.39)
+
+1 Ground State and Finite Temperature Lanczos Methods
+
+17
+
+The advantage of the latter form is that it satisfies the correct T = 0 limit provided
+that the g.s. is well converged, i.e., |ψ0r  ∼ |Ψ0 . It then follows from Eq. (1.39),
+A =
+
+R
+R
+
+
+r |Ψ0 Ψ0 |A|Ψ0 Ψ0 |r /
+Ψ0 |r r |Ψ0  = Ψ0 |A|Ψ0 ,
+r =1
+
+(1.40)
+
+r =1
+
+for any chosen set of |r . For the dynamical correlations C(t) one can in straightforward way derive the corresponding expression in the Lanczos basis
+Nst   −β(r +r )/2
+rl
+r
+r
+i
+l
+e
+r |ψir ψir |A† |ψ̃ rl
+j ψ̃ j |A|ψl ψl |r 
+ZR
+M
+
+R
+
+C̃(ω) =
+
+r =1 i, j,l=0
+
+1
+× δ(ω − ˜ rlj + (ir + lr )).
+2
+
+(1.41)
+
+It is again evident that for T → 0 the sampling does not influence results being correct
+even for R = 1 if the g.s. |Ψ0  is well converged for all starting |r . The payoff is
+in an additional summation over the new Lanczos basis sets |ψ̃ rl
+j  which need to be
+started from each A|ψlr  in Eq. (1.41) separately. Since the LTLM is designed for
+lower T there one can effectively restrict summations in (i, l) in Eq. (1.41) to much
+smaller M   M where only lowest states with ir , lr ∼ E 0 contribute [8], and in
+addition use smaller M1  M for the basis |ψ̃ rl
+j .
+An alternative version for Lanczos-type approach [23] for dynamical quantities
+is not to start the second Lanczos run from A|r  [7] or from A|ψlr  [8], but from
+|
+Ar  =
+
+M
+
+
+A|ψlr e−βl /2 ψlr |r .
+r
+
+(1.42)
+
+l=0
+
+r ,
+In this way one obtains with the second Lanczos run the Lanczos eigenstates |ψ
+k
+which cover the relevant Hilbert space for starting random vector |r  and the inverse
+temperature β. The resulting dynamical autocorrelation function is
+Nst   −βr /2
+kr ψ
+kr | 
+e i r |ψir ψir |A† |ψ
+Ar 
+RZ
+R
+
+C̃(ω) =
+
+M
+
+r =1 i,k=0
+
+× δ(ω − ˜kr + ir ).
+
+(1.43)
+
+In this way the sufficiency of only one random vector in the T = 0 limit is reproduced,
+while at T > 0 the algorithm has the same time efficiency as the FTLM, but with
+much smaller random sampling needed to reach the same accuracy (at least for
+low T ). However, the price paid is that results for each T need to be calculated
+separately, while within the FTLM all T (or T up to certain value within the LTLM)
+are evaluated simultaneously.
+
+18
+
+P. Prelovšek and J. Bonča
+
+1.4.5 Microcanonical Lanczos Method
+While most investigations in strongly correlated systems focus on the low-T regime,
+there are systems where dynamical properties are nontrivial even at high T . Well
+known such case is the spin diffusion constant Ds (T ) in the isotropic Heisenberg
+model, Eq. (1.1), which is not known by value and moreover not even its existence
+at any T > 0. Similar although somewhat less controversial is the case of transport
+quantities, both for integrable or generic nonintegrable models. Whereas the FTLM
+seems well adapted for studies of transport response functions, oscillations due to
+limited M can affect the crucial low-ω resolution as seen also in Fig. 1.2.
+At elevated T it is therefore an advantage to use the Microcanonical Lanczos
+method (MCLM) [9], employing the fact from statistical physics that in the thermodynamic limit (for large system) the microcanonical ensemble should yield the
+same results as the canonical one. The shortcoming of the MCLM emerges since
+in finite systems statistical fluctuations are much larger within the microcanonical
+ensemble. Still, reachable finite-size systems have very high density of states in the
+core of the MB spectrum as probed by high T . Hence, statistical fluctuations are
+at high T effectively smoothed out in contrast to low-T properties dominated by a
+small number of low lying MB states.
+The implementation of the MCLM is quite simple and straightforward. One first
+determines the target energy λ = H (T ) which represents the microcanonical
+energy equivalent to the canonical average energy for chosen T and the system size N .
+Since λ is a parameter within the MCLM, one can relate it to T by performing either
+FTLM (simplified due to conserved quantity H ) on the same system or extrapolating
+full ED results (with linear dependence on N ) on small lattices. Next we find a
+representative microcanonical state |Ψλ  for the energy λ. One convenient way within
+the Lanczos-type approach is to use the new operator
+V = (H − λ)2 .
+
+(1.44)
+
+Performing Lanczos iterations with the operator V yields again the extremum eigenvalues, in particular the lowest one close to V ∼ 0. In contrast to the g.s. procedure,
+the convergence to a true eigenstate cannot be reached in system sizes of interest
+even with M1  100. The reason is extremely small eigenvalue spacing of operator
+V scaling as ΔVn ∝ (ΔE/Nst )2 , ΔE being the whole energy span within the given
+system. Fortunately such a convergence is not necessary (even not desired) since the
+essential parameter is small energy uncertainty σ E , given by
+σ E2 = Ψλ |V |Ψλ .
+
+(1.45)
+
+For small energy spread σ E /ΔE < 10−3 typically M1 ∼ 1000 is needed. Again,
+to avoid storing M1 Lanczos wavefunctions |φi  Lanczos procedure is performed
+twice as described in Sect. 1.2.2, i.e., the second time with known tridiagonal matrix
+elements to calculate finally |Ψλ  in analogy with Eq. (1.6). The latter is then used to
+
+1 Ground State and Finite Temperature Lanczos Methods
+
+19
+
+evaluate any static expectation average A or the dynamical correlation function as
+in Eq. (1.9),
+1
+(1.46)
+C(ω, λ) = Ψλ |A† +
+A|Ψλ .
+ω +λ− H
+The latter is evaluated again using Lanczos iterations with M2 steps starting with the
+initial wavefunction |φ̃0  ∝ A|Ψλ  and C(ω, λ) is represented in terms of continued
+fractions. Since the MB levels are very dense and correlation functions smooth at
+T  0 large M2  100 are needed but as well easily reachable to achieve high-ω
+resolution in C(ω, λ).
+It is evident that the computer requirement for the MCLM both regarding the CPU
+and memory are essentially the same as for the g.s. dynamical calculations except
+that typically M1 , M2  100. In particular requirements are less demanding than
+using the FTLM with M > 100. A general experience is that for systems with large
+Nst  10000 the MCLM dynamical results agree very well with FTLM results
+for the same system. It should be also noted that actual frequency resolution δω in
+C(ω, λ), Eq. (1.46), is limited by δω ∼ σ E which is, however, straightforward to
+improve by increasing M1 , M2 with typical values M1 , M2 > 1000. One can also
+improve MCLM results for any T by performing an additional sampling over initial
+random starting |φ0  as well as over λ with a probability distribution p(λ) simulating
+the canonical ensemble in a finite-size system, i.e., by replacing Eq. (1.46) with
+C(ω) =
+
+
+
+p(λ)C(ω, λ).
+
+(1.47)
+
+λ
+
+1.4.6 Statical and Dynamical Quantities at T > 0: Applications
+The FTLM has been designed to deal with simplest tight-binding models of strongly
+correlated electrons, at the time mostly with challenging microscopic electronic models of high-Tc superconductors [6, 7], where besides superconductivity there is a
+variety of anomalous non-Fermi-like properties even in the normal state. Clearly
+of interest in this connection are prototype MB models as the Heisenberg model,
+Eq. (1.1), the t-J model, Eq. (1.2) and the Hubbard model on the 2D square lattice.
+Unfrustrated Heisenberg model can be numerically studied on much bigger lattices
+with QMC and related methods. The 2D Hubbard model was and still is mostly
+subject of DMFT and QMC studies, since at half-filling or close to it the Lanczos
+methods are quite restricted due to large Nst even for modest sizes N ∼ 16. Therefore
+one focus of Lanczos-based approaches was on the t-J model being with some generalizations a microscopic representation of electronic properties of high-Tc cuprates.
+Thermodynamic quantities as chemical potential μ, entropy density s, specific
+heat Cv are the easiest to implement within the FTLM. Their T - and (hole) doping ch -dependence within the t-J model on a 2D square lattice (calculated up to
+N = 26 sites) reveal already very anomalous behavior of doped Mott insulators
+
+20
+
+P. Prelovšek and J. Bonča
+
+[24] (as evident already from Fig. 1.3), confirmed also by results for more complete
+Hubbard model [25]. An introduction of next-neighbor hopping t  generates also an
+asymmetry in thermodynamic properties between hole-doped and electron-doped
+cuprates [26] as well quite dramatic influence of stripe order [27] consistent with the
+physics of cuprates.
+The advantages of the FTLM and also its feasibility for the 2D t-J model are even
+more evident in quite numerous studies of spin and charge dynamics at T > 0 [7]
+which show good agreement with neutron scattering and NMR [20, 28–30], optical
+conductivity σ (ω) and resistivity ρ(T ) [31, 32], Hall constant R H (T ) [33] and a
+general non-Fermi-liquid behavior of cuprates [30], as well as the puzzling strong
+influence of nonmagnetic impurities [34]. As an example of a transport quantity
+hardly accessible by other methods we present in Fig. 1.4 the universal planar resistivity ρ(T ), as extracted from the dynamical conductivity σ (ω → 0) = 1/ρ, within
+the t-J model for different doping levels ch [32]. Result in Fig. 1.4 clearly shows
+a linear dependence below the pseudogap temperature T ∗ dependent on doping ch .
+Another characteristic signature is a saturation (plateau) of ρ(T ) at low doping and
+the universal trend at high T .
+Spectral properties as manifested in single-particle spectral functions A(k, ω)
+are in the core of the understanding of cuprates, as well as of strongly correlated
+electrons in general. Here, even g.s. and low-T properties are the challenge for
+numerical studies whereby the FTLM can be viewed as a controlled way to get reliable (macroscopic-like) T → 0 result, in contrast to quite finite-size plagued results
+obtained via g.s. Lanczos procedure [5]. Using the FTLM at T ∼ T f s with the twisted
+boundary condition can simulate a continuous wavevector k. Using in addition the
+course graining averaging one can reach results for A(k, ω) [35–37] giving insight
+into the electron vs. hole doped angle-resolved photoemission experiments, quasiparticle relaxation and waterfall-like effects. A characteristic
+result of such studies is
+in Fig. 1.5 for the single-particle density of states N (ω) = k A(k, ω) [35]. Here,
+the strength of the FTLM is visible in the high ω resolution within the most interesting low-ω window. Interesting and reproducible are also nontrivial spectral shapes
+as the sharp peak close to ω < 0 and a broad shoulder for ω  0. Most important is,
+
+2
+
+/e0 )
+
+1
+
+0.5
+ch=1/20
+ch=2/20
+ch=3/20
+
+ch
+
+Fig. 1.4 Normalized 2D
+resistivity ch ρ versus T /t
+within the t-J model with
+J/t = 0.3 for different hole
+concentrations ch [32]
+
+0
+
+0
+
+0.5
+
+T/t
+
+1
+
+1 Ground State and Finite Temperature Lanczos Methods
+0.4
+ch=1/20
+
+t =0
+
+ch=1/18
+
+ch=2/20
+
+ch=2/18
+
+ch=3/18
+
+ch=3/18
+
+N(
+
+t
+
+0.3
+
+t /t=-0.3
+T/t=0.1
+
+21
+
+0.2
+
+0.1
+
+0
+-10
+
+-5
+
+0
+
+-5
+
+0
+
+5
+
+/t
+Fig. 1.5 Density of states N (ω) for different dopings ch within the extended t-J model with n.n.n.
+hopping t  = −0.3t and t  = 0, respectively [35]
+
+however, the evident pseudogap (observed also experimentally in cuprates) visible
+at ω ∼ 0 in the low-doping regime.
+Besides the challenging models for cuprates there have been also studies of static
+and dynamical properties of multiband and multiorbital models which either reduce
+to the generalized t-J model [38] or to Kondo lattice models [39–41] and the FalicovKimball model [42]. While the increasing number of local basis states K clearly limits
+the applicability of ED-based methods, they are competitive in treating nontrivial
+frustrated spin models less suitable for the QMC and other methods, however closely
+related to physics of novel materials. Moreover, frustrated models are characterized
+by a large entropy density s and related low T f s essential conditions for feasibility of
+FTLM results. Examples of such systems are the Shastry-Sutherland model [43, 44],
+2D J1 -J2 model [45], and properties of frustrated magnetic molecules [46–48].
+Another class of problems which can be quite effectively dealt with the FTLM and
+MCLM approaches is the fundamental as well as experimentally relevant problem
+of transport in 1D systems of interacting fermions as realized, e.g., in quasi-1D
+spin-chain materials [49]. It has been recognized that the transport response at any
+T > 0 crucially differs between integrable and nonintegrable systems. Since the 1D
+isotropic as well as anisotropic Heisenberg model, Eq. (1.1), is integrable it opens a
+variety of fundamental questions of anomalous transport in such systems, the effects
+of perturbative terms and impurities. Such fundamental questions on transport and
+low-ω dynamic response remain nontrivial even at high T [21, 22], hence the MCLM
+is the most feasible and straightforward method. It has been in fact first probed on the
+anomalous transport in 1D insulators [50] but further on used to study interactioninduced transport at T > 0 in disordered 1D systems [51, 52], incoherent transport
+induced by a single either static [53] or dynamical spin impurity [54].
+In Fig. 1.6 we present as an example the MCLM result for the dynamical spin
+conductivity in the anisotropic Heisenberg model, Eq. (1.1), where J zz = J x x =
+J yy = J in the Ising-like (with the spin gap in the g.s.) regime Δ = J zz /J > 1.
+
+22
+
+P. Prelovšek and J. Bonča
+0.5
+
+T ( )
+
+=0
+=0.25
+=0.5
+=0.75
+
+0.25
+
+0
+
+0.2
+
+0.4
+
+0.6
+
+0.8
+
+1
+
+1.2
+
+1.4
+
+/J
+
+Fig. 1.6 High-T dynamical spin conductivity T σ (ω) within the anisotropic Heisenberg model in
+the Ising-like regime Δ = 1.5 and various next-neighbor interaction α = J2zz /J as calculated with
+the MCLM on a chain with N = 30 sites
+
+Results for the high-T dynamical spin conductivity T σ (ω) are shown for various
+next-neighbor (anisotropic) coupling α = J2zz /J . First message is that the MCLM as
+the method is well adapted for the high ω resolution (here using M1 = M2 = 2000)
+and reaching large N = 30 (Nst ∼ 5.106 in a single S z = 0, q sector). Another
+conclusion is that the dynamics of such systems is very anomalous. For the integrable
+case α = 0 we find σ0 = σ (0) ∼ 0 but also an anomalous finite-size peak at
+ω p ∝ 1/N [50]. At the same time breaking integrability with α > 0 appears to
+lead to σ0 > 0 still approaching an ‘ideal’ insulator (insulating at all T ) for a weak
+perturbation σ0 (α → 0) → 0 [55].
+
+1.5 Reduced Basis Lanczos Methods
+The main shortcoming of ED approaches are finite-size effects that tamper calculations on small lattice systems. Exponentially growing Hilbert spaces represent the
+main obstacle against extending ED calculations to larger lattices. One way to extend
+ED calculations is to reduce the complete Hilbert space and keep only states that give
+a significant weight in the g.s. wavefunction or in the relevant Hilbert space, e.g., at
+T > 0. Here, the crucial step represents developing a feasible algorithm for the basis
+reduction.
+One clear example of very effective basis construction is the DMRG method,
+most feasible for 1D correlated systems. Within this method, described in other
+chapters, some intermediate steps of ED diagonalization are frequently also performed via Lanczos iterations [56]. Moreover, there are recently developments which
+are extending the application of DMRG procedure to T > 0 dynamical response
+[57, 58] involving more directly features of Lanczos-based approaches. In particular, recent finite-T dynamical DMRG (FTD-DMRG) method [58] combines the
+DMRG selection of MB states and the LTLM procedure as described in Sect. 1.4.3
+
+1 Ground State and Finite Temperature Lanczos Methods
+
+23
+
+and in Eqs. (1.42), (1.43) to evaluate dynamical correlations at T > 0, both being
+effective at low T . So far the FTD-DMRG method has been applied to find novel
+features within the 1D J1 -J2 model [59].
+The ideas to find the reduced basis sets is, however, more general going beyond the
+1D systems and has been successful in solving several problems of strongly correlated
+systems. Even before the discovery of high-Tc superconductors that boosted research
+on models of correlated systems, Brinkman and Rice [60] developed a string representation of configurational space to compute the band renormalization and mobility
+in the atomic limit of the Hubbard model. The string picture was later used to compute single hole properties and to estimate hole-pair binding within the t-J model
+by many authors [61–63]. In connection with ED calculations on finite lattices the
+truncation scheme based on the limitation of the maximal length of strings leads to
+slow convergence in terms of the number of reduced basis states [64] in the spinisotropic limit of the t-J model. Rather slow convergence is achieved also using a
+cluster diagonalization scheme together with the systematic expansion of the Hilbert
+space [65, 66].
+The exact diagonalization method in limited functional space (EDLFS) was originally developed specifically for solving the problem of a single charge carrier (hole)
+doped in the AFM background [67]. The basic principle of the method is based
+on the above mentioned string picture, that emerges as a moving hole through the
+AFM background creates in its wake paths of overturned spins-strings. EDLFS was
+later generalized to include phonon degrees of freedom [68, 69]. For the purpose of
+presenting the method we start by considering the prototype t-J model, Eq. (1.2),
+coupled to dispersionless optical phonons on a square lattice
+H = Ht + H J + Hg + Hω0
+ †
+
+γ
+− +
+Siz S zj + (Si+ S −
+= −t
+c̃is c̃ js + J
+j + Si S j )
+2
+i js
+i j
+
+
++
+(1 − n i )(ai + ai ) + ω0
+ai+ ai ,
++g
+i
+
+(1.48)
+
+i
+
+where t represents
+the nearest-neighbor hopping, ai is the phonon annihilation oper
+ator, n i = s n is and all double sums run over the nearest neighbor pairs. The third
+term represents electron–phonon coupling g and the last the energy of Einstein-type
+phonons ω0 .
+The Néel state is the g.s. of the model when t = γ = g = 0. We construct the
+limited functional space (LFS) for one hole starting from a Néel state on an infinite
+2D lattice with a hole placed in the origin and zero phonon degrees of freedom
+|φ0  = c0 |Néel;0. We then proceed with the generation of new states, using the
+following generator
+ns
+m
+
+{|φl } = Ht +
+Hgi
+|φ0 ,
+(1.49)
+i=1
+
+24
+
+P. Prelovšek and J. Bonča
+
+where Ht and Hg are off-diagonal terms in Eq. (1.48), respectively. We select
+n s = 1, Ns and a fixed value of m. This procedure generates strings with maximum lengths given by Ns and phonon quanta at a maximal distance Ns − 1 from
+the hole. Parameter m provides the creation of additional phonon quanta leading to a
+maximum number of phonons N ph = m Ns in the system. Typically, larger N ph are
+necessary to achieve convergence in the strong electron–phonon coupling (polaron)
+regime. While constructing LFS we take into account explicitly translational symmetry. I.e., we store only one out of (in principle) infinitely many translationally
+invariant states, called a parent state. However, the Néel state is a state with a broken translational symmetry so allowed translations are generated by two minimal
+translations r1,2 = (1, ±1). The basis wavefunctions are represented by one of the
+two nonequivalent hole positions rh , sets of strings, representing overturned spins
+relative to the Néel state (spin flips), and occupation numbers representing excited
+phonon quanta,
+|φ = |rh ; r1 , r2 , . . . , r N f l ; n r1 , n r2 , . . . , n rN ,
+s
+
+(1.50)
+
+where ri represent spin-flip coordinates, n rj number of phonon quanta at site rj and
+N f l ≤ Ns is the total number of spin flips.
+Since the Hilbert space grows exponentially with Ns there exist many intuitive
+physically motivated restrictions optimizing LFS’s for different parameter regimes
+to slow down the exponential growth. A systematic control over the growing Hilbert
+space can be achieved through realization that the diagonal energy of long strings
+grows linearly with Ns . Assuming that the contribution of long strings in the g.s.
+wave-function is negligible, we introduce an additional parameter Nb ≤ Ns that
+restricts generation of long strings by imposing a condition under which all coordinates of spin flips satisfy |μh − μ f | ≤ Nb ; μ = {x, y} where h and f refer to
+hole and spin-flip indexes, respectively. Application of this condition improves the
+quality of the LFS by increasing the number of states containing spin flips in the
+vicinity of the hole while keeping the total amount of states within computationally
+accessible limits.
+Figure 1.7 represents a particular state generated using Eq. (1.49). Black and grey
+dots represent sites with spins ‘up’ and ‘down’, respectively. The hole starts at the
+position (−1, 1) in the direction (0, −1), and travels along the path indicated by
+arrows. Crosses represent spin-flips and numbers represent excited phonon quanta,
+generated along the hole’s path. The effect of the parameter m is to set the maximal
+number of excited phonon quanta on indicated positions. In this particular parent
+the hole ends its path on the B-sublattice. Using allowed minimal translations, the
+position of the hole in the parent state is at rh = (1, 0).
+After the generation of LFS the full Hamiltonian in Eq. (1.48) is diagonalized
+within this LFS using the standard Lanczos procedure. The efficiency of the EDLFS
+method in case of the t-J model and stability of results against varying Ns and Nb
+has been shown in detail in Ref. [67].
+
+1 Ground State and Finite Temperature Lanczos Methods
+
+25
+
+Fig. 1.7 Schematic representation of a particular basis wavefunction obtained using Ns = 10,
+m = 3, and Nb = 3. Circle represents the hole position, crosses, portray spin flips and numbers
+indicated excited phonon quanta. Dots represent lattice sites with no spin flips and zero excited
+phonon quanta. In this particular case, N f l = 5 and N p = 8. Presented basis function is one of a
+total of Nst = 42.106 states, generated using Eq. (1.49)
+
+Besides reliable results obtained using the EDLFS there are other important advantages over most other methods: (a) it is highly efficient, (b) the method is free of
+finite-size effects, (c) it treats spin and lattice degrees of freedom on the same footing while preserving the full quantum nature of the problem, and (d) it allows for
+computation of physical properties at an arbitrary wavevector. Even though results
+depend on the choice of parameters defining the functional generator in Eq. (1.49),
+such as Ns and m, reliable results are obtained already for relatively small sizes of the
+Hilbert space Nst , typically up to three orders of magnitude smaller than in the case
+of exact diagonalization techniques. For most static as well as dynamic quantities
+convergence to the thermodynamic limit can be achieved with a systematic increase
+of Ns and m.
+The EDLFS obviously has few limitations: (a) the method is limited to calculations
+in the zero-doping limit, e.g., Nh = 1, 2 mobile particles immersed in an infinite
+(AFM) background, (b) the spin anisotropy is inherently built in the method, and (c)
+due to the broken translational symmetry of the starting wavefunction, calculations
+are limited to the reduced AFM Brillouin zone.
+Due to its high efficiency in dealing with spin fluctuation the method represents one
+of the few successful methods that allows the addition of lattice degrees of freedom to
+a correlated electron model. The EDLFS handles spin and lattice degrees of freedom
+by preserving the full quantum mechanical nature of the problem and enables a direct
+calculation of the dynamic response functions in terms of real frequency ω.
+The EDLFS can be rather in a straightforward way generalized for the study of
+the two-hole Nh = 2 problem [70, 71]. ED studies in the t-J model for Nh = 2 were
+performed on a 2D square lattices up to N = 32 sites [72, √
+73]. Still, the maximal
+distance between two holes remains rather small lmax = N /2 = 4. Attempts
+to increase the lattices sizes beyond ED studies led authors to investigate various
+truncated basis approaches [64–66] and using small sets of variational wavefunctions
+with given rotational symmetries based on ‘string’ and ‘spin-bag’ pictures [74].
+
+26
+
+P. Prelovšek and J. Bonča
+
+While the problem of two holes within the t-J model represents a challenging problem, the addition of quantum phonons seems an almost unachievable task.
+Nevertheless, the EDLFS due to an efficient choice of LFS can handle this problem
+well. The construction of the LFS starts from a Néel state with holes located on
+neighboring sites and with zero phonon quanta. Such a state represents a parent state
+of a translationally invariant state. We generate new parent states in analogy with
+Eq. (1.49) by applying the generator of states
+
+|φl a =
+
+Ht + H̃ J +
+
+m
+
+
+ns
+
+Hgi
+
+|φ0 
+
+(1.51)
+
+i=1
+
+where H̃ J denotes the off-diagonal spin exchange term in Eq. (1.48) applied only to
+erase spin flips generated through application of Ht . This allows the creation of states
+with holes positioned further apart that are not connected with spin strings. Note that
+for larger Ns ≥ 6 some of such states would be generated even without evoking
+H̃ J term via the Trugman loops [61–63]. One of the advantages of this method in
+comparison to other approaches is that it allows much larger distances between the
+holes, lmax = Ns + 1. Note also that the functional generator preserves as well the
+point-group symmetry.
+As an example we present in Fig. 1.8 the probability of finding a hole pair at a
+distance r
+
+
+
+
+
+h h
+n i n j δ |ri − r j | − r ,
+(1.52)
+P(r ) =
+i = j
+
+where n ih = 1 − n i is the local hole density. In the case of dimensionless electron–
+phonon coupling λ = g 2 /8ω0 t = 0, the maximal allowed distance between holes
+is lmax = 13 while for λ = 0.25 lmax = 7, whereby results for λ = 0 are consistent
+with previous findings using ED [72, 73], reduced-basis ED [65, 66], as well as
+string picture variational approaches [74].
+
+Fig. 1.8 Probability P(r ) of finding a hole pair at a distance r within the t-J -Holstein model
+with J/t = 0.3 and ω0 /t = 0.2, evaluated for electron–phonon coupling parameters λ = 0
+and λ = 0.25. Different Ns and m as indicated in legends were chosen giving Nst ∼ 7.106 and
+Nst ∼ 26.106 , respectively. Both solutions correspond to a d-wave symmetry
+
+1 Ground State and Finite Temperature Lanczos Methods
+
+27
+
+1.6 Real Time Dynamics Using Lanczos Method
+Research in the field of non-equilibrium dynamics of complex quantum systems
+constitutes a formidable theoretical challenge. When dealing with ED approaches or
+calculations in the reduced basis, the time evolution of the time-dependent Shrödinger
+equation,
+∂Ψ (t)
+= H (t)Ψ (t),
+(1.53)
+i
+∂t
+can be efficiently obtained using the time-dependent Lanczos technique, as originally
+described in Ref. [75] and later applied and analysed in more detail [76]. One of
+the straightforward reasons is that most commonly the Lanczos method is used
+to compute g.s. of MB Hamiltonian. Generalizing the method to time-dependent
+calculation represents only a minor change to already existing codes. Even though the
+method is most suitable for the time evolution of the time-independent Hamiltonian,
+it can nevertheless be applied even to the time-dependent case. The time evolution
+of |Ψ (t) is then calculated by step-vise change of time t in small time increments
+δt, generating at each step Lanczos basis of dimension M (typically M < 10), to
+follow the evolution
+|Ψ (t + δt)  e−i H (t)δt |Ψ (t) 
+
+M
+
+
+e−il δt |ψl ψl |Ψ (t),
+
+(1.54)
+
+l=1
+
+where |ψl , l , l = 0 . . . M are Lanczos eigenfunctions and eigenvalues, respectively, obtained via the Lanczos iteration started with |φ0  = |Ψ (t). The advantage
+of the time-evolution method following Eq. (1.54) is that it preserves the normalization of |Ψ (t + δt) for arbitrary large δt. The approximation of finite M in Eq. (1.54)
+is also correct at least to the Mth Taylor-expansion order in δt. It is, however, important to stress that δt should be chosen small enough to take into account properly
+the time-dependence of H (t). E.g., in the case of driving the system with an external constant electric field, δt/t B ∼ 10−3 where t B is the Bloch oscillation period
+[55, 77–79].
+So far, investigations of correlated driven systems under the influence of a driving
+electric field in 1D systems using the Lanczos time evolution method focused on
+generic systems, like the metallic and Mott-insulating regime within the 1D model
+of interacting spinless fermions [55, 77]. Even though rather small systems can be
+studied it has been established that steady state can be reached without any additional
+coupling to a heat bath, provided that the Joule heating of the system is properly taken
+into account.
+The case of a single charge carrier in an inelastic medium driven by the external
+electric field in 1D as well as 2D has been investigated using EDLFS combined with
+a Lanczos-based time-evolution approach [77, 79–82]. The strength of EDLFS is in
+construction of the Hilbert space that enables not only an accurate description of the
+ground state of the single carrier system but it allows for enough extra inelastic (spin
+
+28
+
+P. Prelovšek and J. Bonča
+
+or phonon) excitations to absorb energy, emitted by the field driven carrier, until the
+system reaches the steady state. This again enables a proper description of the steady
+state without coupling the system to an external thermal bath.
+
+1.7 Discussion
+Exact diagonalization based methods, both the full ED and Lanczos-type ED
+approach, are very extensively employed in the investigations of strongly correlated
+MB quantum systems in solid state and elsewhere. The reason for their widespread
+use are several: (a) unbiased approach to the MB problem without any simplifications or approximations, independent of complexity of the MB system, (b) relative
+simplicity of generating the codes for various models and observables, (c) easy and
+straightforward testing of codes, (d) direct interpretation of obtained quantum MB
+states and their possible anomalous structure and properties, (e) high pedagogical
+impact as a quick and at the same time very nontrivial introduction into the nature
+of MB quantum physics. Also the Lanczos-based methods described in this review,
+i.e., the g.s. Lanczos method for static and dynamic quantities, and somewhat more
+elaborate FTLM, MCLM, LTLM and EDLFS, require rather modest programming
+efforts in comparison with more complex numerical methods, e.g., the QMC- and
+DMRG- based methods, as described in other chapters.
+Clearly, the main drawback of ED methods is the smallness of lattice sizes N
+determined by a limited number of basis states (at present Nst < 109 ) treated with a
+Lanczos iteration procedure. The achievable N with ED methods appears quite modest in comparison with some established and recently developed numerical methods,
+as the QMC, DMRG, matrix-product-states methods etc. Still, in spite of very intensive development and advance of novel numerical methods in last two decades there
+are several aspects of strong-correlation physics, where ED-based methods are so
+far either the only feasible or at least superior to other methods. In this chapter we
+have focused mostly on Lanczos-based methods and applications where they are still
+competitive and get nontrivial results with a macroscopic validity:
+(a) MB g.s. and its properties of frustrated and complex models mostly so far do not
+offer alternative powerful methods except ED approaches, at least beyond D = 1
+systems where DMRG-based methods can be effectively applied,
+(b) T > 0 static properties evaluated with Lanczos-based methods as the FTLM and
+the LTLM are as well most powerful and reliable for frustrated and complex system,
+in particular in systems with high degeneracies of MB states and large entropy at
+low T ,
+(c) T > 0 Lanczos methods for dynamical quantities, as the FTLM and MCLM,
+yield for many models and geometries results superior to other methods or even
+the only accessible results in several cases. In particular the advantage of the latter
+methods is high ω resolution at all temperatures beyond the finite size limit T > T f s ,
+the macroscopic-like results at low T with a proper scaling to T → 0, and the
+
+1 Ground State and Finite Temperature Lanczos Methods
+
+29
+
+possibility of detailed studies of systems with nontrivial (anomalous) dynamics at
+any, in particular high T .
+(d) Lanczos technique of ED is also the natural application within the methods with
+a restricted MB basis sets as the EDLFS and DMRG-type targeting as well as in the
+real-time evolution studies of strongly correlated systems.
+
+References
+1. C. Lanczos, J. Res. Nat. Bur. Stand. 45, 255 (1950)
+2. B.N. Parlett, The Symmetric Eigenvalue Problem (Prentice Hall, Eaglewood Cliffs, 1980)
+3. J.W. Demmel, Applied Numerical Linear Algebra (SIAM, Philadelphia, 1997)
+4. R. Haydock, V. Heine, M.J. Kelly, J. Phys. C: Solid State Phys. 8, 2591 (1975)
+5. For a review, see E. Dagotto, Rev. Mod. Phys. 66, 763 (1994)
+6. J. Jaklič, P. Prelovšek, Phys. Rev. B 49, 5065 (1994)
+7. For a review, see J. Jaklič, P. Prelovšek, Adv. Phys. 49, 1 (2000)
+8. M. Aichhorn, M. Daghofer, H.G. Evertz, W. von der Linden, Phys. Rev. B 67, 161103(R)
+(2003)
+9. M.W. Long, P. Prelovšek, S. El Shawish, J. Karadamoglou, X. Zotos, Phys. Rev. B 68, 235106
+(2003)
+10. For a review, see M. Imada, A. Fujimori, Y. Tokura, Rev. Mod. Phys. 70, 1039 (1998)
+11. P.W. Leung, Phys. Rev. B 73, 14502 (2006)
+12. T. Tohyama, Y. Inoue, K. Tsutsui, S. Maekawa, Phys. Rev. B 72, 045113 (2005)
+13. J. Oitmaa, D.D. Betts, Can. J. Phys. 56, 897 (1978)
+14. D.D. Betts, H.Q. lin, J.S. Flynn. Can. J. Phys. 77, 3535 (1999)
+15. P.R.C. Kent, M. Jarrell, T.A. Maier, Th. Pruschke, Phys. Rev. B 72, 060411 (2005)
+16. J. Cullum, R.A. Willoughby, J. Comput. Phys. 44, 329 (1981)
+17. H. Mori, Prog. Theor. Phys. 34, 423 (1965)
+18. M. Imada, M. Takahashi, J. Phys. Soc. Jpn. 55, 3354 (1986)
+19. R.N. Silver, H. Röder, Int. J. Mod. Phys. C 5, 735 (1995)
+20. J. Jaklič, P. Prelovšek, Phys. Rev. Lett. 75, 1340 (1995)
+21. X. Zotos, P. Prelovšek, Phys. Rev. B 53, 983 (1996)
+22. For a review, see F. Heidrich-Meisner, A. Honecker, W. Brenig, Eur. Phys. J. 151, 135 (2007)
+(Special Topics)
+23. J. Kokalj, Ph.D. Thesis, University of Ljubljana, 2010 (unpublished)
+24. J. Jaklič, P. Prelovšek, Phys. Rev. Lett. 77, 892 (1996)
+25. J. Bonča, P. Prelovšek, Phys. Rev. B 67, 180502(R) (2003)
+26. T. Tohyama, S. Maekawa, Phys. Rev. B 67, 092509 (2003)
+27. T. Tohyama, S. Maekawa, P. Prelovšek, Phys. Rev. B 67, 180502 (2003)
+28. Y. Shibata, T. Tohyama, S. Maekawa, Phys. Rev. B 64, 054519 (2001)
+29. P. Prelovšek, I. Sega, J. Bonča, Phys. Rev. Lett. 92, 027002 (2004)
+30. J. Bonča, P. Prelovšek, I. Sega, Phys. Rev. B 70, 224505 (2004)
+31. J. Jaklič, P. Prelovšek, Phys. Rev. B 50, 7129 (1994)
+32. M.M. Zemljič, P. Prelovšek, Phys. Rev. B 72, 075108 (2005)
+33. D. Veberič, P. Prelovšek, Phys. Rev. B 66, 020408(R) (2002)
+34. P. Prelovšek, I. Sega, Phys. Rev. Lett. 93, 207202 (2004)
+35. M.M. Zemljič, P. Prelovšek, Phys. Rev. B 75, 104514 (2007)
+36. M.M. Zemljič, P. Prelovšek, T. Tohyama, Phys. Rev. B 76, 012502 (2007)
+37. M.M. Zemljič, P. Prelovšek, T. Tohyama, Phys. Rev. Lett. 100, 036402 (2008)
+38. P. Horsch, J. Jaklič, F. Mack, Phys. Rev. B 59, 6217 (1999)
+39. K. Haule, J. Bonča, P. Prelovšek, Phys. Rev. B 61, 2482 (2000)
+
+30
+
+P. Prelovšek and J. Bonča
+
+40. P. Horsch, J. Jaklič, F. Mack, Phys. Rev. B 59, 14149(R) (1999)
+41. I. Zerec, B. Schmidt, P. Thalmeier, Phys. Rev. B 73, 245108 (2006)
+42. S. El Shawish, J. Bonča, D. Batista, Phys. Rev. B 68, 195112 (2003)
+43. S. El Shawish, J. Bonča, I. Sega, Phys. Rev. B 72, 184409 (2005)
+44. S. El Shawish, A. Ramšak, J. Bonča, Phys. Rev. B 75, 205442 (2007)
+45. B. Schmidt, P. Thalmeier, N. Shannon, Phys. Rev. B 76, 125113 (2007)
+46. J. Schnack, O. Wendland, Eur. Phys. J. B 78, 535 (2010)
+47. J. Schnack, C. Heesing, arXiv:1207.0299
+48. M. Haertel, J. Richter, D. Ihle, J. Schnack, S.-L. Drechsler, Phys. Rev. B 84, 104411 (2011)
+49. For a review, see C. Hess, Eur. Phys. J. 151, 73 (2007) (Special Topics)
+50. P. Prelovšek, S. El Shawish, X. Zotos, M. Long, Phys. Rev. B 70, 205129 (2004)
+51. A. Karahalios, A. Metavitsiadis, X. Zotos, A. Gorczyca, P. Prelovšek, Phys. Rev. B 79, 024425
+(2009)
+52. O.S. Barišić, P. Prelovšek, Phys. Rev. B 82, 161106 (2010)
+53. O.S. Barišić, P. Prelovšek, A. Metavitsiadis, X. Zotos, Phys. Rev. B 80, 125118 (2009)
+54. A. Metavitsiadis, X. Zotos, O.S. Barišić, P. Prelovšek, Phys. Rev. B 81, 205101 (2010)
+55. M. Mierzejewski, J. Bonča, P. Prelovšek, Phys. Rev. Lett. 107, 126601 (2011)
+56. For a review see U. Schollwöck, Rev. Mod. Phys. 77, 259 (2005)
+57. S. Sota, T. Tohyama, Phys. Rev. B 78, 113101 (2008)
+58. J. Kokalj, P. Prelovšek, Phys. Rev. B 80, 205117 (2009)
+59. J. Kokalj, P. Prelovšek, Phys. Rev. B 82, 060406(R) (2010)
+60. W.F. Brinkman, T.M. Rice, Phys. Rev. B 2, 1324 (1970)
+61. J.E. Hirsch, Phys. Rev. Lett. 59, 228 (1987)
+62. S.A. Trugman, Phys. Rev. B 37, 1597 (1988)
+63. B.I. Shraiman, E.D. Siggia, Phys. Rev. Lett. 60, 740 (1988)
+64. P. Prelovšek, X. Zotos, Phys. Rev. B 47, 5984 (1993)
+65. J. Riera, E. Dagotto, Phys. Rev. B 47, 15346 (1993)
+66. J. Riera, E. Dagotto, Phys. Rev. B 57, 8609 (1998)
+67. J. Bonča, S. Maekawa, T. Tohyama, Phys. Rev. B 76, 035121 (2007)
+68. J. Bonča, S. Maekawa, T. Tohyama, P. Prelovšek, Phys. Rev. B 77, 054519 (2008)
+69. L. Vidmar, J. Bonča, S. Maekawa, Phys. Rev. B 79, 125120 (2009)
+70. L. Vidmar, J. Bonča, S. Maekawa, T. Tohyama, Phys. Rev. Lett. 103, 186401 (2009)
+71. L. Vidmar, J. Bonča, Phys. Rev. B 82, 125121 (2010)
+72. P.W. Leung, Phys. Rev. B 65, 205101 (2002)
+73. A.L. Chernyshev, P.W. Leung, R.J. Gooding, Phys. Rev. B 58, 13594 (1998)
+74. P. Wróbel, R. Eder, Phys. Rev. B 58, 15160 (1998)
+75. T.J. Park, J.C. Light, J. Chem. Phys. 85, 5870 (1986)
+76. N. Mohankumar, S.M. Auerbach, Comput. Phys. Commun. 175, 473 (2006)
+77. M. Mierzejewski, P. Prelovšek, Phys. Rev. Lett. 105, 186405 (2010)
+78. M. Mierzejewski, L. Vidmar, J. Bonča, P. Prelovšek, Phys. Rev. Lett. 106, 196401 (2011)
+79. L. Vidmar, J. Bonča, M. Mierzejewski, P. Prelovšek, S.A. Trugman, Phys. Rev. B 83, 134301
+(2011)
+80. L. Vidmar, J. Bonča, T. Tohyama, S. Maekawa, Phys. Rev. Lett. 107, 246404 (2011)
+81. J. Bonča, M. Mierzejewski, L. Vidmar, Phys. Rev. Lett. 109, 156404 (2012)
+82. D. Golež, J. Bonča, L. Vidmar, S.A. Trugman, Phys. Rev. Lett. 109, 236402 (2012)
+
+

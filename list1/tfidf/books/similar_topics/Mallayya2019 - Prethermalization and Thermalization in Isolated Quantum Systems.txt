@@ -1,0 +1,3128 @@
+PHYSICAL REVIEW X 9, 021027 (2019)
+
+Prethermalization and Thermalization in Isolated Quantum Systems
+Krishnanand Mallayya,1,2 Marcos Rigol,1,2 and Wojciech De Roeck3,2
+1
+
+2
+
+Department of Physics, Pennsylvania State University, University Park, Pennsylvania 16802, USA
+Kavli Institute for Theoretical Physics, University of California, Santa Barbara, California 93106, USA
+3
+Instituut voor Theoretische Fysica, KULeuven, 3001 Leuven, Belgium
+(Received 29 October 2018; revised manuscript received 29 January 2019; published 9 May 2019)
+
+Prethermalization has been extensively studied in systems close to integrability. We propose a more
+general, yet conceptually simpler, setup for this phenomenon. We consider a—possibly nonintegrable—
+reference dynamics, weakly perturbed so that the perturbation breaks at least one conservation law of the
+reference dynamics. We argue then that the evolution of the system proceeds via intermediate (generalized)
+equilibrium states of the reference dynamics. The motion on the manifold of equilibrium states is governed
+by an autonomous equation, flowing towards global equilibrium in a time of order g−2, where g is the
+perturbation strength. We also describe the leading correction to the time-dependent reference equilibrium
+state, which is, in general, of order g. The theory is well confirmed in numerical calculations of model
+Hamiltonians, for which we use a numerical linked cluster expansion and full exact diagonalization.
+DOI: 10.1103/PhysRevX.9.021027
+
+Subject Areas: Condensed Matter Physics,
+Quantum Physics,
+Statistical Physics
+
+I. INTRODUCTION
+Prethermalization [1] has emerged over the past decade
+as an interesting and ubiquitous phenomenon in the
+dynamics of ultracold quantum gases in one-dimensional
+geometries [2–6]. In general, it refers to a separation of
+timescales: Some systems far from equilibrium quickly
+relax to long-lived (non)thermal states (not true thermal
+equilibrium states) on short timescales, before eventually
+relaxing to the expected true thermal equilibrium states on
+much longer timescales.
+There are some general instances of this phenomenon that
+are well understood, analytically and numerically. A first
+example is quenches in isolated noninteracting (integrable)
+systems, in which interactions (integrability-breaking perturbations) of strength g are turned on [7–15]. By dephasing,
+observables quickly settle to quasisteady states that are well
+described by generalized Gibbs ensembles (GGEs) [16–20]
+of the noninteracting systems. The observables then relax
+to the thermal equilibrium values (thermalize) in a much
+longer timescale ∝ g−2 , as predicted by kinetic Boltzmannlike equations. The latter can be derived applying timedependent perturbation theory to the GGEs [21,22] and,
+physically, describe the effects of collisions between (quasi)
+
+Published by the American Physical Society under the terms of
+the Creative Commons Attribution 4.0 International license.
+Further distribution of this work must maintain attribution to
+the author(s) and the published article’s title, journal citation,
+and DOI.
+
+2160-3308=19=9(2)=021027(21)
+
+particles. It was recently shown numerically that weakly
+breaking integrability in strongly interacting integrable
+systems also results in thermalization rates ∝ g2 [23].
+A second example is isolated weakly interacting driven
+systems, for which GGEs and kinetic Boltzmann-like equations are also relevant [24,25]. A third example is periodically
+driven systems at high frequency. In general, they quickly
+reach a time-periodic state that can be identified as a Gibbs
+state corresponding to an effective Hamiltonian, before
+relaxing to the thermal (infinite-temperature [26,27]) state
+in a timescale that is exponentially long in the frequency of
+the drive [28–33].
+In this work, we argue that the first two examples above are
+instances of a more universal phenomenon, a phenomenon
+that occurs whenever an equilibrating dynamics (to a
+thermal- or GGE-like state) is weakly perturbed so that, at
+least, one of the conserved quantities in the original dynamics
+is no longer conserved in the weakly perturbed dynamics. A
+similar point of view was put forward in Refs. [34,35] for
+open quantum systems. We first present this conclusion in a
+loose manner in Sec. II, and then, in Secs. III and IV, we
+develop a systematic treatment of weakly perturbed systems
+in which a conservation law is broken. The remainder of
+the paper is dedicated to demonstrating, in the context of
+numerical experiments, the validity and accuracy of this
+systematic treatment. Section V, in which we introduce the
+models, quenches, observables, etc., is the preamble to
+the numerical experiments, which are reported in Sec. VI.
+A summary and discussion of our results is presented in
+Sec. VII, while the Appendixes report details of our
+analytical and numerical calculations.
+
+021027-1
+
+Published by the American Physical Society
+
+MALLAYYA, RIGOL, and DE ROECK
+
+PHYS. REV. X 9, 021027 (2019)
+hQ̂ðτÞie0 ;q ¼ hQ̂ie0 ;q þ igτh½V̂; Q̂ie0 ;q þ Oðg2 ττ LÞ;
+
+II. PREAMBLE
+Setup.—We consider isolated extended quantum systems
+that are translationally invariant. For the sake of concreteness, one can think of chains with L ≫ 1 sites. We have a
+pair of Hamiltonians Ĥ 0 and Ĥ, in which the latter includes
+the former plus a weak perturbation,
+Ĥ ¼ Ĥ0 þ gV̂;
+
+ð1Þ
+
+where g is small. We assume that the (reference)
+Hamiltonian Ĥ 0 has a conservation law, say Q̂, which is
+not shared by Ĥ, namely, ½Ĥ0 ; Q̂ ¼ 0 but ½V̂; Q̂ ≠ 0. We
+are interested in cases in which Ĥ0 , Q̂, Ĥ, and V̂ are
+extensive operators. In order to take the thermodynamic
+limit, it is helpful to deal with the intensive counterparts
+of those operators: ĥ0 ¼ Ĥ0 =L, q̂ ¼ Q̂=L, ĥ ¼ Ĥ=L, etc.
+In our numerical calculations, Q̂ (q̂) is the total number of
+particles (the filling), or, in the spin language, the total
+magnetization (the site magnetization).
+Assumption of fast equilibration.—We consider cases in
+which the dynamics generated by Ĥ0, even when the
+system is far from equilibrium, results in fast equilibration.
+Namely, we assume that, for experimentally relevant translational-invariant initial states ρ̂I , observables converge
+within a time τ to the predictions of an ensemble (e.g.,
+microcanonical) of statistical mechanics ρ̂e0 ;q , with ðe0 ; qÞ ¼
+ðhĥ0 iρ̂I ; hq̂iρ̂I Þ. The restriction “experimentally relevant” is
+put to avoid cases in which the initial state is a macroscopic
+superposition of states at different densities ðe0 ; qÞ (see
+Ref. [36] for a discussion of this issue in the context of
+quantum quenches). The restriction to translation-invariant
+states is used to avoid having leading effects in the equilibration dynamics that are L dependent, e.g., particle or
+energy transport, which would complicate the picture.
+Initial prethermalization.—Even though there is no
+standard perturbation theory around a genuinely interacting
+Ĥ0 , it is reasonable to assume that the effect of the
+perturbation is small at times τ ≪ 1=g, in the sense that,
+for such times, one can meaningfully approximate the
+dynamics under Ĥ by the reference dynamics generated by
+Ĥ0 . Therefore, by the assumption of fast equilibration, one
+should observe a fast initial relaxation of observables
+toward the predictions of ρ̂e0 ;q . The latter state can be very
+different from the thermal equilibrium ensemble ρ̂e associated to Ĥ. ρ̂e0 ;q differs from ρ̂e by the fact that q is an
+additional constraint [of course, it also differs because e0 is
+the energy density of Ĥ0 and not that of Ĥ, but that
+difference is only OðgÞ].
+Thermalization rate.—To determine how fast the true
+equilibrium is approached, let us start from ρ̂e0 ;q and look at
+the change in hQ̂ðτÞie0 ;q . We do this perturbatively:
+
+ð2Þ
+
+where we use that ½Ĥ 0 ; Q̂ ¼ ½Ĥ0 ; ρ̂e0 ;q  ¼ 0. The precise
+error estimate Oð·Þ will only be argued for later. The
+important point to be highlighted from Eq. (2) is that
+the leading order correction to hQ̂ie0 ;q vanishes because
+h½V̂; Q̂ie0 ;q ¼ 0, by the cyclic property of the trace and the
+fact that ½Q̂; ρ̂e0 ;q  ¼ 0. This suggests that the thermalization rate is ∝ g2 . Indeed, carrying out the expansion one
+order further, we recognize Fermi’s golden rule. Finally, if
+we had replaced Q̂ by a general observable Ô, the first
+order term does not vanish. It results in a universal
+deviation of hÔi in the instantaneous state from that of
+ρ̂e0 ;q .
+III. SLOW DYNAMICS OF APPROXIMATELY
+CONSERVED QUANTITIES
+In this section, we present a derivation of an approximate
+autonomous equation governing the dynamics of the densities ðe0 ; qÞ. This is Eq. (23), or, at a more abstract level,
+Eq. (21). Our derivation is not mathematically rigorous, it
+uses physical assumptions and goes substantially beyond
+the heuristics presented above. Its validity and accuracy are
+confirmed by numerical calculations in Sec. VI.
+A. Slow variables
+We identify the densities ðe0 ; qÞ as slow variables. To set
+up a controlled derivation, we need a projection map from
+states ρ̂ to ðe0 ; qÞ. It turns out, however, that it is more
+natural to start with a projection P from ρ̂ to a probability
+distribution p on ðe0 ; qÞ. Indeed, each such p can be lifted
+to a ρ̂ by
+Z
+ρ̂p ¼ de0 dqpðe0 ; qÞρ̂e0 ;q ;
+ð3Þ
+and the physically most natural case is, of course, when
+pðe0 ; qÞ is a Dirac delta distribution δðe0 − e0 Þδðq − q Þ;
+cf. the discussion on “experimentally relevant states” in
+Sec. II. To construct the map P, a natural approach is to
+measure Ĥ0 and Q̂:
+pρ̂ ðe0 ; qÞ ∝ Tr½ρ̂PðĤ 0 ≈ e0 LÞPðQ̂ ≈ qLÞ;
+
+ð4Þ
+
+where PðĤ 0 ≈ e0 LÞ is a spectral projection of Ĥ 0 on the
+interval ½e0 L − δE ; e0 L þ δE  with a resolution δE that is
+much larger than the level spacing, but smaller than any
+relevant energy scale (like, e.g., the energy per site). For
+PðQ̂ ≈ qLÞ, we can simply take the projection of Q̂ on the
+eigenvalue closest to qL. Then we can set
+Z
+ð5Þ
+P ρ̂ ¼ de0 dqpρ̂ ðe0 ; qÞρ̂e0 ;q ;
+
+021027-2
+
+PRETHERMALIZATION AND THERMALIZATION IN …
+R
+where de0 dq represents a sum with the aforementioned
+resolution. We define P̄ ¼ 1 − P, and note that both P, P̄
+are projectors, namely, P 2 ¼ P and P̄ 2 ¼ P̄. A warning is
+in order, despite the fact that P ρ̂ and P̄ ρ̂ encode all the
+information about the microscopic distributions of E0 and
+Q (whose widths are expected to be subextensive in E0 and
+Q [36]), all that information is not needed and our analysis
+does not allow one to keep track of it in time. Our results
+only depend on, and keep track of, the distribution of
+densities pðe0 ; qÞ.
+The above definition of the projection P is motivated by
+ensembles of statistical mechanics, which are expected to
+describe many-body quantum systems after equilibration.
+An equivalent definition can be motivated purely from
+quantum mechanics. If one takes ρ̂ and evolves it under the
+unitary evolution dictated by Ĥ 0, observables equilibrate to
+the predictions of the so-called diagonal ensemble ρ̂DE [22]:
+X
+ðhE0 jρ̂jE0 iÞjE0 ihE0 j;
+ð6Þ
+ρ̂DE ¼
+E0
+
+where jE0 i are the eigenkets Ĥ0 and Q̂, and we have
+assumed that either there are no degeneracies in the
+many-body energy spectrum or that, if present, they are
+unimportant. This is generically the case in interacting
+many-body quantum systems [22].
+The map ρ̂ → ρ̂DE is a projection as well; let us call it
+P DE . It provides an alternative path to identifying the slow
+variables. This is the case because, in recent years, we have
+come to realize that the ensembles defined by P ρ̂ and P DE ρ̂
+are equivalent when it comes to their predictions for
+observables (few-body or local operators) in large systems.
+This is a consequence of eigenstate thermalization for
+nonintegrable (quantum chaotic) systems [36–38], and
+generalized eigenstate thermalization for integrable systems [17,20,39–41]. Hence, it does not really matter
+whether one uses the projection P or P DE, so we do not
+actively distinguish between them in most of our analytical
+derivations. In our numerical calculations we use P DE , as
+ρ̂DE can be calculated exactly in the same way for nonintegrable and integrable systems. P, on the other hand,
+demands that one identifies beforehand the relevant conserved quantities (not necessary for P DE ). Keeping all this
+is mind, in what follows we do not actively distinguish
+between nonintegrable systems, for which the number of
+conserved quantities in the thermodynamic limit is Oð1Þ,
+from integrable systems, for which the number of conserved quantities in the thermodynamic limit is infinite.
+B. Mori-Zwanzig approach
+Let us introduce the Liouville superoperator L ¼ −i½Ĥ; ·.
+Then, following Mori-Zwanzig [42,43], see Appendix A, the
+theory of linear ordinary differential equations gives us the
+following rewriting of the P-projected Liouville equation
+
+PHYS. REV. X 9, 021027 (2019)
+∂ τ ρ̂ðτÞ ¼ Lρ̂ðτÞ:
+∂ τ P ρ̂ðτÞ ¼ PLP ρ̂ðτÞ
+Zτ
+þ dsPLesP̄L LP ρ̂ðτ − sÞ þ PLeτP̄L P̄ ρ̂I ;
+0
+
+ð7Þ
+where ρ̂I ≡ ρ̂ðτ ¼ 0Þ, and we use that the projector P is time
+independent. To bring some structure to this equation, we
+now split
+L ¼ L0 þ L1 ;
+
+L0 ¼ −i½Ĥ0 ; ·; L1 ¼ −ig½V̂; ·;
+
+with
+
+ð8Þ
+and note the properties
+L0 P ¼ PL0 ¼ 0;
+
+PL1 P ¼ 0:
+
+ð9Þ
+
+They follow from elementary considerations. This allows
+one to recast the above equation of motion as
+Zτ
+∂ τ P ρ̂ðτÞ ¼
+
+dsAs P ρ̂ðτ − sÞ þ Y τ P̄ ρ̂I ;
+
+ð10Þ
+
+0
+
+where we introduce
+As ¼ PL1 esðL0 þP̄L1 Þ L1 P
+
+and Y τ ¼ PL1 eτðL0 þP̄L1 Þ P̄:
+ð11Þ
+
+The object As represents a memory kernel. For completeness, we also report the expression for P̄ ρ̂ðτÞ (see
+Appendix A):
+τP̄L
+
+P̄ ρ̂ðτÞ ¼ e
+
+Zτ
+P̄ ρ̂I þ
+
+dsP̄esP̄L LP ρ̂ðτ − sÞ:
+
+ð12Þ
+
+0
+
+It should be stressed that all the previous equations are exact,
+and, hence, they are not particularly useful. In the next
+section, we make some motivated approximations.
+C. Equilibration
+Our only assumption is that the dynamics generated
+by Ĥ 0 results in fast equilibration of observables to the
+equilibrium state that is characterized by the expectation
+value of Ĥ0 , E0 ¼ Trðρ̂I Ĥ0 Þ, and of Q̂, Q ¼ Trðρ̂I Q̂Þ. Once
+again, we stress that we do not distinguish between nonintegrable reference Hamiltonians Ĥ0 , for which observables
+equilibrate to the thermal predictions (thermalize [22]), from
+integrable reference Hamiltonians, for which observables
+equilibrate to the GGE predictions (exhibit generalized
+
+021027-3
+
+MALLAYYA, RIGOL, and DE ROECK
+
+PHYS. REV. X 9, 021027 (2019)
+As ¼ PL1 esL0 L1 P
+Zs
+þ ds1 PL1 eðs−s1 ÞL0 P̄L1 es1 L0 L1 P þ    :
+
+thermalization [17]). For our purposes, it does not matter
+whether equilibration is towards a traditional ensemble of
+statistical mechanics or towards a GGE: in both cases it
+means that, for generic (few-body) observables Ô and initial
+states ρ̂I ,
+jTr½ρ̂I Ô0 ðτÞ − Tr½ρ̂e0 ;q Ôj
+jTr½ρ̂e0 ;q Ôj
+
+≕ fðτÞ → 0;
+
+ð13Þ
+
+where Ô0 ðτÞ ¼ eiτĤ0 Ôe−iτĤ0 . We define an equilibration
+timescale τ ðϵÞ, which is understood as the time τ at which
+fðτÞ ≈ ϵ for some small dimensionless ϵ. By fast equilibration, we mean that τ ðϵÞ ∼ Oð1Þ in the relevant time units of
+the problem. In Sec. VI, numerical simulations of a translationally invariant one-dimensional Hamiltonian indeed
+show that, in times that are Oð1Þ in the relevant timescale,
+observables reach values that are very close to the predictions
+of ρ̂e0 ;q .
+We do not expect ϵ to be arbitrarily small because, even
+if the Hamiltonian and the initial state are translational
+invariant, the unavoidable coupling to hydrodynamic
+modes in interacting systems renders the approach of local
+observables to equilibrium polynomial, fðτÞ ∝ τ−d=2 , as
+argued in Ref. [44] on the basis of fluctuating hydrodynamics. In such a case, one expects
+τ ðϵÞ ≈ ϵ−2=d :
+
+eτL0 ρ̂ ≈ PeτL0 ρ̂;
+
+whenever τ > τ ;
+
+ð15Þ
+
+accepting an error OðϵÞ. This approximation amounts to
+assuming that the system has equilibrated after a time τ
+with respect to the dynamics generated by Ĥ0. Hence, at
+time τ , we replace the density matrix of the system by
+ρ̂e0 ;q . Of course, the usual caveats typical of irreversibility
+apply: this replacement can only be correct when dealing
+with local or few-body observables Ô, or sums thereof, not
+for (special) many-body operators such as the spectral
+projectors of Ĥ0 [22].
+D. Born approximation
+We can now state our main assumption as a weak
+coupling condition, namely,
+gτ ≪ 1:
+
+0
+
+Note that, for example, the first term on the rhs could also
+be written as PL1 P̄esL0 P̄L1 P or even PL1 P̄esP̄L0 P̄ P̄L1 P,
+which makes apparent that the intermediate evolution acts
+on the fast degrees of freedom. In order for this expansion
+in powers of g to be meaningful, one needs to make sure
+that the series above can be resummed such that it is linear
+in L. For example, since every L1 carries a factor L, it
+appears that the first and second terms in the equation
+above are of order L2 and L3 , respectively. However,
+one can write these terms as sums of [and integrals
+over ðe0 ; qÞ] truncated correlation functions hV̂ 0 ðsÞV̂ice0 ;q
+and hV̂ 0 ðsÞV̂ 0 ðs1 ÞV̂ice0 ;q ; see, e.g., the remark following
+Eq. (B4). These truncated correlation functions are of
+order L due to clustering properties of the ðe0 ; qÞ equilibrium ensembles. In higher orders, such considerations
+become more complicated and we refer the interested
+reader to mathematical work establishing a meaningful
+expansion [45,46]. Assuming that one recovers the linearity in L to all orders, for any τ ≥ τ,
+Zτ
+
+ð14Þ
+
+Our numerical results suggest that, for the models and
+observables studied, hydrodynamics tails may set in when ϵ
+is very small, at times that are beyond the reach of our
+numerical calculations.
+The way τ enters our analysis is that we approximate,
+for any ρ̂,
+
+ð16Þ
+
+To see this assumption at work, let us expand the
+exponential esðL0 þP̄L1 Þ in the definition of As in Eq. (11):
+
+ð17Þ
+
+Zτ
+
+dsPL1 esL0 L1 P þ Oðg3 τ2 LÞ; ð18Þ
+
+dsAs ¼
+0
+
+0
+
+where the first term is Oðg2 Lτ Þ. One then sees that the
+expansion is meaningful if
+g3 τ2 L ≪ g2 τ L;
+
+ð19Þ
+
+which is, of course, equivalent to Eq. (16).
+E. Markov approximation
+The discussion Rabove has shown that the lowest order
+approximation to 0∞ dsAs , namely,
+Z∞
+K¼
+
+dsPL1 esL0 L1 P;
+
+ð20Þ
+
+0
+
+is Oðg2 τ LÞ, with the factor L originating from the spatial
+sum in L1 . The physical meaning of this factor is that the
+quantities that change smoothly in time are the densities
+ðe0 ; qÞ rather than ðE0 ; QÞ themselves, or, alternatively,
+local observables. We then see that the superoperator K is
+Oðg2 τ Þ, and this is the rate at which ρ̂ changes. Recalling
+that the time integral defining K reaches its τ ¼ ∞ value
+at τ ≈ τ leads to the conclusion that, in Eq. (10), we can
+approximate P ρ̂ðτ − sÞ by P ρ̂ðτÞ, making an error Oðg2 τ2 Þ
+
+021027-4
+
+PRETHERMALIZATION AND THERMALIZATION IN …
+(which is small by our weak-coupling assumption gτ ≪ 1).
+A further simplification occurs by observing that Y τ is
+proportional to g, and vanishes fast as τ ≥ τ , so one might
+set Y τ ¼ 0 for times τ ≥ τ . If we make these two
+approximations, then the equation of motion [Eq. (10)] reads
+∂ τ P ρ̂ðτÞ ¼ KP ρ̂ðτÞ;
+
+τ ≫ τ :
+
+PHYS. REV. X 9, 021027 (2019)
+∂ τ pτ ðe0 ; qÞ ¼ −d½e0 ; q∂ q pτ ðe0 ; qÞ;
+
+ð24Þ
+
+which lifts naturally to an evolution on P ρ̂. The stationary
+solution of Eq. (23) as τ → ∞ is denoted by ðe0 ; q Þ, where
+q ¼ q ðe0 Þ is determined by
+d½e0 ; q ðe0 Þ ¼ 0:
+
+ð21Þ
+
+ð25Þ
+
+A conservative look at the validity of Eq. (21), in particular
+to the approximation Y τ ¼ 0, shows that one should trust
+Eq. (21) only for times τ ≫ τtr (where the subindex tr stands
+for transient) and τtr is determined by g2 τ ≫ gfðτtr Þ, as
+follows by comparing the magnitude of the two terms in
+Eq. (10).
+
+Within Fermi’s golden rule [Eq. (22)], this is recognized
+as a detailed balance condition, indicating that q ðe0 Þ is
+the equilibrium value of q given e0 . In other words, q is
+determined by maximizing the entropy at fixed e0 and,
+hence, the resulting ensemble ρ̂e0 ;q is equivalent to one in
+which no constraint on q̂ is imposed:
+
+F. Autonomous equation
+
+ρ̂e0 ;q ≈ ρ̂e0 :
+
+The meaning of Eq. (21), in which K is a superoperator
+acting on density matrices, is simplified by the presence of
+P. As mentioned before, P projects onto distributions of
+densities pðe0 ; qÞ, and so Eq. (21) is actually an evolution
+equation on such p. It is easier, and more natural, to guess
+the form of this evolution equation than to derive it from the
+formula above, so we will do the former here and relegate
+the latter to Appendix B.
+Given ρ̂e0 ;q , we need to find the rate of change of ðe0 ; qÞ.
+The natural path is to use Fermi’s golden rule, within which
+e0 does not change in time. Having a single eigenket jE0 i in
+mind, the rate of change of q, called the “drift” d, is given
+by
+0
+
+dðE Þ ¼ 2πg
+
+2
+
+Z
+
+dĒ0 δðE0 − Ē0 Þ
+
+QĒ0 − QE0
+jhE0 jV̂jĒ0 ij2 ;
+L
+ð22Þ
+
+where QE0 ¼ hE0 jQ̂jE0 i, the integral is understood as a
+sum, and the delta function δðE0 − Ē0 Þ selects an interval
+of energies with a width smaller than any relevant energy
+scale but much larger than the level spacing. In principle,
+one should average dðE0 Þ over E0, with the distribution
+provided by statistical mechanics ρ̂e0 ;q , or by quantum
+mechanics, i.e., the diagonal ensemble ρ̂DE . However, once
+again, because of eigenstate thermalization (or its generalized version for integrable systems), we expect the
+average to be unnecessary for large L. Hence, the drift d ¼
+dðe0 ; qÞ does not depend on jE0 i but only on ðe0 ; qÞ. Even
+though V̂ ¼ OðLÞ, the drift dðe0 ; qÞ is Oð1Þ because of
+decay of spatial correlations; see Appendix B. We then
+obtain the autonomous equation
+∂ τ qðτÞ ¼ d½e0 ðτÞ; qðτÞ;
+
+∂ τ e0 ðτÞ ¼ 0:
+
+This also shows that the asymptotic state ρ̂e0 ;q is close to
+the global equilibrium state ρ̂e for which hĥi ¼ e ¼ e0 þ
+OðgÞ. In Sec. IV, we quantify the OðgÞ difference between
+ρ̂e0 ;q and ρ̂e .
+G. Corrections
+In principle, our scheme allows one to compute higherorder corrections in g to the autonomous Eqs. (21) and (23).
+In particular, one can expand As in a power series in terms
+of order ðgτ Þn L, n ≥ 1, with the terms for n ¼ 1 and 2
+given in Sec. III D. Integrating over s, one then gets a series
+for K, and hence for the drift coefficient d½e0 ; q. It is,
+however, far from obvious that such corrections are useful,
+as (i) we have made approximations at several points, not
+only in truncating As , but also, e.g., replacing P ρ̂ðτ − sÞ for
+s ≤ τ by P ρ̂ðτÞ, and (ii) a not-so-fast decay of fðτÞ would
+imply that the Y τ term in Eq. (10) remains potentially
+important at long times, obscuring any precise corrections
+to the Markovian part.
+Rigorous work in the context of open quantum systems
+[45–47] implies that one can meaningfully
+compute corR
+rections, but only if the condition 0∞ dτjfðτÞj < ∞ is
+satisfied.
+IV. DYNAMICS OF LOCAL OBSERVABLES
+So far, we have focused on the evolution of the
+quasiconserved quantity Q̂, which we found to be described
+by the autonomous Eq. (23). We now turn our attention to
+more general observables. Our main finding is that their
+time-dependent expectation values are described by a
+“deformed equilibrium ensemble,” with an OðgÞ difference
+from ρ̂e0 ;qðτÞ . This deviation has a universal form.
+A. Correction to P ρ̂ðτÞ
+
+ð23Þ
+
+The corresponding evolution equation for the distributions
+pτ ðe0 ; qÞ is then
+
+ð26Þ
+
+At first sight, the evolution of generic observables is
+slaved by the evolution of the slow variables ðe0 ; qÞ.
+Indeed, the general picture is that the evolution of the
+
+021027-5
+
+MALLAYYA, RIGOL, and DE ROECK
+
+PHYS. REV. X 9, 021027 (2019)
+
+density matrix ρ̂ðτÞ takes place in the space of equilibrium
+density matrices ρ̂e0 ;qðτÞ , leading to the prediction
+Tr½ρ̂ðτÞÔ ≈ Tr½ÔP ρ̂ðτÞ ¼ hÔie0 ;qðτÞ :
+
+ð27Þ
+
+In the last equality, we assumed that pðe0 ; qÞ is concentrated at a single value. Yet, strictly speaking, the previous
+section dealt with P ρ̂ðτÞ, rather than with ρ̂ðτÞ, so Eq. (27)
+is in need of a justification. To provide it, we return to the
+formalism in Sec. III B, and write [see Eq. (12)]
+ρ̂ðτÞ ¼ P ρ̂ðτÞ þ P̄ ρ̂ðτÞ
+¼ P ρ̂ðτÞ þ eτP̄L P̄ ρ̂I þ
+
+Zτ
+
+dsP̄esP̄L LP ρ̂ðτ − sÞ:
+
+ð28Þ
+
+0
+
+The first term in Eq. (28) is dominant for large τ ≥ τtr .
+It amounts to the approximation resulting in Eq. (27).
+The second term in the last line of Eq. (28) is transient,
+decaying as gfðτÞ, as discussed also in Sec. III E. The third
+term is the correction we are interested in. Let us write
+it explicitly, when paired with an observable Ô, namely,
+Rτ
+sP̄L
+LP ρ̂ðτ−sÞ. By expanding esP̄L in powers
+0 dsTr½Ô P̄ e
+of g, we get the leading contribution:
+Zτ
+
+by maximizing the entropy at fixed e0 . The ensemble ρ̂e0 ;q
+is a small perturbation of the real equilibrium ensemble ρ̂e
+corresponding to Ĥ, with hĥiρ̂e ¼ hĥiρ̂e ;q þ OðgÞ. We can
+0
+relate these two ensembles by linear response theory.
+Indeed, we can imagine starting with ρ̂e0 ;q at τ ¼ 0, and
+switching on the perturbation gV̂. The system will then
+evolve precisely to ρ̂e , and the change in the expectation
+value of observables Ô should be described by linear
+response theory. In particular, the stationary change is
+described by the zero-frequency response coefficient (also
+known as the susceptibility), which is exactly Eq. (30).
+This discussion should also clarify how thermalization
+with respect to Ĥ is reconciled with our treatment, which is
+based on equilibration with respect to Ĥ0 . The global
+equilibrium state ρ̂e is obtained as a universal correction to
+the state ρ̂e0 ;q .
+C. Deformed equilibrium ensembles from
+Fermi’s golden rule
+In Sec. IVA, we use the last term in Eq. (28) to derive the
+OðgÞ correction to observables in ρ̂ðτÞ from their expectation values in ρ̂e0 ;qðτÞ . Here, we point out that this is also
+what the autonomous Eq. (23) dictates.
+Let us compute the time derivative of qðτÞ:
+
+dsTr½Ô P̄ esL0 LP ρ̂ðτ − sÞ
+0
+
+∂ τ qðτÞ ¼ Tr½q̂Lρ̂ðτÞ ¼ Tr½q̂L1 ρ̂ðτÞ;
+
+Zτ
+dsTrf½V̂ 0 ð−sÞ; ÔP ρ̂ðτ − sÞg:
+
+¼ ig
+
+ð29Þ
+
+0
+
+One can further simplify this expression by approximating
+P ρ̂ðτ − sÞ by P ρ̂ðτÞ, justified by the reasoning in
+Sec. III E, and by again assuming that the distribution
+pðe0 ; qÞ, corresponding to P ρ̂ðτÞ, is concentrated at a
+single density ½e0 ; qðτÞ. Then the last line in Eq. (29) reads
+Z∞
+dsh½V̂ 0 ð−sÞ; Ôie0 ;qðτÞ :
+
+ig
+
+ð30Þ
+
+0
+
+By the assumption of fast equilibration at s ≈ τ , this
+expression is Oðgτ Þ; i.e., it is a small correction to
+hÔie0 ;qðτÞ . Even though it is subleading, this correction
+has a universal form, as we explain in the next section.
+Finally, note that Eq. (30), obtained following a naive firstorder perturbation theory, was already written in Sec. II for
+Q̂ [see Eq. (2)]. In that case, the s-independent integrand
+vanishes identically.
+
+ð31Þ
+
+where, in the last equality, we use that ½Ĥ0 ; Q̂ ¼ 0.
+Previously, we evaluated this time derivative in a different
+way: we approximated ρ̂ðτÞ by ρ̂e0 ;qðτÞ [assuming, again,
+that pðe0 ; qÞ is a Dirac delta function] and we arrived at
+∂ τ qðτÞ ¼ Tr½q̂Kρ̂e0 ;qðτÞ :
+
+ð32Þ
+
+This is a more abstract rendering of the autonomous
+Eq. (23). At this point, one can ask which form of ρ̂ðτÞ
+would reconcile Eqs. (31) and (32). By the cyclic property
+of the trace, and using that ½q̂; ρ̂e0 ;qðτÞ  ¼ 0, we note that
+Eq. (31) does not depend on the leading contribution ρ̂e0 ;qðτÞ
+to ρ̂ðτÞ. It depends only on the correction term. We then see
+that Eq. (31) reduces to Eq. (32) if we choose the correction
+term to be
+Z∞
+dsP̄esL0 L1 ρ̂e0 ;qðτÞ ;
+
+ð33Þ
+
+0
+
+which is the correction we used in Sec. IVA to derive
+Eq. (30). A spectacular corollary of this reasoning is the
+observation that, if ρ̂ðτÞ were exactly commuting with q̂,
+then the rate of change vanishes, i.e., ∂ τ qðτÞ ¼ 0.
+
+B. Susceptibility
+To understand the correction in Eq. (30), consider the
+equilibrium ensemble ρ̂e0 ;q with ðe0 ; q Þ the τ → ∞
+solution of Eq. (23), or, alternatively, with q determined
+
+V. MODELS, QUENCHES, AND OBSERVABLES
+In the rest of the paper, we test the previous ideas and
+analytical results in numerical experiments. We focus on
+
+021027-6
+
+PRETHERMALIZATION AND THERMALIZATION IN …
+the dynamics of nonintegrable models of strongly interacting hard-core bosons in one-dimensional lattices (which
+can be mapped onto spin-1=2 Hamiltonians). We study the
+effects of breaking particle-number conservation [the U(1)
+symmetry in the corresponding spin models].
+A. Models
+Quantum dynamics are studied under time-independent
+Hamiltonians Ĥα of the form
+Ĥ α ¼ Ĥ0 þ gα V̂ α ;
+
+ð34Þ
+
+where the reference Hamiltonian Ĥ0 , which we take to be
+nonintegrable, commutes with the total particle-number
+operator N̂, ½Ĥ 0 ; N̂ ¼ 0. The perturbations, gα V̂ α , do not
+commute with N̂, ½V̂ α ; N̂ ≠ 0.
+We take Ĥ0 to be the t-V-t0 -V 0 Hamiltonian for hard-core
+bosons in 1D lattices [48,49], with nearest (next-nearest)
+neighbor hopping t (t0 ) and interaction V (V 0 ):
+X
+Ĥ0 ¼
+−tðb̂†i b̂iþ1 þ H:c:Þ − t0 ðb̂†i b̂iþ2 þ H:c:Þ
+i
+
+
+
+
+
+
+
+1
+1
+1
+1
+0
+n̂iþ1 − þ V n̂i −
+n̂iþ2 −
+;
+þ V n̂i −
+2
+2
+2
+2
+ð35Þ
+where b̂†i ðb̂i Þ is the hard-core boson creation (annihilation)
+operator and n̂i ¼ b̂†i b̂i is the number operator at site i.
+When t0 ¼ V 0 ¼ 0, Ĥ0 is integrable (in the spin language, it
+is the Hamiltonian of the spin-1=2 XXZ chain) [50]. Here,
+we focus on cases in which t0 ¼ V 0 ≠ 0, so that Ĥ0 is
+nonintegrable [48,49].
+We consider two perturbations gα V̂ α , with α ¼ 1, 2.
+The first one is
+
+X
+1
+†
+g1 V̂ 1 ¼ g1
+b̂i þ ðb̂i b̂iþ1 − b̂i b̂iþ1 Þ þ H:c: :
+ð36Þ
+2
+i
+It will be important later that the presence of nearest
+neighbor hopping terms in V̂ 1 make hE0i jV̂ 1 jE0i i ≠ 0 for
+typical eigenkets jE0i i of Ĥ0 .
+The second perturbation we consider is
+
+X
+1
+g2 V̂ 2 ¼ g2
+b̂i þ b̂i b̂iþ1 þ H:c: :
+ð37Þ
+2
+i
+This perturbation only contains terms that change the
+particle number. Hence, hE0i jV̂ 2 jE0i i ¼ 0 for all eigenkets
+jE0i i of Ĥ0 and N̂.
+B. Initial states and description after equilibration
+We study the quantum dynamics of initial states ρ̂I that
+are far from equilibrium with respect to both Ĥ 0 and Ĥα .
+This is achieved by choosing ρ̂I to be thermal equilibrium
+
+PHYS. REV. X 9, 021027 (2019)
+states of initial Hamiltonians ĤI , such that ½ĤI ; Ĥα  ≠ 0
+and ½Ĥ I ; Ĥ0  ≠ 0. Dynamics are generated by quantum
+quenches in which, at time τ ¼ 0, one suddenly changes
+ĤI → Ĥα and lets the system evolve unitarily. We consider
+systems that are translationally invariant before and after
+the quench.
+The time-evolving density matrix after the quench can be
+written as ρ̂ðτÞ ¼ e−iĤα τ ρ̂I eiĤα τ . We are interested in the
+dynamics of observables Ô, whose expectation values are
+given by OðτÞ ¼ Tr½ρ̂ðτÞÔ. At long times, one expects
+observables to equilibrate at the values predicted by the
+diagonal ensemble (DE), ODE ¼ Tr½ρ̂DE Ô, where ρ̂DE ¼
+R 0
+limτ0 →∞ ð1=τ0 Þ 0τ dτρ̂ðτÞ is the density matrix of the diagonal ensemble [36]. When written in the basis of eigenkets
+jEαi i of Ĥα , ρ̂DE takes the form
+ρ̂DE ¼
+
+X
+ðhEαi jρ̂I jEαi iÞjEαi ihEαi j:
+
+ð38Þ
+
+i
+
+For nonintegrable (quantum chaotic) systems, because of
+eigenstate thermalization [36–38], one expects the predictions of the diagonal ensemble to match those of traditional
+statistical mechanics ensembles; namely, we expect observables to thermalize [22]. For the t-V-t0 -V 0 Hamiltonian for
+hard-core bosons in 1D lattices, eigenstate thermalization
+and thermalization were studied in Ref. [48], while quantum chaos was studied in Ref. [49]. This means that, in our
+systems, we can also describe observables after equilibration by means of the grand canonical ensemble (GE)
+characterized by a temperature T, and, when particle
+number is a conserved quantity, by a chemical potential
+μ. The grand canonical ensemble density matrices have the
+form
+8 −Ĥα =T
+e
+when gα ≠ 0
+< Tr½e
+−Ĥ α =T 
+ρ̂GE ¼
+ð39Þ
+: e−ðĤα þμN̂Þ=T
+when
+g
+¼
+0:
+α
+Tr½e−ðĤα þμN̂Þ=T 
+When gα ≠ 0, T is fixed by the (conserved) energy of
+the time-evolving state,
+Tr½ρ̂GE Ĥ α  ¼ Tr½ρ̂I Ĥα :
+
+ð40Þ
+
+When gα ¼ 0, T and μ are determined by the (conserved)
+energy [Eq. (40)] and by the (conserved) particle number in
+the time-evolving state,
+Tr½ρ̂GE N̂ ¼ Tr½ρ̂I N̂:
+
+ð41Þ
+
+Because of particle-hole symmetry in the Hamiltonians
+Ĥα , when gα ≠ 0 (namely, in the absence of particlenumber conservation), our systems after equilibration are
+always at half filling irrespective of the initial filling nI .
+We consider initial fillings nI ≠ 1=2, which means that the
+filling must change during the dynamics when gα ≠ 0.
+
+021027-7
+
+MALLAYYA, RIGOL, and DE ROECK
+
+PHYS. REV. X 9, 021027 (2019)
+
+From our analysis in the previous sections, we expect that,
+for small values of gα , the dynamics of generic observables
+follow a two-step process towards thermalization: (i) fast
+relaxation driven by Ĥ0 (prethermal dynamics) and
+(ii) slower, nearly exponential, relaxation to the thermal
+equilibrium predictions (thermalization dynamics). At long
+times, close to thermal equilibrium, hydrodynamics may
+become dominant and algebraic relaxation is expected to
+take place [44]. That regime is not resolved in this work.
+As discussed in Sec. IV, the near-exponential dynamics
+following prethermalization can be described by projecting
+ρ̂ðτÞ in the basis of the eigenkets of Ĥ0 , up to an OðgÞ
+correction. This projected state is a diagonal ensemble of
+Ĥ0 , whose density matrix [see Eq. (6)] we denote as
+X
+ðhE0i jρ̂ðτÞjE0i iÞjE0i ihE0i j; ð42Þ
+ρ̂0 ðτÞ ≡ P DE ρ̂ðτÞ ¼
+
+(our initial states are in thermal equilibrium with respect to
+ĤI ). In all quenches, we take ĤI to be the t-t0 -V-V 0 model
+in Eq. (35). Since ½ĤcI ; N̂ c  ¼ 0, where N̂ c is the total
+particle number operator in the cluster,
+
+C. Numerical linked cluster expansion (NLCE)
+In what follows, we use the numerical linked cluster
+expansion (NLCE) approach introduced in Ref. [23] (see
+Refs. [51,52] for NLCE studies in two dimensions) to study
+the quantum dynamics of various observables in our
+translationally invariant 1D systems in the thermodynamic
+limit.
+NLCEs were originally introduced to study systems
+in thermal equilibrium [53], and allow one to obtain
+the expectation value of extensive observables per site
+(O ¼ O=L), in the thermodynamic limit (L → ∞), as sums
+over the contributions of the connected clusters that can be
+embedded in the lattice. Given the connected clusters c,
+which can be embedded in the lattice in MðcÞ ways per site
+and have weights W O ðcÞ, one obtains O in the following
+way
+X
+O¼
+MðcÞ × W O ðcÞ:
+ð43Þ
+c
+
+W O ðcÞ is computed, for each cluster c, from the expectation
+value of the observable Ô in the cluster (Oc ) using the
+inclusion exclusion principle:
+X
+W O ðcÞ ¼ Oc −
+W O ðsÞ;
+ð44Þ
+s⊂c
+
+where the sum is over all connected subclusters of c.
+For the smallest cluster, W O ðcÞ ¼ Oc . For each cluster,
+Oc ¼ Tr½ρ̂c Ô, where ρ̂c is the density matrix of the
+relevant ensemble in the cluster. In NLCEs, Oc is calculated
+exactly numerically using full exact diagonalization.
+In our calculations, the density matrix of the initial state
+in each cluster ρ̂cI is taken to be the grand canonical density
+matrix set by the initial Hamiltonian in each cluster ĤcI
+
+c
+
+Tr½e−ðĤI þμI N̂ Þ=T I 
+c
+
+c
+
+:
+
+ð45Þ
+
+Also, since ĤcI is particle-hole symmetric, we need μI ≠ 0
+in order to have initial states with filling nI ≠ 1=2.
+To calculate the time evolution of the expectation values
+of the observables OðτÞ, where τ denotes the time after the
+quench, the density matrix of each cluster is evolved with
+the Hamiltonian after the quench Ĥ cα ,
+ρ̂c ðτÞ ¼ ðe−iĤα τ Þρ̂cI ðeiĤα τ Þ;
+c
+
+i
+
+where jE0i i are the eigenkets of Ĥ0 .
+
+e−ðĤI þμI N̂ Þ=T I
+c
+
+ρ̂cI ¼
+
+c
+
+ð46Þ
+
+and the NLCE calculation is carried out as usual [23]. Our
+Hamiltonians after the quench have the form in Eq. (34).
+Similarly, in order to obtain NLCE results after the quench
+for the diagonal ensemble, the grand canonical ensemble,
+and in the projected basis of Ĥ0 , we use ρ̂cDE , ρ̂cGE , and
+ρ̂c0 ðτÞ from Eqs. (38), (39), and (42), respectively, for each
+cluster c.
+NLCEs have been used to study quenches in the
+t-t0 -V-V 0 model [Eq. (35)] to understand the dynamics
+[23], and the description of observables after equilibration
+[54], at the integrable point t0 ¼ V 0 ¼ 0 and away from it
+t0 ¼ V 0 ≠ 0. The presence of next-nearest neighbor hoppings and interactions makes it possible to have different
+building blocks to construct the clusters in the NLCE.
+In Ref. [55], it was shown that maximally connected
+clusters—built adding contiguous sites and all possible
+bonds, starting from one site—are optimal for studying
+quenches in this model. Here, as in Refs. [23,54], we use
+that NLCE in our calculations (there is only one maximally
+connected cluster with a given number of sites). The
+number of sites in the largest cluster considered defines
+the order of NLCE, and we denote the value of an
+observable OðτÞ evaluated with NLCE to order l as Ol ðτÞ.
+D. Observables
+We study three observables which have properties that
+make them qualitatively distinct in the context of dynamics
+and description after equilibration.
+The first observable is the total particle number,
+NðτÞ ¼ Tr½ρ̂ðτÞN̂;
+
+ð47Þ
+
+whose value per site, the particle filling, is denoted as nðτÞ.
+This is a conserved quantity with respect to the reference
+Hamiltonian Ĥ0 ; i.e., it only changes during dynamics
+under Ĥ α after the quench if gα ≠ 0.
+
+021027-8
+
+PRETHERMALIZATION AND THERMALIZATION IN …
+The second observable is the one-body nearest neighbor
+correlation,
+KðτÞ ¼ Tr½ρ̂ðτÞK̂;
+whose value per site is denoted as kðτÞ, where
+X
+ðb̂†i b̂iþ1 þ b̂†iþ1 b̂i Þ:
+K̂ ¼
+
+ð48Þ
+
+ð49Þ
+
+PHYS. REV. X 9, 021027 (2019)
+sector that needs to be diagonalized is 46 252). For mk ðτÞ,
+the NLCE is carried out to one order lower than for nðτÞ
+and kðτÞ, namely, up to the 16th order for gα ≠ 0 and up to
+the 18th order for gα ¼ 0. This is because of the overhead
+generated by the calculation of the dynamics of all the
+matrix elements of the one-body density matrix [see
+Eqs. (50) and (51)].
+
+i
+
+VI. NUMERICAL RESULTS
+
+kðτÞ is a local observable, closely related to the kinetic
+energy per site. It changes during the dynamics independently of whether N̂ is conserved or not.
+The third observable is the distribution function,
+M k ðτÞ ¼ Tr½ρ̂ðτÞM̂ k ;
+
+ð50Þ
+
+whose value per site is the momentum distribution function,
+denoted as mk ðτÞ. M̂k is the unnormalized (to make each k
+component extensive) Fourier transform of the one-body
+density matrix, given by
+X
+0
+M̂k ¼
+eikðj−j Þ b̂†j b̂j0 :
+ð51Þ
+j;j0
+
+mk ðτÞ is a nonlocal one-body observable that changes
+during the dynamics independently of whether N̂ is
+conserved or not. This observable is of particular interest
+because it is regularly measured (using time-of-flight
+expansion) in experiments with ultracold quantum gases
+[56]. mk ðτÞ was the observable used in Ref. [2] to show
+lack of thermalization in 1D Bose gases with contact
+interactions, and in Ref. [6] to study prethermalization
+and thermalization 1D Bose gases with dipolar interactions.
+E. Parameters used in the calculations
+The initial state is taken to be a thermal equilibrium state
+at temperature T I ¼ 10 and chemical potential μI ¼ 2
+(similar results are obtained for other values of T I , not
+too low, and μI ), for an initial Hamiltonian ĤI with nearest
+and next-nearest neighbor coupling parameters tI ¼ 0.5,
+V I ¼ 1.5, and t0I ¼ V 0I ¼ 0.7. After the quench, Ĥ α has
+coupling parameters t ¼ V ¼ 1 (these set the energy scale
+in our calculations), t0 ¼ V 0 ¼ 0.7, and gα ∈ ð0; 0.12Þ. For
+these parameters after the quench, Ĥ 0 [48,49] and Ĥ α are
+quantum chaotic and the system thermalizes for all values
+of gα (see Ref. [23] for a NLCE study of the quench
+dynamics when gα ¼ 0).
+For nðτÞ and kðτÞ, we carry out the NLCE up to the 17th
+order for quenches with gα ≠ 0 (the largest Hamiltonian
+sector that needs to be diagonalized has 65 792 states after
+exploiting reflection symmetry), and, thanks to particle
+number conservation, up to the 19th order for quenches
+with gα ¼ 0 (the dimension of the largest Hamiltonian
+
+A. Dynamics of the particle filling
+In Fig. 1(a), we show the evolution of the particle filling
+under Ĥ 1 for three values of g1 . Results are shown for the
+last two orders of the NLCE up to τ ¼ 100. In those
+quenches, we expect the convergence errors for nðτÞ to be
+below 0.01% for times τ ≲ 4, and to remain low (below
+1%) up to times τ ≈ 16 (see Appendix C). For τ ≳ 16, the
+results for the last two orders of the NLCE can be seen to
+(slightly) deviate from each other in Fig. 1(a). In all the
+plots in Fig. 1(a), nðτÞ can be seen to approach nDE ¼ 1=2.
+For g1 ¼ 0.12, nðτ ¼ 100Þ ≈ nDE .
+The approach of nðτÞ to nDE ¼ 0.5 is exponential. This is
+apparent in Fig. 1(b), where we plot the normalized
+“distance” to equilibrium:
+
+
+ nl ðτÞ − nDE 
+DE
+:
+
+ð52Þ
+δl ½nðτÞ ¼
+
+nDE
+We fit δDE
+l ½nðτÞ to an exponential function ∝
+exp½−ΓNLCE
+ðg1 Þτ to obtain the thermalization rate
+l
+NLCE
+Γl
+ðg1 Þ. In order to gain an understanding of the
+accuracy of the obtained rates, we carry out fits in the
+time interval τ ∈ ½1; 16 for l ¼ 17 [the corresponding fits
+are shown in Fig. 1(b) as thin continuous lines], and in
+the interval τ ∈ ½1; 6 for l ¼ 16. The rates obtained in those
+calculations are shown in Fig. 1(c), as NLCE-17 and
+NLCE-16, respectively. They agree with each other within
+the errors of the fits. This suggests that our calculation
+of ΓNLCE ðg1 Þ is robust. A power-law fit to the rates obtained
+for l ¼ 17 is also shown in Fig. 1(c). We find that
+ΓNLCE
+ðg1 Þ ∝ gβ1 with β ¼ 1.99, in agreement with the
+17
+analytical results in Sec. III.
+_
+In closing Sec. IV C, we argued that the rate qðτÞ
+¼0
+whenever the state ρ̂ðτÞ commutes exactly with Q̂. The rate
+also vanishes if ρ̂ðτÞ is time-reversal invariant about τ.
+Both conditions apply to our initial states ρ̂I . As a result,
+there is a narrow plateau in nðτÞ for τ ≤ 1. This plateau is
+best seen in Fig. 9. This is why, to obtain the rates reported
+in Fig. 1(c), we fit nðτÞ at times τ ≥ 1.
+Next, we show that the values obtained for ΓNLCE ðg1 Þ are
+in agreement with the ones predicted by Fermi’s golden
+rule. From Eq. (22), changing Q̂ → N̂ and V̂ → V̂ α , one
+_
+can write for nðτÞ
+¼ dn=dτ0 jτ0 ¼τ :
+
+021027-9
+
+MALLAYYA, RIGOL, and DE ROECK
+
+-1
+
+0.52
+
+g1 = 0.03
+g1 = 0.06
+g1 = 0.12
+
+}
+
+0.5
+
+nDE= 0.5
+
+NLCE-17
+
+(a)
+
+0.48
+
+(b)
+
+NLCE-16
+
+-1
+
+10
+
+10
+
+NLCE-16
+NLCE-17
+Fermi-17
+Fermi-18
+
+0.46
+
+-2
+
+10
+1.99
+
+3.405g1
+
+δl
+
+DE
+
+[n(τ )]
+
+(c)
+
+Rate
+
+n(τ )
+
+PHYS. REV. X 9, 021027 (2019)
+
+Exp fit
+-2
+
+10
+
+0
+
+20
+
+40
+
+τ
+
+60
+
+80
+
+100
+
+0.03
+
+0.09
+
+0.06
+
+g1
+
+0.12
+
+FIG. 1. Dynamics of the particle filling after quantum quenches Ĥ I → Ĥ 1 . (a) Dynamics of the particle filling nðτÞ and (b) dynamics
+of the “distance” to equilibrium δDE
+l ½nðτÞ; see Eq. (52). NLCE results are shown for l ¼ 17 [NLCE-17, see legend in (a)] and l ¼ 16
+(NLCE-16, dotted lines). Straight lines in (b) depict fits to the results for l ¼ 17 in the interval τ ∈ ½1; 16 and to exponential functions
+ðg1 Þτ. (c) Thermalization rates ΓNLCE ðg1 Þ (filled symbols) obtained from fits as the ones in (b), for l ¼ 17 in the interval
+∝ exp½−ΓNLCE
+17
+τ ∈ ½1; 16 (NLCE-17), and for l ¼ 16 in the interval τ ∈ ½1; 6 (NLCE-16), reported for g1 ∈ ½0.03; 0.12. Error bars show
+95% confidence bounds for the fits. The straight line is the result of a fit to ΓNLCE
+ðg1 Þ ∝ gβ1 for g1 ∈ ½0.03; 0.06. The open symbols
+17
+Fermi
+show the rates Γ
+ðg1 Þ obtained evaluating Fermi’s golden rule [see Eqs. (53) and (54)] using full exact diagonalization in chains with
+L ¼ 18 (Fermi-18) and L ¼ 17 (Fermi-17), and periodic boundary conditions. The error bars show the standard deviation from averages
+over different choices of ΔE and τ (see Appendix D).
+
+_
+nðτÞ
+¼
+
+2πg2α X 0
+δðEj − E0i ÞðN j − N i ÞP0i ðτÞ
+L i;j
+× jhE0j jV̂ α jE0i ij2 ;
+
+ð53Þ
+
+where jE0i i are the eigenkets of Ĥ0 with energies E0i ,
+N i ¼ hE0i jN̂jE0i i, and we average over the diagonal ensemble distribution, P0i ðτÞ ¼ hE0i jρ̂ðτÞjE0i i. To evaluate
+P
+Eq. (53) numerically, we replace j δðE0j − E0i Þ by a sum
+over energies E0j that lie within a small energy window
+½E0i − ΔE=2; E0i þ ΔE=2 (see Appendix D).
+The thermalization rates are estimated by computing
+ΓFermi ðgα Þ ¼ −
+
+_
+nðτÞ
+:
+nðτÞ − nDE
+
+terms that change the total particles number are the same in
+V̂ 1 and V̂ 2 . Hence, nðτÞ is the same for both Hamiltonians
+up to corrections Oðg3α Þ.
+B. Dynamics of the one-body nearest neighbor
+correlation
+Next, we study the dynamics of the one-body nearest
+neighbor correlation, kðτÞ [see Eq. (49)]. In contrast to the
+particle filling studied in Sec. VI A, the nearest neighbor
+correlation kðτÞ exhibits dynamics even if gα ¼ 0 after the
+quench.
+Figure 2 shows the 18th (NLCE-18) and 19th (NLCE-19)
+orders of the NLCE for kðτÞ after a quench in which gα ¼ 0.
+
+ð54Þ
+
+gα = 0
+
+4
+
+When jnðτÞ − nDE j ≪ nDE , Γ
+ðgα Þ becomes independent of τ and nðτÞ relaxes exponentially. This condition is,
+to a good degree, satisfied for our choice of initial state, for
+which δDE
+l ½nðτÞ < 0.09 [see Fig. 1(b)]. Our calculations of
+ΓFermi ðgα Þ are done using full exact diagonalization in
+chains with L ¼ 17 and 18 sites, and periodic boundary
+conditions. We identify a range of values for ΔE and τ for
+which the results for ΓFermi ðgα Þ are robust against the choice
+of ΔE, τ, and L (see Appendix D).
+In Fig. 1(c), we report our results for ΓFermi ðg1 Þ. They are
+in excellent agreement with ΓNLCE ðg1 Þ. We should add that,
+for quenches Ĥ I → Ĥ2 , Eq. (53) predicts the same leading
+Oðg2α Þ dynamics as under Ĥ1. This is the case because the
+
+DE19
+GE19
+
+2
+
+k (τ ) [x10 ]
+
+Fermi
+
+3.5
+NLCE-18
+NLCE-19
+
+3
+0
+
+20
+
+40
+
+τ
+
+60
+
+80
+
+100
+
+FIG. 2. Dynamics of the one-body nearest neighbor correlation
+kðτÞ when gα ¼ 0 after the quench. Results are shown for the 18th
+(NLCE-18) and 19th (NLCE-19) orders of the NLCE. We also
+report, as horizontal lines, the results for the 19th order of the
+diagonal ensemble (DE19 ) and for the 19th order of the grand
+canonical ensemble (GE19 ).
+
+021027-10
+
+PRETHERMALIZATION AND THERMALIZATION IN …
+2
+
+k (τ ) [x10 ]
+g1 = 0.06
+
+4
+
+g2 = 0.06
+
+(a)
+
+(c)
+
+3.5
+NLCE-16
+NLCE-17
+GE
+
+3
+
+Dynamics
+
+g1 = 0.12
+
+4
+
+NLCE-16
+NLCE-17
+GE0
+
+}
+
+}
+
+Projected
+Dynamics
+
+g2 = 0.12
+
+(b)
+
+(d)
+
+3
+20
+
+40
+
+60
+τ
+
+The slow approach to thermal equilibrium can be well
+described using the projected state ρ̂0 ðτÞ from Eq. (42).
+In Fig. 3, we show the results for the projected dynamics
+along with those for the actual dynamics. As follows from
+the discussion in Sec. IV, the results for the projected
+dynamics approach those of a thermal equilibrium state of
+Ĥ0 , which we denote as ρ̂GE0 . We compute the temperature
+T 0 in ρ̂GE0 using the expectation value of Ĥ 0 in the thermal
+equilibrium state ρ̂GE of Ĥ α :
+Tr½ρ̂GE0 Ĥ0  ¼ Tr½ρ̂GE Ĥ0 :
+
+3.5
+
+0
+
+PHYS. REV. X 9, 021027 (2019)
+
+80
+
+0
+
+20
+
+40
+
+60
+
+80
+
+100
+
+τ
+
+FIG. 3. Dynamics of the one-body nearest neighbor correlation
+kðτÞ for (a) g1 ¼ 0.06, (b) g1 ¼ 0.12, (c) g2 ¼ 0.06, and
+(d) g2 ¼ 0.12. Results are shown for the 16th (NLCE-16) and
+17th (NLCE-17) orders of the NLCE, both for the dynamics [see
+legends in (a)] and for the dynamics in the projected basis of Ĥ 0
+[see legends in (c)]. The horizontal lines show the results for the
+grand canonical ensemble corresponding to the original dynamics
+(GE) and to the projected dynamics (GE0 ), both evaluated at the
+17th order of the NLCE.
+
+The results of both orders are in excellent agreement with
+each other, and equilibrate rapidly to the prediction of
+the diagonal ensemble (horizontal dashed line). The
+predictions of the diagonal and grand canonical (horizontal contiguous line) ensembles are very close to each other,
+indicating thermalization. This is expected because Ĥ0
+after the quench is nonintegrable. The small difference
+between the diagonal and the grand canonical ensemble
+results is due to the lack of convergence of the NLCE
+for the former (the latter is fully converged) [54]. Those
+differences decrease with increasing the order of the
+NLCE. In what follows, we use the grand canonical
+ensemble predictions to probe thermalization.
+In Fig. 3, we show kðτÞ after quenches ĤI → Ĥ1 (lefthand panels) and ĤI → Ĥ2 (right-hand panels). The dynamics are qualitatively similar in both cases. They can be split
+in two regimes: (i) fast (prethermal) dynamics driven by Ĥ0
+(note that, at times τ ≲ 10, dynamics in Fig. 3 are nearly
+identical to those in Fig. 2) and (ii) a slower (thermalization)
+dynamics controlled by the strength of the perturbation.
+During the latter regime, the system approaches [and reaches
+for g1 ¼ g2 ¼ 0.12 and τ ¼ 100, see Figs. 3(b) and 3(d)] the
+prediction of the grand canonical ensemble ρ̂GE corresponding to Ĥα after the quench (with the temperature set by the
+initial state).
+
+ð55Þ
+
+The chemical potential in ρ̂GE0 is μ0 ¼ 0 because, for
+gα ≠ 0, the systems after equilibration are at half filling.
+In the left-hand panels in Fig. 3, for quenches ĤI → Ĥ 1 ,
+one can see the advanced offsets (see Sec. IV) between the
+dynamics and the projected dynamics. The offsets are much
+smaller for quenches ĤI → Ĥ2 , whose results are shown in
+the right-hand panels in Fig. 3. The offsets between the
+actual and projected dynamics remain constant at long
+times and are, essentially, the difference between the
+predictions of ρ̂GE and ρ̂GE0 .
+The difference in the offsets generated by quenches
+ĤI → Ĥ1 and ĤI → Ĥ 2 can be understood using Eq. (30),
+replacing Ô → K̂ [K̂ is defined in Eq. (49)] and V̂ → V̂ α .
+Since K̂ and ρ̂0 ðτÞ [ρ̂0 ðτÞ is defined in Eq. (42)] are block
+diagonal in the particle number basis, only the presence of
+terms in V̂ α that do not change the particle number can
+produce an OðgÞ correction. Such terms are present in V̂ 1
+(the hopping terms), see Eq. (36), but are absent in V̂ 2 , see
+Eq. (37). This means that, to leading order, Δk1 ðτÞ ∝ g1
+while Δk2 ðτÞ ∝ gβ2 with β ≥ 2.
+In Fig. 4, we show the long-time offsets between the
+actual and projected dynamics as functions of gα (for
+positive and negative values of gα ) in the quenches
+ĤI → Ĥ1 [Fig. 4(a)] and Ĥ I → Ĥ2 [Fig. 4(b)]. The offsets
+are computed as the difference between the predictions of
+ρ̂GE and ρ̂GE0 for the equilibrated results (see the horizontal
+lines in Fig. 3). Those predictions are converged to machine
+precision in the 17th order of the NLCE shown in Fig. 4.
+Figure 4(a), for quenches ĤI → Ĥ1 , makes apparent the
+presence of a leading linear correction and of a subleading
+quadratic one. Figure 4(b) shows the absence of the linear
+correction for quenches ĤI → Ĥ 2 . There, the leading
+correction is quadratic, and our numerical results allow
+us to identify a subleading cubic correction, which leads to
+a weak asymmetry about g2 ¼ 0.
+Comparing the results reported in Fig. 1(a), and in
+Figs. 3(a) and 3(b), for g1 ¼ 0.06 and 0.12, it becomes
+apparent that kðτÞ equilibrates (reaches the long-time
+horizontal line prediction) faster than nðτÞ. This can be
+understood to be the result of the one-body nearest
+neighbor correlation being particle-hole symmetric
+
+021027-11
+
+MALLAYYA, RIGOL, and DE ROECK
+
+PHYS. REV. X 9, 021027 (2019)
+
+mk (τ )
+
+0
+
+4
+
+(kGE - kGE ) [x10 ]
+
+^
+
+5
+
+g1U1
+
+(a)
+
+g1 = 0.12
+
+} Dynamics
+
+(e)
+
+τ=0
+
+0
+
+NLCE-17
+-3
+(6.54g1) x10
+
+-5
+
+0
+6
+
+0
+
+NLCE-15
+NLCE-16
+
+0.55
+
+(a)
+τ=0
+
+0.44
+2
+
+(6.54g1 - 2.58g1 ) x10
+(kGE - kGE ) [x10 ]
+
+g1 = 0.03
+
+^
+
+g2U2
+
+-3
+
+(b)
+
+-1
+
+2
+
+3
+
+0
+gα
+
+0.05
+
+(-1.65g2 + 0.241g2 ) x10
+-0.1
+
+-0.05
+
+Projected
+} Dynamics
+
+(f)
+τ=2
+
+(b)
+τ=2
+
+0.44
+
+NLCE-17
+2
+-4
+(-1.65g2 ) x10
+-2
+
+NLCE-15
+NLCE-16
+
+0.55
+
+(g)
+
+0.55
+
+-4
+
+0.1
+
+(c)
+τ = 10
+
+0.44
+
+FIG. 4. Difference in the equilibrium (grand canonical ensemble) results between the actual dynamics (GE) and the projected
+dynamics (GE0 ) for the one-body nearest neighbor correlation
+(kGE − kGE0 Þ evaluated at the 17th order of the NLCE. (a) g1 V̂ 1
+perturbation (symbols), with linear and linear plus quadratic fits
+(lines). (b) g2 V̂ 2 perturbation (symbols), with quadratic and
+quadratic plus cubic fits (lines).
+
+τ = 10
+
+}
+
+DE
+GE
+GE0
+
+0.55
+
+C. Dynamics of the momentum distribution
+Here, we study the dynamics of the momentum distribution function mk ðτÞ [Eq. (50)] for quenches ĤI → Ĥ 1 .
+Similar to the dynamics of kðτÞ, the evolution of mk ðτÞ can
+be split into a fast prethermalization dynamics and a slower
+relaxation to the thermal equilibrium prediction at a rate
+controlled by the strength of the perturbation.
+In Fig. 5, we show results for the 15th (NLCE-15) and
+16th (NLCE-16) orders of the NLCE for mk ðτÞ at four
+times (τ ¼ 0, 2, 10, and 100) after quenches in which g1 ¼
+0.03 (left-hand panels in Fig. 5) and g1 ¼ 0.12 (right-hand
+panels in Fig. 5). In all panels in Fig. 5, we also show
+results for the 15th (NLCE-15) and 16th (NLCE-16) orders
+of the NLCE for the projected dynamics of mk ðτÞ in the
+basis of Ĥ 0 [the dynamics dictated by ρ̂0 ðτÞ, see Eq. (42)].
+Figures 5(b) and 5(f) show that the momentum distribution
+in the original and projected dynamics become nearly
+indistinguishable from each other after short times (τ ≳ 2),
+
+π
+
+7π/8
+
+0.49
+
+(d)
+τ = 100
+
+0.44
+0
+
+π/4
+
+0.48
+
+π/2
+
+k
+(as the Hamiltonians Ĥα are). This means that, close to
+equilibrium, the difference between kðτÞ and kGE can only
+be a function of even powers of the difference between
+nðτÞ and n ¼ 1=2. Say the leading even power in the
+difference between nðτÞ and n ¼ 1=2 entering in kðτÞ −
+_
+kGE is 2, then kðτÞ
+≃ 2ΓFermi ðgα Þ½kðτÞ − kGE . Our numerical results for the thermalization rates of kðτÞ, not shown,
+support the correctness of this simple analysis.
+
+(h)
+τ = 100
+
+NLCE-16
+
+3π/4
+
+0
+
+π/4
+
+π/2
+
+3π/4
+
+π
+
+k
+
+FIG. 5. Momentum distribution function mk ðτÞ [see Eq. (50)] at
+four times after quenches in which Ĥ I → Ĥ 1 with g1 ¼ 0.03 [(a)–
+(d)] and g1 ¼ 0.12 [(e)–(h)]. mk ðτÞ is evaluated at τ ¼ 0 [(a),(e)],
+τ ¼ 2 [(b),(f)], τ ¼ 10 [(c),(g)], and τ ¼ 100 [(d),(h)]. Results are
+reported for the 15th (NLCE-15) and 16th (NLCE-16) orders of
+the NLCE. We show mk ðτÞ for the dynamics [see the legends in
+(a)], and for the projected dynamics in the basis of Ĥ0 [see the
+legends in (b)]. The predictions of the diagonal ensemble (DE)
+and the grand canonical ensemble (GE) for the dynamics, and of
+the grand canonical ensemble for the projected dynamics (GE0 ),
+all evaluated at the 16th order of the NLCE, are shown in (d) and
+(h) [see the legends in (d)]. The inset in (h) shows the predictions
+of the latter three ensembles about k ¼ π.
+
+and remain so at long times [see Figs. 5(c), 5(d), 5(g),
+and 5(h)].
+In Figs. 5(d) and 5(h), we also show the 16th order
+NLCE prediction of the diagonal and the grand canonical
+ensembles for the long-time dynamics, and of the grand
+canonical ensemble for the long-time projected dynamics
+[see Eq. (55) and the discussion surrounding this equation].
+For g1 ¼ 0.03 [Fig. 5(d)], the results of the three equilibrium ensembles are nearly indistinguishable from each
+other. They differ from those of the dynamics at τ ¼ 100
+(they all become nearly indistinguishable from each other
+at later times). For g1 ¼ 0.12 [Fig. 5(h)], the results for the
+three equilibrium ensembles and for the dynamics at τ ¼
+100 agree with each other. This, in contrast to the results
+
+021027-12
+
+PRETHERMALIZATION AND THERMALIZATION IN …
+
+PHYS. REV. X 9, 021027 (2019)
+-1
+
+g1 = 0.03
+g1 = 0.06
+g1 = 0.12
+
+10
+
+}
+
+-1
+
+(b)
+
+NLCE-15
+NLCE-16
+Fermi-18
+
+DE
+
+Rate
+
+[m(τ )]
+
+10
+
+(a)
+
+NLCE-16
+
+δl
+
+-2
+
+10
+NLCE-15
+Exp fit
+
+2.00
+
+3.828g1
+
+-2
+
+10
+
+0
+
+20
+
+40
+
+τ
+
+60
+
+80
+
+100
+
+0.03
+
+0.06
+
+g1
+
+0.09
+
+0.12
+
+FIG. 6. Dynamics of the momentum distribution function mk ðτÞ [Eq. (50)] after quenches ĤI → Ĥ 1 . (a) Dynamics of the “distance” to
+equilibrium δDE ½mðτÞ; see Eq. (57). NLCE results are shown for l ¼ 16 [NLCE-16] and l ¼ 15 (NLCE-15, dotted lines). Straight lines
+in (a) depict fits to the results for l ¼ 16 in the interval τ ∈ ½2; 6 and to exponential functions ∝ exp½−ΓNLCE
+ðg1 Þτ. (b) Thermalization
+16
+rates ΓNLCE ðg1 Þ of mk ðτÞ (filled symbols) obtained from fits as the ones in (a), for l ¼ 16 in the interval τ ∈ ½2; 6 (NLCE-16), and for
+l ¼ 15 in the interval τ ∈ ½2; 5 (NLCE-16), reported for g1 ∈ ½0.03; 0.12. Error bars show 95% confidence bounds for the fits. The
+straight line is the result of a fit to ΓNLCE
+ðg1 Þ ∝ gβ1 for g1 ∈ ½0.03; 0.06. The open circles show the rates ΓFermi ðg1 Þ [also reported in
+16
+Fig. 1(c)] obtained by evaluating Fermi’s golden rule [see Eqs. (53) and (54)] using full exact diagonalization in chains with L ¼ 18
+(Fermi-18) and periodic boundary conditions. The error bars show the standard deviation from averages over different choices of ΔE
+and τ (see Appendix D).
+
+for g1 ¼ 0.03, makes apparent that mk ðτÞ thermalizes faster
+with increasing the magnitude of g1 (as expected). Also, as
+expected from our discussion in Sec. IV and for kðτÞ in
+Sec. VI B (see Fig. 3), there is an Oðg1 Þ offset between the
+results for mk ðτÞ in the dynamics and in the projected
+dynamics. The magnitude of this offset is momentum
+dependent, as made apparent by the inset in Fig. 5(d),
+and is too small to be resolved at the scales used in the main
+panels of Fig. 5.
+The operator corresponding to the momentum distribution function, unlike the one for the one-body nearest
+neighbor correlation, is not particle-hole symmetric. This
+implies that, as mk ðτÞ approaches its equilibrium value in
+the diagonal ensemble mDE
+k , to leading order
+
+
+1
+DE
+mk ðτÞ − mk ∝ nðτÞ − :
+ð56Þ
+2
+Thus, we expect mk to thermalize with the same rate
+ΓFermi ðg1 Þ given by Eq. (54). To quantify the “distance” to
+equilibrium for mk ðτÞ, we compute
+P
+δDE
+l ½mðτÞ ¼
+
+l;DE
+l
+k jmk ðτÞ − mk j
+:
+P l;DE
+k mk
+
+ð57Þ
+
+In Fig. 6(a), we show δDE
+l ½mðτÞ evaluated at the 15th
+(NLCE-15) and 16th (NLCE-16) orders of the NLCE.
+DE
+δDE
+15 ½mðτÞ and δ16 ½mðτÞ can be seen to decay close to
+exponentially, although the convergence of the results for
+DE
+δDE
+l ½mðτÞ in Fig. 6(a) is not as good as for δl ½nðτÞ in
+
+Fig. 1(b). This is understandable because (i) we are able to
+calculate one order lower for mk ðτÞ than for nðτÞ and
+(ii) mk ðτÞ probes correlations at all distances, while nðτÞ is
+local and is a thermodynamic quantity.
+We fit δDE
+l ½mðτÞ to an exponential function ∝
+exp½−ΓNLCE
+ðg
+1 Þτ to obtain the thermalization rates
+l
+ΓNLCE
+ðg
+Þ
+for
+the momentum distribution function. The
+1
+l
+fits are carried out in the interval τ ∈ ½2; 6 for NLCE-16
+[shown as thin continuous lines in Fig. 6(a)], and in the
+interval τ ∈ ½2; 5 for NLCE-15. The rates ΓNLCE
+ðg1 Þ are
+l
+reported in Fig. 6(b) for g1 ∈ ½0.03; 0.12. In Fig. 6(b), we
+also plot the rates ΓFermi ðg1 Þ obtained by evaluating Fermi’s
+golden rule [see Eqs. (53) and (54)] using full exact
+diagonalization in chains with L ¼ 18 sites and periodic
+boundary conditions (see Sec. VI A and Appendix D). [The
+rates ΓFermi ðg1 Þ were also reported in Fig. 1(c).] Figure 6(b)
+shows that, as advanced, the thermalization rates for the
+momentum distribution function are the same (within our
+computational errors) as the ones for the particle filling.
+A power-law fit to the rates ΓNLCE
+ðg1 Þ is also shown in
+16
+Fig. 6(b). We find that ΓNLCE
+ðg
+Þ
+∝
+gβ1 with β ¼ 2.00, in
+1
+16
+agreement with the numerical results in Sec. VI A, and with
+the analytical ones in Secs. III and IV.
+VII. SUMMARY AND DISCUSSION
+We put forward a conceptually simple scenario for
+prethermalization and thermalization in isolated quantum
+systems with a weakly broken conservation law. This
+scenario applies equally to noninteracting and strongly
+
+021027-13
+
+MALLAYYA, RIGOL, and DE ROECK
+
+PHYS. REV. X 9, 021027 (2019)
+
+Rate
+-1
+
+10
+
+-1
+
+NLCE-16
+NLCE-17
+
+[n(τ )]
+
+10
+
+2.03
+
+3.66 g2
+
+δl
+
+DE
+
+g2=0.03
+g2=0.06
+g2=0.12
+0
+10
+
+10
+
+20
+
+τ
+
+30
+
+10
+50
+
+40
+
+-2
+
+-2
+
+0
+
+10
+
+3.0
+
+Fermi-17
+Fermi-18
+0.03
+
+20
+
+{
+
+Proj
+
+2
+
+k (τ ) [x10 ]
+
+interacting integrable systems in which integrability is
+weakly broken, as well as to nonintegrable systems in
+which a conservation law is weakly broken. The weak
+perturbation allows the system to equilibrate to a state that
+is a (generalized) thermal equilibrium state of the unperturbed system. The properties of such a state are determined
+by the slowly changing value of the quasiconserved
+quantity (or quantities). The separation of timescales leads
+to a universal description, two aspects of which stand out.
+(i) The dynamics of the (or each) quasiconserved quantity is described by an autonomous equation that can
+be constructed from Fermi’s golden rule in unperturbed equilibrium ensembles. This equation is the
+generalization of the nonlinear Boltzmann equation
+appearing in weakly interacting quantum systems.
+(ii) The deviation of observables in the instantaneous
+state from the prediction of the unperturbed equilibrium ensemble is described by first-order perturbation theory. This generalizes the concept of
+“deformed GGE” that was described in Ref. [12]
+for integrable systems in the presence of a weak
+integrability-breaking perturbation.
+Our theoretical results, as well as several special behaviors related to the initial state selected, properties of the
+perturbations that break the conservation law, and properties of the observables studied, were validated by numerical
+experiments in systems for which both the reference and
+the perturbed dynamics are nonintegrable.
+A systematic study of integrable systems in which
+integrability is weakly broken is beyond the scope of this
+work. As mentioned in the Introduction, noninteracting
+systems in the presence of weak integrability-breaking
+interactions were studied in Refs. [7–15]. There have also
+been studies of integrable systems mappable onto noninteracting ones in the presence of an integrability-breaking
+perturbation [57]. For a strongly interacting integrable
+system, Ĥ0 in Eq. (35) with t ¼ V ¼ 1 and t0 ¼ V 0 ¼ 0
+(which is not mappable onto a noninteracting model), in
+Ref. [23] it was shown numerically that weakly breaking
+integrability by making g ≡ t0 ¼ V 0 ≠ 0 results in thermalization rates ∝ g2 .
+To check the applicability of our theory to strongly
+interacting integrable reference dynamics, in Fig. 7 we
+show results for dynamics under the same reference
+Hamiltonian as in Ref. [23] when one breaks integrability
+with the perturbation g2 V̂ 2 in Eq. (37). Those results are the
+equivalent of results reported in Figs. 1 and 3, for quenches
+ĤI → Ĥ2 in which t0I ¼ V 0I ¼ 0 in ĤI and t0 ¼ V 0 ¼ 0 in
+Ĥ2 . The main panel in Fig. 7 shows that the thermalization
+rate for the particle filling is ∝ g22 , and that it agrees with the
+Fermi golden rule prediction [see Eqs. (53) and (54)] for
+small values of g2 . The upper inset in Fig. 7 shows that the
+particle filling approaches exponentially its thermal equilibrium value, as seen in Fig. 1(b) for the nonintegrable
+reference dynamics. The lower inset in Fig. 7 shows the
+
+2.8
+
+{
+
+Dyn
+
+τ
+
+30
+
+50
+
+NLCE-16
+NLCE-17
+
+NLCE-17
+NLCE-16
+GE
+
+g2=0.12
+
+2.6
+0.06
+g2
+
+40
+
+0.09
+
+0.12
+
+FIG. 7. Dynamics after quantum quenches Ĥ I → Ĥ 2 , for t0I ¼
+V 0I ¼ 0 in Ĥ I and t0 ¼ V 0 ¼ 0 in Ĥ2 (integrable reference
+dynamics). Main panel: Thermalization rates ΓNLCE ðg2 Þ for the
+particle filling dynamics (filled symbols) obtained from fits as the
+ones shown in the upper inset. The straight line is the result of a fit
+to ΓNLCE
+ðg2 Þ ∝ gβ2 . The open symbols show the rates ΓFermi ðg2 Þ,
+17
+see Eqs. (53) and (54), obtained using full exact diagonalization
+(see Appendix D). Upper inset: δDE
+l ½nðτÞ, see Eq. (52), versus τ.
+The straight lines depict fits to exponential functions
+∝ exp½−ΓNLCE
+ðg2 Þτ. The legends in the main panel and in the
+17
+upper inset follow Fig. 1, and the fits are done in the same
+intervals as in Fig. 1. Lower inset: Dynamics, and projected
+dynamics in the basis of Ĥ0 , of kðτÞ for g2 ¼ 0.12. The horizontal
+line shows the result for the grand canonical ensemble corresponding to the original dynamics. The legends are identical to
+those in Fig. 3.
+
+dynamics, and the projected dynamics in the basis of Ĥ 0 ,
+of kðτÞ for g2 ¼ 0.12. They are in excellent agreement with
+each other, like in Fig. 3(d) for the nonintegrable reference
+dynamics. In short, there are no qualitative differences
+between the results reported in Figs. 1 and 3 for the
+nonintegrable reference dynamics and in Fig. 7 for the
+integrable reference dynamics.
+We should stress that all our numerical results for the
+projected dynamics were obtained within the diagonal
+ensemble, which allowed us to study indistinctively quantum
+chaotic reference dynamics in Sec. VI, and strongly interacting integrable reference dynamics in Fig. 7. However,
+because of eigenstate thermalization in quantum chaotic
+systems, and its generalized version in integrable systems,
+one can equally well use traditional ensembles of statistical
+mechanics for the projected dynamics when the reference
+dynamics is quantum chaotic [22] and generalized Gibbs
+
+021027-14
+
+PRETHERMALIZATION AND THERMALIZATION IN …
+
+PHYS. REV. X 9, 021027 (2019)
+
+mk (τ )
+τ=2
+τ = 10
+τ = 100
+
+0.55
+
+}
+
+Projected DE
+
+ðA2Þ
+
+a_2 ðτÞ ¼ M21 a1 ðτÞ þ M 22 a2 ðτÞ:
+
+ðA3Þ
+
+We first formally solve the second of these equations,
+
+Projected GE
+
+0.5
+
+a_1 ðτÞ ¼ M11 a1 ðτÞ þ M 12 a2 ðτÞ;
+
+a2 ðτÞ ¼ eτM22 a2 ð0Þ þ
+
+Zτ
+dsesM22 M21 a1 ðτ − sÞ;
+
+ðA4Þ
+
+0
+
+0.45
+
+and insert Eq. (A4) into Eq. (A2), yielding
+0
+
+π/4
+
+π/2
+
+3π/4
+
+a_1 ðτÞ ¼ M11 a1 ðτÞ þ M 12 eτM22 a2 ð0Þ
+Zτ
+þ dsM12 esM22 M21 a1 ðτ − sÞ:
+
+π
+
+k
+
+FIG. 8. Projected dynamics of mk ðτÞ in the basis of Ĥ0 at three
+times after the quench Ĥ I → Ĥ 1 , with g1 ¼ 0.12. We compare
+results for the projected dynamics within the diagonal ensemble
+(Projected DE), also reported in Fig. 5, with those obtained within
+the grand canonical ensemble (Projected GE). The temperature
+and the chemical potential of the grand canonical ensemble are
+set so that the energy density e0 and the particle filling n in this
+ensemble match those in the diagonal ensemble. The results
+reported are for the 16th order of the NLCE.
+
+ensembles when the reference dynamics is integrable [17].
+As an example, in Fig. 8 we compare the results for the
+projected dynamics in the diagonal ensemble reported in
+Fig. 5 for g1 ¼ 0.12 at times τ ¼ 2, 10, and 100 with those
+obtained replacing the diagonal ensemble by the grand
+canonical ensemble with the same energy density e0 and
+particle filling n. As expected, the results obtained within
+both ensembles are indistinguishable from each other.
+
+0
+
+See Eqs. (7) and (12) in the main text. The relevance of this
+framework to irreversible phenomena was noticed in
+Refs. [42,43].
+APPENDIX B: FROM K TO THE
+AUTONOMOUS EQUATION
+Here we look into the superoperator K [see Eq. (20)],
+þ
+Z∞
+
+K¼
+
+M. R. and W. D. R. are grateful to Fabian Essler for
+insightful discussions over the years about this topic, which
+motivated this work. We are also grateful to Achim Rosch
+for valuable comments. We acknowledge support from
+the National Science Foundation, under Grant No. PHY1707482 (K. M. and M. R.), and in part under Grant
+No. PHY-1748958. The computations were carried out
+at the Institute for CyberScience at Penn State.
+
+To stress the algebra of the problem, we use a notation
+different from that in the main text. We consider a linear
+space V with a projector P∶V → V, P 2 ¼ P, and a linear
+evolution equation,
+aðτÞ ∈ V;
+
+M∶ V → V:
+
+in more detail. Each L1 contains a commutator −ig½V̂; ·, so
+in total there are four terms, depending on whether gV̂ in
+each L1 term acts on the left or on the right. We decompose
+ðB2Þ
+
+where the “gain” operator contains the two cases in which
+the V̂’s act on different sides, and the “loss” operator
+contains the two cases in which they act on the same side.
+For both operators, we can recast the two cases into a
+single formula by extending the integration range of s from
+½0; ∞Þ to ð−∞; ∞Þ. One then has that
+Kgain
+
+ρ̂ ¼ g2
+
+Z∞
+
+Z∞
+dsTr½P̂e0 ;q V̂ 0 ðsÞP ρ̂ V̂;
+
+de0 dqρ̂e0 ;q
+−∞
+
+0
+
+ðB3Þ
+while for Kloss acting on ρ̂ one has
+Kloss ρ̂ ¼ −g2
+
+Z
+
+Z∞
+dsTr½P̂e0 ;q V̂ 0 ðsÞV̂P ρ̂;
+
+dedqρ̂e0 ;q
+−∞
+
+ðA1Þ
+
+Then, we write P 1 ¼ P, P 2 ¼ ð1 − PÞ, ai ¼ P i a, and
+Mij ¼ P i MP j . As the projector is time independent, the
+evolution equation can be cast as a system of two coupled
+equations:
+
+ðB1Þ
+
+0
+
+APPENDIX A: MORI-ZWANZIG FORMALISM
+
+_
+aðτÞ
+¼ MaðτÞ;
+
+dsPL1 esL0 L1 P;
+
+K ¼ Kgain þ Kloss ;
+
+ACKNOWLEDGMENTS
+
+ðA5Þ
+
+ðB4Þ
+where we abbreviate P̂e0 ;q ¼ PðĤ0 ≈ e0 LÞPðQ̂ ≈ qLÞ (see
+Sec. III A), and we use the invariance of P ρ̂ and P̂e0 ;q under
+the evolution generated by Ĥ0. Note that we can assume,
+
+021027-15
+
+MALLAYYA, RIGOL, and DE ROECK
+
+PHYS. REV. X 9, 021027 (2019)
+
+without loss of generality, that V̂ satisfies hV̂ie0 ;q ¼ 0 for all
+ðe0 ; qÞ, because a term with nonzero mean would have
+canceled out in the commutators [alternatively, it would
+cancel between Eqs. (B3) and (B4)]. For this reason, we can
+replace all correlation functions below by truncated correlation functions.
+Recall that we identified the space of P ρ̂ with distributions p on ðe0 ; qÞ. Indeed, any P ρ̂ is of the form ρ̂p with
+distribution p; see Eq. (3). Therefore, we can now abuse
+notation and interpret K as a kernel on the space of
+distributions p. We then have
+Kpðe00 ; q0 Þ ¼
+
+Z
+
+de0 dqKðe0 ; q; e00 ; q0 Þpðe0 ; qÞ;
+
+ðB5Þ
+
+and, from the above formulas, we identify
+0
+
+0
+
+2
+
+dsTr½P̂e00 ;q0 V̂ 0 ðsÞρ̂e0 ;q V̂
+−∞
+Z∞
+
+− g2
+
+dsTr½P̂e00 ;q0 V̂ 0 ðsÞV̂ ρ̂e0 ;q :
+
+ðB6Þ
+
+−∞
+
+To unravel this further, we introduce
+V̂ δQ ¼
+
+X
+
+δQ0 ;QþδQ P̂Q0 V̂ P̂Q ;
+
+ðB7Þ
+
+Q;Q0
+
+where P̂Q are spectral projections of Q̂ and the sum runs
+over the eigenvalues of Q̂. Note that the admissible values
+of δQ are Oð1Þ because V̂ is a sum of Oð1Þ local terms. For
+natural examples of Q̂, such as the total particle number
+operator, we see that also V̂ δQ is a sum of local terms. In
+that case Eq. (B7) is manifestly of order OðLÞ, as a
+truncated correlation function in equilibrium. The first
+term in Eq. (B6) can be written as
+re0 ;q ðδQÞ ¼ g
+
+2
+
+Z∞
+
+−δQ
+dsTr½V̂ δQ
+;
+0 ðsÞρ̂e0 ;q V̂
+
+ðB8Þ
+
+−∞
+
+with e00 ¼ e0 and q0 − q ¼ δQ=L. Indeed, the condition
+e00 ¼ e0 is enforced by the integral over s. The second term
+in Eq. (B6) has a contribution at e0 ¼ e00 , q ¼ q0 only (by
+the cyclic property of the trace, the projector P̂e00 ;q0 is put
+next to the density matrix ρ̂e0 ;q ), and its value is
+X
+re0 ;q ðδQÞ:
+
+dqde00 Kðe0 ; q; e00 ; q0 Þ ¼ 0:
+
+ðB10Þ
+
+We have now explicitly interpreted the process generated
+by K as a jump process, with jump rates re0 ;q ðδQÞ ≥ 0 for
+jumps in the density q of order 1=L. The link to the “drift”
+computed in Sec. III F is by
+dðe0 ; qÞ ¼
+
+X 1
+δQ re0 ;q ðδQÞ:
+L
+δQ
+
+ðB11Þ
+
+The expressions in Sec. III F are recovered by writing
+Eq. (B8) in terms of eigenkets of Ĥ0 , and this eventually
+yields Eq. (24).
+APPENDIX C: CONVERGENCE OF NLCE AND
+EXACT DIAGONALIZATION
+
+Z∞
+
+Kðe0 ; q; e0 ; q Þ ¼ g
+
+Z
+
+ðB9Þ
+
+δQ
+
+One could also have guessed this value because the process
+generated by K conserves probability, which translates to
+
+All the numerical results reported in the main text, but the
+relaxation rates ΓFermi computed using Fermi’s golden rule
+and full exact diagonalization, were obtained using NLCE
+calculations. The basics of NLCEs was summarized in
+Sec. V C, and relevant parameters for the NLCE calculations
+(orders, largest Hilbert spaces involved, etc.) were mentioned in Sec. V E. Here we discuss the convergence of the
+NLCE calculations and finite-size effects in the full exact
+diagonalization calculations.
+All our full exact diagonalization calculations are
+carried out in chains with periodic boundary conditions.
+We use translational symmetry to block diagonalize the
+Hamiltonian, which allows us to study larger chains than
+within the NLCE calculations. In the exact diagonalization calculations when gα ≠ 0, in the absence of particlenumber conservation, the largest Hamiltonian sector
+diagonalized has 14 602 states (for L ¼ 18). When
+gα ¼ 0, in the presence of particle-number conservation,
+the largest Hamiltonian sector diagonalized has 9252
+states (for L ¼ 20). We only report exact diagonalization
+results for gα ¼ 0 in Fig. 11(a). The matrices involved
+in our full exact diagonalization calculations are complex
+for sectors with total quasimomentum k ≠ 0 and π, and
+the results reported contain the contribution from all L
+quasimomentum sectors.
+In Fig. 9, we show the evolution of the particle filling
+nðτÞ for g1 ¼ 0.12 (the fastest changing case studied) as
+obtained in the last four orders of the NLCE, and in the
+three largest chains solved using full exact diagonalization.
+In the scale of the figure, all the results are nearly
+indistinguishable from each other up to τ ≈ 10. Beyond
+that time, but not too far from it, the NLCE results can be
+seen to oscillate in the order of the expansion, even orders
+of the NLCE are above the odd orders (see the inset in
+Fig. 9). With increasing the order of the NLCE, one finds
+that the amplitude of the oscillation decreases and the
+results converge at longer times. This is similar to what
+
+021027-16
+
+PRETHERMALIZATION AND THERMALIZATION IN …
+n (τ )
+0.49
+
+0.48
+
+PHYS. REV. X 9, 021027 (2019)
+Δ[n (τ )]
+
+NLCE-14
+NLCE-15
+NLCE-16
+NLCE-17
+ED-16
+ED-17
+ED-18
+
+-2
+
+g1 = 0.12
+
+10
+
+g1 = 0.12
+
+-4
+
+10
+
+NLCE
+
+-6
+
+NLCE17-NLCE15
+
+10
+
+0.475
+
+NLCE17-NLCE16
+
+0.47
+
+-8
+
+10
+0.47
+
+0.46
+
+7.5
+0
+
+10
+
+20
+
+10
+
+12.5
+
+30
+
+15
+40
+
+FIG. 9. Time evolution of the filling nðτÞ, for g1 ¼ 0.12,
+obtained in the last four orders l of the NLCE (NLCE-l in the
+legends), and in the three largest chains with L sites and periodic
+boundary conditions solved using full exact diagonalization
+(ED-L in the legends). The inset shows an enlargement of the
+NLCE results between τ ¼ 7.5 and 15.
+
+happens in thermal equilibrium calculations, in which the
+NLCEs converge at lower temperatures as one increases
+the order of the expansion [53]. The exact diagonalization
+results, on the other hand, can be seen to approach the
+NLCE ones monotonically with increasing the chain size.
+In Fig. 9, the nðτÞ results in the last order of the NLCE and
+in the largest periodic chain diagonalized are nearly
+indistinguishable up to τ ≈ 20.
+To gain a more quantitative understanding of the convergence of the particle filling nl ðτÞ calculations within
+NLCE, where l is the order of the expansion, and of finitesize effects in the exact diagonalization (ED) calculations
+of nL ðτÞ, where L is the chain size, we compute the relative
+differences,
+jnl¼17 ðτÞ − nl ðτÞj
+;
+jnI − 1=2j
+
+ðC1Þ
+
+between the NLCE results at order l and the last order
+calculated l ¼ 17, and
+ΔED
+L ½nðτÞ ¼
+
+jnL¼18 ðτÞ − nL ðτÞj
+jnI − 1=2j
+
+ðC2Þ
+
+between the results for chains with L sites and the largest
+chain L ¼ 18 diagonalized. We also compute the relative
+differences between the last order of the NLCE and the
+largest periodic chain diagonalized:
+ΔNLCE-ED ½nðτÞ ¼
+
+ED18-ED17
+
+-10
+
+10
+
+jnl¼17 ðτÞ − nL¼18 ðτÞj
+:
+jnI − 1=2j
+
+ðC3Þ
+
+In Eqs. (C1)–(C3), nI is the initial particle filling, which is
+obtained within machine precision at the 17th order of the
+NLCE, and 1=2 is the filling in the diagonal ensemble.
+
+NLCE17-ED18
+0
+
+τ
+
+ΔNLCE
+½nðτÞ ¼
+l
+
+ED18-ED16
+
+2
+
+4
+
+6
+
+8
+τ
+
+10
+
+12
+
+14
+
+16
+
+FIG. 10. Relative differences, defined in Eqs. (C1)–(C3), for
+g1 ¼ 0.12. The exact diagonalization results are obtained in
+chains with periodic boundary conditions.
+
+In Fig. 10, we plot the relative differences defined in
+Eqs. (C1) and (C2) for l ¼ 15 and 16 of the NLCE, and for
+L ¼ 16 and 17 in the exact diagonalization calculations,
+also for g1 ¼ 0.12 as in Fig. 9. Some points to be highlighted from the plots in Fig. 10 are the following: (i) the
+NLCE results for l ¼ 16 are likely converged within
+machine precision up to τ ≈ 2, while the exact diagonalization ones for L ¼ 17 are likely converged within
+machine precision only up to about one half of that time
+(τ ≈ 1); (ii) the relative differences between the various
+orders of the NLCE and between the various exact
+diagonalization calculations are below 0.01% for τ ≲ 4;
+(iii) at times τ ≈ 16, the relative differences are in all cases
+below 2% (they are smaller between the exact diagonalization results than between the NLCE ones).
+The results for the relative difference ΔNLCE-ED ½nðτÞ are
+qualitatively similar to those for ΔNLCE
+½nðτÞ and ΔED
+L ½nðτÞ.
+l
+We find that ΔNLCE-ED ½nðτÞ ≤ 0.01% for times τ ≤ 5. We
+use times τ ≤ 5 for the exact diagonalization calculation of
+the rates from Fermi’s golden rule in Appendix D. We also
+find that ΔNLCE-ED ½nðτÞ ≲ 0.5% for times τ ≤ 16. We use
+times τ ≤ 16 in the fits to obtain the rates from the 17th order
+of the NLCE dynamics in Sec. VI B.
+Next, for the one-body nearest neighbor correlations
+kðτÞ, we discuss the convergence of the NLCE calculations
+kl ðτÞ and finite-size effects in the full exact diagonalization
+calculations kL ðτÞ. kðτÞ, being a correlation function, is
+more challenging to obtain accurately than nðτÞ, which is a
+thermodynamic quantity.
+In Fig. 11(a), we show dynamics after the quench
+ĤI → Ĥ0 for kl ðτÞ with l ¼ 17, 18, and 19 (the latter two
+are also reported in Fig. 2) and for kL ðτÞ with L ¼ 18, 19,
+and 20. kl ðτÞ and kL ðτÞ are almost indistinguishable from
+each other up to times τ ≈ 5 (the earliest times are not
+shown to gain dynamical range in the y axis). For τ ≳ 5,
+
+021027-17
+
+MALLAYYA, RIGOL, and DE ROECK
+
+PHYS. REV. X 9, 021027 (2019)
+
+2
+
+k (τ ) [x10 ]
+
+gα = 0
+
+(a)
+
+3.9
+
+GENLCE-19
+
+3.6
+
+NLCE-17
+
+ED-18
+
+NLCE-18
+
+ED-19
+
+NLCE-19
+
+ED-20
+
+DENLCE-19
+
+DEED-20
+
+(b)
+
+g1 = 0.12
+3.7
+
+NLCE-15
+3.6
+
+NLCE-16
+
+3.5
+
+NLCE-17
+
+DENLCE-17
+
+ED-16
+
+DEED-18
+
+ED-17
+
+GENLCE-17
+
+ED-18
+0
+
+10
+
+20
+
+τ
+
+30
+
+40
+
+50
+
+FIG. 11. Time evolution of the one-body nearest neighbor
+correlation kðτÞ obtained in the last three orders l of the NLCE
+(NLCE-l in the legends), and in the three largest chains with L
+sites and periodic boundary conditions diagonalized (ED-L in the
+legends). Results for the diagonal ensemble are shown for the last
+order of the NLCE (DENLCE-l ) and the largest chain diagonalized
+(DEED-L ), while results for the grand canonical ensemble are
+shown for the last order of the NLCE (GENLCE-l ), which are
+converged to machine precision. (a) Quenches Ĥ I → Ĥ 0 , for
+l ¼ 17, 18, and 19 (NLCE-17, NLCE-18, and NLCE-19), and
+for L ¼ 18, 19, and 20 (ED-18, ED-19, and ED-20), along
+with the diagonal ensembles for l ¼ 19 (DENLCE-19 ) and L ¼ 20
+(DEED-20 ), and the grand canonical ensemble for l ¼ 19
+(GENLCE-19 ). (b) Quenches Ĥ I → Ĥ 1 , in which g1 ¼ 0.12, for
+l ¼ 15, 16, 17 (NLCE-15, NLCE-16, NLCE-17), and for L ¼ 17,
+18, 19 (ED-17, ED-18, ED-19), along with the diagonal ensembles for l ¼ 17 (DENLCE-17 ) and L ¼ 18 (DEED-18 ), and the grand
+canonical ensemble for l ¼ 17 (GENLCE-17 ). Higher orders in the
+NLCE, and larger chains in exact diagonalization, are calculated
+in (a) than in (b) thanks to particle-number conservation in the
+former.
+
+the NLCE and exact diagonalization results split and each
+equilibrate to the prediction of the corresponding diagonal
+DE
+ensemble, kDE
+l¼19 (DENLCE−19 ) and kL¼20 (DEED−20 ),
+respectively. As in Ref. [23], the NLCE results for the
+diagonal ensemble (DENLCE−19 ) are closer to the grand
+canonical ensemble ones, kGE
+l¼19 (GENLCE-19 ), than the
+exact diagonalization results for the diagonal ensemble
+
+(DEED-20 ). The differences between them are due to lack
+of convergence of the diagonal ensemble within NLCEs
+and finite-size effects for the diagonal ensemble within
+exact diagonalization. The NLCE results for the grand
+canonical ensemble are converged within machine precision. Consequently, at long times, the NLCE is expected
+to be more accurate than exact diagonalization. At
+intermediate times 5 ≲ τ ≲ 15, kl¼16 ðτÞ and kl¼17 ðτÞ are
+almost indistinguishable from each other, while kL ðτÞ
+shifts upward with increasing L, toward the NLCE
+predictions. This suggests that NLCE is also more
+accurate than exact diagonalization at intermediate times.
+In Fig. 11(b), we show dynamics after the quench
+ĤI → Ĥ1 (g1 ¼ 0.12) for kl ðτÞ with l ¼ 15, 16, and 17
+(the latter two are also reported in Fig. 3) and for kL ðτÞ with
+L ¼ 16, 17, and 18. kl ðτÞ and kL ðτÞ are almost indistinguishable from each other up to times τ ≈ 4 (again, the
+earliest times are not shown to gain dynamical range in the
+y axis). For τ ≳ 4, the NLCE and exact diagonalization
+results again split, as for the quench ĤI → Ĥ0 , despite the
+fact that both equilibrate to diagonal ensemble results that
+DE
+are very close to each other. kDE
+l¼17 (DENLCE-17 ) and kL¼18
+(DEED-18 ) in Fig. 11(b) are almost indistinguishable from
+each other and from the grand canonical ensemble result
+kGE
+l¼17 (GENLCE-17 ). At times 5 ≲ τ ≲ 15, kl¼16 ðτÞ and
+kl¼17 ðτÞ are almost indistinguishable, while kL ðτÞ shifts
+upward toward the NLCE predictions with increasing L.
+As for the quenches ĤI → Ĥ0 , these results suggest that
+NLCE is more accurate than exact diagonalization at
+intermediate times in quenches ĤI → Ĥ 1 .
+The discrepancy between the NLCE and exact diagonalization results at intermediate times after quenches
+ĤI → Ĥ1 is likely a manifestation of finite-size effects
+in kL ðτÞ that result from the “prethermal” dynamics seen in
+Fig. 11(a), which equilibrates to a diagonal ensemble value
+(kDE
+L¼20 ) that is lower than the expected grand canonical
+ensemble one. The results in Fig. 11(b) also make apparent
+that, because of finite-size effects, the thermalization rates
+for kðτÞ are smaller in exact diagonalization, and increasing
+with increasing L, than in NLCE.
+APPENDIX D: THERMALIZATION RATES
+FROM FERMI’S GOLDEN RULE
+We use full exact diagonalization in chains with L sites
+and periodic boundary conditions to evaluate Eq. (53).
+For the numerical calculation, the delta function is replaced
+by a coarse-graining procedure leading to the following
+modified version of Eq. (53):
+f ΔE ðτÞ ¼
+
+021027-18
+
+2πg2α X
+P ðτÞ
+LΔE i i
+X
+jhE0j jV̂ α jE0i ij2 ðN j − N i Þ;
+×
+jEj −Ei j≤ΔE=2
+
+ðD1Þ
+
+PRETHERMALIZATION AND THERMALIZATION IN …
+
+PHYS. REV. X 9, 021027 (2019)
+-1
+
+10
+
+(a) τ = 1
+
+g1 = 0.12
+
+fΔE (τ )
+
+10
+
+L = 18
+
+-3
+
+g1 = 0.03, L = 18
+g1 = 0.06, L = 18
+
+ΓΔE,τ (g1)
+
+-4
+
+10
+
+(b) τ = 5
+-3
+
+g1 = 0.06
+10
+
+-2
+
+fΔE (τ )
+
+10
+
+ΔE / L = 0.03
+ΔE / L = 0.06
+ΔE / L = 0.09
+
+Avg rate
+-4
+
+10
+
+g1 = 0.03
+
+g1 = 0.12, L = 18
+L = 17
+0.01
+
+0.1
+ΔE / L
+
+0
+
+1
+
+FIG. 12. fΔE ðτÞ, see Eq. (D1), evaluated for a wide range of
+energy windows ΔE for quenches ĤI → Ĥ1 [see Eq. (36)] with
+g1 ¼ 0.03, 0.06, and 0.12. f ΔE ðτÞ is computed using full exact
+diagonalization of chains with L ¼ 18 (see legends) and L ¼ 17
+(dotted lines) and periodic boundary conditions. The vertical lines
+delimit the range ΔE=L ∈ ½0.03; 0.09 in which fΔE ðτÞ is
+approximately constant.
+
+where jE0i i ðjE0j iÞ are the eigenkets of Ĥ0 with energy E0i
+(E0j ), N i ¼ hE0i jN̂jE0i i, and Pi ðτÞ ¼ hE0i jρ̂ðτÞjE0i i.
+In Fig. 12, we plot f ΔE ðτÞ, evaluated in chains with L ¼
+17 and L ¼ 18 for quenches ĤI → Ĥ1 [see Eq. (36)], as a
+function of ΔE. We show results at two times, τ ¼ 1 in
+Fig. 12(a) and τ ¼ 5 in Fig. 12(b), and for three values of g1
+at each time. Our main finding in Fig. 12 is that, in the
+interval ΔE=L ∈ ½0.03; 0.09, f ΔE ðτÞ is nearly independent
+of ΔE, and is approximately the same in chains with L ¼ 17
+and L ¼ 18. Similar results were obtained at times τ ∈ ½0; 5,
+for which we showed in Appendix C that our best NLCE
+and exact diagonalization results for nðτÞ differ by less
+than 0.01%.
+Having identified an appropriate range of values of ΔE,
+we compute the rate
+ΓΔE;τ ðgα Þ ¼ −
+
+f ΔE ðτÞ
+;
+nðτÞ − nDE
+
+ðD2Þ
+
+which is defined following Eq. (54).
+Figure 13 shows ΓΔE;τ ðg1 Þ versus τ for three values of g1 ,
+and for three values of ΔE=L for each value of g1 . The rates
+for each value of g1 decrease slowly with increasing τ, and
+are very close to each other for the three values of ΔE=L
+shown. Given the results for nðτÞ at times τ ≤ 1 in Fig. 11,
+which exhibit a plateaulike behavior discussed in Sec. VI A,
+the rates ΓFermi ðgα Þ for τ ≤ 1 are not meaningful. Hence, the
+rates ΓFermi ðgα Þ reported in Sec. VI A were obtained averaging ΓΔE;τ ðgα Þ over the results for τ ¼ 1; 1.5; …; 5 (nine
+values), and for ΔE=L ¼ 0.03; 0.032; …; 0.09 (31 values),
+
+2
+
+4
+
+τ
+
+6
+
+8
+
+10
+
+FIG. 13. ΓΔE;τ ðg1 Þ [see Eq. (D2)] evaluated for quenches ĤI →
+Ĥ1 [see Eq. (36)] with g1 ¼ 0.03, 0.06, and 0.12. The results
+reported are from full exact diagonalization of chains with L ¼
+18 and periodic boundary conditions. The average thermalization
+rate (horizontal line) is obtained by averaging ΓΔE;τ ðg1 Þ over τ ¼
+1; 1.5; …; 5 (nine values) and over ΔE=L ¼ 0.03; 0.032; …; 0.09
+(31 values), for a total of 279 values of ΓΔE;τ ðg1 Þ entering each
+average reported.
+
+for a total of 279 values entering each average. In Fig. 13, we
+report the averages as horizontal lines. For each average, we
+also compute the standard deviation. In Fig. 1(c), we report
+the averages, and the standard deviations (as error bars), for
+different values of g1 and for L ¼ 17 and L ¼ 18.
+The rates ΓFermi ðg2 Þ reported in Fig. 7 were obtained
+averaging ΓΔE;τ ðg2 Þ over the results for τ ¼ 1; 1.5; …; 5
+(nine values), and for ΔE=L ¼ 0.100; 0.102; …; 0.15;
+0.16; …; 0.20 (31 values), for a total of 279 values entering
+each average.
+
+[1] J. Berges, S. Borsányi, and C. Wetterich, Prethermalization,
+Phys. Rev. Lett. 93, 142002 (2004).
+[2] T. Kinoshita, T. Wenger, and D. S. Weiss, A Quantum
+Newton’s Cradle, Nature (London) 440, 900 (2006).
+[3] M. Gring, M. Kuhnert, T. Langen, T. Kitagawa, B. Rauer,
+M. Schreitl, I. Mazets, D. A. Smith, E. Demler, and J.
+Schmiedmayer, Relaxation and Prethermalization in an
+Isolated Quantum System, Science 337, 1318 (2012).
+[4] T. Langen, S. Erne, R. Geiger, B. Rauer, T. Schweigler, M.
+Kuhnert, W. Rohringer, I. E. Mazets, T. Gasenzer, and J.
+Schmiedmayer, Experimental Observation of a Generalized
+Gibbs Ensemble, Science 348, 207 (2015).
+[5] T. Langen, T. Gasenzer, and J. Schmiedmayer, Prethermalization and Universal Dynamics in Near-Integrable
+Quantum Systems, J. Stat. Mech. (2016) 064009.
+[6] Y. Tang, W. Kao, K.-Y. Li, S. Seo, K. Mallayya, M. Rigol, S.
+Gopalakrishnan, and B. L. Lev, Thermalization Near Integrability in a Dipolar Quantum Newton’s Cradle, Phys.
+Rev. X 8, 021030 (2018).
+
+021027-19
+
+MALLAYYA, RIGOL, and DE ROECK
+
+PHYS. REV. X 9, 021027 (2019)
+
+[7] M. Moeckel and S. Kehrein, Interaction Quench in the
+Hubbard Model, Phys. Rev. Lett. 100, 175702 (2008); RealTime Evolution for Weak Interaction Quenches in Quantum
+Systems, Ann. Phys. (Amsterdam) 324, 2146 (2009).
+[8] M. Eckstein, M. Kollar, and P. Werner, Thermalization after
+an Interaction Quench in the Hubbard Model, Phys. Rev.
+Lett. 103, 056403 (2009).
+[9] M. Kollar, F. A. Wolf, and M. Eckstein, Generalized Gibbs
+Ensemble Prediction of Prethermalization Plateaus and
+Their Relation to Nonthermal Steady States in Integrable
+Systems, Phys. Rev. B 84, 054304 (2011).
+[10] M. Tavora and A. Mitra, Quench Dynamics of OneDimensional Bosons in a Commensurate Periodic Potential: A Quantum Kinetic Equation Approach, Phys. Rev. B
+88, 115144 (2013).
+[11] N. Nessi, A. Iucci, and M. A. Cazalilla, Quantum Quench
+and Prethermalization Dynamics in a Two-Dimensional
+Fermi Gas with Long-Range Interactions, Phys. Rev. Lett.
+113, 210402 (2014).
+[12] F. H. L. Essler, S. Kehrein, S. R. Manmana, and N. J.
+Robinson, Quench Dynamics in a Model with Tuneable
+Integrability Breaking, Phys. Rev. B 89, 165104 (2014).
+[13] B. Bertini, F. H. L. Essler, S. Groha, and N. J. Robinson,
+Prethermalization and Thermalization in Models with Weak
+Integrability Breaking, Phys. Rev. Lett. 115, 180601 (2015);
+Thermalization and Light Cones in a Model with Weak
+Integrability Breaking, Phys. Rev. B 94, 245117 (2016).
+[14] M. Fagotti and M. Collura, Universal Prethermalization
+Dynamics of Entanglement Entropies after a Global Quench,
+arXiv:1507.02678.
+[15] P. Reimann and L. Dabelow, Typicality of Prethermalization, Phys. Rev. Lett. 122, 080603 (2019).
+[16] M. Rigol, V. Dunjko, V. Yurovsky, and M. Olshanii,
+Relaxation in a Completely Integrable Many-Body Quantum System: An Ab Initio Study of the Dynamics of the
+Highly Excited States of 1D Lattice Hard-Core Bosons,
+Phys. Rev. Lett. 98, 050405 (2007).
+[17] L. Vidmar and M. Rigol, Generalized Gibbs Ensemble in
+Integrable Lattice Models, J. Stat. Mech. (2016) 064007.
+[18] F. H. L. Essler and M. Fagotti, Quench Dynamics and
+Relaxation in Isolated Integrable Quantum Spin Chains,
+J. Stat. Mech. (2016) 064002.
+[19] M. A. Cazalilla and M.-C. Chung, Quantum Quenches in
+the Luttinger Model and Its Close Relatives, J. Stat. Mech.
+(2016) 064004.
+[20] J.-S. Caux, The Quench Action, J. Stat. Mech. (2016)
+064006.
+[21] M. Stark and M. Kollar, Kinetic Description of Thermalization Dynamics in Weakly Interacting Quantum Systems,
+arXiv:1308.1610.
+[22] L. D’Alessio, Y. Kafri, A. Polkovnikov, and M. Rigol, From
+Quantum Chaos and Eigenstate Thermalization to Statistical Mechanics and Thermodynamics, Adv. Phys. 65, 239
+(2016).
+[23] K. Mallayya and M. Rigol, Quantum Quenches and
+Relaxation Dynamics in the Thermodynamic Limit, Phys.
+Rev. Lett. 120, 070603 (2018).
+[24] A. Lazarides, A. Das, and R. Moessner, Periodic Thermodynamics of Isolated Quantum Systems, Phys. Rev. Lett.
+112, 150401 (2014).
+
+[25] E. Canovi, M. Kollar, and M. Eckstein, Stroboscopic
+Prethermalization in Weakly Interacting Periodically
+Driven Systems, Phys. Rev. E 93, 012130 (2016).
+[26] L. D’Alessio and M. Rigol, Long-Time Behavior of Isolated
+Periodically Driven Interacting Lattice Systems, Phys. Rev.
+X 4, 041048 (2014).
+[27] A. Lazarides, A. Das, and R. Moessner, Equilibrium States
+of Generic Quantum Systems Subject to Periodic Driving,
+Phys. Rev. E 90, 012110 (2014).
+[28] M. Bukov, L. D’Alessio, and A. Polkovnikov, Universal
+High-Frequency Behavior of Periodically Driven Systems:
+From Dynamical Stabilization to Floquet Engineering,
+Adv. Phys. 64, 139 (2015).
+[29] D. A. Abanin, W. De Roeck, W. W. Ho, and F. Huveneers,
+Effective Hamiltonians, Prethermalization, and Slow
+Energy Absorption in Periodically Driven Many-Body
+Systems, Phys. Rev. B 95, 014112 (2017).
+[30] D. Abanin, W. De Roeck, W. W. Ho, and F. Huveneers, A
+Rigorous Theory of Many-Body Prethermalization for
+Periodically Driven and Closed Quantum Systems, Commun. Math. Phys. 354, 809 (2017).
+[31] T. Mori, T. Kuwahara, and K. Saito, Rigorous Bound on
+Energy Absorption and Generic Relaxation in Periodically
+Driven Quantum Systems, Phys. Rev. Lett. 116, 120401
+(2016).
+[32] T. Kuwahara, T. Mori, and K. Saito, Floquet-Magnus Theory
+and Generic Transient Dynamics in Periodically Driven
+Many-Body Quantum Systems, Ann. Phys. (Amsterdam)
+367, 96 (2016).
+[33] F. Machado, G. D. Meyer, D. V. Else, C. Nayak, and N. Y.
+Yao, Exponentially Slow Heating in Short and Long-Range
+Interacting Floquet Systems, arXiv:1708.01620.
+[34] Z. Lenarčič, F. Lange, and A. Rosch, Perturbative Approach
+to Weakly Driven Many-Particle Systems in the Presence of
+Approximate Conservation Laws, Phys. Rev. B 97, 024302
+(2018).
+[35] F. Lange, Z. Lenarčič, and A. Rosch, Time-Dependent
+Generalized Gibbs Ensembles in Open Quantum Systems,
+Phys. Rev. B 97, 165138 (2018).
+[36] M. Rigol, V. Dunjko, and M. Olshanii, Thermalization and
+Its Mechanism for Generic Isolated Quantum Systems,
+Nature (London) 452, 854 (2008).
+[37] J. M. Deutsch, Quantum Statistical Mechanics in a Closed
+System, Phys. Rev. A 43, 2046 (1991).
+[38] M. Srednicki, Chaos and Quantum Thermalization, Phys.
+Rev. E 50, 888 (1994).
+[39] A. C. Cassidy, C. W. Clark, and M. Rigol, Generalized
+Thermalization in an Integrable Lattice System, Phys. Rev.
+Lett. 106, 140405 (2011).
+[40] J.-S. Caux and F. H. L. Essler, Time Evolution of Local
+Observables After Quenching to an Integrable Model, Phys.
+Rev. Lett. 110, 257203 (2013).
+[41] T. Ishii and T. Mori, Strong Eigenstate Thermalization
+within a Generalized Shell in Noninteracting Integrable
+Systems, arXiv:1810.00625.
+[42] R. Zwanzig, Ensemble Method in the Theory of Irreversibility, J. Chem. Phys. 33, 1338 (1960).
+[43] H. Mori, Transport, Collective Motion, and Brownian
+Motion, Prog. Theor. Phys. 33, 423 (1965).
+
+021027-20
+
+PRETHERMALIZATION AND THERMALIZATION IN …
+[44] J. Lux, J. Müller, A. Mitra, and A. Rosch, Hydrodynamic
+Long-Time Tails after a Quantum Quench, Phys. Rev. A 89,
+053608 (2014).
+[45] E. B. Davies, Markovian Master Equations, Commun.
+Math. Phys. 39, 91 (1974).
+[46] W. De Roeck and A Kupiainen, Diffusion for a Quantum
+Particle Coupled to Phonons in d ≥ 3, Commun. Math.
+Phys. 323, 889 (2013).
+[47] J. Lukkarinen and H. Spohn, Kinetic Limit for Wave
+Propagation in a Random Medium, Arch. Ration. Mech.
+Anal. 183, 93 (2007).
+[48] M. Rigol, Breakdown of Thermalization in Finite OneDimensional Systems, Phys. Rev. Lett. 103, 100403 (2009).
+[49] L. F. Santos and M. Rigol, Onset of Quantum Chaos in OneDimensional Bosonic and Fermionic Systems and Its Relation
+to Thermalization, Phys. Rev. E 81, 036206 (2010).
+[50] M. A. Cazalilla, R. Citro, T. Giamarchi, E. Orignac, and M.
+Rigol, One Dimensional Bosons: From Condensed Matter
+Systems to Ultracold Gases, Rev. Mod. Phys. 83, 1405
+(2011).
+[51] I. G. White, B. Sundar, and K. R. A. Hazzard, Quantum
+Dynamics from a Numerical Linked Cluster Expansion,
+arXiv:1710.07696.
+
+PHYS. REV. X 9, 021027 (2019)
+[52] E. Guardado-Sanchez, P. T. Brown, D. Mitra, T. Devakul,
+D. A. Huse, P. Schauß, and W. S. Bakr, Probing the Quench
+Dynamics of Antiferromagnetic Correlations in a 2D
+Quantum Ising Spin System, Phys. Rev. X 8, 021069 (2018).
+[53] M. Rigol, T. Bryant, and R. R. P. Singh, Numerical LinkedCluster Approach to Quantum Lattice Models, Phys. Rev.
+Lett. 97, 187202 (2006); Numerical Linked-Cluster Algorithms. I. Spin Systems on Square, Triangular, and Kagomé
+Lattices, Phys. Rev. E 75, 061118 (2007).
+[54] M. Rigol, Quantum Quenches in the Thermodynamic Limit,
+Phys. Rev. Lett. 112, 170601 (2014); Fundamental Asymmetry in Quenches Between Integrable and Nonintegrable
+Systems, Phys. Rev. Lett. 116, 100601 (2016).
+[55] K. Mallayya and M. Rigol, Numerical Linked Cluster
+Expansions for Quantum Quenches in One-Dimensional
+Lattices, Phys. Rev. E 95, 033302 (2017).
+[56] I. Bloch, J. Dalibard, and W. Zwerger, Many-Body Physics
+with Ultracold Gases, Rev. Mod. Phys. 80, 885 (2008).
+[57] M. Marcuzzi, J. Marino, A. Gambassi, and A. Silva,
+Prethermalization in a Nonintegrable Quantum Spin Chain
+after a Quench, Phys. Rev. Lett. 111, 197203 (2013);
+Prethermalization from a Low-Density Holstein-Primakoff
+Expansion, Phys. Rev. B 94, 214304 (2016).
+
+021027-21
+
+

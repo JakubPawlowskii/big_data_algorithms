@@ -1,0 +1,711 @@
+week ending
+8 APRIL 2011
+
+PHYSICAL REVIEW LETTERS
+
+PRL 106, 140405 (2011)
+
+Generalized Thermalization in an Integrable Lattice System
+Amy C. Cassidy,1 Charles W. Clark,1 and Marcos Rigol2
+1
+
+Joint Quantum Institute, National Institute of Standards and Technology, Gaithersburg, Maryland 20899, USA
+2
+Department of Physics, Georgetown University, Washington, D.C. 20057, USA
+(Received 24 September 2010; revised manuscript received 23 November 2010; published 8 April 2011)
+After a quench, observables in an integrable system may not relax to the standard thermal values, but
+can relax to the ones predicted by the generalized Gibbs ensemble (GGE) [M. Rigol et al., Phys. Rev. Lett.
+98, 050405 (2007)]. The GGE has been shown to accurately describe observables in various onedimensional integrable systems, but the origin of its success is not fully understood. Here we introduce
+a microcanonical version of the GGE and provide a justification of the GGE based on a generalized
+interpretation of the eigenstate thermalization hypothesis, which was previously introduced to explain
+thermalization of nonintegrable systems. We study relaxation after a quench of one-dimensional hard-core
+bosons in an optical lattice. Exact numerical calculations for up to 10 particles on 50 lattice sites ( 1010
+eigenstates) validate our approach.
+DOI: 10.1103/PhysRevLett.106.140405
+
+PACS numbers: 05.30.d, 02.30.Ik, 03.75.Kk, 67.85.Hj
+
+Once only of theoretical interest, integrable models of
+one-dimensional (1D) quantum many-body systems can
+now be realized with ultracold atoms [1]. The possibility
+of controlling the effective dimensionality and the degree
+of isolation have allowed access to the quasi-1D regime
+and to the long coherence times necessary to realize integrable models. Additionally, advances in the cooling and
+trapping of atoms have led to increased interest in dynamics following quantum quenches, where a many-body
+system in equilibrium is exposed to rapid changes in the
+confining potential or interparticle interactions.
+In general, in integrable quantum systems that are far
+from equilibrium, observables cannot relax to the usual
+thermal state predictions because they are constrained by
+the nontrivial set of conserved quantities that make the
+system integrable [2]. Relaxation to nonthermal values
+were recently observed in a cold-atom system close to
+integrability [3]. At integrability, it is natural to describe
+the observables after relaxation by an updated statistical
+mechanical ensemble: the generalized Gibbs ensemble
+(GGE) [4], which is constructed by maximizing the
+entropy subject to the integrability constraints [5]. In recent
+studies of integrable systems [4,6,7], the GGE has been
+found to accurately describe various observables after
+relaxation, but a microscopic understanding of its origin
+and applicability remains elusive. In particular, an important question remains: how is it that expectation values
+after relaxation can be described by an ensemble with
+exponentially fewer parameters than the size of the
+Hilbert space? The full dynamics are determined by as
+many parameters as the size of the latter. At a microscopic
+level, thermalization for nonintegrable systems can be
+understood in terms of the eigenstate thermalization
+hypothesis (ETH) [8,9], which, however, breaks down as
+one approaches integrability [10].
+0031-9007=11=106(14)=140405(4)
+
+This Letter is devoted to the study of how generalized
+thermalization, in the sense of relaxation to the predictions
+of the GGE, takes place in integrable systems. Answering
+this question is important not merely because of its relevance to the foundations of statistical mechanics in integrable systems, but also because it has become necessary
+to understand recent experiments with ultracold gases in
+quasi-1D geometries. For integrable systems, we compare
+the predictions of quantum mechanics with those of various statistical ensembles. In particular, we introduce a
+microcanonical version of the GGE, which we use to
+show that relaxation to the GGE can be understood in
+terms of a generalized view of the ETH.
+We study the dynamics following an instantaneous
+quench of 1D hard-core bosons on a lattice, which is fully
+integrable. The Hamiltonian is given by
+H^ ¼ J
+
+L1
+X
+i¼1
+
+ðb^yi b^iþ1 þ H:c:Þ þ VðÞ
+
+L
+X
+
+ði  L=2Þ2 n^ i ; (1)
+
+i¼1
+
+where J is the hopping parameter; VðÞ gives the curvature
+of an additional parabolic trapping potential for atoms on a
+lattice with lattice constant a; b^yi ðb^i Þ is the hard-core
+bosonic creation (annihilation) operator; and n^ i ¼ b^yi b^i is
+the number operator. In addition to the standard commutation relations for bosons, hard-core bosons satisfy the
+^2
+constraint b^y2
+i ¼ bi ¼ 0, which forbids multiple occupancy of the lattice sites. This Hamiltonian can be mapped
+onto noninteracting fermions through the Jordan-Wigner
+transformation [11], and the many-body eigenstates can be
+constructed as Slater determinants of the single-particle
+fermionic eigenstates [12].
+We will focus on the behavior of the momentum distriP
+bution function, hn^ k i ¼ l;m eikðlmÞ h c jb^ym b^l j c i=L, for
+system sizes ranging from N ¼ 5 bosons on L ¼ 25 lattice
+
+140405-1
+
+Ó 2011 American Physical Society
+
+PHYSICAL REVIEW LETTERS
+
+PRL 106, 140405 (2011)
+
+sites to N ¼ 10 bosons on L ¼ 50 lattice sites ( 1010
+eigenstates). Initially, we prepare the system in the ground
+state j c 0 i of a 1D lattice with hard-wall boundary conditions and an additional harmonic potential, with trapping
+strength V ¼ V0 . At time  ¼ 0, the harmonic trap is turned
+off, Vð  0Þ ¼ 0, and the state j c ðÞi evolves under the
+influence of the final Hamiltonian. Hereafter, we refer to
+this state as it is immediately after the quench as the
+‘‘quenched state.’’ Its time evolution is given by j c ðÞi ¼
+P
+iE =@
+ji, where ji are the energy eigenstates of
+ c e
+the final Hamiltonian with energies E , and c ¼ hj c 0 i
+are the overlaps between the eigenstates of the final
+Hamiltonian and the quenched state. After relaxation,
+assuming the degeneracies in energy levels are irrelevant,
+the expectation value of an observable is expected to be
+given by the so called diagonal ensemble (DE) [7,9,10]
+Z
+^ DE ¼ lim 1
+^ c ð0 Þi
+hAi
+d0 h c ð0 ÞjAj
+!1  0
+X
+^
+¼ jc j2 hjAji:
+
+
+We have checked numerically that, despite the integrability
+of our model, nk relaxes to the DE prediction, with small
+fluctuations around this result [13].
+Figure 1 shows the momentum distributions, nk , before
+and after the quench, for two different initial trap strengths,
+which correspond to different energies per particle, ", after
+the quench. These results are compared with those of
+various ensembles of statistical mechanics. The microcanonical ensemble (ME) is one in which all eigenstates in
+
+〈nk〉
+
+1.2
+
+init
+DE
+GME
+GGE
+ME
+
+(a)
+
+0.8
+
+0.5
+
+(b)
+
+0.4
+0.3
+0.2
+
+0.4
+
+∆〈nk〉
+
+0.0
+
+0.1
+(c)
+
+0.0
+0.04
+
+(d)
+
+0.4
+0.00
+0.0
+-0.04
+-0.8 -0.4
+0.8
+
+〈In〉
+
+0.6
+
+0.0 0.4
+ka/π
+
+(e)
+
+0.8 -0.8 -0.4
+DE
+GME
+ME
+
+0.4
+
+0.0 0.4
+ka/π
+
+0.8
+0.8
+
+(f)
+
+0.6
+0.4
+
+0.2
+0.0
+
+0.2
+5
+
+15
+
+25
+n
+
+35
+
+45
+
+5
+
+15
+
+25
+n
+
+35
+
+45
+
+0.0
+
+FIG. 1 (color online). (a),(b) Momentum distribution of the
+initial state (init), diagonal (DE), generalized microcanonical
+(GME), generalized Gibbs (GGE), and the microcanonical (ME)
+ensembles. (c),(d) Relative difference of the GME, GGE and ME
+from the DE. (e),(f) Conserved quantities, hI^n i, in the quenched
+state (identical to the DE), GME and ME. hIn i are ordered in
+descending occupations in the quenched state. L ¼ 50, N ¼ 10,
+ME ¼ 0:05J, GME ¼ 0:8. (a),(c),(e) " ¼ 0:72J, V0 ¼ 0:029J.
+(b),(d),(f) " ¼ 1:52J, V0 ¼ 0:125J.
+
+week ending
+8 APRIL 2011
+
+the relevant energy window have identical weights.
+Within the microcanonical ensemble, the expectation
+^ ME ¼ N 1
+value of a generic observable A is hAi
+";ME
+P
+^
+hj
+Aji,
+where
+
+is
+small,
+but
+still
+much
+ME
+;j"" j<ME
+greater than the mean many-body level spacing. N";ME
+is the number of eigenstates in the energy window
+j"  " j < ME . We have checked that the results reported
+here are nearly independent of the specific value of ME .
+The GGE is a grand-canonical ensemble that maximizes
+the entropy subject to the constraints associated with
+nontrivial conserved quantities of the quenched state. The
+density matrix takes the form [4]
+P ^
+P ^
+
+n I n
+^ GGE ¼ Z1
+;
+ZG ¼ Tr½e n In ; (2)
+G e
+where fI^n g, n ¼ 1; . . . ; L, are the conserved quantities. In
+our systems, these correspond to the occupation of the
+single-particle eigenstates of the underlying noninteracting
+fermions to which hard-core bosons are mapped, and fn g
+are Lagrange multipliers fixed by the initial conditions,
+n ¼ ln½ð1  h c 0 jI^n j c 0 iÞ=h c 0 jI^n j c 0 i [4]. Observables
+^ GGE ¼
+within this ensemble are then computed as hAi
+Tr½A^ ^ GGE  following Ref. [12].
+As a step towards understanding the GGE as well as
+developing a more accurate description of isolated
+integrable systems after relaxation, we introduce a microcanonical version of the GGE, which we call the generalized microcanonical ensemble (GME). Like the ME, where
+states within a small energy window contribute with equal
+weight, within the GME we assign equal weight to all
+eigenstates whose values of the conserved quantities are
+close to the desired values. The expectation value
+of a generic observable within the generalized microca^ GME ¼ N 1
+nonical ensemble is given by hAi
+fIn g;GME
+P
+P
+^
+hj
+Aji,
+where
+is
+a
+sum
+over
+ei; <GME
+; <GME
+genstates that are within the GME window and N fIn g;GME
+is the number of states within that window and  is a
+measure of the distance of eigenstate  from the target
+distribution.
+In order to construct the GME, we include eigenstates of
+the Hamiltonian with a similar distribution of conserved
+quantities which once averaged reproduce the values of the
+conserved quantities in the quenched state. This approach
+is characterized by three ingredients [14]: (i) The ordered
+distribution (from largest to smallest)
+P of the conserved
+quantities in the DE, hIn iDE   jc j2 In; [as in
+Figs. 1(e) and 1(f)], (ii) a target distribution of the nonzero
+expectation values of the conserved quantities fIn ¼ 1g,
+i
+where the values of ni (i ¼ 1; . . . ; N) are chose to describe
+the distribution In in a coarse-grained sense [15], and
+(iii) for each individual many-body eigenstate, the distance
+from the target state,  , which we define as  ¼ ½N1 
+PN
+ 2 1=2 . Here n
+i; (i ¼ 1; . . . ; N) are the
+i¼1 Ini ðni;  ni Þ 
+single-particle states occupied in eigenstate , and Ini are
+the interpolated values of hIn iDE , evaluated at ni .
+
+140405-2
+
+week ending
+8 APRIL 2011
+
+PHYSICAL REVIEW LETTERS
+
+0.12
+(a)
+
+(b)
+
+0.08
+0.04
+
+L=30
+L=35
+L=40
+L=45
+L=50
+
+0
+(c)
+
+0.24
+0.20
+0.16
+0.12
+
+0.04
+
+0.4 0.6 0.8 1 1.2 1.4
+energy/particle, ε [J]
+
+(d) 0.03
+0.02
+0.01
+0.00
+
+0.08
+0
+
+0.03 0.06
+-0.73
+L
+
+0.04
+
+(∆nk)GGE
+
+0
+
+0.08
+
+(∆nk)GME
+
+0.12
+(∆nk)ME
+
+The definition of  is not unique and several variants that
+do not change our conclusions were also considered [13].
+To better visualize the differences between the results of
+the various ensembles in Figs. 1(a) and 1(b), we have plotted
+hnk istat ¼ ðhn^ k iDE  hn^ k istat Þ=hn^ k iDE , where ‘‘stat’’ stands
+for ME, GGE, or GME in Figs. 1(c) and 1(d). For weaker
+initial confinements [smaller "—Fig. 1(c)], the GME is
+practically indistinguishable from the diagonal distribution.
+Both the GME and the GGE accurately capture the tails of
+nk , while the thermal ensemble does not. For tighter initial
+traps [greater "—Fig. 1(d)] all four ensembles are very
+similar (note the scale), suggesting that nk in the final steady
+state is indistinguishable from that of the thermal state.
+The close agreement between DE and ME results in
+Fig. 1(b) raises the question: how can an integrable system
+thermalize, given the constraints imposed by the complete
+set of conserved quantities? We conjecture that if the
+values of the conserved quantities in the quenched
+state are similar to those of the ME, then the latter will
+accurately describe observables after relaxation. This may
+occur for a variety of quenches.
+In Figs. 1(e) and 1(f), we plot the values of the conserved
+quantities in the quenched state and compare them with the
+expectation values of those quantities in different statistical
+ensembles. (By definition, the distribution of conserved
+quantities in the DE and GGE are identical to that of the
+quenched state.) Figure 1(e) shows that the microcanonical
+values of the conserved quantities are clearly different from
+the values in the quenched state, while in Fig. 1(f) they are
+very similar. This supports our conjecture above, and demonstrates that thermalization can occur in integrable systems for special initial conditions. Additionally, the GME
+reproduces the correct distribution of the conserved quantities supporting the validity of our method for generating it.
+To quantify the above observations, and to understand
+what happens in the thermodynamic limit, we have studied
+the difference between the predictions of the DE and
+the statistical ensembles for different system sizes.
+We compute
+P the integrated P relative differences,
+ðnk Þstat ¼ k jhn^ k iDE  hn^ k istat j= k hn^ k iDE , where again
+stat stands for ME, GGE, or GME.
+In Fig. 2(a), we plot ðnk ÞME as a function of the final
+energy per particle, ", for different lattice sizes, L. To
+perform finite-size scaling, " and the filling factor ( ¼
+N=L ¼ 0:2) are held constant as L changes. Figure 2(a)
+shows that for " & 1:3J the difference between the nk in
+the DE and the ME increases with increasing L, indicating
+that the difference persists in the thermodynamic limit. For
+" * 1:3J, the opposite behavior is observed. From our previous discussion, one expects that ðnk ÞME should closely
+follow the behavior of the integrated differences between the
+conserved quantities
+in the quenched
+state and the ME,
+P
+P
+ðIn ÞME ¼ n jhIn iDE  hIn iME j= n hIn iDE . This is seen
+by comparing Figs. 2(a) and 2(c), which leads us to conclude
+that nk need not relax to the standard thermal prediction,
+except when ðIn ÞME becomes negligible. Qualitatively
+similar results were obtained in the canonical ensemble [13].
+
+(∆In)ME
+
+PRL 106, 140405 (2011)
+
+0
+0.4 0.6 0.8 1 1.2 1.4 1.6
+energy/particle, ε [J]
+
+FIG. 2 (color online). (a) ðnk ÞME versus energy per particle of
+the quenched state. ME ¼ 0:05J. (b) ðnk ÞGME vs ", GME ¼
+0:8. (c) Integrated difference between the conserved quantities in
+the quenched state and the ME, ðIn ÞME . (d) ðnk ÞGGE vs ".
+Inset: ðnk ÞGGE vs L0:73 for " ¼ 1:07J, where a fit to
+ðnk ÞGGE ¼ zL gives  ¼ 0:73  0:02.
+
+On the other hand, in Fig. 2(b) one can see that the
+differences between nk in the diagonal and generalized
+microcanonical ensembles are very small and decrease
+with increasing system size, so that the former successfully
+describes this observable after relaxation. In the case of the
+GGE [Fig. 2(d)], ðnk ÞGGE is in general larger than
+ðnk ÞGME , which is to be expected since the GGE is a
+grand-canonical ensemble. As the system size increases
+ðnk ÞGGE ! 0 as L , where   0:73 [inset of Fig. 2(d)]
+and slightly depends on the energy [13].
+The question that remains to be answered is why the
+generalized Gibbs and the generalized microcanonical
+ensemble are able to describe the nk after
+P relaxation, i.e.,
+why hn^ k iGGE ¼ hn^ k iGME ¼ hn^ k iDE   jc j2 hjn^ k ji.
+Note that whereas hn^ k iGGE and hn^ k iGME are entirely determined by the L independent values of the conserved
+quantities in the quenched state, hn^ k iDE is determined by
+the exponentially larger ( NL ) values of the coefficients c .
+To address this question, we perform a spectral decomposition of hn^ k iDE and hn^ k iGME . Figure 3 displays a coarsegrained view of the weight which eigenstates with a given
+zero momentum occupancy hn^ k¼0 i ¼ hjn^ k¼0 ji contribute to the DE [Fig. 3(a)] and the GME [Fig. 3(b)].
+The correlation between the results in both figures is
+apparent. However, it is not clear why the details contained
+in the overlaps c are completely washed out so that the
+DE and the GME results coincide, while they are different
+from those in the ME. In the inset of Fig. 3(a), we plot a
+histogram of the values of nk¼0 for the DE, GME and the
+ME. Clearly the histograms for the DE and GME have a
+similar mean but different widths, while the ME has a
+different mean and width [13].
+Ultimately, one is interested in what happens in
+the thermodynamic limit. For each k, we define the
+width of the distribution of hn^ k i for each ensemble as
+
+140405-3
+
+PHYSICAL REVIEW LETTERS
+
+eigenstate momentum
+〈nk=0〉α
+
+2.5
+
+1.5
+1
+
+0.08
+0.06
+0.04
+0.02
+0
+
+0
+
+(b)
+
+0.4
+0.8
+〈nk=0〉α
+
+1.2
+
+0.12 ka=0
+ka=2π/5
+0.08
+
+σk
+
+2
+1.5
+
+0.04
+
+1
+
+0
+
+0
+
+0.5
+0
+-2
+
+0
+
+0.01
+0.02
+L-1
+
+-1
+0
+1
+eigenstate energy/particle, εα [J]
+0.0005
+
+0.001
+
+0.0015
+
+week ending
+8 APRIL 2011
+
+eigenstate-to-eigenstate fluctuations in our integrable system, showing that ETH is invalid. However, by selecting
+eigenstates with similar conserved quantities, ETH is
+restored, although in a weaker sense: the overwhelming
+majority of eigenstates with similar conserved quantities
+have similar values of nk . These results pave the way to a
+unified understanding of thermalization in generic
+(nonintegrable systems) and its generalization in integrable
+systems. This opens many new questions, such as whether
+the concepts of typicality [16] and thermodynamics [17]
+can be generalized to isolated integrable systems.
+This work was supported by NSF under Physics Frontier
+Grant No. PHY-0822671. A. C. C. acknowledges support
+from NRC/NIST and M. R. acknowledges support from the
+Office of Naval Research. We thank V. Dunjko, L. Mathey,
+and M. Olshanii for helpful discussions.
+
+DE
+GME
+ME
+
+0.5
+0
+
+eigenstate momentum
+〈nk=0〉α
+
+(a)
+
+2
+
+nstates/NT
+
+PRL 106, 140405 (2011)
+
+2
+
+0.002
+
+FIG. 3 (color online). Density plot of the coarse-grained
+weights with which eigenstates contribute to (a) the DE (sum
+over diagonal weights, jc j2 ) and (b) the GME (fractional
+number of states = number of states/total number of states) as
+a function of eigenstate energy and hn^ k¼0 i . The sums are
+performed over window of width nk ¼ 0:0067, and " ¼
+0:035J. The horizontal and vertical dotted lines are the expectation values of n^ k¼0 and " in each ensemble. L ¼ 45, N ¼ 9,
+V0 ¼ 0:036J, " ¼ 0:72J, GME ¼ 0:85. Inset in (a) Histogram
+of DE weights (green), fractional number of GME states (blue)
+and fractional number of ME states (black) summed over all
+energies. Bin width, nk ¼ 0:0067. Vertical lines give the mean,
+hn^ k¼0 i within each ensemble. Inset in (b) Fluctuations of hn^ ka¼0 i
+(d) and hn^ ka¼2 =5 i (m) within the DE (green) and GME (blue) as
+a function of inverse system size. " ¼ 0:72J.
+
+qﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+k ¼ hn^ 2k i  hn^ k i2 . The inset of Fig. 3(b), shows k
+within the DE and the GME versus L1 . The scaling is
+depicted for two k values and clearly shows that the widths
+of both distributions vanish in the thermodynamic limit.
+This demonstrates that the overwhelming majority of the
+states selected by the DE as well as by the GME, which
+have similar values of the conserved quantities, have identical expectation values of nk . This is why details of the
+distribution of c no longer matter as L increases. We note
+that with increasing L, the number of eigenstates contained
+in the generalized microcanonical window increases exponentially; however, the ratio of the number of states in the
+GME and the ME vanishes [13].
+The findings above provide a generalization of the ETH
+introduced previously to understand thermalization in nonintegrable systems [8,9]. The ETH states that the expectation values of few-body observables in generic systems do
+not fluctuate between eigenstates that are close in energy.
+Thus all eigenstates within a microcanonical window have
+essentially the same expectation values of the observables,
+and one can say that thermalization occurs at the level of
+eigenstates. As seen in Fig. 3, hn^ k i exhibits large
+
+[1] B. Paredes et al., Nature (London) 429, 277 (2004); T.
+Kinoshita, T. Wenger, and D. Weiss, Science 305, 1125
+(2004).
+[2] B. Sutherland, Beautiful Models (World Scientific,
+Singapore, 2004).
+[3] T. Kinoshita, T. Wenger, and D. S. Weiss, Nature (London)
+440, 900 (2006).
+[4] M. Rigol et al., Phys. Rev. Lett. 98, 050405 (2007).
+[5] E. T. Jaynes, Phys. Rev. 106, 620 (1957); 108, 171 (1957).
+[6] M. A. Cazalilla, Phys. Rev. Lett. 97, 156403 (2006); P.
+Calabrese and J. Cardy, J. Stat. Mech. (2007) P06008; M.
+Cramer et al., Phys. Rev. Lett. 100, 030602 (2008); T.
+Barthel and U. Schollwöck, ibid. 100, 100601 (2008); D.
+Fioretto and G. Mussardo, New J. Phys. 12, 055015
+(2010); M. Rigol, A. Muramatsu, and M. Olshanii, Phys.
+Rev. A 74, 053616 (2006).
+[7] M. Kollar and M. Eckstein, Phys. Rev. A 78, 013626
+(2008).
+[8] J. M. Deutsch, Phys. Rev. A 43, 2046 (1991); M.
+Srednicki, Phys. Rev. E 50, 888 (1994).
+[9] M. Rigol, V. Dunjko, and M. Olshanii, Nature (London)
+452, 854 (2008).
+[10] M. Rigol, Phys. Rev. Lett. 103, 100403 (2009); Phys. Rev.
+A 80, 053607 (2009).
+[11] P. Jordan and E. Wigner, Z. Phys. 47, 631 (1928).
+[12] M. Rigol, Phys. Rev. A 72, 063607 (2005).
+[13] See supplemental material at http://link.aps.org/
+supplemental/10.1103/PhysRevLett.106.140405.
+[14] In each many-body eigenstate of the Hamiltonian, ji,
+In; ¼ hjI^n ji can only be zero or one, because they are
+constructed by occupying single-particle fermionic states.
+[15] We compute the ni , which are not restricted to integers, as
+follows.
+The first one (n1 ) is computed so that
+Rn1
+IðxÞdx
+¼ 0:5, where IðxÞ ¼
+0:5
+RnIn , x 2 ðn  0:5; n þ
+0:5. For all other values of ni , ni IðxÞdx ¼ 1.
+i1
+[16] H. Tasaki, Phys. Rev. Lett. 80, 1373 (1998); S. Goldstein
+et al., ibid. 96, 050403 (2006); S. Popescu, A. J. Short, and
+A. Winter, Nature Phys. 2, 754 (2006); P. Reimann, Phys.
+Rev. Lett. 101, 190403 (2008).
+[17] A. Polkovnikov, Phys. Rev. Lett. 101, 220402 (2008);
+Ann. Phys. (Leipzig) 326, 486 (2011).
+
+140405-4
+
+

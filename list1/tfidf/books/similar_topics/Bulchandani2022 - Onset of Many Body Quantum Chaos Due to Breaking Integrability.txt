@@ -1,0 +1,2947 @@
+Onset of many-body quantum chaos due to breaking integrability
+Vir B. Bulchandani,1, 2 David A. Huse,2, 3 and Sarang Gopalakrishnan4
+
+arXiv:2112.14762v3 [cond-mat.stat-mech] 9 May 2022
+
+1
+
+Princeton Center for Theoretical Science, Princeton University, Princeton, NJ 08544, USA
+2
+Department of Physics, Princeton University, Princeton, NJ, 08544, USA
+3
+Institute for Advanced Study, Princeton, NJ, 08540, USA
+4
+Department of Physics, Pennsylvania State University, University Park PA 16802, USA
+
+Integrable quantum systems of finite size are generically robust against weak enough integrabilitybreaking perturbations, but become quantum chaotic and thermalizing if the integrability-breaking
+is strong enough. We argue that the onset of quantum chaos can be described as a Fock-space
+delocalization process, with the eigenstates of the integrable system being taken as the “Fock states”.
+The integrability-breaking perturbation introduces hopping in this Fock space, and chaos sets in
+when this hopping delocalizes the many-body eigenstates in this space. Depending on the range
+of the dominant Fock-space hopping, delocalization can occur either through a crossover, or via a
+transition that becomes sharp in the appropriate large-system dynamic limit. In either case, the
+perturbation strength at the onset of chaos scales to zero in the usual thermodynamic limit, with
+a size-dependence that we estimate analytically and compute numerically for a few specific models.
+We also identify two intermediate finite-size-dependent regimes: There is generally an intermediate
+nonchaotic regime in which integrability is broken strongly enough to produce some system-wide
+many-body resonances but not enough to thermalize the system. In spatially extended systems (but
+not in quantum dots) there is also a crossover or transition between chaotic regimes where the ratio
+of the system size to the mean free path of the quasiparticles of the integrable system is small versus
+large compared to unity.
+
+I.
+A.
+
+which is certainly not inconsistent with the ergodic hypothesis. To our knowledge, the best improvement of this
+result is to perturbation strengths
+
+INTRODUCTION
+
+Thresholds to many-body chaos
+
+For much of the 20th century, there was a widespread
+belief that arbitrarily weak perturbations of classical integrable systems lead to chaos. It was therefore a great
+surprise when Kolmogorov, Arnol’d and Moser (KAM)
+showed that sufficiently weak perturbations of classical
+integrable systems preserve integrability within an appreciable fraction of phase space. In particular, they found
+that a perturbation whose strength scales with a small
+parameter  preserves integrable dynamics in a fraction
+1 − O(1/2 ) of the phase space, that is characterized by
+the persistence of so-called KAM tori1 .
+At a first encounter, this result sits uneasily with the
+dogma of ergodicity on energy surfaces that underpins
+much of statistical physics. If integrability truly is robust
+to perturbations, how can ergodicity arise generically in
+large systems? It is believed that the answer to this question lies in the finite-size scaling of the threshold perturbation strength c (N ) at which KAM tori break down,
+where N denotes the number of degrees of freedom of the
+system. In particular, conventional wisdom states that
+c (N ) → 0 as N → ∞.
+Unfortunately, the problem of analysing perturbed integrable systems at large N is so difficult that there is
+little analytical understanding of the threshold c (N ),
+even for classical systems2,3 . The original KAM approach
+is guaranteed to converge for a range of perturbation
+strengths2
+C
+<
+(N !)31
+
+(1)
+
+<
+
+C0
+N 160
+
+(2)
+
+for systems with short-range interactions, but there is no
+expectation that this result is optimal2 .
+This paper studies the quantum mechanical analogue
+of the problem described above. Specifically, we propose
+a theoretical model for the critical perturbation strength
+c (N ) at which perturbed quantum integrable systems
+give way to chaos. On the one hand, this task is complicated by the fact that there is no analogue of the KAM
+theory for quantum systems, which partly reflects some
+technical difficulties in robustly defining integrability and
+chaos for quantum systems4,5 . On the other hand, the
+problem of finding c (N ) is in some ways more tractable
+for quantum systems, first because a relatively simple
+theory of “Fock-space delocalization” seems to describe
+the onset of chaos in perturbed non-interacting quantum
+systems6 , and second because it is possible to simulate
+numerically the entire spectrum of small systems of spins
+or fermions, which is never the case for continuous classical systems. We now summarize the physical motivation
+for understanding quantum integrability breaking, and
+the theoretical model that we will use to describe it.
+
+B.
+
+Quantum integrability breaking: overview
+
+There are numerous many-body quantum systems of
+interest that are in some sense nearly integrable. This
+can be because the system is very close to an integrable
+
+2
+system but has a weak integrability-breaking perturbation. Or it can be because the system is near a ground
+state that features an emergent integrability, even if the
+same system’s dynamics are far from integrable at higher
+energies. Although the study of quantum integrability
+remained largely theoretical for decades, present-day experimental capabilities for the preparation and control
+of many-body quantum systems are sufficiently advanced
+that several recent experiments have observed unambiguous signatures of integrable dynamics and transport in
+such systems7–12 .
+At the same time, it is well known that if one perturbs
+a nonlocalized quantum integrable system, such as a spin
+chain, with an integrability-breaking perturbation of any
+non-zero strength, the system thermalizes in the conventional thermodynamic limit, in which all local couplings
+are kept constant as the system size is taken to infinity13–15 . This can be true even if the perturbation acts
+only locally at a single point14,16–19 . Many studies of
+systems with weakly-broken integrability are numerical
+or experimental studies of finite systems, with substantial finite size effects. Thus we are not only interested
+in infinite systems. To better understand the observable
+behavior in finite size systems, it is helpful to consider
+large system limits that are different from the standard
+thermodynamic limit.
+The distinction between integrability and chaos is not
+an equilibrium thermodynamic distinction; instead, it is
+a distinction in the system’s dynamics. Thus in order
+to understand more about how an integrability-breaking
+perturbation to an integrable system leads to chaos, particularly in finite-size systems, below we focus our attention on the range of perturbation strengths that is relevant to the onset of chaos. This requires scaling down
+the integrability-breaking perturbation as one takes the
+large-system limit so that the system remains close to
+the onset of chaos for all sizes—we call this limiting procedure a dynamic limit. In such a dynamic limit, the
+integrability-breaking perturbation has no effect on the
+thermodynamics of the system but qualitatively alters its
+dynamics. A textbook example of this is the very weak
+interactions in a dilute gas that are crucial for its equilibration but do not affect its equation of state. A single
+system may have multiple dynamic limits, depending on
+the particular dynamical phenomenon of interest.
+A pioneering investigation of such “dynamic limits” was performed by Altshuler, Gefen, Kamenev
+and Levitov6 (AGKL), who examined the integrabilitybreaking “many-body delocalization” transition that occurs when weak interactions are added to a quantum dot
+containing many noninteracting electrons. In that work,
+as well as subsequent work on various other many-body
+localized (MBL) models20–23 , it was argued that sharp
+phase transitions can happen in the dynamic limit: i.e.,
+transitions between “phases” with identical thermodynamic properties, but sharply different dynamics in the
+long-time limit. (Note that the one-dimensional MBL
+transition24 is also such a dynamical transition, albeit
+
+one that happens in the conventional thermodynamic
+limit.) However, there has been relatively little work
+from this perspective on integrability-breaking in conventionally integrable systems, which are solvable via
+the Bethe ansatz and have stable ballistically propagating quasiparticles. Much of the work on integrabilitybreaking in Bethe-solvable systems has addressed transport, quench dynamics, etc. in the conventional thermodynamic limit8,25–34 . In this limit, the system is chaotic
+on timescales longer than the mean free time of the quasiparticles. Much less is known about the behavior in the
+dynamic limit relevant for the onset of chaos: even the
+basic question of whether chaos sets in at a perturbation strength that is polynomially or exponentially weak
+in the system size remains unsettled, with numerical evidence for both scalings35–39 ; as we will argue below, both
+behaviors do occur, depending on the specific model under consideration.
+
+C.
+
+Quantum integrability breaking: a theoretical
+model
+
+In the present work, we study finite-size systems and
+these dynamic limits systematically by exploiting an
+analogy between perturbed integrable systems and Fockspace delocalization in quantum dots (as discussed by
+AGKL). Each eigenstate of an integrable system can be
+uniquely labeled by the values of extensively many local
+conserved quantities in that eigenstate, or equivalently
+by an extensive set of quantum numbers. Heuristically,
+the existence of such labeling schemes suggests a natural metric on state space, according to which states
+with “similar” labels are “near” one another. For example, in the AGKL analysis of a quantum dot, eigenstates
+can be labeled by bit-strings corresponding to whether
+each single-particle orbital is occupied or not. These bitstrings can be pictured as the vertices of a hypercube,
+and the natural metric is the Hamming distance between
+bit-strings.
+The key observation that justifies the reduction of local
+integrable systems to effectively zero-dimensional Fockspace localization is that the thermalization rate at the
+onset of chaos is close to the Heisenberg energy (i.e., exponentially small in the system’s volume), and is thus
+much slower than the time it takes ballistic quasiparticles
+to traverse the system. Thus, on timescales relevant to
+the onset of chaos a finite weakly-perturbed integrable
+system with nonlocalized quasiparticles is essentially a
+zero-dimensional quantum dot. This observation places
+such local integrable systems (like the spin-1/2 Heisenberg chain) and all-to-all integrable systems (like Gaudin
+magnets) on an equal footing, and allows us to identify
+two possible main scenarios for the onset of chaos:
+1. The integrability-breaking perturbation induces
+sufficiently short-range hopping in Fock space.
+When this scenario holds, the onset of chaos is a
+
+3
+
+2. The hopping is instead sufficiently long-range in
+Fock space that highly nonlocal processes dominate near the onset of chaos. We present evidence
+that this scenario occurs in XXZ spin chains subject to a class of perturbations that mix parity sectors and thus break the mapping to Jordan-Wigner
+fermions. When this scenario holds, the onset of
+chaos remains a crossover even in the large-system
+dynamic limit, and the perturbation strength at
+this crossover is exponentially small in N .
+We emphasize that this observation would not be valid
+for many-body localized systems with short-range couplings, which instead require a theoretical treatment
+that accounts for the distribution of resonances in real
+space24,40 . However, for systems with non-localized
+quasiparticles, this observation implies that the physics
+of integrability breaking can be understood directly from
+the matrix elements of the perturbation in the unperturbed basis, which define the amplitudes for hopping in
+Fock space and therefore determine whether there is a
+transition or a crossover to chaos.
+Unfortunately, even though these matrix elements (the
+so-called “form factors” of local operators41–43 ) can be
+efficiently computed in some specific models, their general statistical properties have not been explored in detail
+(though see Ref.44 ). Therefore, our exploration of the onset of chaos will be largely limited to small systems that
+are amenable to exact diagonalization (though we will
+briefly discuss one case where larger system sizes are attainable, see Sec. IV.) Using Bethe ansatz technology to
+extend our analysis to larger system sizes is a desirable
+goal for future work.
+For the same reason, we do not consider perturbations
+of integrable systems with infinite-dimensional Hilbert
+spaces in this work, such as conformal field theories and
+integrable bosonic theories like the Lieb-Liniger model.
+In the former case, we note that the large degeneracy of
+the unperturbed integrable system implies that integrability is already broken by processes that occur at first
+order in perturbation theory , as discussed recently in the
+literature45 , so that a detailed analysis of the high-order
+processes leading to Fock-space delocalization is not necessary for understanding the onset of chaos. For perturbed integrable field theories with non-degenerate spectra (for example, perturbed, non-degenerate free bosons)
+
+a
+
+b
+
+vqp /N
+
+c
+
+ln ω
+
+transition in the appropriate large-system dynamic
+limit, and the critical perturbation strength is polynomially small in the system size N . This scenario
+occurs for example in the perturbed non-interacting
+quantum dot considered by AGKL: in that case
+the interaction can only rearrange four occupation
+numbers at once, so it is strictly short-range on the
+Fock-space hypercube. But this short-range scenario can also apply when the Fock-space hopping
+is not strictly short-range, provided that the shortrange hopping is strong enough relative to the longrange hopping.
+
+d
+
+τ −1
+
+ω0 ∼ 4−N
+
+ωH ∼ 2−N
+
+N*(ϵ)
+
+ωTh
+
+N
+
+FIG. 1. Schematic evolution of some of the lowest characteristic energy scales of a nearly integrable spatially extended
+one-dimensional system with system size N at fixed small
+integrability-breaking perturbation . In the chaotic regimes
+(c), (d), the Thouless energy ωTh is indicated by a thick red
+line. In the localized regimes (a), (b) the thin red line is
+the crossover scale below which most pairs of near-in-energy
+eigenstates are subject to substantial level repulsion. This
+schematic is sketched for the scenario in which delocalization
+is a crossover, so delocalization occurs at lowest order in ;
+in the transition scenario this thin red line would curve upwards. From left to right, crossovers occur when the red lines
+cross the smallest gap in a typical sample (ω0 ), the typical
+level spacing (ωH ), and the characteristic rate for quasiparticles to traverse the system (vqp /N ). In some other systems
+the boundary between (b) and (c) can sharpen up to a Fockspace delocalization transition in the large-system dynamic
+limit. In regime (c) the Thouless energy is set by the slowestdecaying spatially uniform relaxation rate (τ −1 ) , while in
+regime (d) it is set by the slowest spatial transport of the
+conserved densities that remain conserved in the presence of
+the perturbation.
+
+we expect the analysis presented in this paper to hold
+at any finite temperature, since even for an infinitedimensional Hilbert space, the onset of chaos near a
+microcanonical energy shell is constrained by the Fockspace hopping range of integrability-breaking perturbations.
+The rest of this paper is organized as follows. In the
+remainder of this section we present an overview of the
+crossovers and/or transitions that separate the integrable
+and chaotic regimes at finite size and in the appropriate dynamic limits. (To the best of our knowledge these
+crossovers have not been discussed this thoroughly elsewhere.) In Sec. II we summarize the Fock-space delocalization picture introduced by AGKL, and discuss its
+relevance to perturbed integrable systems. In Sec. III we
+present a numerical study of perturbed Gaudin magnets,
+and in Sec. IV we turn to quantum spin chains. Finally,
+we identify the key open questions raised by our analysis.
+
+4
+D.
+
+From integrability to chaos: a summary
+
+A general summary of some of the features of the
+change from integrability to chaos is as follows: We consider systems with N degrees of freedom (usually spin1/2 spins) and Hamiltonian
+Ĥ = Ĥ0 + V̂ .
+
+(3)
+
+Ĥ0 is integrable, where this includes noninteracting particles. V̂ breaks the integrability. Thus for  6= 0 the
+full Hamiltonian Ĥ breaks the local conservation laws
+of Ĥ0 , except for energy and (possibly) particle number.
+Both Ĥ0 and V̂ are scaled with N to be extensive, so
+that each defines a proper thermodynamic Hamiltonian
+in its own right. We define our “Fock space” as the manybody eigenstates of Ĥ0 . V̂ produces hopping in that Fock
+space.
+We now consider the crossovers that take place as one
+increases N while keeping  fixed and much smaller than
+the characteristic energy scales of Ĥ0 (Fig. 1). (We can
+equivalently consider increasing  at fixed N , and will
+use both perspectives interchangeably below.) In this
+summary, we focus, for concreteness, on the many-body
+level statistics. For completeness, we also include systems
+where Ĥ0 is MBL in this summary, although we do not
+report any new work about MBL systems in this paper.
+The first regime (a) occurs for small N (note that we
+are taking  small enough that even in this regime we can
+assume N  1). Here, the level spacing of the system
+is large enough that any two adjacent levels of Ĥ0 are
+too far apart in energy for the perturbation to hybridize
+them. All of the eigenstates of Ĥ remain localized in Fock
+space close to eigenstates of Ĥ0 , so there are no systemwide many-body resonances. Here and throughout the
+remainder of the paper, we define a “many-body resonance” as a resonance between two eigenstates of H0 that
+differ from each other in extensively many quantum numbers. (For discussions of many-body resonances in the
+contexts of MBL and/or Floquet heating, see Refs.46–54 .)
+If Ĥ0 is drawn from an ensemble of systems, in this regime
+(a) there are no such resonances in almost all samples.
+However, some rare samples will have accidental neardegeneracies in the spectrum of Ĥ0 and these may be
+lifted by the perturbation.
+The second regime (b) of weak integrability-breaking is
+where  is large enough to produce exponentially many
+(in N ) eigenstates that are system-wide many-body resonances. These resonant eigenstates are linear combinations between Fock states that differ extensively. These
+states are subject to energy-level repulsion, thus producing weak deviations from Poisson level statistics. But in
+this second regime almost all eigenstates remain nonresonant and localized near eigenstates of Ĥ0 , and the system thus remains localized in Fock space and nonchaotic:
+some observable information about the initial state remains exactly conserved55 . The crossover between these
+first two regimes can be detected by measures akin to
+
+the “adiabatic gauge potential”36,56 that are sensitive to
+the presence of these rare resonances. The value of  at
+this first crossover can range from exponentially small in
+N for some interacting integrable systems, to power-law
+small in N if Ĥ0 is noninteracting delocalized particles,
+to of order one (but still small) if Ĥ0 is many-body localized in one dimension and both Ĥ0 and V̂ are sufficiently
+short-ranged in real space.
+The third regime (c) of weak integrability-breaking is
+one of quantum chaos and thermalization. This regime
+sets in when the scale for level repulsion between distantin-Fock-space eigenstates becomes comparable to the
+typical level spacing: thus, typical many-body eigenstates become involved in resonances and Fock-space localization breaks down. In this regime, a new characteristic energy scale emerges—the Thouless energy, ωTh :
+For energy differences ω < ωTh the level statistics is
+that of a random matrix. At the boundary between
+regimes (b) and (c), the Thouless energy becomes comparable to the typical level spacing, as long-Fock-spacerange, slow relaxation processes become on-shell, destabilizing Fock-space localization. As one proceeds deeper
+into regime (c), faster decay channels (corresponding to
+shorter-range processes in Fock space) go on-shell and
+thus open up, and ωTh increases. We emphasize that
+throughout this regime, the slowest relaxation mode of
+the system corresponds to Fock-space delocalization, and
+the physical (real-space) dimensionality of the system is
+still irrelevant.
+Deep in regime (c), the Thouless energy scales as 2
+by Fermi’s Golden Rule, but its scaling near the onset of
+Fock-space delocalization can be anomalous. At a fixed
+, there is some characteristic system size N ∗ () (given by
+inverting c (N )) at which the system enters regime (c).
+At the
+onset of regime (c), the Thouless energy is ωTh ∼
+∗
+2−N () . Thus if 2−N/2  c in the limit of large N (as
+appears to be the case in all the models we study), the
+Thouless energy at the onset of chaos is parametrically
+smaller in  than 2 . To match the scaling of ωTh at
+the onset of regime (c) with the behavior deep inside
+regime (c), ωTh must increase by a parametrically large
+amount in regime (c), as illustrated in Fig. 1.
+Finally, for systems that are spatially extended and
+such that Ĥ0 has delocalized quasiparticles, there is a
+third crossover or transition within the chaotic regime between the zero-dimensional quantum-dot-like regime (c)
+where the mean free path for interaction-induced scattering of the quasiparticles is longer than the system
+size, and a transport regime (d) where the mean free
+path is smaller than the system size so diffusive dynamics emerges. (In cases with quenched randomness
+the transport can be subdiffusive57 , and in cases with
+long-range-in-real-space interactions it can be superdiffusive58 (see also Ref.59 ).) Most conventional approaches
+to integrability-breaking, such as the Boltzmann equation34 , describe regime (d). In regime (d), local thermalization is faster than transport across the system, and the
+latter process governs ωTh . The behavior in (c) followed
+
+5
+by this crossover leads to a non-monotonic dependence
+of ωTh on N at fixed  (Fig. 1): the Thouless time first
+decreases with system size as thermalization speeds up,
+before slowing down again as it becomes bottlenecked by
+transport.
+The slowest-relaxing mode, which sets the Thouless energy, has a qualitatively different character in regimes (c)
+and (d). In regime (c) it is a spatially uniform fluctuation
+of a charge that is conserved under Ĥ0 ; in regime (d) it
+is a long-wavelength density fluctuation. Owing to the
+macroscopically different character of these two modes
+we conjecture that the crossover from (c) to (d) sharpens
+up in the dynamic limit considered here60 .
+Regime (d) also includes the infinite system, where we
+can ask what processes dominate in setting the quasiparticle lifetime in the limit of small . For noninteracting
+Ĥ0 , these can be low-order scattering processes, as in a
+standard Boltzmann equation scenario. For other systems, such as a XXZ spin chain perturbed in a way that
+“breaks” the Jordan-Wigner fermions (see Sec. IV), our
+numerical results are inconclusive, but exact diagonalization of small systems suggests that high-order processes
+dominate.
+Note that for spatially extended systems where Ĥ0 is
+MBL and the interactions and hoppings in Ĥ are shortranged enough in real space, the quantum-dot-like regime
+(c) does not exist and the delocalization transition goes
+directly to the transport regime (d).53
+
+each Fock state to O(N 4 ) other states, related by moving
+any two electrons from filled orbitals to empty orbitals.
+For our purposes it is useful to generalize this discussion to the case where each application of V̂ connects
+states that are separated by an order-one Hamming distance nh (so in the original AGKL analysis nh = 4). For
+large N , the hopping graph is locally treelike, with coordination number z ∼ N nh , effective hopping strength
+t∼
+
+THE FOCK-SPACE DELOCALIZATION
+TRANSITION
+
+In this section we briefly review the analysis of AGKL
+for the delocalization transition in a quantum dot, then
+extend this analysis to the case of interacting integrable
+systems.
+
+tc ∼
+
+Review of AGKL analysis
+
+The AGKL paper considers the effects of interactions
+in a quantum dot with N  1 fermionic levels, at generic
+PN
+intermediate filling f . Thus, Ĥ0 = i=1 εi ĉ†i ĉi . Moreover, since the levels being analyzed are all within the
+single-particle Thouless energy of the dot, their eigenstates can be treated as random vectors. The manybody eigenstates of Ĥ0 are Fock states in which each
+such orbital is either occupied or unoccupied. These
+eigenstates can be represented as bit-strings, or equivalently as the vertices of an N -dimensional hypercube.
+The dot is perturbed by some generic, thermodynamically normalized, local four-fermion interaction V̂ =
+P
+† †
+
+ijkl Vijkl ĉi ĉj ĉk ĉl ; since the single-particle eigenN 3/2
+states have no specific spatial structure, the matrix elements Vijkl can be treated as essentially random and
+order one. On the Fock-space hypercube, the interaction
+acts as a short-range hopping process, i.e., it connects
+
+(4)
+
+w
+w
+∼ n
+,
+z log z
+N h log N
+
+(5)
+
+where w denotes a typical energy change in Ĥ0 upon
+hopping, which we have set to order one.
+Combining the above expressions, we deduce that
+the critical perturbation strength  = c (N ) for Fockspace delocalization, and thus the critical perturbation
+strength required for thermalization scales with N as
+1
+.
+N (nh +1)/2 log N
+
+(6)
+
+In Appendix A, we provide various perspectives on this
+result, including a self-contained derivation of the powerlaw contribution to this expression from estimating small
+denominators, together with a summary of AGKL’s original derivation.
+
+B.
+A.
+
+,
+
+and locally the Fock-space lattice is equivalent at large
+N to a Bethe lattice.
+By a classic result of Abou-Chacra, Anderson and
+Thouless61 , the delocalization transition on a Bethe lattice with coordination number z is known to occur at a
+critical hopping strength
+
+c (N ) ∼
+II.
+
+
+N (nh −1)/2
+
+Example: a perturbed all-to-all Ising model
+
+Before we turn to interacting integrable models with
+nontrivial quasiparticles, we introduce a version of the
+AGKL transition that is amenable to small-system numerical studies. For numerically accessible system sizes
+where one can fully diagonalize H, the AGKL model with
+nh = 4 has the disadvantage that single hops are relatively “long-range” relative to the small Fock-space hypercube. To remedy this we consider a simpler model system that exhibits the phenomenology studied by AGKL
+at numerically accessible system sizes—namely an ensemble of random, perturbed all-to-all spin-1/2 Ising models
+given by
+ĤIsing = Ĥ0 + V̂ ,
+
+V̂ =
+
+N
+N
+X
+1 X
+Ĥ0 = √
+Jij σ̂iz σ̂jz +
+hi σ̂iz ,
+N i6=j
+i=1
+
+N
+1 1 X
+√
+hij σ̂iz σ̂j+ + h.c.
+2 N i,j=1
+
+(7)
+
+6
+
+c (N ) ∼
+
+1
+.
+N log N
+
+(8)
+
+A particularly simple method for discerning the onset
+of chaos numerically is via level statistics. In the model
+Eq. (7), the ensembles of Hamiltonians corresponding
+to Ĥ0 and V̂ are chosen to yield robust Poisson and
+GUE level statistics respectively, which are characteristic of generic integrable and (time-reversal-symmetrybreaking) chaotic quantum systems. Such level statistics
+are most directly observed using the hri statistic62 , which
+is defined as the average ratio (over the spectrum of some
+fixed H) of consecutive gaps
+hri = hrn i,
+
+rn =
+
+min (δn , δn+1 )
+,
+max (δn , δn+1 )
+
+(9)
+
+where δn = En+1 − En denotes the separation between
+adjacent energy levels . . . > En+1 > En > . . . (these will
+generically be non-degenerate for the models and symmetry sectors considered in this paper). Scaling of hri for
+the Hamiltonian Eq. (7) according to the prediction Eq.
+(8) is depicted in Fig. 2. We see that this Hamiltonian
+interpolates between Poisson and GUE level statistics,
+for which hri ≈ 0.38 and hri ≈ 0.6 respectively, and appears to have a transition between these extremes that
+sharpens with increasing N with respect to the scaling
+Eq. (8), and is thus consistent with a phase transition in
+this large-N dynamic limit. One curious feature of Fig.
+2 is that the curves collapse nearer the GUE value of hri
+than the Poisson value of hri. We believe that this is a
+finite-size effect, and emphasize that it is the clear steepening of these curves with N that provides the strongest
+numerical evidence for a phase transition as N → ∞ in
+this model, among the models studied in this paper.
+It is also of interest to consider the crossover between
+the dynamical regimes (a) and (b) of Fig. 1 for the AGKL
+
+0.60
+0.55
+
+r
+
+with Jij , hi , Re[hij ], Im[hij ] ∼ N (0, 1) identical and independently distributed (i.i.d.) normal variables. The
+eigenstates of the unperturbed Hamiltonian Ĥ0 are σ̂ z
+product states |σ1 σ2 . . . σN i with σi = ±1. These are
+the Fock states for this trivially “integrable” model. The
+nearest-neighbors in Fock space are pairs of states that
+differ by only one spin flip. We have added a perturbation V̂ that breaks the “integrability” of Ĥ0 and produces
+“hops” in Fock space of distance only nh = 1, but we have
+used two-site terms to do this in V̂ , since Ĥ0 already had
+two-site interactions. Note that the all-to-all interactions
+in both Ĥ0 and V̂ are scaled by the appropriate power of
+N to make them have a proper thermodynamic limit for
+ of order one. We will do this for all our models. The
+crossover or transition to chaos (transition in this case)
+occurs in the dynamic limit at a coupling c (N ) that decreases to zero in the large N limit. Thus all the models
+we will study are quantum chaotic when the thermodynamic limit is taken at any nonzero finite .
+For this model, the AGKL criterion (6) gives:
+
+0.50
+0.45
+
+GUE
+Poisson
+N=7
+N=8
+N=9
+N=10
+N=11
+N=12
+
+0.40
+10 2
+
+10 1
+
+100
+
+NlogN
+
+101
+
+FIG. 2. Finite-size behavior of hri for the perturbed Ising
+model Eq. (7), scaled in the left panel according to the theoretical prediction Eq. (8). Each datapoint for hri was obtained by simulating between O(100) and O(10000) realizations of the model Eq. (7) for the largest and smallest system
+sizes respectively, and computing hri from the middle 2/3 of
+each spectrum. Since there are no degeneracies for generic
+couplings, we work in the full Hilbert space with dimension
+dN = 2N . Error bars denote the standard error of the sample
+mean of hri over all realizations, which is typically < 0.1%
+and at worst < 0.5% for the largest systems simulated.
+
+transition. This can be probed numerically by studying
+the minimum min(r) = minn rn over each sample. As
+we argue in Appendix A, the Fock-space delocalization
+model of AGKL predicts that the onset of the very first
+resonances between adjacent energy levels is also set by
+the critical perturbation strength in Eq. (4), but with
+a renormalized effective coordination number for Fockspace hopping, z̃ = 22nh z. Thus we expect that min(r)
+should exhibit the same scaling form as hri, although
+with a very different scaling function, which is consistent with what is observed numerically in Fig. 3 (note
+that this observation is complicated by the fact that relative fluctuations in the minimum min(r) are substantially
+larger than those in hri for the same number of samples).
+More generally, whenever an integrability-breaking perturbation induces purely local hopping in the Fock space
+of Ĥ0 , we expect that diagnostics of quantum chaos that
+are sensitive to rare resonances, such as the adiabatic
+gauge potential36 , should begin to deviate from their
+ = 0 values at perturbation strengths that are polynomially small in the system size.
+
+C.
+
+General case: Fermi’s Golden Rule
+
+We now turn to the case of general interacting integrable systems, solvable via the Bethe ansatz. Note that
+this class of systems includes both local spin chains and
+all-to-all models such as Gaudin magnets and central spin
+models63 . For these models, the coordinate Bethe ansatz
+provides a labeling system for eigenstates, in terms of
+
+7
+2.0
+1.8
+1.6
+1.4
+
+N=7
+N=8
+N=9
+N=10
+N=11
+N=12
+
+1.2
+1.0
+0.8
+0.6
+10 2
+
+10 1
+
+NlogN
+
+100
+
+101
+
+FIG. 3. Finite-size behavior of hri (solid lines) and min(r)
+(dashed lines) for the perturbed Ising model Eq. (7), scaled
+according to the theoretical prediction Eq. (8). Simulation
+details as in Fig. 2. All curves shown are rescaled vertically
+by their values at the smallest  = 2−13 simulated.
+
+the quantum numbers of occupied quasiparticles. These
+state labels can be expressed either in terms of halfinteger Bethe quantum numbers (for local systems) or
+state-dependent rapidities64 ; alternatively, one can label
+them by their eigenvalues under each of the local and
+quasi-local conserved charges65 . There are multiple different intuitively plausible ways to define a metric in this
+state space. However, while integrability-breaking perturbations once again induce matrix elements among the
+eigenstates, these matrix elements are no longer strictly
+bounded in Hamming distance under any of these obvious metrics. Although we expect that physical locality
+of V̂ imposes some constraints on its matrix elements
+(for example, matrix elements between states with very
+different values of a local conserved quantity should be
+exponentially suppressed), the nature of these constraints
+is not obvious.
+Instead of working with an a priori metric, we will reformulate the transition vs. crossover question as follows.
+A typical eigenstate of the integrable system is coupled to
+other eigenstates with a distribution of matrix elements
+P (t). The typical matrix element must decay at least exponentially with system size, but there can be rare matrix elements that are much larger. We can ask whether
+first-order hybridization resonances become more or less
+likely as we consider increasingly small matrix elements
+(i.e., as we go to increasingly late times). For the onset
+of chaos to be a transition, the likeliest first-order resonances must involve atypically large matrix elements,
+which decay sub-exponentially with system size. One
+can heuristically regard this procedure as using the matrix element size as a proxy for Hamming distance, but
+we emphasize that it does not rely on any assumptions
+regarding the geometry of state space.
+It is helpful to consider a toy model in which the probability distribution of matrix elements follows a powerlaw distribution, P (t) ∼ 1/tγ . (The power-law functional form is chosen for simplicity, although it appears
+
+to be consistent with our numerical results for a perturbed XX chain presented in Sec. IV.) We now look
+for resonant transitions out of this eigenstate (i.e., transitions for which the matrix element exceeds the energy
+denominator), working our way from the highest to the
+lowest energies. At energy scale ω, we can ignore matrix
+elementsRt < ω, so the initial eigenstate is coupled to
+∞
+N (ω) ≡ ω P (t)dt ∼ ω 1−γ other states. The level spacing among these states scales as ω γ−1 ; if γ > 2, this level
+spacing asymptotically becomes smaller than the matrix
+element ω, and the initial state is unstable to long-range
+resonances at lowest order in perturbation theory. In
+this scenario, the relevant level spacing for delocalization
+is that of the slowest transitions, and this is set by the
+level spacing of the full system, i.e., it is exponential in
+N . By contrast, when γ < 2, the likeliest resonances
+involve the largest matrix elements; the nature of these
+depends on microscopic details but they will generically
+decay either algebraically or exponentially in N .
+Note that there are two regimes within the crossover:
+2 < γ < 3 and γ > 3. In the
+R former regime, the total
+spectral weight of V̂ , given by t2 P (t)dt, is dominated by
+transitions with a large matrix element. In this regime, as
+one increases the perturbation strength  past the threshold for chaos, the relaxation rate speeds up as “faster”
+thermalization channels, involving stronger transitions,
+become accessible. In this regime, at the level of the
+Golden Rule, the critical thermalization rate at the onset
+of chaos scales as Γc ∼ (γ−1)/(γ−2) . On the other hand,
+when γ > 3, long-range transitions dominate the spectral
+sum, so the perturbation acts effectively like a random
+matrix, and the thermalization rate is only weakly affected by the opening of additional decay channels.
+We now return to the question of probing the matrix
+element distribution numerically, with no assumptions
+about the underlying distribution of matrix elements.
+The idea behind this approach is to estimate when the
+broadening in the linewidth of Fock states due to dynamically introduced integrability-breaking perturbations becomes comparable to their level spacing. This provides
+an estimate of the perturbation strength at which a quasiparticle picture ceases to be meaningful. We note that
+similar considerations were used by AGKL to demarcate the Fock-space delocalization transition in quantum
+dots6 .
+Given a perturbed integrable system H = Ĥ0 + V ,
+we proceed as follows. First let |ai denote an eigenstate
+chosen uniformly at random from the mid-spectrum of
+Ĥ0 (defined as e.g. the middle 2/3 of its spectrum) and
+consider its matrix elements Vba = hb|V |ai to other eigenstates in the mid-spectrum of Ĥ0 . Ranking the squared
+matrix |Vba |2 in decreasing order for fixed a and all midspectrum b with |Ea −Eb | < Ω for some fixed O(1) energy
+scale Ω, averaging over all a and then averaging over random couplings yields a ranked list of mean-squared offdiagonal matrix elements |V1 |2 > |V2 |2 > . . . > |VM |2 in
+the mid-spectrum.
+Each such matrix element |Vm |2 defines a “batch” of
+
+8
+other matrix elements |Vn |2 ∼ |Vm |2 of the same order of
+magnitude. Concretely, we can define this batch as the
+set of n such that n ≥ m and |Vm |2 /e2 < |Vn |2 . Letting
+Nbatch (m) denote the number of |Vn |2 in this batch, the
+decay rate to m predicted by Fermi’s golden rule is given
+by
+
+
+P
+1
+2
+|V
+|
+n
+n∈batch(m)
+Nbatch (m)
+Γm = 2π2
+Ω/Nbatch (m)
+X
+2π2
+=
+|Vn |2
+(10)
+Ω
+n∈batch(m)
+
+since in the absence of level repulsion, the mean level
+spacing in this batch is expected to be (∆E)m ∼
+Ω/Nbatch (m). We note that the condition for the validity
+of Fermi’s Golden Rule in this setting is just the usual
+condition for the validity of Fermi’s Golden Rule, namely
+that the batch of possible final states under consideration
+is not too small.
+Comparing this decay rate to the mean level spacing
+yields the dimensionless perturbation strength
+2π2
+Γm
+Nbatch (m)
+=
+(∆E)m
+Ω2
+
+for polynomial versus exponential decay in N . This diagnostic refers to matrix elements of the perturbation V̂
+with respect to eigenfunctions of the unperturbed Hamiltonian Ĥ0 , and in this sense is complementary to the level
+statistics analysis.
+hri
+When both estimates c and FGR
+decay polynomially
+c
+in N , this is evidence that integrability-breaking for the
+model in question is driven by a Fock-space delocalization
+phase transition in the appropriate dynamic limit, with
+the power-law in Eq. (6) indicating the effective Fockspace hopping distance nh . When both estimates decay
+exponentially in N , this is evidence that integrabilitybreaking exhibits a crossover rather than a transition and
+occurs via a Fock-space hopping distance nh ∼ N . This
+is because exponential decay of the Fermi golden rule
+threshold Eq. (12) in N implies that V̂ mixes each manyquasiparticle state with exponentially many other states
+in the many-body Hilbert space, ruling out a localized
+phase as N → ∞ for any sub-exponential rescaling of 
+with N .
+
+III.
+
+X
+
+2
+
+|Vn | .
+
+(11)
+
+PERTURBED INTEGRABLE QUANTUM
+DOTS
+
+n∈batch(m)
+
+A.
+
+Maximizing this with respect to m yields an estimate of
+the dominant decay channel due to V̂ ; in particular, letting m∗ denote the argument of this maximum yields an
+estimate of the critical perturbation strength , namely
+Ω
+1
+FGR
+∼√ q
+c
+P
+2π Nbatch (m∗ )
+
+.
+
+(12)
+
+2
+n∈batch(m∗ ) |Vn |
+
+The benefit of Eq. (12) is that it provides an easily
+computable diagnostic of the threshold at which quasiparticles decay due to V̂ and integrability is broken.
+D.
+
+Numerical diagnostics for Fock-space
+delocalization
+
+The above discussion suggests two complementary numerical approaches for discerning a Fock-space delocalization transition in interacting integrable systems. The
+first is simply plotting hri against , as in Fig. 2, and
+hri
+using this to deduce a “critical” c (N ), either from the
+crossing point of the curves for hri if this is visible, or
+hri
+by numerically extracting c (N ) at which hri ≈ 0.49
+(halfway between Poisson and GUE) if there is no clear
+crossing point. In this paper we will always consider GUE
+perturbations, with a view to enhancing the change in hri
+(there is no reason to expect any of our conclusions to
+be altered for GOE perturbations, beyond their smaller
+value of hri ≈ 0.53). This diagnostic refers solely to the
+level statistics of the Hamiltonian in question.
+The second approach is plotting the Fermi golden rule
+estimate Eq. (12) against system size N , and checking
+
+Interacting integrable quantum dots
+
+Let us now apply the above considerations to
+integrability-breaking perturbations of interacting, integrable quantum dots. Note that this generalizes the analysis of AGKL6 , who considered such perturbations for
+non-interacting quantum dots. The difference between a
+non-interacting and an interacting integrable quantum
+dot is captured by the quantum numbers, or “rapidities” defining the state. In a non-interacting quantum
+dot, each state is uniquely determined by the occupation numbers of a fixed set of rapidities. In an interacting integrable quantum dot, these rapidities depend on
+the state; their mutual interactions are captured by the
+Bethe equations.
+To be concrete, let us take as our interacting, integrable quantum dot the following transverse spin-1/2
+Gaudin model
+1 X ∗
+ĤGaudin = √
+Ji Jj Ŝi+ Ŝj− .
+(13)
+N i6=j
+This model is integrable for all choices of the couplings
+Ji ∈ C. It has a global U (1) symmetry and a “hidden”
+time-reversal symmetry, achieved by rotating each spin
+independently about the z-axis to cancel the phase of its
+complex coupling Ji .
+Local integrable systems, such as the spin-1/2 XXZ
+chain, are characterized by an extensive number of local conserved charges. In such systems, the Hamiltonian
+PN
+Ĥ = i=1 ĥi can be written as a sum over local terms
+hi , and there exist extensively many other linearly inP (n)
+dependent operators Q̂(n) = i q̂i , n = 2, . . . , N with
+
+9
+(n)
+
+q̂i local that are conserved and mutually commuting,
+i.e.
+[Q̂(m) , Q̂(n) ] = 0,
+
+[Q̂(m) , Ĥ] = 0,
+
+m, n = 2, . . . , N.
+(14)
+For all-to-all models such as quantum dots, the notion
+of spatial locality is no longer natural. Instead, integrability in such systems is characterized by the existence
+of extensively many conserved charges that are “2-local”
+in the complexity theory sense. Gaudin’s construction of
+these models proceeds by solving for sets of commuting
+spin bilinears with a specific structure; for the model Eq.
+(13), these take the form
+Ĝ(i) =
+
+X1
+k6=i
+
+2
+
+formalism also leads directly to the model’s exact Betheansatz solution.
+Our starting point is the so-called “rational Gaudin algebra” associated with the Hamiltonian Eq. (13), which
+is determined by the couplings Ji and a continuous parameter z, such that66,68,70
+B̂ + (z) =
+B̂ − (z) =
+B̂ z (z) =
+
+
+
+∗ + −
+vik Ŝi− Ŝk+ + vik
+Ŝi Ŝk + wik Ŝiz Ŝkz , (15)
+
+vik vji
+wik − wij =
+vjk
+
+(16)
+
+for pairwise distinct i, j and k, which are solved by
+vij =
+
+Ji Jj∗
+,
+|Ji |2 − |Jj |2
+
+wij =
+
+|Jj |2
+|Ji |2 − |Jj |2
+
+(17)
+
+for any distinct Ji ∈ C. In terms of these operators, a
+family of all-to-all Hamiltonians with an extensive number of mutually commuting, 2-local conserved charges is
+given by
+N
+X
+i=1
+
+(1)
+
+ai Ĝ(i) ,
+
+Q̂(n) =
+
+N
+X
+
+(n)
+
+ai Ĝ(n) ,
+
+(18)
+
+i=1
+
+(n)
+where ai are the coefficients of any invertible real ma(1)
+trix. The choice ai = 2|Ji |2 /N 1/2 recovers the Hamil-
+
+tonian Eq. (13) that we will study in this section.
+Integrable spin models of this type were introduced
+by Gaudin66 , building on earlier work by Richardson67 .
+The model Eq. (13) lies in a more general class than
+the models originally considered by Gaudin; this class of
+“non-skew” Gaudin models first arose in the context of
+nuclear physics68 , with several subsequent studies69–73 .
+Recently, an experimental protocol for realizing Eq. (13)
+(with real couplings Ji ∈ R) in systems of atoms coupled
+to an optical cavity was proposed74 .
+
+B.
+
+Ji∗
+Ŝ + ,
+2z i
+1
+−
+|J
+|
+i
+i=1
+
+N
+X
+
+Ji
+Ŝ − ,
+2z i
+1
+−
+|J
+|
+i
+i=1
+N
+X
+
+|Ji |2
+Ŝ z .
+2z i
+1
+−
+|J
+|
+i
+i=1
+
+(19)
+
+(20)
+
+(21)
+
+These operators satisfy the commutation relations
+
+with the coefficients v, w chosen to satisfy the condition
+∗
+[Ĝ(i) , Ĝ(j) ] = 0. Assuming that vji
+= −vij , these conditions imply the “Gaudin equations”,
+
+Ĥ =
+
+N
+X
+
+Quasiparticle Fock space for the Gaudin model
+
+To make contact with the AGKL intuition for noninteracting quantum dots, it is helpful to express integrability of the Gaudin model in terms of “quasiparticle operators”, which are analogous to pair creation and
+annihilation operators in the Richardson model67 . This
+
+[B̂ + (z), B̂ − (0)] = 2B̂ z (z),
+[B̂ z (z), B̂ ± (w)] = ±
+
+(22)
+
+B̂ ± (z) − B̂ ± (w)
+.
+z−w
+
+(23)
+
+In terms of these operators, the Hamiltonian Eq. (13) is
+given by
+"
+#
+N
+1
+1X
++
+−
+z
+2
+ĤGaudin = √
+|Ji | .
+B̂ (0)B̂ (0) − B̂ (0) −
+2 i=1
+N
+(24)
+From the commutation relations Eqs. (22), one can construct the exact M -particle eigenstates
+|z1 z2 . . . zM i = B̂ + (z1 )B̂ + (z2 ) . . . B̂ + (zM )|0i
+
+(25)
+
+by acting repeatedly on the pseudovacuum |0i with all
+spins down, with the “rapidities” za required to satisfy
+the M coupled Bethe equations
+M
+X
+b6=a
+
+N
+X
+2
+|Jj |2
+1
++
++
+= 0,
+2
+za − zb j=1 1 − |Jj | za za
+
+a = 1, 2, . . . , M,
+(26)
+
+and the energy given by
+M
+
+1 X 1
+E(z1 , z2 , . . . , zM ) = − √
+.
+N a=1 za
+
+(27)
+
+This formalism allows for a precise definition of a “quasiparticle Fock space”, as the set of vectors ~z ∈ CM satisfying the Bethe equations Eq. (26) for each M =
+0, 1, . . . , N , up to rearrangements of the zi . The validity
+of the AGKL Fock-space delocalization model for few-site
+perturbations of this system hinges on how far single-site
+operators Ŝi± induce local hopping in this quasiparticle
+Fock space. Based on the fact that the single-site operators Ŝi± are simply linear combinations of the B̂ ± (z), one
+might conjecture that they generate hops at a Hamming
+distance nh = 1 in this Fock space, and therefore induce
+a Fock-space delocalization transition. Below we present
+numerical evidence in favour of this claim for accessible
+system sizes.
+
+10
+
+r
+
+0.55
+0.50
+
+0.60
+
+GUE
+Poisson
+N=9
+N=10
+N=11
+N=12
+N=13
+N=14
+
+0.50
+
+0.45
+
+0.45
+
+0.40
+
+0.40
+
+10 3
+
+10 2
+
+10 1
+
+100 10 1
+
+101
+100
+N 3/2logN
+
+102
+
+FIG. 4. Scaling collapse of hri for the transverse Gaudin
+model perturbed by a two-spin perturbation Eq. (28), according to the theoretical prediction Eq. (29). Each datapoint for
+hri was obtained by simulating between O(100) and O(10000)
+realizations of the model Eq. (28) for the largest and smallest
+system sizes respectively, and computing hri from the middle 2/3 of each spectrum. Since the model is U (1) symmetric, we work in the approximately half-filled sector with
+S + occupation
+
+ number bN/2c and Hilbert space dimension
+N
+dN =
+. Error bars denote the standard error of the
+bN/2c
+sample mean over all realizations, which is < 0.1% for all data
+points shown.
+
+C.
+
+GUE
+Poisson
+N=9
+N=10
+N=11
+N=12
+N=13
+N=14
+
+0.55
+
+r
+
+0.60
+
+Few-spin perturbations of the transverse
+Gaudin model
+
+We now consider various random few-site perturbations of the transverse Gaudin model ĤGaudin , first the
+random two-site perturbation
+ĤGaudin+2 = Ĥ0 + V̂ ,
+
+1 X ∗
+Ĥ0 = √
+Ji Jj Ŝi+ Ŝj− ,
+N i6=j
+
+N
+X
+1 X
+∗ + −
+V̂ = √
+(Jij Ŝi+ Ŝj− + Jij
+hj Ŝjz
+Ŝj Ŝi ) +
+N i<j
+j=1
+
+(28)
+
+with i.i.d. couplings Re(Jj ), Im(Jj ), Re(Jij ), Im(Jij ),
+hj ∼ N (0, 1). Here the random two-site terms drive the
+model to GUE level statistics, while the random singlesite z-field serves to remove an accidental time-reversal
+symmetry for even N . The two-site term is the dominant
+source of Fock-space hopping, and has nh = 2 in our
+previous notation, so that the Fock-space delocalization
+model Eq. (6) predicts a critical perturbation strength
+c (N ) ∼
+
+1
+N 3/2 log N
+
+(29)
+
+for the onset of chaos. As shown in Fig. 4 the collapse
+of hri to this scaling law is excellent, and shows a slight
+steepening about its crossing point at the largest system
+sizes, indicative of a possible phase transition as N → ∞.
+
+10 3
+
+10 1
+
+10 2
+
+100 100
+
+101
+102
+N 5/2logN
+
+103
+
+FIG. 5. Scaling collapse of hri for the transverse Gaudin
+model perturbed by a four-spin perturbation Eq. (30), according to the theoretical prediction Eq. (31). Simulation
+details as for Fig. 4. Error bars denote the standard error
+of the sample mean over all realizations, which is typically
+< 0.1% and at worst < 0.4% for the largest systems simulated.
+
+We next consider the random four-site perturbation
+ĤGaudin+4 = Ĥ0 + V̂ ,
+V̂ =
+
+1
+N 3/2
+
+X
+
+1 X ∗
+Ji Jj Ŝi+ Ŝj− ,
+Ĥ0 = √
+N i6=j
+
+∗
+Ŝl+ Ŝk+ Ŝj− Ŝi−
+Jijkl Ŝi+ Ŝj+ Ŝk− Ŝl− + Jijkl
+
+i<j,k<l
+
+(30)
+with i.i.d.
+couplings Re(Jj ), Im(Jj ), Re(Jijkl ),
+Im(Jijkl ) ∼ N (0, 1). Here, nh = 4 and so Eq. (6) predicts a critical perturbation strength
+c (N ) ∼
+
+1
+N 5/2 log N
+
+(31)
+
+for the onset of chaos. As shown in Fig. 5, the hri statistic exhibits an excellent collapse to this scaling law on
+accessible system sizes. However, there is not much evidence for steepening with N , presumably because the
+hopping distance nh = 4 in this case is only a few times
+smaller than the largest accessible system size, N = 14.
+It is worth emphasizing that the power laws in Eqs.
+(29) and (31) can be deduced directly from the hri data
+itself, and are clearly distinguishable within the sample
+error of a fit to the Fock-space delocalization ansatz Eq.
+(6) over accessible N . Concretely, we can study the N
+dependence of the onset of chaos by defining the threshold (r, N ) at which hri takes on an intermediate value
+hri = r ∈ (0.41, 0.57) for each N . This is interpolated to
+unsampled values of r by using an accurate spline (error
+within linewidth) of the raw data. From (r, N ) we can
+estimate the exponent ν such that
+(r, N ) ∼
+
+1
+N ν log N
+
+(32)
+
+11
+0.0
+
+100
+
+Gaudin+2
+Gaudin+4
+
+0.5
+
+Estimate from FGR
+Estimate from r
+Theory
+
+1.0
+1.5
+c
+
+2.0
+
+10 1
+
+2.5
+3.0
+3.5
+4.0
+0.40 0.42 0.44 0.46 0.48 0.50 0.52 0.54 0.56 0.58
+r =r
+FIG. 6. Power-law dependence of (r, N ) log N on N , as extracted from the numerical hri data for the Hamiltonians
+ĤGaudin+2 and ĤGaudin+4 , using the formula in Eq. (33).
+Dotted lines show the respective analytical predictions, Eqs.
+(29) and (31) for the exponent ν at the critical point. Error
+bars denote standard error of the sample mean Eq. (33), with
+n = 6.
+
+by averaging the gradient of log ((r, N ) log N ) with respect to log N , i.e. for n consecutive system sizes N =
+N1 , N1 + 1, . . . , Nn we define
+n−1
+X
+
+log [((r, Ni+1 ) log Ni+1 )/((r, Ni ) log Ni )]
+.
+hνi =
+(n − 1) log Ni+1 /Ni
+i=1
+(33)
+The resulting estimate for hνi, together with the standard error of this average (note that n = 6 for our simulations) is plotted in Fig. 6 for the perturbed interacting integrable models Eq. (28) and Eq. (30). The first
+model seems to exhibit a steepening transition on either
+side of the theoretically predicted exponent from Fockspace delocalization Eq. (6). For the model with the
+larger hopping range HGaudin+4 , no such steepening is
+visible for the reason discusssed above; correspondingly,
+the agreement with the theoretical prediction Eq. (31) is
+particularly good.
+This concludes our numerical demonstration that the
+level statistics of perturbed interacting quantum dots
+scale as expected from the arguments of AGKL. We next
+turn to the Fermi golden rule estimate, based on the decay rate of quasiparticles, that was discussed above. In
+hri
+particular, one can directly compare c and FGR
+for
+c
+the interacting models, as discussed in Section II D, and
+check for polynomial versus exponential decay with N .
+This check is depicted in Fig. 7. We see that accessible
+system sizes are consistent with the polynomial decay
+predicted by a Fock-space delocalization model. Let us
+however emphasize that from numerics alone, it is impossible to rule out a very weak exponential decay that could
+eventually dominate the AGKL prediction at larger N ,
+resulting in a crossover to quantum chaos rather than a
+transition.
+In both these models, the minimum r behaves
+
+10 2
+
+10
+
+N
+
+12
+
+14
+
+10
+
+N
+
+12
+
+14
+
+FIG. 7. Thresholds for the critical perturbation strength extracted from a Fermi golden rule estimate Eq. (12) and the
+numerical hri data respectively, according to the prescription
+described in Section II D, for the models Eqs. (28) (left) and
+(30) (right) respectively. Black dotted lines are guides to the
+eye, and directly proportional to the Fock-space delocalization predictions Eqs. (29) and (31). For both models, both
+numerical estimates for c track this theoretical prediction for
+accessible N .
+
+markedly differently from the mean r, seeming to exhibit regime change at a coupling strength that is exponentially small in the system size. This behaviour
+is consistent with earlier results on the adiabatic gauge
+potential in perturbed interacting integrable systems36 .
+However, as shown in Fig. 8 for ĤGaudin+2 , such exponential scaling manifestly fails to collapse the behaviour
+of hri between the extremes of integrability and chaos
+0.38 < hri < 0.6. The power law scaling of hri depicted
+in Figs. 4 and 5 thus indicates a robust intermediate
+regime between the onset of many-body resonances and
+the onset of chaos, that is large relative to the conjectured perturbation strength c (N ) ∼ 1/(N ν log N ) for
+the onset of chaos in these models. One intuitive explanation for this behaviour, compared to the all-to-all
+Ising model discussed above, is that for perturbed Gaudin
+dots, the matrix elements of few-spin perturbations V̂
+have long tails in Fock space that allow some many-body
+resonances to form at exponentially small , but sufficiently little weight in these tails that a delocalization
+transition in hri persists at larger values of .
+Finally, we note that one can also break U (1) symmetry of Ĥ0 while preserving integrability, by adding an
+onsite XY field of the form71
+X
+1 X ∗
+Ĥ0 = √
+Ji Jj Ŝi+ Ŝj− + hXY
+(Ji Ŝi− + Ji∗ Ŝi+ ),
+N i6=j
+i
+(34)
+with hXY arbitrary. We have checked that this does not
+alter the observation of power-law scaling in hri for fewsite chaotic perturbations and accessible system sizes.
+
+12
+
+1.8
+1.6
+1.4
+
+0.60
+
+N=9
+N=10
+N=11
+N=12
+N=13
+N=14
+
+0.55
+
+r
+
+1.2
+1.0
+
+0.50
+0.45
+
+0.8
+
+0.40
+
+0.6
+10 3
+
+GUE
+Poisson
+N=9
+N=10
+N=11
+N=12
+N=13
+N=14
+
+10 2
+
+10 1
+
+100
+2cN
+
+101
+
+102
+
+103
+
+FIG. 8. Finite-size behavior of hri (solid lines) versus min(r)
+(dashed lines) for the Hamiltonian ĤGaudin+2 , with the perturbation strength rescaled by an exponential 2cN with c =
+0.8. Simulation details as in Fig. 4. All curves are rescaled
+vertically by their value at the smallest perturbation strength
+ = 2−19 simulated. It is clear that the exponential rescaling
+that induces a collapse of min(r) fails to collapse hri.
+
+10 3
+
+10 2
+
+Many-spin perturbations of the transverse
+Gaudin model
+
+We now consider what happens when the transverse
+Gaudin model is perturbed by operators that are nonlocal in the onsite spins, for example, a GUE two-fermion
+perturbation of the form
+ĤGaudin+2F = Ĥ0 + V̂ ,
+1 X
+V̂ = √
+tij ĉ†i ĉj ,
+N ij
+
+1 X ∗
+Ĥ0 = √
+Ji Jj Ŝi+ Ŝj− ,
+N i6=j
+(35)
+
+∗
+with tij = t∗ji = (Xij +Xji
+)/2 and i.i.d. couplings Re(Jj ),
+Im(Jj ), Re[Xij ], Im[Xij ] ∼ N (0, 1), and fermion operators defined via Jordan-Wigner strings
+Y
+ĉ†k =
+(−σ̂jz )Ŝk+ .
+(36)
+
+100 10 1
+
+101
+100
+N 3/2logN
+
+102
+
+Estimate from FGR
+Estimate from r
+Fock-space delocalization
+10 1
+
+10 2
+
+D.
+
+10 1
+
+c
+
+2.0
+
+9
+
+10
+
+11
+
+N
+
+12
+
+13
+
+14
+
+FIG. 9. Top: Scaling of hri for the Hamiltonian Eq. (35),
+according to theoretical expectations for a Fock space delocalization transition in this model Eq. (29). It is clear that
+thermalization sets in faster than expected for a Fock space
+delocalization transition. Simulation details as for Fig. 4. Error bars denote the standard error of the sample mean over
+all realizations, which is < 0.1% for all datapoints shown.
+Bottom: Thresholds for the critical perturbation strength extracted from a Fermi golden rule estimate Eq. (12) and the
+numerical hri data respectively, according to the prescription
+described in Section II D, for the model Eq. (35). Black dotted lines are guides to the eye, and directly proportional to
+the Fock-space delocalization transition prediction for twosite hopping, Eq. (29). We see that both numerical estimates
+for c decay notably faster than the delocalization transition
+estimate for accessible N .
+
+j<k
+
+Naı̈vely, the two-fermion terms flip two spins and therefore correspond to a hopping distance nh = 2 in Fock
+space, with an associated critical value c (N ) for thermalization scaling as in Eq. (29). However, the attached
+Jordan-Wigner strings are highly non-local operators in
+the onsite basis, and generate long-range hopping in Fock
+space that leads to a delocalization crossover rather than
+a delocalization transition. Correspondingly, there is no
+scaling collapse to Eq. (29) in hri and we instead observe
+a drift towards thermalization, as depicted in Fig. 9.
+At the same time, it is difficult to rule out numerically
+the possibility that the long-ranged Fock space hopping
+in these models again results in a delocalization transition, but with a larger effective hopping range than the
+
+naı̈ve expectation nh = 2. Our numerical results are in
+fact consistent with a hopping range nh ≈ 5, but this
+hopping range does not have a natural microscopic interpretation that is consistent with the results of previous
+sections, suggesting that the agreement with this powerlaw fit might be spurious. We now turn to perturbed
+local integrable systems, for which the evidence for a
+crossover at exponentially small perturbation strengths
+is more stark.
+
+13
+IV.
+
+0.60
+
+PERTURBED LOCAL INTEGRABLE
+SYSTEMS
+
+0.55
+
+Numerical analysis
+
+In this section we turn to spatially local integrable spin
+chains subject to spatially local perturbations. The example we will focus on is the XX spin chain with twisted
+boundary conditions,
+Ĥ0 = ĤXX =
+
+X
+
+−
+eiθ σ̂i+ σ̂i+1
++ h.c. + gσ̂iz .
+
+<r>
+
+A.
+
+0.50
+0.45
+0.40
+
+××××
+××
+×
+××
+×××
+×
+× × ××
+×
+×× ×
+× ××
+×
+× ××
+× ×
+× ××
+××
+×× ×
+×
+×
+
+0.0
+
+(37)
+
+0.5
+
+1.0
+
+L
+
+1.5
+
+2.0
+
+×
+
+7
+
+×
+
+9
+
+×
+
+11
+
+×
+
+13
+2.5
+
+ϵ/ϵ0 (L)
+
+i
+
+X
+
+z
+(xi σ̂ix + yi σ̂iy )σ̂i+1
+,
+
+(38)
+
+i
+
+where xi , yi are i.i.d. random numbers chosen from the
+interval (−1, 1). This choice of Ĥ0 and V̂ is motivated
+by the following logic. ĤXX maps to free fermions under
+a Jordan-Wigner transformation; this allows us to define
+an unambiguous Hamming distance in terms of the occupation numbers of the fermions, precisely as in AGKL.
+However, under the Jordan-Wigner mapping, our choice
+of V̂ becomes nonlocal in fermion operators; thus, as in
+the generic interacting case, the interaction has matrix
+elements to arbitrarily large Hamming distance. Finally,
+since perturbations acting on adjacent sites do not commute, Ĥ in the limit of large  becomes cleanly chaotic.
+If we had instead perturbed with random fields at every
+site, there would have been a further transition to a localized phase with increasing , complicating our analysis
+of the onset of chaos.
+Our numerical analysis of the crossover to chaos in
+this model closely parallels that in the previous section.
+Fig. 10 shows the crossover in hri, which collapses when
+rescaled by a factor that is exponential in L. That the
+crossover does not sharpen appreciably with system size,
+and that the crossover scale varies exponentially with system size, are both suggestive evidence for a crossover
+rather than a transition in this model. Fig. 11 shows
+the dependence of the crossover scale on system size, extracted from the Golden-Rule approach outlined in Sec.
+II D as well as direct analysis of the crossover in hri. The
+methods agree reasonably well on the scaling with L. Although we cannot definitively tell an exponential from a
+power law with the modest dynamic range that is numerically accessible, fitting the data to a power law gives
+
+FIG. 10. Adjacent-gap ratio hri vs. rescaled coupling /0 (L),
+for the perturbed XX model, where 0 (L) = C/1.32L , and C
+is chosen so that hri = 0.5 when  = 0 (L) for L = 9. The
+data are averaged over 5000 samples for L = 7, 9; over 500
+samples for L = 11; and over 50 samples for L = 13.
+
+0 ∼ 1/Lα with α > 3, which has no microscopic rationale (since V̂ induces transitions at Hamming distance
+1). Finally, as Fig. 11 shows, the crossover in the minimum gap occurs at parametrically lower values of  than
+the crossover in hri, i.e., the regime (b) in Fig. 1 grows
+with system size75 .
+
+B.
+
+Matrix elements of the Jordan-Wigner string
+
+The rationale for our choice of the Hamiltonian (37)
+was that for this model the unperturbed problem can
+be written in terms of free fermions, so one can define a natural Hamming distance between two states in
+terms of the difference in their occupation numbers. Each
+term in the perturbation V̂ —and generic parity-breaking
+0.500
+
+○
+○
+
+0.100
+0.050
+
+●
+
+0.010
+0.005
+
+✶
+
+○
+○
+
+●
+●
+
+ϵ0
+
+The model in the absence of twisting and the uniform
+field has many degeneracies in its spectrum, related to
+Z2 and reflection symmetry. Since we would like to have
+an integrable limit with Poisson level statistics, we fix
+g = 0.3, pick θ randomly for each sample, and limit our
+attention to odd system sizes L. (The last restriction
+eliminates some residual degeneracies in the half-filled
+sector; since we will consider a perturbation that breaks
+U (1) conservation, the only way to avoid the half-filled
+sector is to work with L odd.) We choose
+V̂ =
+
+× × ×××××
+×× ×× ××× ×
+× ××
+××
+××
+×
+×
+× ×
+
+●
+○
+
+FGR
+
+●
+
+<r>
+
+✶
+
+✶
+
+rmin
+
+11
+
+12
+
+✶
+
+0.001
+7
+
+8
+
+9
+
+10
+
+13
+
+L
+
+FIG. 11. Solid lines are two independent estimates of the
+crossover scale 0 , from Fermi’s Golden Rule and the crossover
+in hri respectively. Dashed lines estimate the crossover in the
+minimum gap rmin , which happens at a parametrically smaller
+value of .
+
+14
+(b)
+
+0.01
+
+10 -10
+
+10 -7
+
+| Mij |2
+
+10 -4
+
+0.1
+
+0.010
+
+-1.0
+-1.5
+
+0.001
+
+-2.0
+
+★
+▲
+◆
+
+□
+◆
+▲
+
+dH
+◆
+
+2
+
+★
+
+4
+
+▲
+
+6
+
+□
+
+8
+
+○
+
+10
+
+★
+
+○
+□
+★
+▲
+◆
+
+○
+◆
+
+2
+
+100
+
+d
+
+(c)
+
+⟨ | Mij | ⟩
+
+P ( | Mij |2 )
+
+10
+
+6
+
+△○
+✶
+○
+◆
+△○
+✶
+◆
+△○
+✶
+◆
+△○
+✶
+◆
+△○
+✶
+◆
+△◆
+✶
+◆
+△○
+✶
+○
+△○
+✶
+◆
+△○
+✶
+◆
+△○
+✶
+◆
+△○
+✶
+◆
+△○
+✶
+◆
+△○
+✶
+◆
+△○
+✶
+◆
+△○
+✶
+◆
+△○
+✶
+◆
+△○
+◆
+✶
+✶
+△○
+◆
+◆
+△○
+✶
+◆
+✶
+△○
+◆
+✶
+△○
+◆
+✶
+△○
+◆
+✶
+△○
+◆
+✶
+△○
+◆
+✶
+△○
+◆
+✶
+△○
+◆
+✶
+△○
+◆
+✶
+△○
+◆
+✶
+H
+△○
+◆
+✶
+△○
+◆
+✶
+△◆
+○
+✶
+◆
+△○
+✶
+◆ 2
+◆
+△○
+✶
+△◆
+○
+✶
+◆
+△○
+✶
+◆◆
+△○
+✶
+△○
+✶
+◆
+✶ 4
+△○
+✶
+◆
+△○
+✶
+◆
+△○
+✶
+◆
+△○
+✶
+✶
+△ 8
+△○
+◆○
+△✶
+◆○
+△✶
+△○
+○ 16
+△○
+✶
+✶
+
+| Mij |2
+
+(a)
+
+-2.5
+-3.0
+
+10 -4
+10 -5
+
+-3.5
+0
+
+50
+
+100
+
+150
+
+200
+
+8
+
+250
+
+▲
+□
+★
+★
+○
+◆
+□
+▲
+
+◆
+○
+★
+▲
+□
+
+10
+
+12
+
+14
+
+16
+
+18
+
+◆
+★
+□
+▲
+○
+
+20
+
+L
+
+rank
+
+i
+h P
+FIG. 12. (a) Probability distribution of squared matrix elements |Mij |2 of the Jordan-Wigner string exp iπ n<L/2 (1 + σ̂nz )/2 ,
+for system size L = 20, as a function of the Hamming distance dH between pairs of states i, j. The dashed line shows P (x) ∝ 1/x
+and corresponds to the matrix element distribution P (|Mij |) ∝ 1/|Mij |. Data averaged over 2 × 106 pairs of states. (b) Largest
+250 matrix elements for L = 10 (from an exhaustive list), color-coded by dH . Lighter colors indicate larger dH . (c) Average
+matrix element h|Mij |2 i vs. L for various Hamming distances, showing a clear exponential decay.
+
+perturbations—can be written in the form
+Ŵ (x)Ô(x),
+
+P
+where Ŵ (x) = exp iπ n<x (1 + σ̂nz )/2 , and Ô(x) is a
+local operator that only rearranges a small number of
+fermions (and therefore, on its own, would only give transitions to some bounded Hamming distance). Thus, the
+large-scale rearrangements due to V̂ are due to the matrix
+elements of Ŵ (x), which we now discuss. For this exploration, we choose open boundary conditions and work
+with initial states in which the fermions are at half filling; we also choose x = L/2. The matrix elements of
+Ŵ (x) between any pair of many-body Slater-determinant
+eigenstates can then be efficiently evaluated as a determinant76 .
+Our results are shown in Fig. 12. We highlight a few
+key features. First, the natural Hamming distance is
+not predictive of the strength of transitions: some of the
+largest matrix elements are to Hamming distances larger
+than 1. Intuitively, the Jordan-Wigner string looks like
+a pulsed step-function potential, and thus has larger matrix elements between states connected by small momentum transfer: thus, not all transitions at a given naive
+Hamming distance are equivalent. Second, the tail of
+the distribution to small matrix elements at any fixed
+Hamming distance has the form P (|Mij |) ∼ 1/|Mij |. In
+the taxonomy of Sec. II C this tail has too little weight
+to provide the dominant transitions. At larger |Mij | the
+distribution bends and the apparent exponent increases
+to P (|Mij |) ∼ 1/|Mij |2 , which is exactly the marginal
+case where transitions at all scales contribute to delocalization. Identifying whether a transition or crossover
+occurs will require a more intensive numerical study of
+(a) the precise form of the tail to large matrix elements,
+and (b) how the crossover between the two regimes of
+Fig. 12(a) scales with system size. Third, the mean matrix element at any Hamming distance decays exponentially with system size with approximately the same decay constant, so that (entropically) the spectral weight
+for larger system sizes is dominated by transitions to
+
+large Hamming distance.
+
+V.
+
+CONCLUSION
+
+We have studied the system-size dependence of the
+onset of many-body quantum chaos in a variety of perturbed integrable systems. We have further argued that
+generalizations of the analysis of AGKL predicting a
+Fock-space delocalization transition for perturbed, noninteracting quantum dots apply to these systems. Depending on the effective hopping range of the perturbation in the many-body Fock space defined by the eigenstates of the unperturbed integrable system, this analysis predicts either a crossover or a transition, at a perturbation strength that tends to zero as the system size
+N → ∞. We have presented detailed numerical evidence
+that both possible scenarios are realized for perturbations
+of interacting or non-interacting integrable systems.
+It is natural to ask whether analogous transitions can
+happen if one scales the integrability-breaking perturbation  with time, in an infinite system, rather than with
+system size. (This question was considered for MBL transitions in Ref.23 .) For extended infinite integrable systems, the crossovers with time are much simpler than
+those with system size: thermalization in finite-size systems is slowed down by the discreteness of energy levels,
+which is not relevant for infinite systems. The finite-time
+crossover occurs at a mean free time τ ∼ 1/2 . The finitetime crossover in the dynamic limit of small  can either
+happen through processes that primarily rearrange an
+order one number of quasiparticles, or through processes
+that rearrange a number of quasiparticles that diverges in
+this limit; this depends on whether the spectral weight
+of the operator V̂ is dominated by small or large matrix elements. (In the power law model of Sec. II C this
+crossover from small-scale to large-scale rearrangements
+occurs at γ = 3, while the finite-size behavior changes its
+character at γ = 2.) The mean free time scales the same
+
+15
+way with  in both cases, but one might expect that the
+behavior of quantities such as out-of-time-order correlators (OTOCs) differs between these cases. Meanwhile,
+one experimentally relevant class of perturbed integrable
+systems where the temporal crossovers to chaos are not
+well understood, and might be elucidated by the considerations in this paper, are examples where integrability
+is broken by an external trapping potential7,26,34,77–79 .
+We leave further exploration of these questions for future work.
+Our work raises at least two important questions for
+further theoretical analysis. The first is whether the
+statistics of the matrix elements of any perturbed interacting integrable systems can be characterized with
+sufficient accuracy to argue definitively for a Fock-space
+delocalization transition. The Gaudin-Richardson models studied numerically in this work seem to provide a
+natural starting point for tackling this question, since
+their eigenstates are particularly simple to write down
+explicitly and their couplings can be sampled randomly
+for any system size. The second question is whether the
+apparent simplicity of quantum integrability breaking in
+certain cases reflects a corresponding and hitherto unexplored simplicity in classical integrability breaking. For
+example, the sophisticated analysis of Wayne for interacting classical chains2 seems to suggest a critical perturbation strength for breaking integrability that is polynomially small in the system size, as in Eq. (2). This is
+intriguingly similar to the expected scaling of the Fockspace delocalization transition in some many-body quantum systems.
+
+Appendix A: Quantifying the Fock-space
+delocalization transition
+1.
+
+A greedy estimate for small denominators
+
+We now present a simple argument for how the power
+law dependence on N in Eq. (6) can be understood as a
+consequence of small denominators in perturbation theory. This is closely related to the treatment of AGKL6 ,
+although it is too simple to capture the logarithmic correction; the connection with AGKL’s results is discussed
+in the next section.
+For concreteness, let Ĥ = Ĥ0 + V̂ . Consider Ĥ0 such
+that its eigenstates are product states over N two-state
+spins, or fermionic Slater determinants for a fixed set of
+N single-particle states. In these cases the Fock space is
+simply represented as the corners of an hypercube. Assume the hops in Fock space produced by V̂ are of Hamming distance nh . Consider two eigenstates |ai and |bi
+of Ĥ0 that are adjacent in energy in the spectrum. Typically, these two states differ by Hamming distance ∼
+= N/2.
+This means that the states |ai and |bi are first coupled at
+an order l ∼
+= N/(2nh ) in perturbation theory. Our goal
+eff
+is to estimate the effective coupling Vab
+between states
+|ai and |bi to leading order in the perturbation strength
+. It is this coupling that first (upon increasing  from
+zero) produces hybridization and energy-level repulsion
+between |ai and |bi in the eigenstates and spectrum of
+Ĥ.
+First note that the leading coupling between |ai and
+|bi occurs at order l in V̂ . The coupling is due to all
+“paths” a → a1 → . . . al−1 → b when written in terms of
+the eigenstates of Ĥ0 :
+X
+|Vaa1 |2 |Va1 a2 |2 . . . |Val−1 b |2
+eff 2
+|Vab
+| = 2l
+2 E2 . . . E2
+Eaa
+aa2
+aal−1
+1
+a ,a ,...,a
+1
+
+2
+
+l−1
+
+(A1)
+VI.
+
+ACKNOWLEDGMENTS
+
+We thank A. Altland, D. Borgnia, X. Cao, A. Chandran, P. Crowley, V. Khemani, T. Micklitz, J. Moore, A.
+Morningstar, A. Polkovnikov, M. Rigol, D. Sels and R.
+Vasseur for stimulating discussions. S. G. is indebted to
+M. Rigol for pointing out an important typo in a draft
+of this paper. V. B. B. is supported by a fellowship at
+the Princeton Center for Theoretical Science. D. A. H.
+is supported in part by NSF QLCI grant OMA-2120757.
+S. G. is supported in part by NSF grant DMR-1653271.
+The authors are pleased to acknowledge that the work reported on in this paper was substantially performed using
+the Princeton Research Computing resources at Princeton University which is consortium of groups led by the
+Princeton Institute for Computational Science and Engineering (PICSciE) and Office of Information Technology’s Research Computing.
+
+is the square of the leading-order coupling, where Eaan =
+Ea − Ean . We have chosen to expand around |ai, but
+since Eb is typically much closer to Ea than any of the
+intermediate states, the expansion around |bi gives essentially the same result.
+For non-interacting systems with delocalized quasiparticles, this sum is dominated by rare paths with the smallest energy denominators, since these paths give terms
+that are factorially (in l) larger than those from typical
+paths. The size of this dominant contribution can be estimated from simple combinatorics, that is entirely analogous to arguments made in previous analyses of highorder perturbation theory6,24 .
+First, we obtain the number Npath (l) of shortest paths
+in Fock space connecting |ai to |bi via the hopping term
+V̂ that are present in the sum in Eq. (A1). For simplicity,
+we consider the case where |ai and |bi differ by precisely
+lnh spin flips.
+We may count the paths sequentially from |ai to |bi:
+Let N1 denote the number of possible choices for |a1 i, N2
+
+16
+the number of possible choices for |a2 i having fixed |a1 i,
+etc., until there is only one choice Nl = 1 for |al i = |bi,
+having fixed {a1 , a2 , . . . , al−1 }. Then the total number
+of paths is given by Npath (l) = N1 N2 . . . Nl−1 .
+Corresponding to this enumeration of shortest paths
+between |ai and |bi there exists a “greedy” algorithm for
+estimating the smallest path denominator ∆∗path in the
+sum Eq. (A1). By Poisson level statistics of Ĥ0 , once
+the state |ak−1 i is fixed, the “next” denominator Eaak
+is approximately uniformly distributed over the typical
+bandwidth for nh -particle hopping w. Since there are
+Nk possible choices for |ak i, the average smallest denominator available to use at step k is approximately
+∆∗k ≈
+
+w
+.
+Nk
+
+(A2)
+
+Selecting the smallest denominator at each successive
+step leads to a greedy estimate
+∆∗1 ∆∗2 . . . ∆∗l−1 ≈
+
+wl−1
+wl−1
+=
+N1 N2 . . . Nl−1
+Npath
+
+(A3)
+
+for the smallest path denominator contributing to the
+sum Eq. (A1). Since greedy estimates are sub-optimal,
+this should bound the true smallest path denominator
+∆∗path from above. Each factor of |Vak−1 ak /Eaak | in Eq.
+(A1) also has its numerator. If the distributions of the
+matrix elements of V̂ have a fat enough tail to very large
+values, then the largest term in the sum may also be set
+by that tail. But for most choices of V̂ , including any
+choice where V̂ has poly(N ) random coupling constants,
+these distributions will not have fat tails and the largest
+factor will be well approximated by the smallest denominator. This yields an approximate lower bound on the
+leading effective coupling
+eff
+h|Vab
+|i ≥
+
+tl
+∆∗path
+
+&
+
+(/w)l−1 Npath
+.
+N l(nh −1)/2
+
+(A4)
+
+of shortest paths scales as
+
+
+
+ 
+N/2
+N/2 − nh
+nh
+Npath ∼
+...
+nh
+nh
+nh
+N/2
+
+N
+, N → ∞,
+∼
+2e(nh !)1/nh
+
+(A6)
+
+by Stirling’s formula, which implies that
+c (N ) ∼
+
+w
+.
+N (nh +1)/2
+
+(A7)
+
+This recovers Eq. (4) up to order one factors and the
+logarithmic correction (it in fact also corresponds to the
+Anderson criterion for delocalization6 , i.e. hopping amplitude equals local level spacing). This argument also
+justifies why the hri statistic, which measures level repulsion, should exhibit the same leading N -dependence
+as the threshold for Fock-space delocalization.
+
+2.
+
+AGKL-type estimates for the onset of
+many-body resonances
+
+We now illustrate how the above argument relates to
+the earlier analysis of AGKL6 . In the language of our
+Fig. 1, the AGKL argument captures the transition from
+regime (b) to regime (c), at which typical many-body
+eigenstates become resonant with states that are adjacent
+in energy in the spectrum and Fock-space delocalization
+occurs. In fact, the AGKL analysis can be extended to
+model the crossover from regime (a) to regime (b), i.e.
+the onset of the first many-body resonances in the system, as we will discuss below.
+Our starting point is the leading-order perturbative exeff
+pression Eq. (A1) for the effective coupling Vab
+between
+two typical states that are adjacent in energy, which can
+be estimated in terms of the effective Fock-space hopping
+strength t and many-body bandwidth w as
+2
+ l l−1
+Y w
+t
+w
+
+w j=1 Eaaj
+
+
+Notice that this is the “opposite” of the classical KAM
+argument, which uses Diophantine conditions to bound
+small denominators in the perturbation series from below, thereby bounding the perturbation series from above
+and guaranteeing its convergence and the persistence of
+integrability1 . Here our strategy is instead to bound
+small denominators from above, which bounds the perturbation series from below and yields an estimate for
+the onset of level repulsion and quantum chaos.
+eff
+Our rough estimate of the onset of chaos is when Vab
+−N
+becomes of order the many-body level spacing ∼ w2 .
+Assuming that nh is of order one, and dropping order
+one factors, this yields
+c ∼ wN (nh −1)/2 Npath (l)−1/l .
+
+(A5)
+
+To relate this to Eq. (6), note that the typical number
+
+eff 2
+|Vab
+| ≈
+
+X
+~
+a
+
+(A8)
+
+where the sum is over all lowest-order Fock space paths
+from |ai to |bi. Let us introduce the notation
+|V~a | = w
+
+ l l−1
+Y w
+t
+w j=1 Eaaj
+
+(A9)
+
+for each summand. Following AGKL, we model the |V~a |
+as i.i.d. random variables, and the energy denominators
+Eaaj as being i.i.d. uniformly distributed within the interval [−w, w]. This is of course an idealization that neglects the correlations between states, but is a reasonable
+assumption for typical states of an integrable system at
+large N  1.
+
+17
+As noted by AGKL, it follows from these assumpl
+tions that |V~a | = w wt eYl−1 , with Yl−1 a gamma distributed random variable with probability density function fYl−1 (y) = y l−2 e−y /Γ(l − 1). Thus the cumulative
+distribution function of |V~a | is given by
+Z ∞
+y l−2 e−y
+P(|V~a | ≥ U ) =
+dy,
+(A10)
+log [(U/w)(w/t)l ] Γ(l − 1)
+which implies the probability density function
+ l
+   l−2
+t
+U w l
+w
+log
+. (A11)
+f|V~a | (U ) =
+Γ(l − 1)U 2 w
+w t
+Deep in the localized regime, t  w, the probability for
+no resonances of order U among any of the Npath terms
+eff
+contributing to Vab
+can be written as
+
+are adjacent in the energy spectrum, for which α = 1/2
+sets the expected Hamming distance as N → ∞. Let us
+now relax this assumption and consider arbitrary values
+0 < α < 1. We will find that the threshold for the first
+resonance at typical Hamming distance αN can depend
+strongly on α.
+First consider the effective matrix element |Vab |2 for
+states |ai and |bi at a Hamming distance αN . The lowest
+order process coupling these states is now at order l =
+αN/nh . Thus the number of shortest Fock space paths
+connecting |ai to |bi now depends on α, and is given by
+
+
+
+ 
+αN
+αN − nh
+nh
+Npath ∼
+...
+nh
+nh
+nh
+
+αN
+αN
+∼
+, N → ∞.
+(A19)
+e(nh !)1/nh
+
+ Next
+ note that for a given state |ai, there are dα =
+N
+other states at a Hamming distance αN from |ai.
+where xN (U ) ≈ Npath P(|V~a | ≥ U ). To proceed further,
+αN
+it is useful to note the approximation
+By Poisson statistics, the state among these closest to |ai
+
+   l in energy will typically have an energy gap |Eab | ∼ w/dα
+w
+1
+t
+U w l
+relative to |ai. By Eq. (A12), the probability that any
+i
+h
+P(|V~a | ≥ U ) ≈
+log
+
+l
+(l − 2)! U log2 U w
+w
+w t
+given eigenstate |ai is resonant with its nearest energy
+w t
+neighbour |bi at Hamming distance ∼ αN is set by the
+(A13)
+condition
+valid for U = O(1). Now by Eq. (A12) the threshold
+for a typical state to become resonant with its nearest
+Npath P(|V~a | ≥ w/dα ) ≈ 1.
+(A20)
+neighbour in energy is given by
+Introducing the constant cα such that dα = clα , we find
+Npath P(|V~a | ≥ w2−N ) ≈ 1.
+(A14)
+that
+
+l
+To simplify this expression, first note that by Eq. (A13)
+1
+1
+w
+ecα t
+h
+i
+√
+P(|V
+|
+≥
+w/d
+)
+≈
+log
+.
+α
+~
+a
+and Stirling’s formula,
+w
+cα t
+2πl log2 w
+cα t
+ 2nh
+l
+e2 t
+w
+1
+1
+(A21)
+−N
+
+
+log 2n
+P(|V~a | ≥ w2 ) ≈ √
+.
+It follows that in this case, the dominant contribution to
+w
+2 ht
+2πl log2 22nwh t
+xN at large N is given by
+(A15)
+
+ nh
+l
+From Eq. (A6), it follows that for large N (equivalently
+α cα zt
+w
+large l) the left hand side of Eq. (A14) is dominated by
+log
+xN (w/dα ) ∼ n −1
+.
+(A22)
+e h nh ! w
+cα t
+the contribution exponential in N :
+
+Thus typical states experience resonances at Hamming
+ w l
+zt
+2 nh
+−N
+xN (w2 ) ∼ n −1
+log
+,
+(A16)
+distance ∼ αN when
+e h nh ! w
+t22nh
+w
+∼ Cα z log z + O(z),
+(A23)
+which implies that the threshold Eq. (A14) sets in when
+t
+(1 − P(|V~a | ≥ U ))Npath = e−xN (U )
+
+w
+w
+≈ Cz log ,
+t
+t
+
+(A12)
+
+(A17)
+
+where the numerical prefactor C = 2nh /(enh −1 nh !). This
+self-consistently yields the AGKL-like criterion
+w
+∼ Cz log z + O(z).
+t
+
+(A18)
+
+One could instead ask for the threshold at which the
+first many-body resonances occur between pairs of states.
+This will in general depend on the typical Hamming distance αN between the pairs of states under consideration. So far we have been considering typical states that
+
+where the O(1) constant
+Cα =
+
+c α α nh
+1
+∼
+,
+−1 −1) n −1
+n
+−1
+n
+(α
+h
+h
+e
+nh !
+(1 − α)
+e h nh !
+
+N → ∞.
+
+(A24)
+From here, one can estimate a threshold for the first
+resonances at Hamming distance αN . Neglecting correlations between states, as in AGKL, it follows from Eq.
+(A12) that the probability for at least one resonance at
+Hamming distance αN among all eigenstates |ai is set by
+the condition
+2N xN (w/dα ) ≈ 1.
+
+(A25)
+
+18
+By Eq. (A22), this happens at the threshold
+
+which amounts to an upwards renormalization of the “effective coordination number” by a factor 2nh /α . For pairs
+of states that are neighbouring in energy, for which typically α ≈ 1/2, this upwards renormalization is by a factor
+z 7→ 22nh z.
+
+We deduce that at any given Hamming distance scale
+∼ αN , the first resonances at this Hamming distance
+(corresponding to one definition for the threshold between regimes (a) and (b) in Fig. 1) happen at a weaker
+perturbation strength than the corresponding transition
+between regimes (b) and (c), as one might expect. However, the much stronger α-dependence (e.g. as α → 0) of
+the threshold for “first resonances” than for “typical resonances” indicates that the distinction between (a) and
+(b) is fuzzier than that between (b) and (c), and therefore
+more properly viewed as a crossover than as a transition.
+
+[1] J. Pöschel, A lecture on the classical KAM theorem
+(2009), arXiv:0908.2234 [math.DS].
+[2] C. E. Wayne, The KAM theory of systems with short
+range interactions, I, Communications in Mathematical
+Physics 96, 311 (1984).
+[3] H. W. Broer and M. B. Sevryuk, KAM Theory: quasiperiodicity in dynamical systems, Handbook of Dynamical Systems 3, 249 (2010).
+[4] J.-S. Caux and J. Mossel, Remarks on the notion of quantum integrability, Journal of Statistical Mechanics: Theory and Experiment 2011, P02023 (2011).
+[5] M. V. Berry, The Bakerian Lecture, 1987. Quantum
+chaology, Proceedings of the Royal Society of London.
+A. Mathematical and Physical Sciences 413, 183 (1987).
+[6] B. L. Altshuler, Y. Gefen, A. Kamenev, and L. S. Levitov,
+Quasiparticle lifetime in a finite system: A nonperturbative approach, Phys. Rev. Lett. 78, 2803 (1997).
+[7] T. Kinoshita, T. Wenger, and D. S. Weiss, A quantum
+Newton’s cradle, Nature 440, 900 EP (2006).
+[8] Y. Tang, W. Kao, K.-Y. Li, S. Seo, K. Mallayya,
+M. Rigol, S. Gopalakrishnan, and B. L. Lev, Thermalization near Integrability in a Dipolar Quantum Newton’s
+Cradle, Phys. Rev. X 8, 021030 (2018).
+[9] M. Schemmer, I. Bouchoule, B. Doyon, and J. Dubail,
+Generalized hydrodynamics on an atom chip, Phys. Rev.
+Lett. 122, 090601 (2019).
+[10] A. Scheie, N. E. Sherman, M. Dupont, S. E. Nagler, M. B.
+Stone, G. E. Granroth, J. E. Moore, and D. A. Tennant, Detection of kardar–parisi–zhang hydrodynamics
+in a quantum heisenberg spin-1/2 chain, Nature Physics
+17, 726 (2021).
+[11] N. Malvania, Y. Zhang, Y. Le, J. Dubail, M. Rigol,
+and D. S. Weiss, Generalized hydrodynamics in strongly
+interacting 1d bose gases, Science 373, 1129 (2021),
+https://www.science.org/doi/pdf/10.1126/science.abf0147.
+[12] D. Wei, A. Rubio-Abadal, B. Ye, F. Machado, J. Kemp,
+K. Srakaew, S. Hollerith, J. Rui, S. Gopalakrishnan,
+N. Y. Yao, I. Bloch, and J. Zeiher, Quantum gas microscopy of kardar-parisi-zhang superdiffusion (2021).
+[13] D. A. Rabson, B. N. Narozhny, and A. J. Millis, Crossover
+from poisson to wigner-dyson level statistics in spin
+chains with integrability breaking, Phys. Rev. B 69,
+054403 (2004).
+[14] L. Santos, Integrability of a disordered heisenberg spin1/2 chain, Journal of Physics A: Mathematical and General 37, 4723 (2004).
+[15] M. Žnidarič, Weak integrability breaking: Chaos with
+
+integrability signature in coherent diffusion, Phys. Rev.
+Lett. 125, 180605 (2020).
+[16] E. J. Torres-Herrera and L. F. Santos, Local quenches
+with global effects in interacting quantum systems, Phys.
+Rev. E 89, 062110 (2014).
+[17] M. Brenes, E. Mascarenhas, M. Rigol, and J. Goold,
+High-temperature coherent transport in the XXZ chain
+in the presence of an impurity, Phys. Rev. B 98, 235128
+(2018).
+[18] A. Bastianello, Lack of thermalization for integrabilitybreaking impurities, EPL (Europhysics Letters) 125,
+20001 (2019).
+[19] M. Brenes, T. LeBlond, J. Goold, and M. Rigol, Eigenstate thermalization in a locally perturbed integrable system, Phys. Rev. Lett. 125, 070605 (2020).
+[20] A. L. Burin, Many-body delocalization in a strongly disordered system with long-range interactions: Finite-size
+scaling, Phys. Rev. B 91, 094202 (2015).
+[21] P. Ponte, C. Laumann, D. A. Huse, and A. Chandran,
+Thermal inclusions: how one spin can destroy a manybody localized phase, Philosophical Transactions of the
+Royal Society A: Mathematical, Physical and Engineering Sciences 375, 20160428 (2017).
+[22] K. S. Tikhonov and A. D. Mirlin, Many-body localization transition with power-law interactions: Statistics of
+eigenstates, Phys. Rev. B 97, 214205 (2018).
+[23] S. Gopalakrishnan and D. A. Huse, Instability of manybody localized systems as a phase transition in a nonstandard thermodynamic limit, Phys. Rev. B 99, 134305
+(2019).
+[24] D. Basko, I. Aleiner, and B. Altshuler, Metal–insulator
+transition in a weakly interacting many-electron system
+with localized single-particle states, Annals of Physics
+321, 1126 (2006).
+[25] B. Bertini, F. H. L. Essler, S. Groha, and N. J. Robinson,
+Prethermalization and thermalization in models with
+weak integrability breaking, Phys. Rev. Lett. 115, 180601
+(2015).
+[26] X. Cao, V. B. Bulchandani, and J. E. Moore, Incomplete
+thermalization from trap-induced integrability breaking:
+Lessons from classical hard rods, Phys. Rev. Lett. 120,
+164101 (2018).
+[27] K. Mallayya and M. Rigol, Quantum quenches and relaxation dynamics in the thermodynamic limit, Phys. Rev.
+Lett. 120, 070603 (2018).
+[28] A. J. Friedman, S. Gopalakrishnan, and R. Vasseur, Diffusive hydrodynamics from integrability breaking, Phys.
+
+w
+∼ 2nh /α Cα z log z + O(z),
+t
+
+(A26)
+
+19
+Rev. B 101, 180302 (2020).
+[29] A. Bastianello, J. De Nardis, and A. De Luca, Generalized hydrodynamics with dephasing noise, Phys. Rev. B
+102, 161110 (2020).
+[30] F. Møller, C. Li, I. Mazets, H.-P. Stimming, T. Zhou,
+Z. Zhu, X. Chen, and J. Schmiedmayer, Extension of the
+generalized hydrodynamics to the dimensional crossover
+regime, Phys. Rev. Lett. 126, 090602 (2021).
+[31] J. Durnin, M. J. Bhaseen, and B. Doyon, Nonequilibrium dynamics and weakly broken integrability, Phys.
+Rev. Lett. 127, 130601 (2021).
+[32] A. Hutsalyuk and B. Pozsgay, Integrability breaking in
+the one-dimensional bose gas: Atomic losses and energy
+loss, Phys. Rev. E 103, 042121 (2021).
+[33] I. Bouchoule, B. Doyon, and J. Dubail, The effect of
+atom losses on the distribution of rapidities in the onedimensional Bose gas, SciPost Physics 9, 044 (2020).
+[34] A. Bastianello, A. D. Luca, and R. Vasseur, Hydrodynamics of weak integrability breaking, Journal of Statistical Mechanics: Theory and Experiment 2021, 114003
+(2021).
+[35] L. F. Santos, F. Pérez-Bernal, and E. J. Torres-Herrera,
+Speck of chaos, Phys. Rev. Research 2, 043034 (2020).
+[36] M. Pandey, P. W. Claeys, D. K. Campbell,
+A. Polkovnikov, and D. Sels, Adiabatic eigenstate
+deformations as a sensitive probe for quantum chaos,
+Phys. Rev. X 10, 041017 (2020).
+[37] R. Modak, S. Mukerjee, and S. Ramaswamy, Universal
+power law in crossover from integrability to quantum
+chaos, Phys. Rev. B 90, 075152 (2014).
+[38] D. Szász-Schagrin, B. Pozsgay, and G. Takács, Weak integrability breaking and level spacing distribution, SciPost
+Phys. 11, 37 (2021).
+[39] T. Fogarty, M. A. Garcia-March, L. F. Santos, and N. L.
+Harshman, Probing the edge between integrability and
+quantum chaos in interacting few-atom systems, Quantum 5, 486 (2021).
+[40] J. Z. Imbrie, On many-body localization for quantum
+spin chains, Journal of Statistical Physics 163, 998
+(2016).
+[41] F. Göhmann, M. Karbach, A. Klümper, K. K. Kozlowski,
+and J. Suzuki, Thermal form-factor approach to dynamical correlation functions of integrable lattice models,
+Journal of Statistical Mechanics: Theory and Experiment 2017, 113106 (2017).
+[42] J. De Nardis and M. Panfil, Particle-hole pairs and
+density–density correlations in the Lieb–Liniger model,
+Journal of Statistical Mechanics: Theory and Experiment 2018, 033102 (2018).
+[43] E. Granet, H. Dreyer, and F. H. Essler, Out-ofequilibrium dynamics of the XY spin chain from form
+factor expansion, SciPost Phys. 12, 19 (2022).
+[44] T. LeBlond, K. Mallayya, L. Vidmar, and M. Rigol, Entanglement and matrix elements of observables in interacting integrable systems, Phys. Rev. E 100, 062134
+(2019).
+[45] M. Srdinšek, T. Prosen, and S. Sotiriadis, Signatures of
+chaos in nonintegrable models of quantum field theories,
+Phys. Rev. Lett. 126, 121602 (2021).
+[46] M. Bukov, M. Heyl, D. A. Huse, and A. Polkovnikov,
+Heating and many-body resonances in a periodically
+driven two-band system, Phys. Rev. B 93, 155132 (2016).
+[47] P. Ponte, Z. Papić, F. Huveneers, and D. A. Abanin,
+Many-body localization in periodically driven systems,
+
+Phys. Rev. Lett. 114, 140401 (2015).
+[48] D. A. Abanin, W. De Roeck, W. W. Ho, and F. Huveneers, Effective hamiltonians, prethermalization, and
+slow energy absorption in periodically driven many-body
+systems, Phys. Rev. B 95, 014112 (2017).
+[49] S. Gopalakrishnan, M. Müller, V. Khemani, M. Knap,
+E. Demler, and D. A. Huse, Low-frequency conductivity
+in many-body localized systems, Phys. Rev. B 92, 104202
+(2015).
+[50] P. J. Crowley and A. Chandran, A constructive theory of
+the numerically accessible many-body localized to thermal crossover, arXiv preprint arXiv:2012.14393 (2020).
+[51] S. J. Garratt, S. Roy, and J. T. Chalker, Local resonances
+and parametric level dynamics in the many-body localized phase, Phys. Rev. B 104, 184203 (2021).
+[52] B. Villalonga and B. K. Clark, Eigenstates hybridize on
+all length scales at the many-body localization transition,
+arXiv preprint arXiv:2005.13558 (2020).
+[53] A. Morningstar, L. Colmenarez, V. Khemani, D. J. Luitz,
+and D. A. Huse, Avalanches and many-body resonances
+in many-body localized systems, Phys. Rev. B (in press).
+[54] R. Ghosh and M. Žnidarič, Theory of growth of number
+entropy in disordered systems, arXiv:2112.12987.
+[55] G. P. Brandino, J.-S. Caux, and R. M. Konik, Glimmers
+of a Quantum KAM Theorem: Insights from Quantum
+Quenches in One-Dimensional Bose Gases, Phys. Rev. X
+5, 041043 (2015).
+[56] T. LeBlond, D. Sels, A. Polkovnikov, and M. Rigol, Universality in the onset of quantum chaos in many-body
+systems, Phys. Rev. B 104, L201117 (2021).
+[57] K. Agarwal, E. Altman, E. Demler, S. Gopalakrishnan,
+D. A. Huse, and M. Knap, Rare-region effects and dynamics near the many-body localization transition, Annalen der Physik 529, 1600326 (2017).
+[58] M. K. Joshi, F. Kranzl, A. Schuckert, I. Lovas, C. Maier,
+R. Blatt, M. Knap, and C. F. Roos, Observing emergent
+hydrodynamics in a long-range quantum magnet, arXiv
+preprint arXiv:2107.00033 (2021).
+[59] J. De Nardis, S. Gopalakrishnan, R. Vasseur, and
+B. Ware, Stability of superdiffusion in nearly integrable
+spin chains, Phys. Rev. Lett. 127, 057201 (2021).
+[60] In the case where dynamics is diffusive, the longestwavelength modes of the diffusion operator are planewave-like even when the system is microscopically disordered80 .
+[61] R. Abou-Chacra, D. J. Thouless, and P. W. Anderson,
+J. Phys. C: Solid State Phys. 6, 1734 (1973).
+[62] V. Oganesyan and D. A. Huse, Localization of interacting
+fermions at high temperature, Phys. Rev. B 75, 155111
+(2007).
+[63] J. Dukelsky, S. Pittel, and G. Sierra, Colloquium: Exactly solvable Richardson-Gaudin models for many-body
+quantum systems, Rev. Mod. Phys. 76, 643 (2004).
+[64] M. Takahashi, Thermodynamics of one-dimensional solvable models, Thermodynamics of One-Dimensional Solvable Models (2005).
+[65] E. Ilievski, J. De Nardis, B. Wouters, J.-S. Caux, F. H. L.
+Essler, and T. Prosen, Complete Generalized Gibbs Ensembles in an Interacting Theory, Phys. Rev. Lett. 115,
+157201 (2015).
+[66] Gaudin, M., Diagonalisation d’une classe d’hamiltoniens
+de spin, J. Phys. France 37, 1087 (1976).
+[67] R. Richardson and N. Sherman, Exact eigenstates of
+the pairing-force Hamiltonian, Nuclear Physics 52, 221
+
+20
+(1964).
+[68] F. Pan, J. Draayer, and W. Ormand, A particle-numberconserving solution to the generalized pairing problem,
+Physics Letters B 422, 1 (1998).
+[69] T. Skrypnyk, New integrable Gaudin-type systems, classical r-matrices and quasigraded Lie algebras, Physics
+Letters A 334, 390 (2005).
+[70] A. B. Balantekin, T. Dereli, and Y. Pehlivan, Solutions
+of the Gaudin equation and Gaudin algebras, Journal of
+Physics A: Mathematical and General 38, 5697 (2005).
+[71] I. Lukyanenko, P. S. Isaac, and J. Links, An integrable
+case of the p + ip pairing Hamiltonian interacting with
+its environment, Journal of Physics A: Mathematical and
+Theoretical 49, 084001 (2016).
+[72] E. Iyoda, H. Katsura, and T. Sagawa, Effective dimension, level statistics, and integrability of Sachdev-YeKitaev-like models, Phys. Rev. D 98, 086020 (2018).
+[73] P. W. Claeys, C. Dimo, S. D. Baerdemacker, and
+A. Faribault, Integrable spin-1/2 Richardson-Gaudin
+XYZ models in an arbitrary magnetic field, Journal of
+Physics A: Mathematical and Theoretical 52, 08LT01
+(2019).
+[74] G. Bentsen, I.-D. Potirniche, V. B. Bulchandani, T. Scaffidi, X. Cao, X.-L. Qi, M. Schleier-Smith, and E. Altman,
+Integrable and chaotic dynamics of spins coupled to an
+
+optical cavity, Phys. Rev. X 9, 041011 (2019).
+[75] For L = 9 there are some residual degeneracies in the integrable limit of the noninteracting model. These are too
+rare to affect hri but do occur with high probability in
+typical samples. To lift these degeneracies, in our analysis
+of the minimum gap we have
+an integrabilityPintroduced
+z
+preserving interaction 0.05 i σ̂iz σ̂i+1
+. We have checked
+that the conclusions of the rest of this section are insensitive to the presence of this perturbation.
+[76] B. Muzykantskii, N. d’Ambrumenil, and B. Braunecker,
+Fermi-edge singularity in a nonequilibrium system, Phys.
+Rev. Lett. 91, 266602 (2003).
+[77] V. B. Bulchandani, M. Kulkarni, J. E. Moore, and
+X. Cao, Quasiparticle kinetic theory for Calogero models, Journal of Physics A: Mathematical and Theoretical
+54, 474001 (2021).
+[78] P. Di Cintio, S. Iubini, S. Lepri, and R. Livi, Transport in
+perturbed classical integrable systems: The pinned Toda
+chain, Chaos, Solitons and Fractals 117, 249–254 (2018).
+[79] A. Dhar, A. Kundu, J. L. Lebowitz, and J. A. Scaramazza, Transport Properties of the Classical Toda Chain:
+Effect of a Pinning Potential, Journal of Statistical
+Physics 175, 1298–1310 (2019).
+[80] V. Gurarie and J. T. Chalker, Bosonic excitations in random media, Phys. Rev. B 68, 134207 (2003).
+
+

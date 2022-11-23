@@ -1,0 +1,846 @@
+week ending
+11 JULY 2014
+
+PHYSICAL REVIEW LETTERS
+
+PRL 113, 020602 (2014)
+
+Breakdown of the Generalized Gibbs Ensemble for Current-Generating Quenches
+Marcin Mierzejewski,1 Peter Prelovšek,2,3 and Tomaž Prosen2
+
+1
+
+Institute of Physics, University of Silesia, 40-007 Katowice, Poland
+Faculty of Mathematics and Physics, University of Ljubljana, SI-1000 Ljubljana, Slovenia
+3
+J. Stefan Institute, SI-1000 Ljubljana, Slovenia
+(Received 11 May 2014; revised manuscript received 18 June 2014; published 11 July 2014)
+2
+
+We establish a relation between two hallmarks of integrable systems: the relaxation towards the
+generalized Gibbs ensemble (GGE) and the dissipationless charge transport. We show that the former one is
+possible only if the so-called Mazur bound on the charge stiffness is saturated by local conserved quantities.
+As an example we show how a non-GGE steady state with a current can be generated in the onedimensional model of interacting spinless fermions with a flux quench. Moreover, an extended GGE
+involving the quasilocal conserved quantities can be formulated for this case.
+DOI: 10.1103/PhysRevLett.113.020602
+
+PACS numbers: 05.70.Ln, 05.60.Gg, 72.10.-d, 75.10.Pq
+
+It is commonly accepted that in generic macroscopic
+systems the long-time averages of local observables
+coincide with the results for the statistical Gibbs ensemble
+[1–4] and are uniquely determined by few parameters
+related to conserved quantities, in particular the system’s
+energy and particle number. Due to the presence of
+macroscopic number of conserved quantities such a simple
+scenario is not applicable to integrable systems [5–7].
+However, there is a large and still growing evidence
+that relaxation in the latter systems is consistent with
+the generalized Gibbs ensemble (GGE) [8–12], where
+the density matrix is determined not only by the
+Hamiltonian H and particle number N but also by other
+local conserved
+quantities Qi , i.e., ρGGE ∼ exp ½−βðH−
+P
+μNÞ − i λi Qi .
+In this Letter we focus on the relaxation dynamics of one
+of the most studied integrable models: the model of
+interacting spinless fermions, being equivalent to the
+anisotropic Heisenberg (XXZ) model for which the set
+of Qi has been established [13,14]. We show that ρGGE as
+generated only by local integrals of motion Qi doesn’t
+exhaust all generic stationary states in the metallic (easy
+plane) regime. Instead, there are cases for which one should
+lift the requirement of locality of the conserved quantities
+and allow also for quasilocal integrals of motion [15,16]. In
+this Letter we call them non-GGE states, however we stress
+that these states can be viewed also as “extended GGE,”
+where the extension concerns the locality of operators.
+Such operators have the parity opposite to local ones Qi .
+We identify one of such quasilocal quantities as the timeaveraged particle current operator and we construct as well
+as verify it explicitly.
+It has been well recognized that integrable systems in
+spite of interaction reveal anomalous transport properties at
+finite inverse temperatures β ¼ 1=T, e.g., the dissipationless particle current. This property is manifested by a
+nonvanishing charge stiffness Dðβ < ∞Þ [17–20], which in
+0031-9007=14=113(2)=020602(5)
+
+turn is bounded from below by the local conservation laws
+via the Mazur bound [19,21]. The dissipationless transport
+and the relaxation towards GGE are probably the most
+prominent hallmarks of integrability, still they have been
+studied independently of each other so far. While it has
+been clear that in certain regimes the standard Mazur bound
+with only local Qi does not exhaust the phenomenon of
+dissipationless transport and Dðβ < ∞Þ > 0 [19] we show
+in this Letter that GGE should be extended by taking into
+account quasilocal conserved quantities of different parity,
+in particular the time-averaged current, which saturate
+Dðβ → ∞Þ within the Mazur bound.
+We study a prototype one-dimensional (1D) model of
+interacting particles, the tight-binding model of spinless
+fermions on L sites at half filling (with N ¼ L=2 particles)
+and with periodic boundary conditions [22–25],
+HðtÞ ¼ −th
+
+L
+L
+X
+X
+ðeiϕðtÞ c†jþ1 cj þ H:c:Þ þ V
+n~ j n~ jþ1 ; ð1Þ
+j¼1
+
+j¼1
+
+where nj ¼ c†j cj , n~ j ¼ nj − 1=2, th is the hopping integral
+and V is the repulsive interaction on nearest neighbors. The
+model (1) is equivalent to the anisotropic Heisenberg
+(XXZ) model with the exchange interaction 2th and the
+anisotropy parameter Δ ¼ V=2th. However, we stay within
+the fermionic representation, where the phase ϕðtÞ has a
+clear physical meaning: it represents the time-dependent
+magnetic flux which induces the electric field
+FðtÞ ¼ −∂ t ϕðtÞ. Further on we use ℏ ¼ kB ¼ 1 and units
+in which th ¼ 1. We consider here the metallic (easy–
+plane) regime V < 2 (Δ < 1) where the system exhibits a
+ballistic particle (spin) transport at T > 0 [18–20,26–33].
+The Mazur lower bound on DðT > 0Þ vanishes at half
+filling [19,34] and it remains a challenging problem to
+explain why DðT > 0Þ stays nonzero. Here, we explore the
+relations between the conservation laws, the origin of finite
+DðT > 0Þ and the relaxation towards a non-GGE state and
+
+020602-1
+
+© 2014 American Physical Society
+
+show that a finite DðT > 0Þ emerges within an extended
+GGE state. InPour studies we use the standard particle
+current J ¼ j ðieiϕðtÞ c†jþ1 cj þ H:c:Þ as well a less
+common currentPwith a correlated hopping to next-nearest
+neighbors J0 ¼ j ðie2iϕðtÞ c†jþ2 n~ jþ1 cj þ H:c:Þ. The central
+point in our reasoning is the particle-hole (parity) transformation,
+ci → ð−1Þi c†i ;
+
+ð2Þ
+
+which (for ϕ ¼ 0) does not alter the Hamiltonian H → H
+(at half filling) nor the local conserved quantities Qi → Qi
+[19] but reverses the currents J → −J and J0 → −J0 , hence
+JðJ 0 Þ and Qi have different parities.
+We start with numerical studies of a quantum quench
+which generates a non-GGE steady state. We consider a
+system which for t < 0 is either in the ground state or in the
+equilibrium canonical or microcanonical state [35]. In the
+latter case we generate a state ρð0Þ ¼ jΨð0ÞihΨð0Þj for
+the target energy E0 ¼ hΨð0ÞjHð0ÞjΨð0Þi and with a small
+energy uncertainty δ2 E0 ¼ hΨð0Þj½Hð0Þ − E0 2 jΨð0Þi as
+discussed in Refs. [36,37]. The time evolution shown in
+Fig. 1 has been obtained by the Lanczos propagation
+method [36–38].
+At t ¼ 0 the magnetic flux is suddenly decreased from
+the initial value ϕð0Þ ¼ ϕ0 > 0 to ϕðt > 0Þ ¼ 0. Such a
+quench is equivalent to a pulse of the electric field FðtÞ ¼
+ϕ0 δðtÞ hence it generates the particle current ≠ 0. As shown
+in Fig. 1 this quench induces also hJ0 ðtÞi ≠ 0; however, the
+latter quantity increases gradually in contrast to the
+instantaneous generation of hJðt > 0Þi. Both currents reach
+for t → ∞ finite steady values, clearly visible in Fig. 1,
+being the signature of dissipationless transport. Still the
+residual values hJi ≠ 0 and hJ 0 i ≠ 0 cannot be explained
+within the GGE scenario since TrfρGGE Jg ¼
+TrfρGGE J0 g ¼ 0 due to different symmetries under particle–hole transformation at half filling [19].
+The first objective of this Letter is to establish the
+symmetry decomposed time-averaged density matrix
+0.16
+
+0.7
+
+<J>
+4 <J’ >
+
+0.14
+
+<J>
+4 <J’ >
+
+0.6
+
+0.12
+
+0.5
+
+0.1
+
+0.4
+
+0.08
+0.3
+
+0.06
+
+0.2
+
+0.04
+
+(a)
+
+0.02
+0
+
+week ending
+11 JULY 2014
+
+PHYSICAL REVIEW LETTERS
+
+PRL 113, 020602 (2014)
+
+Z τ
+0
+
+dtρðtÞ ¼ ρ̄e þ ρ̄o ;
+
+ð3Þ
+
+where ρ̄o and ρ̄e are odd and even under the transformation
+(2), respectively. Since Trfρ̄Jg ¼ Trfρ̄o Jg the odd component of the density matrix ρ̄o is essential for the nonvanishing current hJðt > 0Þi, while this component is
+missing in ρGGE . At this stage it is instructive to recall
+the linear-response (LR) results
+hJðtÞi ¼ L
+
+Z ∞
+−∞
+
+dωe−iωt FðωÞσðωÞ;
+
+ð4Þ
+
+where the optical conductivity σðωÞ consists of the regular
+and the ballistic parts with the latter one determined by the
+charge stiffness D: σ bal ðωÞ ¼ 2Di=ðω þ i0þ Þ. The quench
+of flux induces an electric field FðωÞ ¼ ϕ0 =ð2πÞ and the
+regular (dissipative) part of conductivity becomes irrelevant
+in the long-time regime. Then we get within the LR, i.e., for
+ϕ0 ≪ 1,
+lim hJðtÞi ¼ 2LDϕ0 :
+
+t→∞
+
+ð5Þ
+
+An important message following from LR, Eq. (5), is that
+the non-GGE component of the density matrix has to
+contain contributions that are linear in ϕ0 and, therefore,
+can be singled out already within the first-order perturbation expansion in ϕ0 . The unperturbed Hamiltonian H0 ¼
+Hðt < 0Þ is given by Eq. (1) with ϕðtÞ replaced by ϕ0,
+while the perturbation reads H 0 ðtÞ ¼ HðtÞ − H0 ¼
+ðϕ0 − ϕðtÞÞJ 0 , where J0 ¼ Jðt < 0Þ, so that H0 ðt > 0Þ ¼
+ϕ0 J0 . For the sake of clarity all quantities obtained with
+the flux ϕ0 will be marked with a label 0, in particular the
+eigenvalues Em0 and the eigenvectors jm0i of H0 . The
+degeneracy of energy levels plays an important role and
+should not be neglected. Hence, we diagonalize the current
+operator in each subspace spanned by degenerate eigenstates and take the eigenvectors of J as the basis vectors of
+this subspace, i.e., hmjJjni ∝ δmn if Em ¼ En (within a
+subspace only).
+We assume
+P that the system is initially in a thermal sate,
+i.e.,
+ρ
+¼
+0
+m pm0 jm0ihm0j with pm0 ¼ expð−βEm0 Þ=
+P
+n expð−βEn0 Þ. Then, in the Schrödinger picture one
+obtains
+ρðt > 0Þ ¼
+
+(b)
+
+0.1
+
+1
+ρ̄ ¼ lim
+τ→∞ τ
+
+X
+pm0 e−iH0 t UðtÞjm0ihm0jU† ðtÞeiH0 t ;
+m
+
+0
+
+10
+
+20
+
+30
+t
+
+40
+
+50
+
+0
+
+0
+
+10
+
+20
+
+30
+
+40
+
+50
+
+t
+
+0
+
+FIG. 1 (color online). Time dependence of hJi and 4hJ i after
+quenching the flux at t ¼ 0 for L ¼ 26 and V ¼ 1. (a) The
+system is initially in equilibrium microcanonical state with
+β ¼ 0.35 while after the quench it has effective β ¼ 0.15.
+(b) The system is in the ground state and the flux is quenched
+from ϕ0 ¼ π=2 to 0.
+
+ Z
+
+t
+dt0 H 0I ðt0 Þ ;
+Uðt > 0Þ ¼ T t exp −i
+0
+
+ð6Þ
+
+where H0I ðt0 Þ is the perturbation in the interaction picture.
+Our aim is to explicitly express ρ̄ within the LR to the
+quench ϕ0 . A straightforward calculation of Eqs. (3), (6) to
+first order in ϕ0 yields
+
+020602-2
+
+ρ̄ ≃ ρ0 þ ϕ0
+
+X pn0 − pm0
+hm0jJ0 jn0ijm0ihn0j: ð7Þ
+En0 − Em0
+E ≠E
+m0
+
+week ending
+11 JULY 2014
+
+PHYSICAL REVIEW LETTERS
+
+PRL 113, 020602 (2014)
+
+n0
+
+We should also take into account the change of current
+operator due to flux; hence,
+J ¼ Jðt > 0Þ ¼ J0 − ϕ0 H k0 ;
+
+We now turn to the question of whether ρ̄ is compatible
+with ρGGE and the answer is clearly negative. A necessary
+and a sufficient condition for such compatibility, to leading
+order in the quench ϕ0 , would be a decomposition in terms
+of local conserved Qi ,
+
+ð8Þ
+
+J̄ ¼
+
+X
+αi Qi ;
+
+(8), (5) one then restores the LR result for the equilibrium
+charge stiffness [18,39],
+
+
+X pm0 − pn0
+1
+k
+2
+D¼
+−hH0 i þ
+jhm0jJ0 jn0ij :
+2L
+Em0 − En0
+E ≠E
+m0
+
+ð15Þ
+
+i
+
+where Hk0 is the kinetic part of H0 , Eq. (1). Using Eqs. (7),
+
+holding for some set of αi . Assuming that TrfQi Qj g ∝ δij
+we can employ the inequality
+TrfðJ̄ −
+
+X
+ai Qi Þ2 g ≥ 0;
+
+n0
+
+ð16Þ
+
+i
+
+ð9Þ
+Equation (7) does not yet accomplish our aim of decomposing ρ̄ into odd and even parts with respect to (2) after the
+quench ϕðt > 0Þ ¼ 0. We achieve this by using again the
+first-order perturbation theory for H0 ¼ H − ϕ0 J and
+J0 ¼ J þ ϕ0 Hk , where now H; Hk, and J are the operators
+after the quench, i.e., at ϕ ¼ 0. Substituting
+En0 ¼ En − ϕ0 hnjJjni;
+X hmjJjni
+jn0i ¼ jni − ϕ0
+jmi
+En − Em
+m∶E ≠E
+m
+
+ð10Þ
+
+ai ¼
+
+TrfJ̄Qi g TrfJQi g
+¼
+;
+TrfQ2i g
+TrfQ2i g
+
+ð17Þ
+
+and substitute this result in (16) to obtain the Mazur
+inequality for β → 0,
+
+n
+
+into Eq. (7), and assuming that there is no particle current in
+the initial thermal state, we finally obtain
+X
+ρ̄ ¼
+pn jnihnjð1 þ βϕ0 J̄Þ;
+ð11Þ
+n
+
+where J̄ is the time-averaged steady-current operator,
+Z
+X
+1 τ
+dteiHt Je−iHt ¼
+hnjJjnijnihnj: ð12Þ
+J̄ ¼ lim
+τ→∞ τ 0
+n
+The LR results [Eq. (5)] are immediately restored; however,
+this time with the alternative form of the charge stiffness but
+equivalent for β < ∞ and in the thermodynamic limit [19]
+β X
+D¼
+p hnjJjni2 :
+ð13Þ
+2L n n
+By definition J̄ is an integral of motion ½H; J̄ ¼ 0. It is
+important to note that TrJ̄2 =N ∝ L, where N ¼ Tr1 is the
+dimension of the Hilbert space, already implies that J̄ is a
+quasilocal quantity. Since at β → 0,
+1
+~
+TrJ̄ 2 ¼ 2LD;
+N
+
+which holds for any ai and becomes an equality only for the
+GGE state with ai ¼ αi . Now we can follow original steps
+by Mazur [21]. We minimize the lhs of Eq. (16) with
+respect to ai ,
+
+~ ¼ limDðβÞ=β;
+where D
+β→0
+
+ð14Þ
+
+the quasilocal character of J̄ is consistent with the wellestablished fact that the charge stiffness is an intensive
+quantity.
+
+TrfJ̄2 g ≥
+
+X TrfJQi g2
+i
+
+TrfQ2i g
+
+;
+
+ð18Þ
+
+which is the Mazur bound on charge stiffness at T → ∞
+[see Eq. (14)]. Since this inequality turns into equality for
+GGE states, so should the Mazur bound. In other words
+relaxation towards GGE is possible provided the Mazur
+bound saturates the charge stiffness.This relation holds for
+an arbitrary filling N=L. In particular for N=L ¼ 1=2 one
+finds TrðQi JÞ ¼ 0 due to the symmetry (2); hence, the rhs
+of (18) vanishes, and our quenched dynamics does not relax
+to GGE.
+As has been shown in Refs. [15,16], another set of
+nonlocal, but quasilocal conserved, Hermitian operators
+fQðφÞg exists for a dense set of commensurate interactions
+Δ ¼ cosðπl=mÞ, with l; m integers, densely covering the
+range jVj < 2. They are all odd under (2), QðφÞ → −QðφÞ.
+Quasilocality implies linear extensivity TrfQðφÞ2 g=
+N ∝ L, similarly as for the local conserved operators
+Qi , while TrfJQðφÞg=ðLN Þ ¼ const, making them suitable for implementing the Mazur bound. For
+Δ ¼ cosðπ=mÞ for which T → ∞ limit of the Bethe ansatz
+result [26] is available it has been shown [16] to agree
+precisely with the Mazur bound, so one may conjecture that
+the latter is now indeed saturated. Hence our argument
+(15)–(18) can be used to argue that the complete timeaveraged current can be expressed in terms of an integral,
+
+020602-3
+
+week ending
+11 JULY 2014
+
+PHYSICAL REVIEW LETTERS
+PRL 113, 020602 (2014)
+Z
+0.12
+data
+0.11
+d2 φfðφÞQðφÞ;
+ð19Þ
+J̄ ¼
+fit
+Dm
+
+1/16
+
+X X ðrÞ
+Jþ ¼
+Jj ;
+j
+
+ð20Þ
+
+0.09
+
+(a)
+
+0.08
+0.07
+0.06
+0.05
+
+0
+
+0.02
+
+0.04
+
+0.06
+
+0.08
+
+0.1
+
+1/L
+0.27
+0.26
+<J’>/<J>
+
+where fðφÞ ¼ cm =j sin φj4 for a suitable constant cm and
+Dm is a vertical strip in the complex plane with
+jReφ − π=2j < π=ð2mÞ. We refer to [40] for a detailed
+derivation of Eq. (19) and the function fðφÞ. After
+straightforward calculation, again using the notation and
+machinery of [16], one arrives at the explicit matrixproduct expression for J̄ ¼ −iðJ þ − J †þ Þ in terms of local
+operators,
+
+D’/D
+
+0.1
+
+0.25
+0.24
+
+(b)
+
+0.23
+
+data
+linear fit
+parabolic fit
+1/4
+
+0.22
+
+r≥2
+
+0.21
+0.2
+
+with
+
+0
+
+0.02
+
+0.04
+
+0.06
+
+0.08
+
+0.1
+
+1/L
+
+ðrÞ
+
+J1 ¼
+
+f0;z;g
+X
+
+r−1 þ
+gs2 …sr−1 ðBs2    Bsr−1 Þ11 σ −1 σ s22    σ sr−1
+σr ;
+
+s2 ;…;sr−1
+
+gs2 …sr−1 ≔
+
+
+NX
+þ fsi g
+
+N þ fsi g
+
+j¼0
+
+j
+
+
+I jþ12N z fsi g ;
+
+ð21Þ
+
+where N s fsi g denotes the number
+R of indices in the set fsi g
+having a value s. Here I k ≔ Dm d2 φfðφÞðcot φÞ2k are
+elementary integrals which can be evaluated as
+I k ¼−
+
+2X
+kþ1
+
+2π
+mð2kþ1Þðsinπ=mÞ2kþ2 j¼0
+
+
+2kþ1
+ð−1Þj
+j
+
+×ðcosπ=mÞ2kþ1−j fsinc½πðjþ1Þ=m−sinc½πðj−1Þ=mg;
+and I kþ1=2 ¼ 0 for k integer. The coefficient of Eq. (21)
+ðBs2    Bsr−1 Þ11 is the (1,1) component of a product of
+ðm − 1Þ × ðm − 1Þ matrices Bs , related to a modified Lax
+operator [16],
+B0j;k ¼ cosðπjl=mÞδj;k ;
+
+Bzj;k ¼ −sinðπjl=mÞδj;k ;
+
+B−j;k ¼ sinðπkl=mÞδjþ1;k ;
+
+Bþ
+j;k ¼ −sinðπjl=mÞδj;kþ1 : ð22Þ
+
+via
+Pauli matrices σ sj are related to fermion
+Q operators
+z −
+Jordan-Wigner transformation cj ¼ ð j−1
+i¼1 σ i Þσ j . The
+result (21) is derived in the limit L → ∞ and is valid up
+to corrections of order Oð1=LÞ for a finite periodic ring.
+Explicitly, J̄ to all terms up to order four (r ≤ 4) reads
+~
+J̄ ¼ Dð8J
+þ 2VJ0 Þ þ
+
+X
+ðiκc†jþ3 cj þ iκ 0 c†jþ3 c†jþ2 cjþ1 cj
+j
+
+þ iκ″ c†jþ3 n~ jþ2 n~ jþ1 cj þ H:c:Þ þ …:
+
+ð23Þ
+
+For example, for V ¼ 1, (Δ ¼ cosðπ=3Þ), one has explicitly
+
+FIG. 2 (color online). a) D0 =D vs 1=L, where D0 is the stiffness
+related with J 0 . b) hJi=hJ 0 i obtained for ρ̄, Eq. (11), for β → 0.
+Horizontal lines show analytical results. Exact diagonalization
+has been carried out for V ¼ 1 with ϕ ¼ π=L and 2π=L for even
+and odd N, respectively.
+
+pﬃﬃﬃ
+1 3 3
+~
+D¼ −
+;
+8 32π
+
+pﬃﬃﬃ
+1 9 3
+κ¼ −
+;
+4 16π
+
+pﬃﬃﬃ
+3
+− 1;
+8π
+ð24Þ
+
+9
+κ0 ¼
+
+~ 2 =16 in general.
+while κ″ ¼ DV
+The above analytical results are nicely corroborated by
+exact numerical simulations in finite systems shown in
+Fig. 2. From Eq. (23) one finds that the ratio of two currents
+should be given as Trfρ̄J0 g=Trfρ̄Jg ¼ V=4 as confirmed in
+Fig. 2(b). Here, the tiny deviations from 1=4 are presumably due to oversimplified (linear or parabolic) fitting
+functions. Furthermore, one can define the stiffness with
+respect to current J 0 as D0 ¼ hβJ̄0 2 i=ð2LÞ. Formula (23)
+immediately implies that J̄0 ¼ ðV=4ÞJ̄, and so the two
+stiffnesses should have a simple ratio D0 =D ¼ ðV=4Þ2 [see
+Fig. 2(a)].
+In conclusion, we have proposed a class of global
+quantum quench dynamics of integrable spin chains for
+which the state at asymptotic times does not relax to GGE.
+We argue that, at least for weak quenches where linear
+response theory is applicable, the validity of GGE ensemble
+is in one-to-one correspondence with the saturation of the
+Mazur bound expressed in terms of strictly local conserved
+operators. However, if one extends the GGE ensemble by
+including the quasilocal conserved operators from the
+opposite parity sector—having linearly extensive HilbertSchmidt norm—then the latter can be used to describe
+exactly the steady state density operator after the quench.
+Our theory has been demonstrated in the one-dimensional
+model of interacting spinless fermions (XXZ spin model)
+within the metallic regime.
+
+020602-4
+
+PRL 113, 020602 (2014)
+
+PHYSICAL REVIEW LETTERS
+
+It should be noted that our results are expected to have
+further implications on other relevant quantities of integrable systems besides the charge stiffness.
+The fluxP
+quench-induced steady current hJ̄i ¼ 2 k sinðkÞhn̄k i ≠ 0
+is reflected into the fermion momentum-distribution function hn̄k i, which also does not comply to the standard GGE.
+The latter quantity is the one typically measured in coldatom experiments [41,42] and most frequently studied in
+connection with the GGE concept [5,8,10]. The inclusion
+of the quasilocal conserved quantity J̄ fully fixes the steady
+state hn̄k i within our quench protocol via extended GGE
+form Eq. (11). It is still tempting to construct and consider
+further (presumably conserved) quantities from the same
+polarity sector, which would fix this and related quantities
+for an arbitrary quench.
+M. M. acknowledges support from the NCN Project
+No. DEC-2013/09/B/ST3/01659. P. P. and T. P. acknowledge support by the Program No. P1-0044 and Projects
+No. J1-4244 (P. P.) and No. J1-5349 (T. P.) of the Slovenian
+Research Agency.
+
+[1] S. Goldstein, J. L. Lebowitz, R. Tumulka, and N. Zanghì,
+Phys. Rev. Lett. 96, 050403 (2006).
+[2] N. Linden, S. Popescu, A. J. Short, and A. Winter, Phys.
+Rev. E 79, 061103 (2009).
+[3] A. Riera, C. Gogolin, and J. Eisert, Phys. Rev. Lett. 108,
+080402 (2012).
+[4] A. Polkovnikov, K. Sengupta, A. Silva, and M. Vengalattore, Rev. Mod. Phys. 83, 863 (2011).
+[5] S. R. Manmana, S. Wessel, R. M. Noack, and A.
+Muramatsu, Phys. Rev. Lett. 98, 210405 (2007).
+[6] L. F. Santos, A. Polkovnikov, and M. Rigol, Phys. Rev. Lett.
+107, 040601 (2011).
+[7] M. Mierzejewski, T. Prosen, D. Crivelli, and P. Prelovšek,
+Phys. Rev. Lett. 110, 200602 (2013).
+[8] M. Rigol, V. Dunjko, V. Yurovsky, and M. Olshanii, Phys.
+Rev. Lett. 98, 050405 (2007).
+[9] M. Kollar, F. A. Wolf, and M. Eckstein, Phys. Rev. B 84,
+054304 (2011).
+[10] A. C. Cassidy, C. W. Clark, and M. Rigol, Phys. Rev. Lett.
+106, 140405 (2011).
+[11] C. Gogolin, M. P. Müller, and J. Eisert, Phys. Rev. Lett. 106,
+040401 (2011).
+[12] M. Fagotti, M. Collura, F. H. L. Essler, and P. Calabrese,
+Phys. Rev. B 89, 125101 (2014).
+
+week ending
+11 JULY 2014
+
+[13] M. Tetelman, Sov. Phys. JETP 55, 306 (1982).
+[14] M. P. Grabowski and P. Mathieu, Ann. Phys. (N.Y.) 243,
+299 (1995).
+[15] T. Prosen, Phys. Rev. Lett. 106, 217206 (2011).
+[16] T. Prosen and E. Ilievski, Phys. Rev. Lett. 111, 057203
+(2013).
+[17] W. Kohn, Phys. Rev. 133, A171 (1964).
+[18] X. Zotos and P. Prelovšek, Phys. Rev. B 53, 983 (1996).
+[19] X. Zotos, F. Naef, and P. Prelovsek, Phys. Rev. B 55, 11029
+(1997).
+[20] R. Steinigeweg, J. Gemmer, and W. Brenig, Phys. Rev. Lett.
+112, 120601 (2014).
+[21] P. Mazur, Physica (Amsterdam) 43, 533 (1969).
+[22] M. Büttiker, Y. Imry, and R. Landauer, Phys. Lett. 96A, 365
+(1983).
+[23] G. Blatter and D. A. Browne, Phys. Rev. B 37, 3856
+(1988).
+[24] R. Hübner and R. Graham, Phys. Rev. B 53, 4870 (1996).
+[25] R. Landauer and M. Büttiker, Phys. Rev. Lett. 54, 2049
+(1985).
+[26] X. Zotos, Phys. Rev. Lett. 82, 1764 (1999); J. Benz, T.
+Fukui, A. Klümper, and C. Scheeren, J. Phys. Soc. Jpn. 74,
+181 (2005).
+[27] F. Heidrich-Meisner, A. Honecker, and W. Brenig, Eur.
+Phys. J. Spec. Top. 151, 135 (2007).
+[28] M. Rigol and B. S. Shastry, Phys. Rev. B 77, 161101 (2008).
+[29] J. Herbrych, P. Prelovšek, and X. Zotos, Phys. Rev. B 84,
+155125 (2011).
+[30] M.Žnidarič, Phys. Rev. Lett. 106, 220601 (2011).
+[31] J. Sirker, R. G. Pereira, and I. Affleck, Phys. Rev. Lett. 103,
+216602 (2009).
+[32] T. Prosen, Phys. Rev. Lett. 107, 137201 (2011).
+[33] R. Steinigeweg, J. Herbrych, P. Prelovšek, and M. Mierzejewski, Phys. Rev. B 85, 214409 (2012).
+[34] M. Hawkins, M. Long, and X. Zotos, arXiv:0812.3096v1.
+[35] M. W. Long, P. Prelovšek, S. El Shawish, J. Karadamoglou,
+and X. Zotos, Phys. Rev. B 68, 235106 (2003).
+[36] M. Mierzejewski and P. Prelovšek, Phys. Rev. Lett. 105,
+186405 (2010).
+[37] M. Mierzejewski, J. Bonča, and P. Prelovšek, Phys. Rev.
+Lett. 107, 126601 (2011).
+[38] T. J. Park and J. C. Light, J. Chem. Phys. 85, 5870 (1986).
+[39] H. Castella, X. Zotos, and P. Prelovšek, Phys. Rev. Lett. 74,
+972 (1995).
+[40] T. Prosen, arXiv:1406.2258.
+[41] M. Greiner, O. Mandel, T. Esslinger, T. Hansch, and I.
+Bloch, Nature (London) 415, 39 (2002).
+[42] I. Bloch, Nat. Phys. 1, 23 (2005).
+
+020602-5
+
+

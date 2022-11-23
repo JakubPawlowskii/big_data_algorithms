@@ -1,0 +1,716 @@
+PHYSICAL REVIEW LETTERS 121, 230602 (2018)
+
+Superdiffusion in One-Dimensional Quantum Lattice Models
+1
+
+Enej Ilievski,1 Jacopo De Nardis,2 Marko Medenjak,3 and Tomaž Prosen3
+
+Institute for Theoretical Physics Amsterdam and Delta Institute for Theoretical Physics,
+University of Amsterdam, Science Park 904, 1098 XH Amsterdam, Netherlands
+2
+Département de Physique, Ecole Normale Supérieure, PSL Research University,
+CNRS, 24 rue Lhomond, 75005 Paris, France
+3
+Faculty of Mathematics and Physics, University of Ljubljana, Jadranska 19, 1000 Ljubljana, Slovenia
+(Received 26 June 2018; revised manuscript received 10 September 2018; published 7 December 2018)
+We identify a class of one-dimensional spin and fermionic lattice models that display diverging spin and
+charge diffusion constants, including several paradigmatic models of exactly solvable, strongly correlated
+many-body dynamics such as the isotropic Heisenberg spin chains, the Fermi-Hubbard model, and the t-J
+model at the integrable point. Using the hydrodynamic transport theory, we derive an analytic lower bound
+on the spin and charge diffusion constants by calculating the curvature of the corresponding Drude weights
+at half-filling, and demonstrate that for certain lattice models with isotropic interactions some of the
+Noether charges exhibit superdiffusive transport at finite temperature and half-filling.
+DOI: 10.1103/PhysRevLett.121.230602
+
+Introduction.—Understanding the microscopic mechanisms for the emergent macroscopic laws in many-body
+systems poses a fundamental question in condensed matter
+physics. Despite a long tradition, the question has mostly
+been pursued by studying certain simple classical dynamical systems [1], such as elastically colliding rigid objects
+[2,3], whereas much less is known about strongly correlated quantum dynamics.
+From the theoretical viewpoint, holographic theories [4,5]
+and solvable systems in one dimension play an instrumental
+role in this context thanks to many powerful methods which
+enable explicit analytical calculations. Exactly solvable
+models display anomalous transport behavior characterized
+by singular conductivities [6–18]. In contrast, very little is
+known about the regular part of DC conductivities that
+characterize the sub-ballistic timescales, save for a few
+numerical studies typically suffering from strong finite-size
+or finite-time effects [19–24]. Exactly solvable interacting
+models are naturally tailored not only to tackle this problem
+in a rigorous manner, but moreover permit efficient numerical simulations [22,25–30] and sometimes allow for experimental realizations [31–35]. Yet, even in a very simple
+interacting system, such as the integrable Heisenberg spin1=2 chain, the status of the spin dynamics on the sub-ballistic
+scales remains unresolved despite several recent numerical
+efforts; depending on the choice of parameters, the model
+shows a wide range of transport phenomena, ranging from
+ideal transport to diffusion and in some cases even superdiffusion [36–41]. It is thus reasonable to regard the
+Heisenberg spin-1=2 chain and other integrable models as
+exactly solvable representative models for various universality classes of transport behavior exhibited by generic
+many-body quantum systems.
+0031-9007=18=121(23)=230602(6)
+
+In this Letter, we report on a class of quantum spin and
+electron models which exhibit diverging spin and charge
+diffusion constants in thermal equilibrium with no charge or
+spin imbalance (i.e., at half-filling), despite the absence of
+ideal transport. We build on an earlier proposal of Ref. [42],
+which relates diffusion constants to the corresponding
+Drude weights in the vicinity of half-filled thermal states.
+Here we find a reinterpretation of the diffusion bound and
+optimize it in the framework of the hydrodynamic linear
+transport theory developed in Refs. [43,44]. We derive an
+analytic closed-form expression for the lower bound in the
+limit of infinite temperatures, and evaluate it for several
+paradigmatic interacting quantum lattice models.
+By explicitly calculating the bound on the diffusion
+constant, we show that for several models with isotropic
+interactions, invariant under a continuous non-Abelian
+(and possibly graded) Lie group G, that the conserved
+Noether charges (e.g., spin or electron charges) belonging
+to the SUð2Þ sector of the model exhibit superdiffusive
+behavior in a half-filled state at any finite temperature.
+As prototypical examples we will focus on the Heisenberg
+spin chain and the Fermi-Hubbard chain.
+Summary.—The central result of this work is an analytical
+lower bound on the spin or charge diffusion constants for a
+family of interacting many-body one-dimensional lattice
+P
+systems. Let Q̂ ¼ x q̂x denote a conserved Uð1Þ charge of
+the model, with density q̂ satisfying a local conservation law
+∂ t q̂x ðtÞ þ ∂ x ĵx ðtÞ ¼ 0. The corresponding diffusion constant is defined via the Kubo formula
+
+230602-1
+
+β X
+T→∞ χ ðqÞ ðβÞ
+x
+
+DðqÞ ðβÞ ¼ lim
+
+Z T
+0
+
+ðqÞ
+
+ðqÞ
+
+dthĵx ðtÞĵ0 ð0Þi; ð1Þ
+
+© 2018 American Physical Society
+
+PHYSICAL REVIEW LETTERS 121, 230602 (2018)
+where h•i is the expectation value with respect to the grandP
+canonical Gibbs ensemble ϱ̂GC ðβÞ≃expð−βĤþ i 2hi N̂ i Þ
+at inverse temperature β, with N̂ i denoting the globally
+conserved Uð1Þ charges of the model including Q̂,
+χ ðiÞ ðβÞ ¼ ∂ 2 fðβÞ=∂h2i , denoting the static susceptibilities,
+and f is the grand-canonical free energy [45].
+We shall avoid a general formulation and rather concentrate on two prominent interacting systems that often
+play a pivotal role in the studies of strongly correlated onedimensional materials, the anisotropic Heisenberg spin
+chain and the Fermi-Hubbard model. These exactly solvable systems feature stable interacting particle excitations
+that undergo a completely elastic scattering. Consequently,
+the thermal average of the current density generally
+involves a dissipation-free component, implying a singular
+dc conductivity characterized by a finite Drude weight
+Z
+β X T
+ðqÞ
+ðqÞ
+ðqÞ
+D ðβÞ ¼ lim
+dthĵx ðtÞĵ0 ð0Þi; ð2Þ
+T→∞ 2T
+0
+x
+which signals ballistic transport. Drude weights can be
+efficiently computed within the hydrodynamic approach
+developed in Refs. [46,47], essentially exploiting the fact
+that the net effect of interparticle interactions (which are
+fully accounted for by a two-body scattering amplitude) in
+the thermodynamic limit manifests itself as the renormalization of particles’ bare quantities in the presence of a
+finite-density many-body background (e.g., a Gibbs thermal state or generalized Gibbs states [48–52]), commonly
+referred to as dressing (see, e.g., Refs. [53–57]). Spectra of
+solvable models are parametrized in terms of particle
+excitations. We label them by a discrete index A counting
+over (typically infinitely many) particle types, and a
+continuous rapidity variable u encoding their bare momenta
+kA ðuÞ and energies eA ðuÞ. The dressing of a bare quantity
+qA is expressible as a linear transformation qA ↦ qdr
+A , while
+the effective velocities of propagation are obtained from the
+0
+0
+dressed dispersion relations, veff
+A ¼ ∂εA =∂pA ¼ εA =pA ,
+0
+0 dr
+0 dr
+where pA ¼ ðkA Þ and εA ¼ ðeA Þ , with prime denoting
+the rapidity derivative. In this picture, the hydrodynamic
+mode decomposition of the Drude weight reads [44,57]
+Z
+βX
+ðqÞ
+2
+D ðβÞ ¼
+duDA ðuÞ½qdr
+ð3Þ
+A ðuÞ ;
+2 A
+2
+where DA ðuÞ ¼ ρA ðuÞ½1 − ϑA ðuÞ½veff
+A ðuÞ is the “Drude
+dr
+kernel” and qA ðuÞ are the dressed charges of individual
+excitations with respect to an equilibrium state (defined in
+Ref. [58]). Dependence on the reference equilibrium state
+enters through the rapidity distributions ρA ðuÞ, which are
+uniquely determined by the mode occupation (filling)
+functions ϑA ðuÞ ¼ ρA ðuÞ=½2πσ A p0A ðuÞ fσ A ¼ sgn½k0A ðuÞg.
+Lower bound on diffusion.—In the half-filled equilibrium states, the spin or charge Drude weight vanishes due to
+
+the symmetry reasons despite integrability. To characterize
+transport on sub-ballistic timescales, we exploit a useful
+relation between the diffusion constant and the curvature of
+the Drude weight with respect to the filling parameter,
+proposed in Ref. [42]. Consequentially, the relation provides a nonvanishing lower bound on diffusion, provided
+the Drude weight vanishes at most quadratically as a
+function of the filling parameter. This condition is satisfied
+for the half-filled thermal states in the particle-hole symmetric lattice models considered in this Letter.
+To briefly outline the idea of the lower bound, we
+imagine a small gradient of the charge density imposed
+across the system and subsequently measure the induced
+current. The current (initially localized at the origin)
+spreads only over a finite portion of the system in a finite
+amount of time due to the Lieb-Robinson causality. This
+means that, at finite times on the relevant sublattice, the
+probability of measuring the current in the sector away
+from half-filling is nonzero. In these sectors the current
+grows indefinitely with time; however, the probability of
+the system being away from half-filling vanishes with the
+system size. The interplay of vanishing probability and
+diverging conductivity permits us to obtain a lower bound
+on the diffusion constant, reading as [42]
+DðqÞ ðβÞ ≥
+
+1
+∂ 2 DðqÞ ðβ; hÞjh¼0 ;
+8βχ 2 ðβÞvLR h
+
+ð4Þ
+
+where vLR ¼ maxu;A veff
+A ðuÞ is the Lieb-Robinson velocity.
+In particular, in the high-temperature limit the bound
+becomes
+18
+∂ 2h DðqÞ ðβ; hÞjh¼0 ;
+β→0 βðd − 1Þ2 vLR
+
+DðqÞ ð0Þ ≥ lim
+
+2
+
+ð5Þ
+
+where we assumed that the local degrees of freedom carry
+charge q ∈ f− 12 ðd − 1Þ; …; 12 ðd − 1Þg.
+Solving the dressing equations.—The Drude weight and
+its curvature can be expressed in terms of dressed quantities
+[Eq. (3)]. Given the full set of equilibrium occupation
+functions ϑA , the dressing equations take the form of
+coupled linear integral equations, cf. Ref. [58]. Functions ϑA are determined by minimizing the free energy
+as a functional of the densities ρA . This requires us to solve
+a system of nonlinear integral equations, which is only
+possible numerically using an iteration scheme, except in
+two extreme cases corresponding to either the ground states
+or the high-temperature limit. In the latter case, the
+occupation functions become momentum independent
+and the dressing transformation becomes an algebraic
+system. For the class of rotationally symmetric solvable
+spin and fermion lattice Hamiltonians considered here, the
+dressing equations admit an analytic group-theoretic solution, as explained in detail in Ref. [58]. This permits us to
+obtain a closed-form expression for the bound [Eq. (5)]
+
+230602-2
+
+PHYSICAL REVIEW LETTERS 121, 230602 (2018)
+(when it is finite), and rigorously establish the occurrence
+of superdiffusion signalled by a divergent bound. Importantly, since the divergence is a result of a particular
+dependence on the dressed properties of particles with large
+bare spin or charge, the main statement about the superdiffusive dynamics remains valid even at finite temperatures. We note that in our calculations we take into account
+the exact dressed dispersion relations of interacting excitations, and our results cannot be accessed with alternative
+approaches, such as effective field-theoretical methods
+[59–62] or semiclassical approximations [63], which fail
+to capture the essential contributions of the bound states.
+We subsequently concentrate on the transport of global
+P
+Uð1Þ charges, such as the total magnetization Ŝz ≡ j Ŝzj ,
+P
+and/or the total electron charge N̂ e ≡ 12 j;σ¼↑;↓ ĉ†j;σ ĉj;σ . We
+consider the half-filled spin or charge sectors, where the
+Drude weights vanishes as
+DðqÞ ðβ; hÞ ¼ CðqÞ ðβÞ
+
+h2
+þ 
+2
+
+transport, which is shortly summarized below. The hydrodynamic representation of the spin Drude weight curvature
+reads
+
+Z
+2
+dr 2 
+β X du
+ðmÞ
+0 eff 2 ∂ ½ms  
+C ðβÞ ¼
+ϑ ð1 − ϑs Þps ½vs 
+; ð9Þ
+2 s≥1 2π s
+∂h2 h¼0
+−1
+where mdr
+s ¼ ∂ 2h logðϑs − 1Þ. Our conclusions are that,
+exactly at the SUð2Þ isotropic point Δ ¼ 1, the finitetemperature spin diffusion constant DðmÞ diverges in the
+limit of half-filling h → 0. This can be inferred from the
+large-s scaling of the dressed spin (magnetization), mode
+occupation functions, and dressed dispersion relations,
+
+1
+2
+3
+mdr
+s ðhÞ ≃ ½s þ κðβÞ h þ Oðh Þ;
+3
+
+ð10Þ
+
+limϑs ðhÞ ≃ ½s þ κðβÞ−2 ;
+
+ð11Þ
+
+h→0
+
+for h ∼ 0;
+
+ð6Þ
+lim
+
+h→0
+
+and evaluate the bound [Eq. (5)]. The Drude weight
+curvature reads
+Z
+βX
+ðqÞ
+2
+C ðβÞ ¼
+duDA ðuÞ∂ 2h ½qdr
+ð7Þ
+A ðuÞ jh¼0 :
+2 A
+In exactly solvable interacting quantum lattice models
+the elementary excitations which carry spin and charge
+typically form bound states. Let integer s denote their “bare
+charge” (or “bare mass”), i.e., the number of constituents
+within a bound state; for instance, in a spin system, such as
+the Heisenberg spin chain, s pertains to the number of
+bound magnons in multimagnon excitations, while, in an
+electron system (e.g., the Fermi-Hubbard model), s can be
+the number of bound spin-full electrons that form spin
+singlet states, etc. Moreover, if the Hamiltonian has a global
+rotational symmetry of a (graded) Lie group G ¼
+SUðNjMÞ (with scattering amplitudes being rational functions of the scattering momenta), the number of distinct
+bound states is infinite; i.e., s can be arbitrarily large. We
+found that, for such models, the Drude weight curvature per
+particle decreases at ∼1=s for a large s, yielding a
+(logarithmically) divergent diffusion lower bound after
+summing over all the particle types.
+Anisotropic Heisenberg spin-1=2 chain.—The simplest
+model that features several distinct transport regimes is the
+Heisenberg XXZ spin-1=2 chain,
+ĤXXZ ¼
+
+L
+X
+
+ðŜxj Ŝxjþ1 þ Ŝyj Ŝyjþ1 þ ΔŜzj Ŝzjþ1 Þ;
+
+ð8Þ
+
+j¼1
+
+with gapless (gapped) spectrum for jΔj ≤ 1 (jΔj > 1). The
+interaction anisotropy has a profound influence on the spin
+
+Z ∞
+
+1
+2
+dup0s ðuÞ½veff
+s ðuÞ ≃ 3 ;
+s
+−∞
+
+ð12Þ
+
+for some (unknown) temperature-dependent function κðβÞ.
+The above large-s asymptotics hold for any finite value of
+β. The finite-temperature behavior [Eq. (12)] is also
+confirmed numerically, see Fig. 2. In the β → 0 limit
+however, relations [Eqs. (10) and (11)] have indeed become
+equalities valid for all values of s ≥ 1, with κð0Þ ¼ 1.
+In the gapped regime, anisotropy Δ ¼ cosh η breaks the
+SUð2Þ symmetry of the interaction to Uð1Þ. In the limit of
+infinite temperature and vanishing chemical potential, the
+dressed spin and mode occupations functions of bound
+magnons remain the same as in the isotropic case,
+cf. Eqs. (10) and (11). Notice that ϑs and mdr
+s become
+independent of u for large s. The key difference now is that
+the bare dispersion of bound magnons become η-dependent
+functions. In particular, the rapidity-dependent part of
+Eq. (9) scales as
+Z π=2
+du 0
+2
+−ηs
+;
+ð13Þ
+ps ðuÞ½veff
+s ðuÞ ≃ e
+−π=2 2π
+i.e., is exponentially suppressed for large bound states.
+Contrary to the isotropic case, exponential convergence in s
+results in a finite spin diffusion lower bound [Eq. (5)].
+The gapless regime jΔj < 1 is rather exceptional, with a
+positive finite-temperature spin Drude weight even in the
+half-filled sector [9,15,43], with a noncontinuous dependence on Δ. Still, it is interesting to ask whether the subballistic corrections to spin transport are normal, diffusive,
+or anomalous sub- or superdiffusive. The thermodynamic
+particle content of the model in this regime is quite involved
+(see Ref. [64]) and, in distinction to the gapped regime,
+changes depending on the value of Δ [43,65]. For simplicity
+we restrict ourselves to discrete points Δ ¼ cos π=l, for
+
+230602-3
+
+PHYSICAL REVIEW LETTERS 121, 230602 (2018)
+integer l ≥ 3 (the Drude curvature at Δ ¼ 0 is not positive,
+consistently with the vanishing diffusion constant at the free
+fermionic point [66]), where the spectrum consists of l
+distinct particle types. For s ¼ 1; …; l − 2, the particles
+represent bound states of s magnons whose high-temperature dressed spin is given by Eq. (10), which therefore
+vanishes as h → 0. There is an extra (exceptional) doublet of
+particles carrying finite dressed spins mdr
+A ¼ l=2  κ l h
+(κ l > 0), for A ¼ l − 1, l, charged under the nonunitary
+local conservation laws found in Refs. [12,13], which are
+responsible for the nonvanishing of spin Drude weight even
+at half-filling [43]. A finite contribution to the curvature CðmÞ
+is obtained by subtracting a finite Drude weight DðmÞ ¼
+R
+P
+eff
+2
+A¼l−1;l duρA ðuÞ½1 − ϑA ðuÞ½vA ðuÞl=2 and expanding the remainder to the second order in h. We find a finite
+lower bound for all l < ∞, which diverges as l → ∞,
+namely Δ → 1−, as shown in Fig. 1. [67].
+Fermi-Hubbard model.—Another class of models of
+particular importance are lattice models of fermions, the
+most prominent example being the one-dimensional FermiHubbard model describing spin-full electrons interacting
+via Coulomb repulsion,
+ĤH ¼ −
+
+L X
+X
+j¼1 σ∈↑;↓
+
+ĉ†j;σ ĉjþ1;σ þ ĉ†jþ1;σ ĉj;σ þ 4u
+
+L
+X
+
+V̂ H
+j;
+
+j¼1
+
+ð14Þ
+
+FIG. 1. XXZ chain at infinite temperature: the black curve
+shows diffusion bound [Eq. (5),] DðmÞ ≥ 2CðmÞ ð0Þ=ðβvLR Þ, and
+the blue points display numerical values of the spin diffusion
+constant obtained by time-dependent density matrix renormalization group in Refs. [21,27]. The logarithmic divergence close to
+Δ ¼ 1 is indicated by the dashed line. Notice that the bound does
+not vanish even in the Ising limit Δ → ∞, in contrast to the
+dissipative case [68]. Inside the gapless interval we display Δ ¼
+cos π=l with l ¼ 3; …; 10.
+
+PL
+1
+1
+with V̂ H
+j ¼
+j¼1 ðn̂j;↑ − 2Þðn̂j;↓ − 2Þ. The spin and charge
+excitations both participate in the formation of bound states.
+The particle content consists of individual spin-up electrons,
+spin-singlet compounds of 2a electrons with (a ∈ N) and
+chargeless bound states of s spin excitations with bare spin
+(s ∈ N). Although spin and charge degrees of freedom
+mutually interact and undergo a nontrivial dressing, the
+transport of both spin and charge are in qualitative agreement
+with the isotropic Heisenberg chain: in the vicinity of the halffilled regime h → 0 where DðmÞ ðβÞ vanishes, the dressed spin
+and thermal occupation functions scale with s as mdr
+s ðhÞ ∼
+hs2 and limh→0 ϑs ðhÞ ∼ s−2 , respectively, with no dependence
+on charge chemical potential μ associated to the conservation
+of the number of electrons. An analogous reasoning applies
+for the transport of electron charge, see Ref. [58] for further
+details. Numerical evaluation shows that the momentumdependent part of DA for the spin-carrying bound states once
+again scales as in Eq. (11), implying a (logarithmically in s)
+diverging spin diffusion bound [Eq. (5)].
+Higher spins and higher rank symmetries.—We have
+additionally solved the dressing equations for a family of
+integrable spin-S isotropic Heisenberg chains, and for the
+higher-rank SUðNÞ-symmetric lattice models that comprise
+N − 1 species of interacting excitations. The picture,
+exemplified above for the isotropic S ¼ 1=2 Heisenberg
+model (N ¼ 2), is qualitatively unchanged. By virtue of
+SUðNÞ invariance however, the statement now holds for all
+the components of the Noether charges. Explicit results are
+reported in the Supplemental Material [58], which includes
+Refs. [69–76].
+Other fermionic models.—We have also inspected the
+SUð2j2Þ-symmetric (EKS model [70]) and SUð2j1Þ-symmetric (t-J model) fermionic lattice models of spin-carrying electrons, where the conclusions do not change
+provided the conserved Uð1Þ charge Q̂ belongs to a bosonic
+(i.e., even) SUð2Þ sector. Notice however that, in addition
+to the conserved total magnetization Ŝz , the SUð2j1Þinvariant integrable t-J model conserves the total electron
+charge N̂ e that (in distinction to the total spin and charge in
+the Fermi-Hubbard model) corresponds to a global Uð1Þ
+charge, which does not belong to the SUð2Þ sector of the
+full SUð2j1Þ symmetry of the Hamiltonian. The absence of
+particle-hole symmetry for the electron charge implies a
+finite charge Drude weight in any equilibrium state with a
+finite density of electrons, and the diffusion bound cannot
+be employed there. Likewise, in the SUð2j2Þ-symmetric
+model of spin-full electrons there exists, besides two
+independent spin SUð2Þ sectors as in the Hubbard model,
+the third global Uð1Þ conserved charge (the Hubbard
+interaction V̂ H ). The latter also yields a finite Drude weight
+for all values of chemical potentials (cf. Ref. [58] for
+additional information).
+Conclusion.—We identified and discussed a class of
+exactly solvable quantum lattice models with isotropic
+
+230602-4
+
+PHYSICAL REVIEW LETTERS 121, 230602 (2018)
+and thank F. Heidrich-Meisner for valuable comments.
+J. D. N. acknowledges support from LabEx ENS-ICFP:
+ANR-10-LABX-0010/ANR-10-IDEX-0001-02 PSL*. E. I.
+is supported by VENI Grant No. 680-47-454 by the
+Netherlands Organisation for Scientific Research
+(NWO). M. M. and T P. acknowledge the support from
+the ERC Advanced Grant No. 694544 OMNES and the
+Grant No. P1-0044 of Slovenian Research Agency.
+
+R∞
+2
+FIG. 2. Large-s scaling of log Γs ¼ log −∞
+dup0s ðuÞ½veff
+s ðuÞ ,
+confirming the asymptotic of Eq. (12) for the isotropic Heisenberg chain for various temperatures, showing that the large-s
+scaling is independent of β.
+
+interactions where Noether charges exhibit sub-ballistic
+transport with divergent diffusion constants. Superdiffusive
+transport is attributed to the existence of infinitely many
+bound states of magnons or electrons which behave at any
+finite temperature [cf. Fig. 2 and Eqs. (11) and (10)] as
+effective paramagnetic compounds of spins (or electrons):
+their dressed spin (or charge) grows as ∼hs2 with their bare
+mass s for small values of chemical potential h, and whose
+velocities decay proportionally to 1=s. We wish to stress
+that an infinite number of bound states in the spectrum
+is not sufficient for a divergent diffusion constant, as shown
+explicitly in the gapped regime of the anisotropic
+Heisenberg spin-1=2 chain where, indeed, bound states
+acquire dressed velocities that get exponentially suppressed
+with their size.
+There are several related aspects to be addressed in future.
+At the moment it is difficult to estimate the importance of
+integrability for the observed anomalous behavior. Although
+we have excluded normal diffusion at half-filling, invoking
+only a lower bound precludes determining the exact superdiffusive dynamical exponent. Indeed, numerical simulations
+on the isotropic quantum [37] and classical Heisenberg
+magnet [77] give a firm indication of dynamical exponent
+z ¼ 2=3—which is consistent with the Kardar-Parisi-Zhang
+(KPZ) universality [78] {also observed in random unitary
+circuits in ð1 þ 1ÞD [79]}, in contrast to the standard diffusive
+exponent z ¼ 1=2 observed in anisotropic models and
+strongly dissipative XXZ chains [80]. The hope is that the
+models exhibiting superdiffusion identified in this Letter can
+be viewed as representative models for a broad superdiffusive
+universality class of quantum systems, possibly of the KPZ
+type, whose precise determination remains an open problem.
+The authors thank C. Karrasch for providing timedependent density matrix renormalization group data,
+
+[1] H. Spohn, Large Scale Dynamics of Interacting Particles
+(Springer, Berlin Heidelberg, 1991).
+[2] J. L. Lebowitz, Phys. Rev. 133, A895 (1964).
+[3] J. L. Lebowitz and J. K. Percus, Phys. Rev. 155, 122 (1967).
+[4] S. A. Hartnoll, Nat. Phys. 11, 54 (2014).
+[5] M. Blake, Phys. Rev. Lett. 117, 091601 (2016).
+[6] X. Zotos, F. Naef, and P. Prelovšek, Phys. Rev. B 55, 11029
+(1997).
+[7] R. G. Pereira, V. Pasquier, J. Sirker, and I. Affleck, J. Stat.
+Mech. (2014) P09037.
+[8] C. Karrasch, J. H. Bardarson, and J. E. Moore, Phys. Rev.
+Lett. 108, 227206 (2012).
+[9] X. Zotos, Phys. Rev. Lett. 82, 1764 (1999).
+[10] J. Herbrych and P. Prelovšek, and X. Zotos, Phys. Rev. B 84,
+155125 (2011).
+[11] C. Karrasch, T. Prosen, and F. Heidrich-Meisner, Phys. Rev.
+B 95, 060406 (2017).
+[12] T. Prosen, Phys. Rev. Lett. 106, 217206 (2011).
+[13] T. Prosen and E. Ilievski, Phys. Rev. Lett. 111, 057203
+(2013).
+[14] C. Karrasch, J. Hauschild, S. Langer, and F. HeidrichMeisner, Phys. Rev. B 87, 245128 (2013).
+[15] E. Ilievski and T. Prosen, Commun. Math. Phys. 318, 809
+(2013).
+[16] C. Karrasch, D. M. Kennes, and F. Heidrich-Meisner, Phys.
+Rev. B 91, 115130 (2015).
+[17] V. Mastropietro and M. Porta, J. Stat. Phys. 172, 379 (2018).
+[18] L. Mazza, J. Viti, M. Carrega, D. Rossini, and A. D. Luca,
+Phys. Rev. B 98, 075421 (2018).
+[19] T. Barthel, New J. Phys. 15, 073010 (2013).
+[20] R. Steinigeweg, J. Gemmer, and W. Brenig, Phys. Rev. Lett.
+112, 120601 (2014).
+[21] C. Karrasch, J. E. Moore, and F. Heidrich-Meisner, Phys.
+Rev. B 89, 075139 (2014).
+[22] C. Karrasch, D. M. Kennes, and J. E. Moore, Phys. Rev. B
+90, 155104 (2014).
+[23] C. Karrasch, R. Ilan, and J. E. Moore, Phys. Rev. B 88,
+195129 (2013).
+[24] E. Leviatan, F. Pollmann, J. H. Bardarson, D. A. Huse, and
+E. Altman, arXiv:1702.08894.
+[25] R. J. Sánchez and V. K. Varma, Phys. Rev. B 96, 245117
+(2017).
+[26] M. Žnidarič, New J. Phys. 12, 043001 (2010).
+[27] C. Karrasch, New J. Phys. 19, 033027 (2017).
+[28] A. Biella, A. De Luca, J. Viti, D. Rossini, L. Mazza, and R.
+Fazio, Phys. Rev. B 93, 205121 (2016).
+[29] C. Psaroudaki and X. Zotos, J. Stat. Mech. (2016) 063103.
+[30] F. Jin, R. Steinigeweg, F. Heidrich-Meisner, K. Michielsen,
+and H. De Raedt, Phys. Rev. B 92, 205103 (2015).
+
+230602-5
+
+PHYSICAL REVIEW LETTERS 121, 230602 (2018)
+[31] D. Hirobe, M. Sato, T. Kawamata, Y. Shiomi, K.-i. Uchida,
+R. Iguchi, Y. Koike, S. Maekawa, and E. Saitoh, Nat. Phys.
+13, 30 (2016).
+[32] S. Hild, T. Fukuhara, P. Schauß, J. Zeiher, M. Knap, E.
+Demler, I. Bloch, and C. Gross, Phys. Rev. Lett. 113,
+147205 (2014).
+[33] H. Maeter, A. A. Zvyagin, H. Luetkens, G. Pascua, Z.
+Shermadini, R. Saint-Martin, A. Revcolevschi, C. Hess, B.
+Büchner, and H.-H. Klauss, J. Phys.: Condens. Matter 25,
+365601 (2013).
+[34] M. Boll, T. A. Hilker, G. Salomon, A. Omran, J. Nespolo, L.
+Pollet, I. Bloch, and C. Gross, Science 353, 1257 (2016).
+[35] S. Scherg, T. Kohlert, J. Herbrych, J. Stolpp, P. Bordia,
+U. Schneider, F. Heidrich-Meisner, I. Bloch, and M.
+Aidelsburger, Phys. Rev. Lett. 121, 130402 (2018).
+[36] R. Steinigeweg, Europhys. Lett. 97, 67001 (2012).
+[37] M. Ljubotina, M. Žnidarič, and T. Prosen, Nat. Commun. 8,
+16117 (2017).
+[38] J.-M. Stéphan, J. Stat. Mech. (2017) 103108.
+[39] G. Misguich, K. Mallick, and P. L. Krapivsky, Phys. Rev. B
+96, 195151 (2017).
+[40] M. Collura, A. D. Luca, and J. Viti, Phys. Rev. B 97, 081111
+(2018).
+[41] R. J. Sánchez, V. K. Varma, and V. Oganesyan, Phys. Rev. B
+98, 054415 (2018).
+[42] M. Medenjak, C. Karrasch, and T. Prosen, Phys. Rev. Lett.
+119, 080602 (2017).
+[43] E. Ilievski and J. D. Nardis, Phys. Rev. Lett. 119, 020602
+(2017).
+[44] B. Doyon and H. Spohn, SciPost Phys. 3, 039 (2017).
+[45] While in principle one should use the Kubo-Mori inner
+product, the latter reduces (under certain mild assumptions
+[15] that do not affect our results) to the commonly used
+grand-canonical averaging.
+[46] B. Bertini, M. Collura, J. De Nardis, and M. Fagotti, Phys.
+Rev. Lett. 117, 207201 (2016).
+[47] O. A. Castro-Alvaredo, B. Doyon, and T. Yoshimura, Phys.
+Rev. X 6, 041065 (2016).
+[48] P. Calabrese, J. Stat. Mech. (2016) 064001.
+[49] L. Vidmar and M. Rigol, J. Stat. Mech. (2016) 064007.
+[50] F. H. L. Essler and M. Fagotti, J. Stat. Mech. (2016) 064002.
+[51] E. Ilievski, J. De Nardis, B. Wouters, J.-S. Caux, F. H. L.
+Essler, and T. Prosen, Phys. Rev. Lett. 115, 157201 (2015).
+[52] E. Ilievski, E. Quinn, and J.-S. Caux, Phys. Rev. B 95,
+115128 (2017).
+[53] B. Doyon and T. Yoshimura, SciPost Phys. 2, 014 (2017).
+[54] L. Piroli, J. De Nardis, M. Collura, B. Bertini, and M.
+Fagotti, Phys. Rev. B 96, 115124 (2017).
+[55] V. B. Bulchandani, R. Vasseur, C. Karrasch, and J. E.
+Moore, Phys. Rev. Lett. 119, 220604 (2017).
+
+[56] B. Doyon, J. Dubail, R. Konik, and T. Yoshimura, Phys.
+Rev. Lett. 119, 195301 (2017).
+[57] E. Ilievski and J. De Nardis, Phys. Rev. B 96, 081118
+(2017).
+[58] See Supplemental Material at http://link.aps.org/
+supplemental/10.1103/PhysRevLett.121.230602 for the
+technical background and detailed derivations associated
+with this Letter.
+[59] J. Sirker, R. G. Pereira, and I. Affleck, Phys. Rev. Lett. 103,
+216602 (2009).
+[60] J. Sirker, R. G. Pereira, and I. Affleck, Phys. Rev. B 83,
+035115 (2011).
+[61] C. Karrasch, R. G. Pereira, and J. Sirker, New J. Phys. 17,
+103003 (2015).
+[62] B. Altshuler, R. Konik, and A. Tsvelik, Nucl. Phys. B739,
+311 (2006).
+[63] S. Sachdev and K. Damle, Phys. Rev. Lett. 78, 943 (1997).
+[64] M. Takahashi, Thermodynamics of One-Dimensional Solvable Models (Cambridge University Press, Cambridge,
+England, 1999).
+[65] A. De Luca, M. Collura, and J. De Nardis, Phys. Rev. B 96,
+020403 (2017).
+[66] H. Spohn, J. Math. Phys. (N.Y.) 59, 091402 (2018).
+[67] At discrete points Δ ¼ cosðπ=l þ 1=νÞ, the number of
+magnonic bound states is l þ ν and, therefore, after
+subtracting a finite Drude weight, the Drude curvature
+diverges as ν → ∞, similarly to the case Δ → 1− . This
+suggests that the spin diffusion constant, similarly to the
+Drude weight, is not a smooth function of Δ, and that it
+diverges almost everywhere for Δ ∈ ½−1; 1.
+[68] M. Žnidaric, Phys. Rev. Lett. 106, 220601 (2011).
+[69] A. Zamolodchikov, Phys. Lett. B 253, 391 (1991).
+[70] F. H. L. Essler, V. E. Korepin, and K. Schoutens, Phys. Rev.
+Lett. 68, 2960 (1992).
+[71] H. Frahm, Nucl. Phys. B559, 613 (1999).
+[72] N. Gromov and V. Kazakov, Lett. Math. Phys. 99, 321
+(2012).
+[73] S. Frolov and E. Quinn, J. Phys. A 45, 095004 (2012).
+[74] D. Volin, Lett. Math. Phys. 102, 1 (2012).
+[75] E. Ilievski, E. Quinn, J. D. Nardis, and M. Brockmann, J.
+Stat. Mech. (2016) 063101.
+[76] V. Kazakov, S. Leurent, and D. Volin, J. High Energy Phys.
+02 (2016) 044.
+[77] T. Prosen and B. Žunkovič, Phys. Rev. Lett. 111, 040602
+(2013).
+[78] M. Kardar, G. Parisi, and Y.-C. Zhang, Phys. Rev. Lett. 56,
+889 (1986).
+[79] A. Nahum, S. Vijay, and J. Haah, Phys. Rev. X 8, 021014
+(2018).
+[80] M. Bauer, D. Bernard, and T. Jin, SciPost Phys. 3, 033
+(2017).
+
+230602-6
+
+

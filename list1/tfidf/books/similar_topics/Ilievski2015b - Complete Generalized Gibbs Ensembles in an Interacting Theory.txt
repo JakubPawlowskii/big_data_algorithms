@@ -1,0 +1,828 @@
+PRL 115, 157201 (2015)
+
+week ending
+9 OCTOBER 2015
+
+PHYSICAL REVIEW LETTERS
+
+Complete Generalized Gibbs Ensembles in an Interacting Theory
+1
+
+E. Ilievski,1 J. De Nardis,1 B. Wouters,1 J.-S. Caux,1 F. H. L. Essler,2 and T. Prosen3
+Institute for Theoretical Physics, University of Amsterdam, Science Park 904, 1098 XH Amsterdam, The Netherlands
+2
+The Rudolf Peierls Centre for Theoretical Physics, University of Oxford, Oxford OX1 3NP, United Kingdom
+3
+Faculty of Mathematics and Physics, University of Ljubljana, Jadranska 19, SI-1000 Ljubljana, Slovenia
+(Received 21 July 2015; published 7 October 2015)
+In integrable many-particle systems, it is widely believed that the stationary state reached at late times
+after a quantum quench can be described by a generalized Gibbs ensemble (GGE) constructed from their
+extensive number of conserved charges. A crucial issue is then to identify a complete set of these charges,
+enabling the GGE to provide exact steady-state predictions. Here we solve this long-standing problem for
+the case of the spin-1=2 Heisenberg chain by explicitly constructing a GGE which uniquely fixes the
+macrostate describing the stationary behavior after a general quantum quench. A crucial ingredient in our
+method, which readily generalizes to other integrable models, are recently discovered quasilocal charges.
+As a test, we reproduce the exact postquench steady state of the Néel quench problem obtained previously
+by means of the Quench Action method.
+DOI: 10.1103/PhysRevLett.115.157201
+
+PACS numbers: 75.10.Jm, 02.30.Ik, 05.30.-d, 05.70.Ln
+
+Introduction.—Understanding and describing the equilibration of isolated many-particle systems is one of the main
+current challenges of quantum physics. The presence of
+higher conserved charges (above the Hamiltonian) is linked
+to the absence of full relaxation to a thermalized state; the
+conjectured appropriate framework to characterize the
+steady-state properties in such a situation is the generalized
+Gibbs ensemble (GGE) [1], in which all available charges are
+ascribed an individual “chemical potential” set by the initial
+conditions, and the steady state is the maximal entropy state
+fulfilling all the constraints associated to the conserved
+charges [2–27]. The basic idea underlying the GGE is as
+follows. Let H ≃ Hð1Þ be the Hamiltonian of an integrable
+model, and fHðnÞ g a set of conserved charges fulfilling
+½HðnÞ ; HðmÞ  ¼ 0. The situation we are interested in is that
+of a quantum quench, where we initially prepare our system
+in the ground state jΨð0Þi of a local Hamiltonian H0 and
+then consider unitary time evolution with respect to our
+integrable Hamiltonian
+jΨðtÞi ¼ e−iHt jΨð0Þi:
+
+ð1Þ
+
+We assume that we are dealing with a generic case where, in
+the thermodynamic limit, jΨð0Þi cannot be expressed as a
+linear combination of any finite number of eigenstates of H.
+At late times after the quench expectation values of local
+operators approach stationary values
+hOiΨ ¼ lim hΨðtÞjOjΨðtÞi:
+t→∞
+
+ð2Þ
+
+The GGE hypothesis asserts that these expectation values can
+be calculated as hOiΨ ¼ Trðϱ̂GGE OÞ from a statistical
+ensemble with a density matrix
+ X
+
+1
+ðnÞ
+ϱ̂GGE ¼ exp − βn H
+:
+ð3Þ
+Z
+n
+0031-9007=15=115(15)=157201(5)
+
+Here Z is a normalization, and the Lagrange multipliers βn
+are fixed by the initial conditions
+Trðϱ̂GGE HðnÞ Þ
+hΨð0ÞjH ðnÞ jΨð0Þi
+¼ lim
+;
+th
+th
+N
+N
+
+lim
+
+ð4Þ
+
+where N is the system size and limth denotes the thermodynamic limit N → ∞. Equation (4) is a direct consequence of
+the fact that HðnÞ are conserved charges. While the GGE
+hypothesis has been successfully verified for many systems
+mappable to free particles, in interacting theories such as the
+spin-1=2 Heisenberg XXZ chain the question of precisely
+which charges need to be included in Eq. (3) arises. In
+Refs. [17,18,20] a GGE based on the known conserved local
+charges [28] was constructed and used to determine steadystate averages of observables [20]. Subsequent analyses
+[21,22] by the Quench Action (QA) approach [14] demonstrated that this GGE fails to predict the correct steady-state
+properties. This failure was shown to be related to the
+existence of bound states [21] (see also [29,30]), which are
+known to be a generic feature in quantum integrable models.
+These results posed the question of whether the GGE is
+conceptually faulty, or whether there could exist hitherto
+unknown charges that need to be taken into account in its
+construction.
+In this Letter, we settle this issue by explicitly showing
+how to repair the GGE in Heisenberg chains, by complementing it with recently discovered additional families of
+conserved charges [31]. Crucially, these “quasilocal”
+charges fulfil a weaker form of locality than the previously
+known ones. We derive a set of fundamental identities
+between the initial-state expectation values of these
+charges, and the density functions characterizing the steady
+state. An explicit test of our construction is provided by a
+quantum quench from the Néel state to the XXZ chain: we
+
+157201-1
+
+© 2015 American Physical Society
+
+PRL 115, 157201 (2015)
+
+demonstrate that our GGE correctly recovers the stationary
+state, the form of which is known exactly from the QA
+approach [21,32]. In this way we completely resolve the
+above-mentioned conundrum. Our construction shows
+that quasilocal conserved charges are in fact crucial for
+understanding the nonequilibrium dynamics of quantum
+integrable models.
+Anisotropic spin-1=2 Heisenberg chain.—We shall consider a completely generic quench protocol from an initial
+pure wave function jΨ0 i, which is unitarily time evolved
+according to the Hamiltonian
+H¼
+
+N
+JX
+½σ x σ x þ σ yj σ yjþ1 þ Δðσ zj σ zjþ1 − 1Þ:
+4 j¼1 j jþ1
+
+ð5Þ
+
+Here J > 0, σ αj , α ¼ x; y; z are Pauli matrices acting on
+spin-1=2 degrees of freedom, and we consider anisotropy
+values in the regime, Δ ¼ coshðηÞ ≥ 1. The Hamiltonian
+given by Eq. (5) can be diagonalized by Bethe Ansatz [33,34].
+Imposing periodic boundary conditions, energy eigenstates
+jλi with magnetization Sztot ¼ N=2 − M are labeled by a
+set of rapidities λ ¼ fλk gM
+k¼1 satisfying
+Q the Bethe equations,
+½sinðλj þiη=2Þ=sinðλj −iη=2ÞN ¼ − M
+k¼1 ½sinðλj −λk þiηÞ=
+sinðλj −λk −iηÞ, j ¼ 1; …; M. The momentum and energy
+P
+PM
+of a Bethe state are Pλ ¼ M
+j¼1 pðλj Þ, ωλ ¼
+j¼1 eðλj Þ,
+where pðλÞ ¼ i ln ½sinðλ − iη=2Þ= sinðλ þ iη=2Þ and eðλÞ ¼
+−Jπ sinhðηÞa1 ðλÞ, where
+an ðλÞ ¼
+
+week ending
+9 OCTOBER 2015
+
+PHYSICAL REVIEW LETTERS
+
+1
+2 sinhðnηÞ
+:
+2π coshðnηÞ − cos ð2λÞ
+
+ð6Þ
+
+Solutions λ to the Bethe equations are closed under complex
+n
+conjugation and consist of so-called strings λn;a
+α ¼ λα þ
+iη
+n;a
+n
+2 ðn þ 1 − 2aÞ þ iδα , a ¼ 1; …; n, and λα ∈ R. Here index
+α enumerates a string, n is the string length, a counts rapidities
+inside a given string, and deviations δn;a
+α are (for the majority of
+states) exponentially small in system size [28,35,36]. The
+string centers λnα lie in the interval, ½−π=2; π=2Þ. In the
+thermodynamic limit N → ∞ with M=N fixed, one can
+describe a state not in terms of individual rapidities, but rather
+in terms of a set of functions ρ ¼ fρn g∞
+n¼1 representing string
+densities (see Supplemental Material for more info [37]).
+Ultralocal
+GGE
+treatment.—Exactly
+solvable
+Hamiltonians such as Eq. (5) can be embedded [28] in a
+commuting family ½TðλÞ; Tðλ0 Þ ¼ 0 of transfer matrices
+[defined in Eq. (15)]. The Hamiltonian and an infinite
+number of mutually commuting conserved charges are
+obtained by
+i
+HðnÞ ¼ ∂ nλ log Tð−iλÞjλ¼iη ;
+2
+n!
+
+ð7Þ
+
+Hð1Þ . These charges
+with the Hamiltonian reading H ¼ J sinhðηÞ
+2
+are ultralocal in the sense that they can be written as
+P
+ðmÞ
+ðmÞ
+HðmÞ ¼ Nj¼1 hj , where the operators hj act nontrivially
+
+on a block of at most m sites adjacent to j. The
+GGE constructed in [17,18] was of the form given by
+Eqs. (3) and (4), with charges from Eq. (7). The initial values
+hðnÞ ¼ limth N −1 hΨð0ÞjHðnÞ jΨð0Þi of the conserved charges
+are conveniently encoded in the generating function [18]
+
+
+iD
+iη
+iη E
+Ψ0 jT −1 λ þ
+∂λT λ þ
+jΨ0
+th N
+2
+2
+∞ k
+X
+λ ðkþ1Þ
+:
+ð8Þ
+h
+¼
+k!
+k¼0
+
+ΩΨ0 ðλÞ ¼ lim
+
+Given the GGE density matrix, a “microcanonical”
+description of the steady state can be obtained by performing a generalized Thermodynamic Bethe Ansatz [11,38];
+see Supplemental Material for a brief summary [37]. This
+0
+results in a representative eigenstate jρΨ
+GGE i labeled by root
+Ψ0
+density functions ρGGE , which has the property that for any
+local operator O,
+Ψ0
+0
+TrðOϱ̂GGE Þ ¼ hρΨ
+GGE jOjρGGE i:
+
+ð9Þ
+
+Within the generalized Thermodynamic Bethe Ansatz
+formalism macrostates can be described either by root
+densities of particles, or by densities of holes. Holes can be,
+loosely speaking, understood as analogues of unoccupied
+states in models of free fermions. In terms of the latter the
+0
+state jρΨ
+GGE i is parametrized in terms of the set of positive
+0
+functions fρΨ
+n;h g. In [21,32] it was found that the initial
+data, Eq. (4), directly determines the hole density of 1strings (i.e., vacancies of unbound states), according to the
+remarkable identity
+
+
+
+
+
+1
+iη
+iη
+Ψ0
+Ψ0
+Ψ0
+ρ1;h ðλÞ ¼ a1 ðλÞ þ
+λþ
+λ−
+Ω
+þΩ
+: ð10Þ
+2π
+2
+2
+All other hole densities are fixed by the maximum entropy
+principle under the constraints of Eq. (4).
+Quench action treatment.—The above GGE treatment
+should be compared to an independent calculation using the
+QA method [14]. For a generic quench problem, given an
+initial state jΨ0 i, the time-dependent expectation value of a
+generic local observable O can be expressed as a double
+Hilbert space summation
+X 
+hΨðtÞjOjΨðtÞi ¼
+e−Sλ −Sλ0 eiðωλ −ωλ0 Þt hλjOjλ0 i; ð11Þ
+λ;λ0
+
+where Sλ ¼ − ln hλjΨ0 i. Here, jλi are eigenstates of the
+Hamiltonian driving the postquench time evolution.
+Exploiting the fact that in the thermodynamic limit, the
+summation over eigenstates can be written as a functional
+integral over root densities, which can be evaluated in a
+saddle-point approximation (becoming exact in the thermodynamic limit), one finds, in particular, that the steady-state
+
+157201-2
+
+PRL 115, 157201 (2015)
+
+expectation values of observables a long time after the
+quench can be obtained as
+Ψ0
+0
+lim lim hΨðtÞjOjΨðtÞi ¼ hρΨ
+QA jOjρQA i:
+
+t→∞ th
+
+ð12Þ
+
+0
+Here jρΨ
+QA i is an eigenstate minimizing the QA SQA ½ρ ¼
+2S½ρ − SYY ½ρ, where S½ρ ¼ limth ReSλ is the extensive
+real part of the overlap coefficient in the thermodynamic
+limit and SYY ½ρ is the Yang-Yang entropy of the state
+[28,35,36]. For the Néel to XXZ quench, the exact overlaps
+were obtained in [39] and used in [21,32] to obtain the
+0
+exact saddle-point densities ρΨ
+QA representing the steady
+Ψ0
+0
+state. Crucially, one finds [21,22] that ρΨ
+GGE ≠ ρQA , which
+in turn leads to different predictions for physical properties
+such as spin-spin correlators. This demonstrated that the
+ultralocal GGE does not correctly describe the steady state
+after a generic quantum quench in the XXZ chain.
+Constructing a quasilocal GGE.—Very recently [31]
+(see also [40–45]) hitherto unknown conserved charges of
+the isotropic (Δ ¼ 1) Heisenberg model were discovered.
+These operators are not local in the sense that they cannot
+be represented as a spatially homogeneous sum of finitely
+supported densities, but rather quasilocal, meaning [31] that
+their Hilbert–Schmidt norms scale linearly with system size
+and their overlaps with locally supported operators become
+independent of N in the limit of large system size.
+Moreover, they are linearly independent from the known
+local charges generated from the spin-1=2 transfer matrix.
+Until now, the impact of these charges on local physical
+observables has not been quantified.
+Our first step is to construct a family of quasilocal
+conserved charges for Δ ≥ 1 by generalizing the procedure
+of [31]. The starting point is the q-deformed L operator,
+
+Lðz; sÞ ¼
+
+week ending
+9 OCTOBER 2015
+
+PHYSICAL REVIEW LETTERS
+
+1
+½sinhðzÞ cosh ðηsz Þ ⊗ σ 0
+sinhðηÞ
+þ coshðzÞ sinh ðηsz Þ ⊗ σ z
+þ sinhðηÞðs− ⊗ σ þ þ sþ ⊗ σ − Þ;
+
+ð13Þ
+
+whose auxiliary-space components are given by q-deformed
+spin-s representations with s ¼ 12 ; 1; 32 ; …, obeying commutation relations ½sþ ; s−  ¼ ½2sz q , ½sz ; s  ¼ s and acting
+in a ð2s þ 1Þ-dimensional irreducible representation, V s ≅
+C2sþ1 ¼ lspfjki; k ¼ −s; …; sg,
+qﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+sz jki ¼ kjki; s jki ¼ ½s þ 1  kq ½s∓kq jk  1i; ð14Þ
+with ½xq ¼ sinh ðηxÞ= sinhðηÞ. By means of higher-spin
+auxiliary (fused) transfer matrices defined via ordered
+products of L-operators
+T s ðzÞ ¼ Tra ½La;1 ðz; sÞ…La;N ðz; sÞ;
+
+ð15Þ
+
+[where T 1=2 ðzÞ ≡ TðzÞ was used in Eq. (7)] we define
+families of conserved operators
+
+η
+z
+λ ¼  þ iλ;
+2
+
+−
+0 þ
+Xs ðλÞ ¼ τ−1
+s ðλÞfT s ðzλ ÞT s ðzλ Þg;
+
+ð16Þ
+
+with T 0s ðzÞ ≡ ∂ z T s ðzÞ and f•g denoting the traceless
+part. The normalization reads τs ðλÞ ¼ f½−ðs þ 12Þη þ iλ ×
+f½ðs þ 12Þη þ iλ with fðzÞ ¼ ½sinhðzÞ= sinhðηÞN . In [31] it
+was shown for the isotropic case that these charges are
+quasilocal for all s ¼ 12 ; 1; 32 ; …, and λ ∈ R. A rigorous proof
+for general Δ > 1 is currently under construction [46].
+A central piece of our work is the extraction of the
+thermodynamically leading part of the quasilocal charges
+fXs g∞
+s¼1=2 when operating on an arbitrary Bethe state. It
+proves useful to resort to the so-called fusion relations
+[47–50] (T-system) for higher-spin transfer matrices,
+
+ 
+
+ 
+   
+ 
+η
+η
+1
+1
+Ts z þ Ts z −
+¼f zþ sþ η f z− sþ η
+2
+2
+2
+2
+þ T s−1=2 ðzÞT sþ1=2 ðzÞ;
+
+ð17Þ
+
+with the initial condition T 0 ðzÞ ≡ fðzÞ. There exists a closedform solution to the above recurrence relation in terms of
+Baxter’s Q-operators [48]
+  
+
+ 
+
+
+1
+1
+T s ðzÞ ¼ Q z þ s þ η Q z − s þ η
+2
+2
+×
+
+2s
+X
+
+f½z þ ðl − sÞη
+:
+Q½z þ ðl − s − 12ÞηQ½z þ ðl − s þ 12Þη
+l¼0
+ð18Þ
+
+The eigenvalues of the Q-operators [in what follows, in
+view of commutations ½T s ðz1 Þ; Qðz2 Þ ¼ 0 ∀s, zi ∈ C, we
+slightly abuse notation by using the same symbol for an
+operator and its eigenvalue]
+are determined by the position of
+Q
+Bethe roots, QðzÞ ¼ M
+sinh
+ðz þ iλk Þ. A key observation
+k¼1
+is that, in the thermodynamic limit, the spin-s transfer matrix
+evaluated at z−λ (zþ
+λ ) is simply given by the l ¼ 0 (l ¼ 2s)
+term in the sum in Eq. (18). This then gives
+
+
+ 
+1
+Qð∓sη þ iλÞ
+η
+þ
+iλ
+:
+Þ
+¼
+lim
+f
+
+s
+þ
+lim T s ðz
+λ
+th
+th
+2
+Qðsη þ iλÞ
+ð19Þ
+−
+The latter analysis is consistent with limth τ−1
+s ðλÞT s ðzλ Þ×
+þ
+T s ðzλ Þ ¼ 1, representing a thermodynamic version of an
+inversion identity (see [31]) that can be proven in an entirely
+operatorial way, without making reference to the Bethe
+eigenstates. At this point it is convenient to define modified
+conserved operators
+ð−Þ
+
+ðþÞ0
+
+X̂s ðλÞ ¼ T s ðz−λ ÞT s
+ðÞ
+
+ðzþ
+λ Þ;
+
+ð20Þ
+
+whereT s ðzÞ havethesamestructureasinEq.(15)butinvolve
+L-operators, LðÞ ðz; sÞ ¼ Lðz; sÞ sinhðηÞ=½sinh ðz  sηÞ. In
+the thermodynamic limit a quasilocal conserved operator
+
+157201-3
+
+PRL 115, 157201 (2015)
+
+PHYSICAL REVIEW LETTERS
+
+X̂s ðλÞ only differs from Xs ðλÞ by a multiple of identity,
+X̂s ðλÞ ¼ Xs ðλÞ þ ts ðλÞ1, with ts ðλÞ ¼ ½2s=ð2s þ 1Þ×
+fsinh ½ð2s þ 1Þη=½sinh2 ðηÞgτ−1
+s ðλÞ. We can now define a
+two-parameter family of conserved charges
+1
+ðnþ1Þ
+Hs
+¼ ∂ nλ X̂s ðλÞjλ¼0 :
+ð21Þ
+n!
+ðnÞ
+ðmÞ
+ðnÞ
+By construction we have ½Hs ; Hs0  ¼ 0 and fH1=2 g∞
+n¼1
+precisely recover the ultralocal conservation laws from Eq. (7).
+We are thus in a position to define the density matrix of our
+GGE. It is given by
+ X
+
+∞
+1
+ðnÞ
+ϱ̂GGE ¼ exp −
+ð22Þ
+βsn Hs=2 ;
+Z
+n;s¼1
+where the Lagrange multipliers βsn are fixed by initial conditionsgivenbyEq.(4).OurassertionisthatEq.(22)providesa
+correct description of the stationary behavior after a general
+quench to the spin-1=2 XXZ chain (in the regime Δ ≥ 1). In
+ordertoprovethis it suffices toestablishthat the initial values of
+our conserved charges uniquely specify a macrostate.
+Let us now derive the main result of our Letter.
+Analogously to what was found in [21,32] for the ultralocal
+charges, the values of the quasilocal charges associated
+with a spin-s transfer matrix are in one-to-one correspon0
+dence with functions ρΨ
+2s;h ðλÞ, which in turn specify (see
+Supplemental Material [37]) a unique macrostate (namely,
+the GGE saddle-point state).
+Our starting point is the following expression for the
+spectrum of fX̂s g∞
+s¼1=2 , valid for the large system size
+[cf. Eq. (19)]:
+X̂s ðλÞ ¼ −i∂ λ log
+¼
+
+Qð−sη þ iλÞ
+þ oðNÞ
+Qðsη þ iλÞ
+
+M
+X
+
+2 sinh ð2sηÞ
+þ oðNÞ:
+cos½2ðλk þ λÞ − coshð2sηÞ
+k¼1
+
+ð23Þ
+
+Starting from Eq. (23), working in the thermodynamic limit
+under the string hypothesis and making use of Bethe
+equations, one arrives at (see Supplemental Material [37])
+
+
+
+
+
+1
+iη
+iη
+Ψ0
+Ψ0
+0
+ρΨ
+λ
+þ
+λ
+−
+Ω
+þ
+Ω
+;
+ðλÞ
+¼
+a
+ðλÞ
+þ
+s
+s
+2s
+2s;h
+2π
+2
+2
+ð24Þ
+where s ¼ 12 ; 1; 32 ; …, The right-hand side of Eq. (24) is
+determined by the expectation values of the quasilocal
+charges on the initial state,
+0
+ΩΨ
+s ðλÞ ¼ lim
+
+th
+
+hΨ0 jX̂s ðλÞjΨ0 i
+:
+N
+
+ð25Þ
+
+This is a generalization of Eq. (10) to arbitrary spin. Note
+the remarkable fact that this correspondence is valid for a
+generic initial state jΨ0 i. As a consequence, the family of
+quasilocal charges fX̂s g∞
+s¼1=2 completely determines the
+
+week ending
+9 OCTOBER 2015
+
+FIG. 1 (color online). Comparison of methods: QA method
+versus improved GGE predictions. Colored lines pertain to the
+refined GGE calculation with the systematic addition of higherðnÞ
+spin families of quasilocal charges fHs g for the local correlation
+z z
+function hσ 1 σ 3 i in the regime Δ ≳ 1 (left panel). Labels in GGEs̄
+ðnÞ
+indicate the maximal auxiliary spin s̄ for the charges fHs g being
+included in the GGE computation. The right panel displays the
+relative differences δhσz1 σz3 i ¼ ðhσ z1 σ z3 iQA − hσ z1 σ z3 iGGEs̄ Þ=hσ z1 σ z3 iQA
+in logarithmic scale. We used the mapping between correlation
+functions and the set of densities ρ given in [51].
+
+postquench stationary state through the GGE and gives the
+latter’s predictions identical to those coming from the QA.
+Néel quench.—An explicit example of our construction
+is provided by the quench from the Néel state
+1
+jΨ0 i ¼ pﬃﬃﬃ ðj↑↓↑↓   i þ j↓↑↓↑   iÞ:
+ð26Þ
+2
+Here the root distributions characterizing the stationary
+state have been previously determined by a QA calculation
+[21,32]. In order to demonstrate that our GGE recovers
+these known results we need to compute the generating
+functions, Eq. (25). Here we can repeat the logical steps
+from the calculation for s ¼ 1=2 in [18,20] by studying the
+spectrum of associated auxiliary transfer matrices. This
+calculation can be found in the Supplemental Material [37].
+Substituting the results obtained in this way into Eq. (24)
+gives perfect agreement with the known QA results.
+Towards a truncated GGE.—In [10] it was argued that for
+the purpose of describing finite subsystems in the thermodynamic limit ultralocal GGEs can be truncated by retaining
+only a finite number of the “most local” conserved charges.
+An obvious question is whether a similar logic can be applied
+to our quasilocal GGE. As a first step towards understanding
+this issue, we have calculated the next-nearest spin correlation function in the steady state after a Néel-to-XXZ quench
+for several GGEs truncated in the s direction. In Fig. 1 we
+show the results of these calculations for Δ ≳ 1. The data
+clearly show that adding subsequent families of quasilocal
+charges results in a rapid convergence of the corresponding
+truncated GGE result to the exact value.
+Conclusions.—We have shown how to construct an exact
+GGE describing the stationary state after generic quantum
+quenches to the spin-1=2 Heisenberg XXZ chain. Our GGE
+is built from an extended set of local and quasilocal
+charges. We have shown that our construction resolves
+
+157201-4
+
+PRL 115, 157201 (2015)
+
+PHYSICAL REVIEW LETTERS
+
+previously observed discrepancies between predictions for
+steady-state expectation values by an exact QA treatment
+on the one hand, and a GGE restricted to ultralocal charges
+obtained from the transfer matrix of the spin-1=2 chain on
+the other hand. Our results provide unambiguous proof that
+the recently discovered quasilocal charges have a nonnegligible impact on the relaxation processes of strongly
+interacting many-body quantum systems in one dimension.
+We warmly acknowledge discussions with M.
+Brockmann and thank him for a careful reading of the
+manuscript. B. W., J. D. N., and J. S. C. acknowledge support from the Foundation for Fundamental Research on
+Matter (FOM) and the Netherlands Organisation for
+Scientific Research (NWO). F. H. L. E. is supported by
+the EPSRC under Grants No. EP/J014885/1 and No. EP/
+I032487/1. This work forms part of the activities of the
+Delta Institute for Theoretical Physics (D-ITP). T. P.
+acknowledges support by Grants No. P1-0044, No. N10025, and No. J1-5439 of the Slovenian Research Agency.
+
+[1] M. Rigol, V. Dunjko, V. Yurovsky, and M. Olshanii, Phys.
+Rev. Lett. 98, 050405 (2007).
+[2] M. Rigol, A. Muramatsu, and M. Olshanii, Phys. Rev. A 74,
+053616 (2006).
+[3] M. A. Cazalilla, Phys. Rev. Lett. 97, 156403 (2006).
+[4] P. Calabrese and J. Cardy, J. Stat. Mech. (2007) P06008.
+[5] M. Cramer, C. M. Dawson, J. Eisert, and T. J. Osborne,
+Phys. Rev. Lett. 100, 030602 (2008).
+[6] T. Barthel and U. Schollwöck, Phys. Rev. Lett. 100, 100601
+(2008).
+[7] D. Fioretto and G. Mussardo, New J. Phys. 12, 055015 (2010).
+[8] P. Calabrese, F. H. L. Essler, and M. Fagotti, Phys. Rev. Lett.
+106, 227203 (2011).
+[9] P. Calabrese, F. H. L. Essler, and M. Fagotti, J. Stat. Mech.
+(2012) P07016.
+[10] M. Fagotti and F. H. L. Essler, Phys. Rev. B 87, 245107
+(2013).
+[11] J.-S. Caux and R. M. Konik, Phys. Rev. Lett. 109, 175301
+(2012).
+[12] F. H. L. Essler, S. Evangelisti, and M. Fagotti, Phys. Rev.
+Lett. 109, 247206 (2012).
+[13] A. C. Cassidy, C. W. Clark, and M. Rigol, Phys. Rev. Lett.
+106, 140405 (2011).
+[14] J.-S. Caux and F. H. L. Essler, Phys. Rev. Lett. 110, 257203
+(2013).
+[15] M. Collura, S. Sotiriadis, and P. Calabrese, Phys. Rev. Lett.
+110, 245301 (2013).
+[16] G. Mussardo, Phys. Rev. Lett. 111, 100401 (2013).
+[17] B. Pozsgay, J. Stat. Mech. (2013) P07003.
+[18] M. Fagotti and F. H. L. Essler, J. Stat. Mech. (2013) P07012.
+[19] M. Kormos, A. Shashi, Y.-Z. Chou, J.-S. Caux, and A.
+Imambekov, Phys. Rev. B 88, 205131 (2013).
+[20] M. Fagotti, M. Collura, F. H. L. Essler, and P. Calabrese,
+Phys. Rev. B 89, 125101 (2014).
+[21] B. Wouters, J. De Nardis, M. Brockmann, D. Fioretto, M.
+Rigol, and J.-S. Caux, Phys. Rev. Lett. 113, 117202 (2014).
+
+week ending
+9 OCTOBER 2015
+
+[22] B. Pozsgay, M. Mestyán, M. A. Werner, M. Kormos, G.
+Zaránd, and G. Takács, Phys. Rev. Lett. 113, 117203 (2014).
+[23] M. Kormos, M. Collura, and P. Calabrese, Phys. Rev. A 89,
+013609 (2014).
+[24] J. De Nardis, B. Wouters, M. Brockmann, and J.-S. Caux,
+Phys. Rev. A 89, 033601 (2014).
+[25] S. Sotiriadis and P. Calabrese, J. Stat. Mech. (2014) P07024.
+[26] F. H. L. Essler, G. Mussardo, and M. Panfil, Phys. Rev. A
+91, 051602 (2015).
+[27] M. Mestyán, B. Pozsgay, G. Takács, and M. A. Werner,
+J. Stat. Mech. (2015) P04001.
+[28] V. E. Korepin, N. M. Bogoliubov, and A. G. Izergin,
+Quantum Inverse Scattering Method and Correlation
+Functions (Cambridge University Press, Cambridge, 1993).
+[29] B. Pozsgay, J. Stat. Mech. (2014) P09026.
+[30] G. Goldstein and N. Andrei, Phys. Rev. A 90, 043625
+(2014).
+[31] E. Ilievski, M. Medenjak, and T. Prosen, Phys. Rev. Lett.
+115, 120601 (2015).
+[32] M. Brockmann, B. Wouters, D. Fioretto, J. D. Nardis,
+R. Vlijm, and J.-S. Caux, J. Stat. Mech. (2014) P12009.
+[33] H. Bethe, Z. Phys. 71, 205 (1931).
+[34] R. Orbach, Phys. Rev. 112, 309 (1958).
+[35] M. Gaudin, La Fonction d’Onde de Bethe (Masson, Paris,
+1983) translated by [J.-S. Caux, The Bethe Wavefunction
+(Cambridge University Press, Cambridge, 2014)].
+[36] M. Takahashi, Thermodynamics of One-Dimensional Solvable Models (Cambridge University Press, Cambridge, 1999).
+[37] See Supplemental Material at http://link.aps.org/
+supplemental/10.1103/PhysRevLett.115.157201 for technical details on the Thermodynamic Bethe Ansatz equations
+and generalizations thereof involving descriptions for the
+GGE and Quench Action methods, a derivation of an
+explicit relation between hole distributions and generating
+functions for quasilocal charges, a short explanation on the
+implementation of the truncated GGE as shown in Fig 1. and
+details on the computation of generating functions for a
+particular problem of the Neel quench.
+[38] J. Mossel and J.-S. Caux, J. Phys. A 45, 255001 (2012).
+[39] M. Brockmann, J. D. Nardis, B. Wouters, and J.-S. Caux,
+J. Phys. A 47, 145003 (2014).
+[40] T. Prosen, Phys. Rev. Lett. 106, 217206 (2011).
+[41] T. Prosen and E. Ilievski, Phys. Rev. Lett. 111, 057203
+(2013).
+[42] E. Ilievski and T. Prosen, Commun. Math. Phys. 318, 809
+(2013).
+[43] T. Prosen, Nucl. Phys. B886, 1177 (2014).
+[44] R. G. Pereira, V. Pasquier, J. Sirker, and I. Affleck, J. Stat.
+Mech. (2014) P09037.
+[45] M. Mierzejewski, P. Prelovšek, and T. Prosen, Phys. Rev.
+Lett. 114, 140601 (2015).
+[46] M. Medenjak, E. Ilievski, and T. Prosen (to be published).
+[47] V. V. Bazhanov, T. Łukowski, C. Meneghelli, and M.
+Staudacher, J. Stat. Mech. (2010) P11002.
+[48] V. V. Bazhanov and V. V. Mangazeev, Nucl. Phys. B775,
+225 (2007).
+[49] J. Suzuki, J. Phys. A 32, 2341 (1999).
+[50] A. Klümper and P. A. Pearce, Physica (Amsterdam) 183A,
+304 (1992).
+[51] M. Mestyán and B. Pozsgay, J. Stat. Mech. (2014) P09020.
+
+157201-5
+
+

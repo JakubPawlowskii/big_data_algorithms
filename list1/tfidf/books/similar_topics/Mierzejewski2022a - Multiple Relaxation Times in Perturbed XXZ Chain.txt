@@ -1,0 +1,1289 @@
+SciPost Phys. 13, 013 (2022)
+
+Multiple relaxation times in perturbed XXZ chain
+Marcin Mierzejewski1 , Jakub Pawłowski1 , Peter Prelovšek2,3 and Jacek Herbrych1?
+1 Department of Theoretical Physics, Faculty of Fundamental Problems of Technology,
+Wrocław University of Science and Technology, 50-370 Wrocław, Poland
+2 Jožef Stefan Institute, SI-1000 Ljubljana, Slovenia
+3 Faculty of Mathematics and Physics, University of Ljubljana, SI-1000 Ljubljana, Slovenia
+? jacek.herbrych@pwr.edu.pl
+
+Abstract
+We numerically study the relaxation of correlation functions in weakly perturbed integrable XXZ chain. The decay of the spin-current and the energy-current correlations
+at zero magnetization are well described by single, but quite distinct, relaxation rates
+governed by the square of the perturbation strength g . However, at finite magnetization
+a single correlation function reveals multiple relaxation rates. The result can be understood in terms of multi-scale relaxation scenario, where various relaxation times are
+linked with various quantities which are conserved in the reference integrable system.
+On the other hand, the correlations of non-commuting quantities, being conserved at
+particular anisotropies ∆, decay non-exponentially with characteristic time scale linear
+in g .
+Copyright M. Mierzejewski et al.
+This work is licensed under the Creative Commons
+Attribution 4.0 International License.
+Published by the SciPost Foundation.
+
+Received 15-12-2021
+Accepted 22-07-2022
+Check for
+updates
+Published 05-08-2022
+doi:10.21468/SciPostPhys.13.2.013
+
+Contents
+1 Introduction
+
+2
+
+2 Relaxation of spin and energy currents
+
+3
+
+3 Memory-function analysis of the energy-current correlations
+
+6
+
+4 Dependence on the form of perturbation
+
+7
+
+5 Non-commuting conserved quantities and their non-exponential relaxation
+
+8
+
+6 Conclusions
+
+11
+
+References
+
+12
+
+1
+
+SciPost Phys. 13, 013 (2022)
+
+1
+
+Introduction
+
+Integrable quantum many-body systems attract a lot of attention due to their unique properties,
+as well as due to development of new analytical and numerical tools to deal with them (for
+a recent review see Ref. [1]). The crucial role in the behavior of such systems is played by
+the presence of extensive number of local and/or quasilocal conserved quantities (CQ), which
+have important consequences for the (lack of) relaxation of observables and for the transport
+properties. The latter consequences are formally expressed via the Mazur bounds which relate
+the long-time correlations (stiffness) of observables with their projections on the local CQ
+(charges) [2, 3]. However, the microscopic models are integrable only for fine-tuned sets of
+parameters, while more realistic systems might be described in terms of nearly integrable
+(NI) models which contain small but non-vanishing perturbation that breaks the integrability
+[4, 5]. An important question concerns the details of the integrability breaking, in particular
+whether the asymptotic dynamics becomes consistent with the generic dissipative diffusivetype transport [6–8]. So far, the properties of NI models are better understood at intermediate
+time-scales, when the dynamics resembles that of integrable models, the phenomenon known
+as prethermalization [9–11].
+The problem of asymptotic dynamics of NI models at long time scales [12, 13] appears to
+be more complex. It has been argued that the time evolution can be accurately described as the
+generalized Gibbs enseble [14, 15] with the time-dependent Lagrange parameters [16]. Several analytical and numerical studies have demonstrated that breaking of integrability leads to
+exponential relaxation of typical observables and that the corresponding relaxation rates scale
+quadratically with the strength of the perturbation [12, 17–20]. Description of NI models
+within the framework of generalized hydrodynamics (GHD) [21–25] seems also demanding,
+since the generic integrability-breaking processes involve large momenta transfers [26, 27].
+Nevertheless, recent results suggest that arbitrarily weak perturbation applied to a macroscopic integrable system restores the generic chaotic (dissipative) dynamics [28]. Still, more
+detailed understanding or even theoretical analysis of the relaxation of different quantities in
+NI systems is mostly lacking so far.
+In this work we numerically study relaxation of several operators in a NI XXZ model, employing the microcanonical Lanczos method (MCLM) [29–31] which allows to reach longenough times even for NI model. In particular, we confirm that both spin-current and energycurrent decay exponentially in time with relaxation rates that scale quadratically with the
+strength of perturbation. However, the energy-current relaxation rate turns out to be much
+smaller than the relaxation rate for the spin current. The presence of distinct relaxation times
+is consistent with the predictions of GHD [26, 27]. This result can be simply explained by
+single (but different for both quantities) local/quasilocal CQ (charges) involved in the relaxation process [19]. Still even in this case, a more detailed analysis using the memory-function
+indicates a weak contribution of other CQ from the same symmetry sector. Moreover, we can
+construct a single observable that clearly reveals multiple relaxation rates or, in other words,
+that its relaxation cannot be described by a single exponential function. We confirm the latter
+possibility studying relaxation of current correlations in sectors with small magnetization, i.e.,
+z
+with non-zero total spin Stot
+6= 0. Results in this case can be explained with a projection on the
+decay of several CQ with different relaxation times. Furthermore, we find that the relaxation
+explicitly depends on the form and the symmetry of the perturbation.
+Finally, we study the weakly perturbed XXZ model for the specific values anisotropy parameters, ∆, when the many-body spectra are macroscopically degenerate. Such degeneracy
+z
+in the integrable model allows for additional local CQ which do not commute with Stot
+or with
+other local CQ [32]. It is the case, e.g., for the anisotropy parameter ∆ = 0.5 which we use in
+x
+the present work. However, the simplest example can be studied for ∆ = 1, where Stot
+is con2
+
+SciPost Phys. 13, 013 (2022)
+
+z
+served and but does not commute with Stot
+. Upon introducing a perturbation, the correlation
+z
+functions of quantities which do not commute with Stot
+show - instead of exponential decay
+- an approximately Gaussian decay with the characteristic relaxation time that scales linearly
+with the perturbation strength.
+
+2
+
+Relaxation of spin and energy currents
+
+We consider the one-dimensional XXZ chain with L sites assuming periodic boundary conditions, with a specific perturbation involving the next-nearest-neighbor interaction
+X
+X
+
+J + −
++
+z
+z
+H = H0 + g H 0 , H0 =
+hi , hi =
+Si Si+1 + Si− Si+1
++ J∆Siz Si+1
+, H0 = J
+Siz Si+2
+, (1)
+2
+i
+i
+where S ±,z are spin- 12 operators. The model is integrable for g = 0 and the integrability is
+broken for g 6= 0. In this section we study the relaxation of the spin current, jσ , as well as of
+the energy current, jκ , obtained for the unperturbed system
+X
+X
+jσ = i
+l[hl 0 , Slz ] ,
+jκ = i
+l[hl 0 , hl ] ,
+(2)
+l,l 0
+
+l,l 0
+
+for which we calculate the corresponding normalized current-current correlation functions
+Cσ (t) =
+
+〈 jσ (t) jσ 〉
+,
+〈 jσ jσ 〉
+
+Cκ (t) =
+
+〈 jκ (t) jκ 〉
+.
+〈 jκ jκ 〉
+
+(3)
+
+We focus on the result for large (infinite) temperature T = 1/β  J. Here, 〈. . . 〉 = Tr(. . . )
+z
+denotes averaging either over the canonical ensemble with fixed Stot
+(in Secs. 2-4) or grandiH t
+−iH t
+canonical ensemble (in Sec. 5), and jα (t) = e jα e
+. Note that Cσ (t) and Cκ (t) are related
+via the Fourier transform to the dynamical spin conductivity, σ(ω) = β〈 jσ jσ 〉C̃σ (ω), and the
+thermal conductivity, κ(ω) = β 2 〈 jκ jκ 〉C̃κ (ω), respectively.
+For the numerical evaluation of the spectral functions C̃α (ω), on systems up to L = 28
+sites, we use the MCLM which allows for very high frequency resolution, δω ® 10−3 J, and
+consequently enables evaluation of Cα (t) up to t ® t max ∼ 103 /J. Reaching large t max J  1
+is crucial to follow the slow relaxation at weak perturbations, g  1, and to resolve possible
+distinct relaxation times. This is achieved within MCLM by using large number of Lanczos
+steps M L ∼ 5.104 . In the following, we numerically calculate canonical Cα (t), i.e., in sectors
+z
+with fixed total spin projections Stot
+. Large but finite M L also sets the smallest reliable value
+−3
+of Cα (t) ¦ 2.10 .
+As a first step, we establish the range of the perturbation strength, g, which is relevant for
+NI systems. On the one hand, g should be small to remain a perturbation but, on the other
+hand, g should be sufficiently large so that the effective mean-free path is smaller then the
+system size (L ≤ 28). The latter requirement means that the accessible system sizes impose
+lower bounds on the accessible values of g. Since we are not able to directly evaluate the meanfree path, we use the range of parameters for which the decay of the correlation functions
+does not reveal any significant L dependence but also exhibits a clear quadratic dependence
+on g [12, 19, 20]. Main panels in Fig. 1(a,b) show, respectively, Cσ (t) and Cκ (t) within the
+z
+sector Stot
+= 4 for various g = 0.1 − 0.4, whereas the time in the insets is rescaled by g 2 . For
+0.15 ≤ g ≤ 0.3 we observe a perfect collapse of all curves, whereas the latter collapse is worse
+for weaker g indicating that the effective mean-free path becomes larger than the systems size.
+Therefore from now on, we set g = 0.15.
+In Fig. 2(a) we directly compare the relaxation of spin and energy currents Cα (t) at zeroz
+magnetization, Stot
+= 0. Here, H is invariant under the Z2 spin-flip transformation, generated
+3
+
+Current-current correlation Cα (t)
+
+SciPost Phys. 13, 013 (2022)
+
+g = 0.10, 0.15, . . . , 0.40
+
+100
+
+g = 0.10, 0.15, . . . , 0.40
+
+10−1
+
+10−1
+
+10−3
+
+10−1
+10−2
+
+10−2
+0
+
+t Jg 2
+
+10−3
+
+25
+
+0
+
+(a) spin α = σ
+
+10−2
+
+0
+
+200
+
+400
+
+600
+
+800
+
+t Jg 2
+
+25
+
+(b) energy α = κ
+
+1000 0
+
+200
+
+Time t J
+
+400
+
+600
+
+800
+
+1000
+
+Time t J
+
+Figure 1: Normalized correlation functions Cα (t) for (a) spin current jσ and (b)
+z
+energy current jκ , respectively, in Stot
+= 4 sector, calculated for L = 28 and ∆ = 0.5.
+Insets: the same as in main panels but with the time t rescaled by the square of the
+perturbation strength g 2 .
+
+Current-current correlation Cα (t)
+
+100
+
+spin α = σ
+energy α = κ
+∝ exp(−t/τα0 )
+
+10−1
+
+spin α = σ
+energy α = κ
+
+10−2
+z = 2
+(b) Stot
+
+z = 0
+(a) Stot
+
+100
+
+spin α = σ
+energy α = κ
+∝ exp(−t/τα4 )
+
+10−1
+
+spin α = σ
+energy α = κ
+∝ exp(−t/τα6 )
+
+10−2
+z = 4
+(c) Stot
+
+0
+
+200
+
+z = 6
+(d) Stot
+
+400
+
+600
+
+800
+
+1000 0
+
+Time t J
+
+200
+
+400
+
+600
+
+800
+
+1000
+
+Time t J
+
+z
+Figure 2: Correlation functions Cα (t) in sectors with various Stot
+. Dashed curves in
+z
+(a) depict exponential fits for α = jσ , jκ at s = Stot = 0, while in (c,d) for s 6= 0 only
+long-time fits are presented. Calculated for L = 28, ∆ = 0.5, and g = 0.15.
+
+Q
+by the parity operator, P = J (S +j +S −j ). Since the spin/energy current is odd/even under this
+transformation, P jσ P = − jσ and P jκ P = jκ , in this sector both currents are mutually orthogonal, i.e., 〈 jσ jκ 〉 = 0. Consequently, relaxation of both correlations are evidently different. At
+longer times, t J > 100, the decays do not show any clear deviations from simple exponential,
+Cα (t) ∝ exp(−t/τ0α ), α = σ, κ, where the upper index in the relaxation times, τsα , marks
+z
+the value of s = Stot
+. Nevertheless, it is clear that the relaxation of jσ is much faster than
+0
+0
+that of jκ , τσ ' 3τκ , confirming that the breaking of integrability leads to multiple distinct
+relaxation times, here due to different symmetry sectors involved. The evident differences
+are also at short times t. Since jσ is not CQ in the reference H0 , there is an incoherent drop
+to Cσ0 ∼ 0.5 at t J ∼ O(1), reflecting the nontrivial spin stiffness [3] and finite overlap with
+quasilocal CQ [33, 34]. On the other hand, jκ is CQ at g = 0, so one might expect a single
+exponential decay in the whole range of t. To good approximation this is indeed the case, but
+4
+
+SciPost Phys. 13, 013 (2022)
+
+there is still some visible deviation at t J < 100 about which we comment in more detail in
+Sec. 3.
+More challenging question is whether distinct relaxation rates can be observed in the dyz
+namics of a single observable. This might happen when we consider Stot
+6= 0 sectors where
+the above symmetry arguments do not apply. In Figs. 2(b-d) we show that a departure from a
+z
+simple exponential relaxation becomes increasingly visible for Stot
+6= 0, when also 〈 jσ jκ 〉 =
+6 0.
+z
+Figs. 2(c,d) for Stot = 4, 6 confirm that for longest t J > 500 the relaxation is asymptotically
+z
+determined by the same τsκ for both currents, while Stot
+= 2 case on Fig. 2(b) is marginal due
+to fast decay of Cσ (t) (and the limitation Cσ (t) > 2.10−3 ). Nevertheless, both correlation
+functions, and in particular Cσ (t), reveal a clear deviation from a single-exponential decay.
+The modest dependence of τsκ on s, as extracted from Fig. 2(a-d), is shown in Fig. 3(a).
+More importantly, our analysis indicate that one can fit the decay of correlations Cα (t) for
+z
+Stot
+> 0 by a sum of two exponential functions with distinct relaxation rates τsκ , τsσ . This is
+shown in Fig. 3(b,c) for Cσ (t), but also for Cκ (t) in Fig. 3(d). It is indicative that the fit is
+consistent with only two relaxation times for both correlations, i.e., with longer relaxation rate
+τsκ still weakly dependent on s as given in Fig. 3(a), and much faster τsσ ∼ τ0σ which we can
+approximate just with the s = 0 result for Cσ (t) in Fig. 2(a).
+100
+
+500
+
+spin α = σ
+∝ exp(−t/τσ0 )
+∝ exp(−t/τκ0 )
+∝ a exp(−t/τσ0 ) + b exp(−t/τκ0 )
+
+400
+10−1
+
+300
+
+z = 2 spin relaxation
+(b) Stot
+
+200
+10−2
+(a) energy current α = κ relaxation times
+
+100
+0
+0
+
+2
+
+4
+
+6
+
+0
+
+200
+
+z
+Magnetization Stot
+
+100
+
+10−2
+
+1000
+
+energy α = κ
+∝ exp(−t/τσ0 )
+∝ exp(−t/τκ4 )
+∝ a exp(−t/τσ0 ) + b exp(−t/τκ4 )
+
+spin relaxation
+200
+
+800
+
+z = 4 energy relaxation
+(d) Stot
+
+z = 4
+(c) Stot
+
+0
+
+600
+
+Time t J
+
+spin σ̃
+∝ exp(−t/τσ0 )
+∝ exp(−t/τκ4 )
+∝ a exp(−t/τσ0 ) + b exp(−t/τκ4 )
+
+10−1
+
+400
+
+400
+
+600
+
+800
+
+1000 0
+
+Time t J
+
+200
+
+400
+
+600
+
+800
+
+1000
+
+Time t J
+
+Figure 3: (a): Relaxation time for the energy current obtained from long-time fits
+marked by dashed lines in Fig. 2. (b,c): Continuous line shows spin-current Cσ (t)
+z
+z
+for Stot
+= 2, 4, respectively, while (d) energy-current Cκ (t) for Stot
+= 4. The results
+in (b,d) are fitted by a sum of two exponential functions (dashed, green curves) with
+the relaxation times τsκ as in panel (a), and τsσ = τ0σ . Calculated for L = 28, ∆ = 0.5,
+and g = 0.15.
+
+The above results may serve as a motivation for a simple phenomenological description.
+The value of the correlation functions for t → ∞ in the integrable model, g = 0, is determined
+via the Mazur bound [2, 3] by the projections of the studied operators on local/quasilocal CQ
+[33–39] Q n , which should be chosen as mutually orthogonal 〈Q nQ n0 〉 ∝ δn,n0 in the canonical
+z
+ensemble with fixed Stot
+. Assuming the completeness (saturation) of the bound, this means
+
+5
+
+SciPost Phys. 13, 013 (2022)
+
+for considered correlations,
+Cα (t → ∞) = Cα0 =
+
+1 X 〈 jαQ n 〉2
+,
+〈 jα jα 〉 n 〈Q nQ n 〉
+
+(4)
+
+where the term 〈 jα jα 〉−1 arises from normalization in Eq. (3). Eq. (4) is invariant under the
+orthogonal transformation of normalized CQ
+Qn
+p
+
+〈Q nQ n 〉
+
+=
+
+X
+s
+
+
+Qs
+Ô ns p
+,
+〈Q s Q s 〉
+
+(5)
+
+where Ô is arbitrary orthogonal matrix. In NI system, Q n are not any more CQ and decay
+with the characteristic times ∝ g 2 . Based on the results in Fig. 3(b-d) and previous numerical
+studies in Ref. [19], we conjecture that projections on Q n are essential also for the asymptotic
+dynamics in NI models,
+Cα (t  J
+
+−1
+
+
+
+t
+1 X 〈 jαQ n 〉2
+exp −
+,
+)'
+〈 jα jα 〉 n 〈Q nQ n 〉
+τn
+
+(6)
+
+where τn ∝ 1/g 2 . It should be, however, stressed that in contrast to Eq. (4) the appropriate
+set of Q n in Eq. (6) is not arbitrary, but determined by the perturbation [5,17,27]. A numerical
+algorithm for identifying such modes has been discussed in Ref. [19]. It amounts in finding
+eigenvector of the matrix MAB = 〈A(t)B〉 calculated in the long-time regime, t  1, for a set of
+local orthogonal operators, A and B. Since the number of local operators supported on M sites
+grows exponentially with M , this method is numerically demanding. Additionally, it requires
+full diagonalization of the Hamiltonian hence it is applicable only to small systems. Therefore
+in this work, we do not attempt to determine relevant Q n in more detail.
+z
+However, for Stot
+= 0 one can assume that one of Q n in Eq. (6) can be well approximated
+by jκ (being one of CQ in the reference system), which explains nearly perfect exponential
+decay of Cκ (t) in Fig. 2(a), even though a small correction might be needed (as tested in more
+detail in Sec. 3). It is well known [3] that in the integrable model (g = 0) the spin-current
+z
+z
+stiffness, Cσ0 , is nonzero for Stot
+= 0 provided that ∆ < 1. Since 〈 jσ jκ 〉 = 0 for Stot
+= 0, Q n
+0
+that are relevant for the decay time τσ have to be related to the quasilocal CQ [19,33,34,40].
+z
+On the other hand, for nonzero Stot
+, we clearly need at least two distinct relaxation times
+s
+s
+τκ , τσ to fit both decays, Cα (t). The necessity of multiple relaxation times is most evident for
+z
+z
+Cσ (t) at Stot
+= 2, 4 presented on Fig. 3(b-c). Upon changing Stot
+, one has also to modify τsκ ,
+z
+as suggested by the results in Fig. 3(a), while the dependence of τsσ on Stot
+is less evident, so
+s
+0
+we can approximate τσ ∼ τσ . In Fig. 3(d) we show that Cκ (t) can also be well fitted by a sum
+of two exponential functions, with the very same relaxation times which are used for fitting
+Cσ (t) in Fig. 3(c). This indicates that the same pair of Q n is relevant for the decay of the spin
+z
+and the energy currents for Stot
+6= 0.
+
+3
+
+Memory-function analysis of the energy-current correlations
+
+It is desirable to have more explicit way to evaluate the long-time decay of correlations, Cα (t),
+for chosen perturbations H 0 , and in particular a direct expression for relevant relaxation rates
+1/τn . Here, it is convenient to follow the Mori formalism [41,42], where one can generally express the current-correlation relaxation function φα (ω) in terms of the corresponding memory
+
+6
+
+SciPost Phys. 13, 013 (2022)
+
+functions (MF), Mα (ω),
+φα (ω) =
+χα (ω) =
+
+ χα (ω) − χα0
+−χα0
+1
+−1
+jα =
+jα [L − ω]
+=
+,
+L
+ω
+ω + Mα (ω)
+Z∞
++
+i
+e iω t 〈[ jα† (t), jα ]〉dt ,
+χα0 = χα (0) > 0 ,
+L 0
+
+(7)
+
+Rβ
+where (A|B) = 1/L 0 dτ〈AB(iτ)〉. At high temperatures, β → 0, β C̃α (ω) = Imφα (ω) and
+χα0 = β〈 jα jα 〉. Knowing numerical result for C̃α (ω) at finite g, one can evaluate (via KramersKronig relation) the complex φα (ω), extract directly the corresponding complex MF, Mα (ω),
+and in particular the dynamical relaxation rate Γα (ω) = Im Mα (ω).
+On the other hand, for a NI system one can find an explicit expression in the case where
+the current is a CQ in the reference system [17,19]. This is particularly the case for the energy
+current, [H0 , Q 3 ] = [H0 , jκ ] = 0. Then, within the lowest order in the perturbation g  1 one
+can approximate MF as
+Mκ (ω) =
+
+1
+Nκ (ω) ,
+χα0
+
+Nκ (ω) = g 2 (F |[L − ω]−1 |F ) ,
+
+F = [H 0 , jκ ] ,
+
+(8)
+
+i.e., as the correlation function of the the force F in the unperturbed - integrable system. Eq. (8)
+is derived under the assumption that only a single charge Q 3 = jκ is relevant for the decay, as
+z
+well as that F has no overlap with any of Q n . This can be true for the sector with Stot
+= 0 and
+0
+can be directly tested for operator F for the particular H in Eq. (1),
+X
+
+ z
+
+z
+z
+z
+z
+z
+i+1 z
+,
+(9)
+Si+3 − Si+2
++ Si−1
+− ∆Tii+1 Si+2
+− Si−3
+Si Si+3
+F =i
+Ti−1
+i
+z
+with Til = (Sl+ Si− +H.c.)/2. Due to the parity symmetry at Stot
+= 0, the above F appears orthogonal to known local/quasilocal CQ. We can then evaluate numerically Mκ (ω) as the correlation
+z
+of F in the reference H0 system. The MCLM result for Γκ (ω)/g 2 at Stot
+= 0 is presented in
+Fig. 4, both as extracted directly via Eq. (7) from C̃κ (ω) for various finite g = 0.1 − 0.4, as
+well as by calculating the result from Eq. (8) for the force given in Eq. (9). The overall agreement of perturbation result with the numerically extracted MF Γκ (ω)/g 2 , (being essentially
+g-independent) is very satisfactory in the whole ω regime [see the inset of Fig. 4(a)]. Still,
+at low ω/J < 0.4 there appears a visible difference. Partly responsible is the (apparently)
+singular contribution in perturbative Γκ0 = Γκ (ω → 0), which seems to indicate a small overlap
+with some CQ (possibly being a finite-size effect). Apart from that, also visible is a quantitative
+mismatch at ω → 0 which indicates that the relevant Q n in Eq. (6) is not just jκ , and consez
+quently also Eq. (8) is not a full description of relaxation. In other words, even for Stot
+=0
+more than a single mode is needed in Eq. (6) to properly describe Cκ (t).
+z
+In Fig. 4(b) we present Γκ (ω)/g 2 for fixed g = 0.15 but various Stot
+. It is indicative that
+z
+for ω/J > 0.15 the MF is essentially independent of Stot . On the other hand, the decrease of
+z
+Γκ0 = 1/τsκ with Stot
+reflects the observed increase of τsκ in Fig. 3(a). Still, it is not straightforward to capture this in a perturbative approach, Eq. (8).
+
+4
+
+Dependence on the form of perturbation
+
+In Sec. 2 we analysed a particular form of perturbation, i.e., the next nearest-neighbor interaction, Eq. (1), which does not break the translational symmetry or the spin parity P. This is
+also essential for the phenomenological explanation, Eq. (6), in terms of decaying CQ, as well
+7
+
+Memory function Γκ (ω)/g 2
+
+SciPost Phys. 13, 013 (2022)
+
+0.6
+Force-force
+z =0
+(a) Stot
+
+0.4
+0.6
+
+(b) g = 0.15
+
+0.3
+
+0.2
+
+0.0
+0.0
+0.0
+
+0
+0.2
+
+2
+
+4
+
+0.4
+
+0.6
+
+g = 0.10
+g = 0.15
+g = 0.20
+g = 0.25
+g = 0.30
+g = 0.35
+g = 0.40
+
+0.3
+0.2
+0.00
+1.0 0.0
+
+0.8
+
+Frequency ω/J
+
+0.2
+
+0.05
+0.4
+
+0.6
+
+z =0
+Stot
+z =2
+Stot
+z =4
+Stot
+z =6
+Stot
+
+0.8
+
+1.0
+
+Frequency ω/J
+
+Figure 4: Energy-current memory function (relaxation-rate), Γκ (ω), (a) extracted
+z
+directly from C̃κ (ω) for Stot
+= 0 with different perturbations g = 0.1−0.4, compared
+z
+with the perturbation result, Eqs. (8),(9), and (b) extracted for various Stot
+from
+C̃κ (ω) for fixed g = 0.15. Calculated for L = 28 and ∆ = 0.5.
+
+as for the MF analysis in Sec. 3. However, using numerical MCLM we can check also other
+perturbations. Let us consider as a perturbation
+X
+z
+z
+,
+(10)
+Si+2
+H 00 = J
+Siz Si+1
+i
+
+which breaks the parity symmetry, P, of the total Hamiltonian, H = H0 + g H 00 . Fig. 5 shows
+z
+current α = σ , κ correlation functions Cα (t) for Stot
+= 0. We observe exponential decay with
+2
+a single relaxation time τα ∝ 1/g , which is different from two distinct relaxation times obtained for the P-preserving H 0 , Eq. (1), i.e., the relaxation evidently depends on the form of
+perturbation. One may interpret this behavior in terms of conjecture, Eq. (6). All observables
+which have non-vanishing projection on Q n with the longest relaxation time should asymptotically decay with the same decay rate. In order to obtain different rate, one needs to build an
+operator that is strictly orthogonal to the latter Q n . It is highly nontrivial task, since approximate Q n in Eq. (6) can be obtained numerically only for small system. For the parity-preserving
+perturbations, the total Hamiltonian is even and all Q n in Eq. (6) have well defined parity being either odd or even. Then operators from one parity sectors are strictly orthogonal to Q n
+from the other parity sector. Due to this orthogonality we observe different relaxation times
+in odd and even sectors without any fine-tuning of the studied observables. However for odd
+perturbations, the total Hamiltonian contains even and odd terms, hence both parity sectors
+are mixed during the time evolution. As a consequence, Q n in Eq. (6) may not have well
+defined parity.
+
+5
+
+Non-commuting conserved quantities and their non-exponential
+relaxation
+
+In this section, we focus on specific values of the anisotropy parameter, ∆, where the manybody spectra exhibit additional massive degeneracies [31]. The latter originate from eigenz
+states corresponding to different Stot
+with equal energies. This property allows for the presence
+of non-commuting local/quasilocal CQ [32,43–45]. As a first example we take ∆ = 1 in which
+x
+case H0 is the SU(2)-symmetric Heisenberg chain for which one can study the total Stot
+spin
+operator
+X
+O1 =
+(S +j + S −j ) .
+(11)
+j
+
+8
+
+Current-current correlation Cα (t)
+
+SciPost Phys. 13, 013 (2022)
+
+100
+
+10−1
+
+α = σ even perturbation
+α = κ even perturbation
+α = σ odd perturbation
+α = κ odd perturbation
+
+10−2
+
+0
+
+200
+
+400
+
+600
+
+800
+
+1000
+
+Time t J
+
+Figure 5: Current correlation function Cα (t) for the perturbation, Eq. (10), breaking
+the parity symmetry P (odd perturbations), as compared with P-preserving perturbation Eq. (1) (even perturbations). Calculated for L = 28, ∆ = 0.5, g = 0.15, and
+z
+Stot
+= 0.
+
+It is clear that O1 is a local operator which commutes with H0 at ∆ = 1, but does not commute
+z
+with other local CQ, e.g., not with the Stot
+.
+The second nontrivial case is related with the commensurate ∆ = cos(π/3) = 1/2, for
+which the non-commuting local CQ have been derived (for g = 0) in Ref. [32]. Here, we
+study the relaxation of
+X
+(12)
+O3 =
+(−1) j (S +j−1 S +j S +j+1 + H.c.) ,
+j
+z
+which does not commute with Stot
+and is not invariant under translations by odd number of
+sites. It should be mentioned that analogous local operators
+exist for other commensurate
+P
+j + +
+cases, in particular for ∆ = cos(π/2) = 0, where O2 = j (−1) (S j S j+1 + H.c) is local CQ for
+H0 [45].
+In similarity to Eq. (3), we calculate normalized correlations functions C1 (t) and C3 (t) for
+the operators O1 and O3 , respectively. In contrast to the preceding section, now the averaging
+〈. . . 〉 is carried out over grand canonical ensemble. We note that O3 is similar to the previously
+studied spin-current jσ in the sense, that it does not commute with H0 , but has large projection
+on the corresponding quasilocal CQ [32]. In order to confirm this, in the inset in Fig. 6(c) we
+show the finite-size scaling of the relevant stiffness C̃3 (ω → 0+ , g = 0) (with value ' 0.4
+thermodynamic limit L → ∞). P
+Without imposing the translational symmetry, we studied all
+local non-commuting operators i (Ai + A†i ), where Ai are supported on up to 3 sites and do
+z
+not commute with Stot
+. Utilizing the alhorithm from Ref. [40], we have found (for ∆ = 1/2,
+g = 0 and L ≤ 14) that O3 has the largest stiffness out of all these operators (not shown).
+Next, we focus on the asymptotic decay of Cα (t), α = 1, 3, and their dependence on g 6= 0.
+To this end, we first calculate the Fourier transform, Cα (ω), and then its cumulative spectral
+function
+P
+Zω
+2
+mn θ (ω − |Em − En |)〈m|Oα |n〉
+0
+0
+P
+C̃α (ω, g) =
+dω Cα (ω ) =
+,
+(13)
+2
+mn 〈m|Oα |n〉
+−ω
+
+expressed in terms of eigenstates, H|n〉 = En |n〉, obtained using the exact diagonalization of
+H on up to L = 16 sites. We note that C̃1 (ω → 0+ , g = 0) = 1 (because O1 commutes with H0
+at ∆ = 1), whereas C̃3 (ω+ → 0, g = 0) ' 0.4. Since we are interested in the low-ω part of
+
+9
+
+SciPost Phys. 13, 013 (2022)
+
+1.0
+(b) O3 , ∆ = 0.5
+
+0.8
+
+(c) O3 , g = 0 ,
+∆ = 0.5 + δ
+
+1.0
+
+Normalized eigenvalues R
+
+0.6
+
+0.6
+
+(a) O3 , ∆ = 0.5
+
+0.3
+
+0.4
+g = 0.05
+g = 0.10
+g = 0.20
+
+0.2
+
+0.0
+
+0.0
+
+0
+∝ erf(ω/g)
+
+0.0
+
+5
+10
+ω/g 2
+
+1
+∞
+
+1
+14
+
+1
+10
+
+System size 1/L
+
+1.0
+(e) O1 , ∆ = 1.0
+
+0.8
+1.0
+0.6
+
+(f) O1 , g = 0 ,
+∆ = 1.0 + δ
+
+(d) O1 , ∆ = 1.0
+
+δ = 0.05
+δ = 0.10
+δ = 0.20
+∝ erf(ω/δ)
+
+0.4
+g = 0.05
+g = 0.10
+g = 0.20
+
+0.2
+0.0
+0.0
+
+0.1
+
+0.2
+
+0.3
+
+0.4
+
+0.0
+0
+∝ erf(ω/g)
+0.5 0
+
+Frequency ω
+
+1
+
+5
+10
+ω/g 2
+2
+
+3
+
+0.0
+
+ω/g
+
+0.5
+
+1.0
+
+1.5
+
+2.0
+
+ω/δ
+
+Figure 6: Cumulative spectral functions Rα (ω), Eq. (14), as calculated for L = 16
+system. We show the results for (a) O3 with ∆ = 1/2 and (d) for O1 with ∆ = 1.
+Panels (b) and (e) show respectively the same data but with rescaled frequency ω/g
+(main panels) and ω/g 2 (insets). Panels (c) and (f) show the results for integrable
+system (g = 0) but for shifted anisotropy parameters ∆ = 0.5 + δ and ∆ = 1 + δ,
+respectively. Dashed curves show fittings with the error function. Inset in (c) shows
+finite-size scaling of the stiffness C3 (t → ∞) for ∆ = 0.5 and g = 0.
+
+Cα (ω), it is convenient to normalize the spectral function,
+Rα (ω) =
+
+C̃α (ω, g)
+C̃α (ω → 0+ , g = 0)
+
+,
+
+(14)
+
+so that one may directly compare relaxations of both considered observables. The numerical results are shown in figures Figs. 6(a,b) and 6(d,e) for R3 (ω) at ∆ = 1/2 and R1 (ω) at
+∆ = 1, respectively. In contrast to the spin- and energy-currents discussed in the preceding
+sections, curves for various g do not collapse when one rescales the frequency by g 2 , as it is
+shown in the insets in Fig. 6(b,e). However, a convincing collapse may be obtained for the
+scaling ω/g. Moreover, the rescaled curves can be quite accurately fitted by the error function, shown as the dashed curves in Fig. 6, implying C̃α (ω) ∝ exp[−a (ω/g)2 ] where the
+coefficient a does not depend on g. Consequently, the decay is not exponential but Gaussian,
+Cα (t) ∝ exp[−(t/τα )2 ], where the characteristic relaxation rate, 1/τα ∝ g.
+The Gaussian relaxation occurs in the vicinity of ∆ characterized by additional degeneraz
+cies [31, 45], originating from that eigenstate with different Stot
+having the same energy. The
+perturbation breaks integrability but also lifts the latter degeneracy. In order to disentangle
+these two mechanisms, we also study the correlation functions, C̃α (ω, g) for g = 0 but with
+shifted ∆ = 1/2 + δ (for α = 3) and ∆ = 1 + δ (for α = 1). Then, the degeneracy is lifted
+without destroying the integrability. The results are shown in Fig. 6(c,f) for both α = 1, 3.
+One observes the same behavior as for the NI system above, i.e., Cα (t) ∝ exp[−(t/τα )2 ],
+with 1/τα ∝ δ. This result explains additionally the origin of the anomalous scaling of characteristic τα . The nonzero stiffnesses, C̃α (ω → 0+ , g = 0), emerges from states |m〉 and |n〉 in
+z
+Eq. (13) with different Stot
+, but with equal energies Em = En . The latter degeneracy is lifted
+10
+
+SciPost Phys. 13, 013 (2022)
+
+either by g 6= 0 or δ 6= 0 already in the first order perturbation theory, |Em = En | ∝ g, δ [45],
+leading to the scaling ω/(g, δ), shown in Fig. 6.
+
+6
+
+Conclusions
+
+We numerically analyzed the decay of normalized correlation function Cα (t) of different local
+quantities in the nearly integrable XXZ model. Correlations generally reveal a fast drop at
+short times t J ∼ O(1), consistent with finite stiffnesses of studied quantities in the integrable
+model H0 . A weak integrability breaking g  1 then leads to further slow - exponentiallike - decay which is characterized with a single or multiple relaxation times, all scaling with
+the perturbation strength τn ∝ 1/g 2 . The simplest cases appear to be the energy-current jκ
+z
+and spin-current jσ correlations at zero magnetization Stot
+= 0, where - due to symmetry different CQ are involved in the relaxation of both quantities, and consequently relevant τn
+are quite distinct. Since jκ is by itself CQ within H0 , one can go a step further and give an
+explicit memory-function analysis and perturbative expression for the relaxation-rate spectral
+function Γκ (ω). In this case the extracted and perturbative Γκ (ω) match quite well in the
+whole ω range. Still, some deviations in Γκ (ω ∼ 0) = 1/τ0κ as well as in Cκ (t) at shorter t/g 2
+indicate on possible multiple relaxation times and more than one relevant Q n even in this case.
+z
+The existence of multiple relaxation times is becoming evident for Stot
+6= 0. The conjecture
+Eq. (6) concerning the presence of multiple relaxation times τn , which are linked with (appropriately rotated) various CQ of the parent integrable model, is not in conflict with previous
+results [20] which report a simple exponential relaxation. In order to demonstrate at least two
+relaxation times, we have carefully selected observables so that they have a large projection
+z
+z
+on quickly decaying CQ for Stot
+6= 0 (Q n relevant for jσ at Stot
+= 0), as well as much smaller
+projection on slowly decaying one (Q 3 = jκ ). Namely, we made us of the result from Ref. [3]
+z
+that the projection 〈 jσ jκ 〉 is proportional to Stot
+thus the projection may be easily tuned via
+changing the magnetization sector. Typically, the opposite holds true: one studies observables
+which have largest projection on simplest CQ, which are supported only on the few sites and
+the related τn are the longest relaxation times [19]. As a consequences, small and fast decaying projections on more complicated CQ in Eq. (6) may not be visible in the numerical
+results. Such generic scenario of the multi-scale relaxation is consistent with numerical results
+obtained in the present work as well as in Ref. [19]. Nevertheless, it should be considered
+as conjecture that requires further studies and should be verified for other nearly integrable
+systems.
+Furthermore, our analysis indicates that the form, in particular the symmetry, of the perturbation is relevant for the decay of Cα (t). In contrast to quantities considered above at
+general anisotropy ∆ and their decay, the correlations Cα (t) of particular quantities Ol , being
+z
+conserved by H0 only at commensurate ∆0 = cos(π/m), but not commuting with Stot
+, behave
+qualitatively different. Under finite perturbation, which here can be introduced either by g 6= 0
+or by deviation ∆ = ∆0 + δ, we observe effectively a (non-exponential) Gaussian-like decay
+of Cα (t) with different scaling of characteristic decay time, i.e. τα ∝ 1/g. The origin here is
+the lifting of macroscopic degeneracy of many-body states at these particular ∆0 .
+Funding information J.H. acknowledges the support by the Polish National Agency of Academic Exchange (NAWA) under contract PPN/PPO/2018/1/00035. M.M. acknowledges the
+support by the National Science Centre, Poland via projects 2020/37/B/ST3/00020. P.P. acknowledges the support by the project N1-0088 of the Slovenian Research Agency. The numerical calculation were partly carried out at the facilities of the Wroclaw Centre for Networking
+and Supercomputing.
+
+11
+
+SciPost Phys. 13, 013 (2022)
+
+References
+[1] B. Bertini, F. Heidrich-Meisner, C. Karrasch, T. Prosen, R. Steinigeweg and M. Žnidarič,
+Finite-temperature transport in one-dimensional quantum lattice models, Rev. Mod. Phys.
+93, 025003 (2021), doi:10.1103/RevModPhys.93.025003.
+[2] P. Mazur, Non-ergodicity of phase functions in certain systems, Physica 43, 533 (1969),
+doi:10.1016/0031-8914(69)90185-2.
+[3] X. Zotos, F. Naef and P. Prelovsek, Transport and conservation laws, Phys. Rev. B 55, 11029
+(1997), doi:10.1103/PhysRevB.55.11029.
+[4] X. Zotos, High temperature thermal conductivity of two-leg spin-1/2 ladders, Phys. Rev.
+Lett. 92, 067202 (2004), doi:10.1103/PhysRevLett.92.067202.
+[5] G. P. Brandino, J.-S. Caux and R. M. Konik, Glimmers of a quantum KAM theorem: Insights
+from quantum quenches in one-dimensional Bose gases, Phys. Rev. X 5, 041043 (2015),
+doi:10.1103/PhysRevX.5.041043.
+[6] T. Prosen, Time evolution of a quantum many-body system: Transition from integrability to ergodicity in the thermodynamic limit, Phys. Rev. Lett. 80, 1808 (1998),
+doi:10.1103/PhysRevLett.80.1808.
+[7] Y. Huang, C. Karrasch and J. E. Moore, Scaling of electrical and thermal conductivities in an almost integrable chain, Phys. Rev. B 88, 115126 (2013),
+doi:10.1103/PhysRevB.88.115126.
+[8] F. H. L. Essler, S. Kehrein, S. R. Manmana and N. J. Robinson, Quench dynamics
+in a model with tuneable integrability breaking, Phys. Rev. B 89, 165104 (2014),
+doi:10.1103/PhysRevB.89.165104.
+[9] M. Kollar, F. Alexander Wolf and M. Eckstein, Generalized Gibbs ensemble prediction of
+prethermalization plateaus and their relation to nonthermal steady states in integrable systems, Phys. Rev. B 84, 054304 (2011), doi:10.1103/PhysRevB.84.054304.
+[10] B. Bertini, F. H. L. Essler, S. Groha and N. J. Robinson, Prethermalization and thermalization in models with weak integrability breaking, Phys. Rev. Lett. 115, 180601 (2015),
+doi:10.1103/PhysRevLett.115.180601.
+[11] K. Mallayya, M. Rigol and W. De Roeck, Prethermalization and thermalization in isolated
+quantum systems, Phys. Rev. X 9, 021027 (2019), doi:10.1103/PhysRevX.9.021027.
+[12] P. Jung, R. W. Helmes and A. Rosch, Transport in almost integrable models:
+Perturbed Heisenberg chains, Phys. Rev. Lett. 96, 067202 (2006),
+doi:10.1103/PhysRevLett.96.067202.
+[13] B. Bertini, F. H. L. Essler, S. Groha and N. J. Robinson, Thermalization and light
+cones in a model with weak integrability breaking, Phys. Rev. B 94, 245117 (2016),
+doi:10.1103/PhysRevB.94.245117.
+[14] M. Rigol, V. Dunjko, V. Yurovsky and M. Olshanii, Relaxation in a completely integrable many-body quantum system: An ab initio study of the dynamics of the highly
+excited states of 1D lattice hard-core bosons, Phys. Rev. Lett. 98, 050405 (2007),
+doi:10.1103/PhysRevLett.98.050405.
+
+12
+
+SciPost Phys. 13, 013 (2022)
+
+[15] A. C. Cassidy, C. W. Clark and M. Rigol, Generalized thermalization in an integrable lattice
+system, Phys. Rev. Lett. 106, 140405 (2011), doi:10.1103/PhysRevLett.106.140405.
+[16] F. Lange, Z. Lenarčič and A. Rosch, Time-dependent generalized Gibbs ensembles in open
+quantum systems, Phys. Rev. B 97, 165138 (2018), doi:10.1103/PhysRevB.97.165138.
+[17] P. Jung and A. Rosch, Lower bounds for the conductivities of correlated quantum systems,
+Phys. Rev. B 75, 245104 (2007), doi:10.1103/PhysRevB.75.245104.
+[18] P. Jung and A. Rosch, Spin conductivity in almost integrable spin chains, Phys. Rev. B 76,
+245108 (2007), doi:10.1103/PhysRevB.76.245108.
+[19] M. Mierzejewski, T. Prosen and P. Prelovšek, Approximate conservation laws
+in perturbed integrable lattice models, Phys. Rev. B 92, 195121 (2015),
+doi:10.1103/PhysRevB.92.195121.
+[20] K. Mallayya and M. Rigol, Quantum quenches and relaxation dynamics in the thermodynamic limit, Phys. Rev. Lett. 120, 070603 (2018), doi:10.1103/PhysRevLett.120.070603.
+[21] J. De Nardis, D. Bernard and B. Doyon, Hydrodynamic diffusion in integrable systems,
+Phys. Rev. Lett. 121, 160603 (2018), doi:10.1103/PhysRevLett.121.160603.
+[22] E. Ilievski, J. De Nardis, M. Medenjak and T. Prosen, Superdiffusion in onedimensional quantum lattice models, Phys. Rev. Lett. 121, 230602 (2018),
+doi:10.1103/PhysRevLett.121.230602.
+[23] S. Gopalakrishnan, D. A. Huse, V. Khemani and R. Vasseur, Hydrodynamics of operator
+spreading and quasiparticle diffusion in interacting integrable systems, Phys. Rev. B 98,
+220303 (2018), doi:10.1103/PhysRevB.98.220303.
+[24] U. Agrawal, S. Gopalakrishnan, R. Vasseur and B. Ware, Anomalous low-frequency
+conductivity in easy-plane X X Z spin chains, Phys. Rev. B 101, 224415 (2020),
+doi:10.1103/PhysRevB.101.224415.
+[25] V. B. Bulchandani, S. Gopalakrishnan and E. Ilievski, Superdiffusion in spin chains, J. Stat.
+Mech. 084001 (2021), doi:10.1088/1742-5468/ac12c7.
+[26] A. J. Friedman, S. Gopalakrishnan and R. Vasseur, Diffusive hydrodynamics from integrability breaking, Phys. Rev. B 101, 180302 (2020), doi:10.1103/PhysRevB.101.180302.
+[27] A. Bastianello, A. De Luca and R. Vasseur, Hydrodynamics of weak integrability breaking,
+J. Stat. Mech. 114003 (2021), doi:10.1088/1742-5468/ac26b2.
+[28] T. LeBlond, D. Sels, A. Polkovnikov and M. Rigol, Universality in the onset
+of quantum chaos in many-body systems, Phys. Rev. B 104, L201117 (2021),
+doi:10.1103/PhysRevB.104.L201117.
+[29] M. W. Long, P. Prelovšek, S. El Shawish, J. Karadamoglou and X. Zotos, Finite-temperature
+dynamical correlations using the microcanonical ensemble and the Lanczos algorithm, Phys.
+Rev. B 68, 235106 (2003), doi:10.1103/PhysRevB.68.235106.
+[30] P. Prelovšek and J. Bonča, Strongly correlated systems, Springer Berlin Heidelberg, Berlin,
+Heidelberg, ISBN 9783642351051 (2013), doi:10.1007/978-3-642-35106-8.
+[31] P. Prelovšek, M. Mierzejewski and J. Herbrych, Coexistence of diffusive and ballistic
+transport in integrable quantum lattice models, Phys. Rev. B 104, 115163 (2021),
+doi:10.1103/PhysRevB.104.115163.
+13
+
+SciPost Phys. 13, 013 (2022)
+
+[32] L. Zadnik, M. Medenjak and T. Prosen, Quasilocal conservation laws from semicyclic irreducible representations of uq (sl2 ) in X X Z spin-1/2 chains, Nucl. Phys. B 902, 339 (2016),
+doi:10.1016/J.NuclPhysB.2015.11.023.
+[33] T. Prosen, Open X X Z spin chain: Nonequilibrium steady state and a strict bound on ballistic
+transport, Phys. Rev. Lett. 106, 217206 (2011), doi:10.1103/PhysRevLett.106.217206.
+[34] T. Prosen and E. Ilievski, Families of quasilocal conservation laws and quantum spin transport, Phys. Rev. Lett. 111, 057203 (2013), doi:10.1103/PhysRevLett.111.057203.
+[35] M. Mierzejewski, P. Prelovšek and T. Prosen, Breakdown of the generalized Gibbs
+ensemble for current-generating quenches, Phys. Rev. Lett. 113, 020602 (2014),
+doi:10.1103/PhysRevLett.113.020602.
+[36] B. Pozsgay, M. Mestyán, M. A. Werner, M. Kormos, G. Zaránd and G. Takács, Correlations
+after quantum quenches in the X X Z spin chain: Failure of the generalized Gibbs ensemble,
+Phys. Rev. Lett. 113, 117203 (2014), doi:10.1103/PhysRevLett.113.117203.
+[37] G. Goldstein and N. Andrei, Failure of the local generalized Gibbs ensemble
+for integrable models with bound states, Phys. Rev. A 90, 043625 (2014),
+doi:10.1103/PhysRevA.90.043625.
+[38] R. G. Pereira, V. Pasquier, J. Sirker and I. Affleck, Exactly conserved quasilocal operators for the X X Z spin chain, J. Stat. Mech. P09037 (2014), doi:10.1088/17425468/2014/09/P09037.
+[39] E. Ilievski, J. De Nardis, B. Wouters, J.-S. Caux, F. H. L. Essler and T. Prosen, Complete
+generalized Gibbs ensembles in an interacting theory, Phys. Rev. Lett. 115, 157201 (2015),
+doi:10.1103/PhysRevLett.115.157201.
+[40] M. Mierzejewski, P. Prelovšek and T. Prosen, Identifying local and quasilocal conserved quantities in integrable systems, Phys. Rev. Lett. 114, 140601 (2015),
+doi:10.1103/PhysRevLett.114.140601.
+[41] H. Mori, Transport, collective motion, and Brownian motion, Prog. Theor. Phys. 33, 423
+(1965), doi:10.1143/PTP.33.423.
+[42] P. Prelovšek and J. Herbrych, Self-consistent approach to many-body localization and subdiffusion, Phys. Rev. B 96, 035130 (2017), doi:10.1103/PhysRevB.96.035130.
+[43] M. Fagotti, On conservation laws, relaxation and pre-relaxation after a quantum quench,
+J. Stat. Mech. P03016 (2014), doi:10.1088/1742-5468/2014/03/p03016.
+[44] F. H. L. Essler and M. Fagotti, Quench dynamics and relaxation in isolated integrable quantum spin chains, J. Stat. Mech. 064002 (2016), doi:10.1088/17425468/2016/06/064002.
+[45] M. Mierzejewski, J. Herbrych and P. Prelovšek, Ballistic transport in integrable quantum lattice models with degenerate spectra, Phys. Rev. B 103, 235115 (2021),
+doi:10.1103/PhysRevB.103.235115.
+
+14
+
+

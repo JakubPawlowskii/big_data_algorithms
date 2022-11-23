@@ -38,6 +38,7 @@ class wordCloud(var outputPath: String = "") {
     addWordsFromString(text)
   }
 
+
   def writeCloudToFile(): Unit = {
     val file = new File(outputPath)
     val bw = new BufferedWriter(new FileWriter(file))

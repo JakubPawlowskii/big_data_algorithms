@@ -1,0 +1,588 @@
+week ending
+2 FEBRUARY 2007
+
+PHYSICAL REVIEW LETTERS
+
+PRL 98, 050405 (2007)
+
+Relaxation in a Completely Integrable Many-Body Quantum System: An Ab Initio Study of the
+Dynamics of the Highly Excited States of 1D Lattice Hard-Core Bosons
+Marcos Rigol,1 Vanja Dunjko,2,3 Vladimir Yurovsky,4 and Maxim Olshanii2,3,*
+1
+
+2
+
+Physics Department, University of California, Davis, California 95616, USA
+Department of Physics & Astronomy, University of Southern California, Los Angeles, California 90089, USA
+3
+Institute for Theoretical Atomic and Molecular Physics, Cambridge, Massachusetts 02138, USA
+4
+School of Chemistry, Tel Aviv University, Tel Aviv 69978, Israel
+(Received 20 April 2006; published 1 February 2007)
+In this Letter we pose the question of whether a many-body quantum system with a full set of conserved
+quantities can relax to an equilibrium state, and, if it can, what the properties of such a state are. We confirm the relaxation hypothesis through an ab initio numerical investigation of the dynamics of hard-core
+bosons on a one-dimensional lattice. Further, a natural extension of the Gibbs ensemble to integrable
+systems results in a theory that is able to predict the mean values of physical observables after relaxation.
+Finally, we show that our generalized equilibrium carries more memory of the initial conditions than the
+usual thermodynamic one. This effect may have many experimental consequences, some of which have
+already been observed in the recent experiment on the nonequilibrium dynamics of one-dimensional hardcore bosons in a harmonic potential [T. Kinoshita et al., Nature (London) 440, 900 (2006)].
+DOI: 10.1103/PhysRevLett.98.050405
+
+PACS numbers: 03.75.Kk, 02.30.Ik, 03.75.Hh
+
+Introduction.—Integrable quantum gases traditionally
+belong to the domain of mathematical physics, with little
+or no connection to experiments. However, the experimental work on confined quantum-degenerate gases has recently yielded faithful realizations of a number of
+integrable one-dimensional many-body systems, thus making them phenomenologically relevant. Examples include
+the gas of hard-core bosons (Girardeau) [1–3], realized in
+[4]; its lattice version [5] studied in our Letter, realized in
+[6]; finite-strength s-wave-interacting spin-0 bosons (Lieb,
+Liniger, and McGuire) [7,8], realized in [9–11] in the
+mean-field regime and in [12,13] in the regime of interactions of intermediate strength; and spin- 12 fermions
+(Yang-Gaudin) [14], realized in [15]. The list has a potential to grow to include also the fermionic p-wave version of
+hard-core particles [16,17]; the gas of 1=r2 interacting
+atoms (Calogero and Sutherland) [18,19]; and the gas of
+fermions on a lattice (Fermi and Hubbard) [20]. The experiment [6]—which is a realization of the system whose
+time dynamics we study in the present Letter —used an
+optical lattice in the tight-binding regime [21,22]. The
+technique was originally developed to reach the
+superfluid–Mott-insulator transition [23] as achieved in
+[24]. We should also mention the experimental studies [25]
+of a related nonintegrable system, the one-dimensional
+lattice bosons with finite coupling.
+An integrable model possesses many nontrivial integrals
+of motion, and it is natural to wonder what consequences
+this fact may have for time dynamics and kinetics. Perhaps
+the best known theoretical efforts in this vein are the
+attempts to explain the suppression of equilibration in the
+Fermi-Pasta-Ulam chains by the closeness to various integrable models (see [26] for a review). Another research
+direction concerns the effects of integrals of motion on the
+0031-9007=07=98(5)=050405(4)
+
+autocorrelation properties of large systems, first studied in
+[27,28] and later specialized to spin systems [29,30]. More
+recent are the studies of the onset of thermalization in a
+large quantum system [31,32], and, in particular, in a
+mesoscopic-size Lieb-Liniger gas [33].
+The major inspiration for our work—underlying especially Fig. 2 below—is the recent experiment on the
+nonequilibrium dynamics of one-dimensional hard-core
+bosons in a harmonic potential performed at Penn State
+University [34]. There it was found that hard-core bosons
+do not relax to the usual state of thermodynamic equilibrium. The question that intrigued us is whether nevertheless there exists some kind of equilibrium state to which a
+many-body integrable system relaxes in the course of time
+evolution from even a highly nonequilibrium initial state —
+and, if so, how to predict mean values of physical observables in such a state.
+Generalized Gibbs ensemble.—We start with the latter
+question, for now simply assuming that an equilibrium
+state exists. We conjecture that then the standard prescription of statistical mechanics applies: one should maximize
+the many-body entropy S  kB Tr ln1=, subject to
+the constraints imposed by all the integrals of motion.
+This results in the following many-body density matrix:
+ X
+
+1
+^
+^  Z exp  m I m ;
+(1)
+m
+
+where fI^ m g is the full set of the integrals of motion, Z 
+P
+Trexp m m I^ m  is the partition function, and fm g are
+the Lagrange multipliers, fixed by the initial conditions via
+Tr I^ m 
+^  hI^ m it  0:
+
+(2)
+
+The generalized Gibbs ensemble (1) reduces to the usual
+
+050405-1
+
+© 2007 The American Physical Society
+
+grand-canonical ensemble in the case of a generic system,
+where the only integrals of motion are the total energy, the
+number of particles, and, for periodic systems, the total
+momentum. Conceptually, the ensemble (1) is close to the
+one E. T. Jaynes introduced in 1957 in the context of the socalled ‘‘subjective statistical mechanics’’ [35]. Girardeau
+used Jaynes’s concept to study the relaxation of magnetization in the XY model [36]. Below we test the predictive
+power of (1) and (2) on the example of hard-core bosons on
+a one-dimensional lattice, a system integrable via JordanWigner mapping to free fermions.
+The Hamiltonian and the (quasi-)momentum distribution of hard-core bosons on a lattice.—The Hamiltonian
+for hard-core bosons (HCB) on a one-dimensional lattice
+with L sites reads
+H^  J
+
+L
+X
+
+b^yi b^i1  H:c:;
+
+(3)
+
+i1
+
+where
+b^i ; b^yj   0;
+
+b^i ; b^j   b^yi ; b^yj   0
+
+for all i and
+fb^i ; b^yi g  1;
+
+j  i;
+
+b^i 2  b^yi 2  0 for all i:
+
+Here b^i (b^yi ) is the annihilation (creation) operator for
+hard-core bosons, and J is the hopping constant. For our
+theoretical predictions we use a periodic lattice (b^L1 
+b^1 ). However, the subsequent numerical studies are performed for the more experimentally relevant hard-wall
+boundary conditions. For sufficiently large lattice sizes L,
+the difference between real physical quantities calculated
+using these two settings is negligible [37].
+Our primary observable of interest is the HCB (quasi^
+)momentum distribution fk  hfki,
+normalized to the
+total number of particles N, where
+L X
+L
+X
+0
+^ 1
+ei2kii =L b^yi0 b^i
+fk
+L i1 i0 1
+
+(4)
+
+is the HCB (quasi-)momentum distribution operator.
+Fermi-Bose correspondence.—Our bosonic system
+can be mapped to a free fermionic one via the
+Q
+ic^ y0 c^ i0
+i
+Jordan-Wigner transformation b^yi  c^ yi i1
+,
+i0 1 e
+Qi1 ic^ y0 c^ i0
+y
+^
+bi  i0 1 e i c^ i , where c^ i (c^ i ) is the fermionic annihilation (creation) operator. (Note that since the spatial
+density operators for fermions and bosons are equal to
+each other, c^ yi c^ i  b^yi b^i , the inverse mapping is straightforward.) Under this transformation our Hamiltonian (3)
+becomes just the Hamiltonian for noninteracting fermions
+on a lattice:
+H^  J
+
+L
+X
+
+week ending
+2 FEBRUARY 2007
+
+PHYSICAL REVIEW LETTERS
+
+PRL 98, 050405 (2007)
+
+c^ yi c^ i1  H:c:;
+
+(5)
+
+i1
+
+fc^ i ; c^ yj g  1; fc^ i ; c^ j g  fc^ yi ; c^ yj g  0
+
+for all i and
+
+j:
+
+The corresponding fermions obey periodic (antiperiodic)
+boundary conditions for odd (even) numbers of particles:
+P
+^
+c^ L1  1N1 c^ 1 . Here and below N^  Li1 c^ yi c^ i 
+PL ^y ^
+i1 bi bi is the particle number operator, the same for
+both fermions and bosons.
+Integrals of motion.—It is clear from the fermionic form
+(5) of the Hamiltonian that our system possesses as many
+conserved quantities as there are lattice sites: they are
+simply the fermionic (quasi-)momentum distribution operators
+L X
+L
+1 X
+^ i2kii0 =L c^ y0 c^ i ; (6)
+ 0 Ne
+I^ k  f^F k 
+i
+L i1 i0 1 ii
+
+where i N  1 for odd N, and i N  eii =L for
+even N.
+Note that if expressed through the bosonic fields, the
+above integrals of motion become complicated many-body
+operators. Consider, for example, the lattice analog of the
+fourth moment of the fermionic (quasi-)momentum distribution I^4 , defined as
+ 
+
+X
+1 2 4 ^
+2n 2 ^F
+f k
+I4 
+1  cos
+4 L
+L
+k
+3
+1
+ N^  H^
+2
+J
+L
+X
+1
+
+b^y 1  2b^yi1 b^i1 b^i2  H:c:: (7)
+4 i1 i
+It is one of the simplest linear combinations of the integrals
+of motion (6), but it becomes a two-body operator in the
+bosonic representation.
+Fully constrained thermodynamic ensemble.—The density matrix for the fully constrained thermodynamic ensemble described above reads
+ X
+
+F
+^
+f
+^ FC  Z1
+exp
+
+
+k
+;
+(8)
+k
+FC
+k
+
+P
+Q
+where
+ZFC  Trexp k k f^F k  k 1  ek .
+The values of the Lagrange multipliers k must be fixed
+by the requirement that the fermionic (quasi-)momentum
+distribution predicted by (8) be the same as the
+(quasi-)momentum distribution of fermions in the actual
+initial —or, for that matter, time-evolved—state of the
+F k
+system. This constraint leads to k  ln1f
+. As we
+fF k
+stated above, the density matrix given by (8) is assumed to
+predict correctly the values of the system’s observables
+after a complete relaxation from an initial state with the
+fermionic (quasi-)momentum distribution given by fF k.
+Below, we test this conjecture numerically, using the bosonic (quasi-)momentum distribution as the figure of merit.
+Numerical tests.—In order to verify our predictions we
+perform two series of textbooklike numerical experiments
+on the relaxation of an ensemble of hard-core bosons on a
+lattice from a highly nonequilibrium state. We have chosen
+
+050405-2
+
+T  4;
+
+0.6
+0.5
+grand−canonical
+0.4
+0.3
+0.2
+0.1relaxation dynamics
+fully constrained
+0
+0
+1000
+2000
+3000
+
+A
+
+Time, t [/h/J]
+
+Momentum distribution, f(k)
+
+to study lattices in which the final size L  N, i.e., the
+average interparticle distance is much larger than the lattice spacing, so that our results are also of relevance to
+continuous systems [5]. The numerical technique has been
+described elsewhere [38].
+In the first series we prepare our gas in the ground state
+of a hard-wall box, then let the gas expand to a larger
+box. For all sizes of the initial box, we find that the
+(quasi-)momentum distribution indeed converges to an almost time independent distribution (see Fig. 1). Next, we
+compare the result after relaxation with the predictions of
+standard statistical mechanics and of the fully constrained
+ensemble (1) and (8). We find that the fully constrained
+thermodynamics stands in an exceptional agreement with
+the results of the dynamical propagation. (See [39] for
+further details of the thermal algorithm.) The accuracy of
+the above predictions has been successfully verified for the
+whole range of available values of the size of the initial
+box, from Lin:  N  30 through Lin:  L  600.
+In the second series (Fig. 2) we study the effects of the
+memory of the initial conditions that is stored in the fully
+constrained ensemble (1) and (8). Our setting is very
+similar to an actual experiment on relaxation of an ensemble of hard-core bosons in a harmonic potential [34].
+There the momentum distribution was initially split into
+two peaks. After many periods of oscillation, no appreciable relaxation to a single-bell distribution was observed.
+In our case the system is initially in the ground state of a
+superlattice (spatially periodic background potential, see
+[40] for details) with period 4,
+X
+2i ^y ^
+b b;
+V^ ext  A cos
+T i i
+i
+
+week ending
+2 FEBRUARY 2007
+
+PHYSICAL REVIEW LETTERS
+
+Height of mom. distr., f(k=0)
+
+PRL 98, 050405 (2007)
+
+B
+
+0.6
+0.5
+0.4
+0.3
+0.2
+0.1
+0
+
+grand−canonical
+
+-100 -50
+
+0
+
+Momentum, k [2π/h/L]
+
+0.1648
+
+(9)
+
+50 100
+
+fully constrained
+
+0.1644
+
+after relaxation
+
+and is subsequently released to a flat-bottom hard-wall box
+V^ ext  0. Our results show that even after a very long
+propagation time, the four characteristic peaks in the
+(quasi-)momentum distribution remain well resolved,
+although their shape is modified in the course of the
+propagation. Our interpretation of both experimental and
+numerical results is as follows: if the initial (quasi)momentum distribution consists of several well-separated
+peaks, the memory of the initial distribution that is stored
+in the ensemble (1) prevents the peaks from overlapping,
+no matter how long the propagation time. Note also that the
+residual broadening of the peaks seen in Fig. 2 is beyond
+the experimental accuracy in [34].
+Summary.—We have demonstrated that an integrable
+many-body quantum system—one-dimensional hard-core
+bosons on a lattice —can undergo relaxation to an equilibrium state. The properties of this state are governed by the
+usual laws of statistical physics, properly updated to accommodate all the integrals of motion. We further show
+that our generalized equilibrium state carries more memory
+of the initial conditions than the usual thermodynamic one.
+It is in the light of that observation that we interpret the
+results of the recent experiment on the nonequilibrium
+
+49.9
+
+50
+
+50.1
+
+50.2
+
+FIG. 1 (color online). Momentum distribution of N  30 hardcore bosons undergoing a free expansion from an initial zerotemperature hard-wall box of size Lin:  150 to the final hardwall box of size L  600. The initial box is situated in the
+middle of the final one. (a) Approach to equilibrium.
+(b) Equilibrium (quasi-)momentum distribution after relaxation
+in comparison with the predictions of the grand-canonical and of
+the fully constrained (8) thermodynamical ensembles. The prediction of the fully constrained ensemble is virtually indistinct
+from the results of the dynamical simulation; see the inset for a
+measure of the accuracy. (An animation of the time evolution is
+posted online [41].)
+
+dynamics of one-dimensional hard-core bosons performed
+at Penn State University [34], where an initial two-peaked
+(quasi-)momentum distribution failed to relax to a singlebell distribution.
+We are grateful to David Weiss, Boris Svistunov, Hubert
+Saleur, Tommaso Roscilde, Rajiv R. P. Singh, and Marvin
+Girardeau for enlightening discussions on the subject. This
+work was supported by a grant from Office of Naval
+
+050405-3
+
+PHYSICAL REVIEW LETTERS
+
+PRL 98, 050405 (2007)
+
+f(k)
+
+Momentum, k [2πh/L]
+
+300
+
+0.5
+0.4
+
+150
+
+0.3
+0
+0.2
+−150
+
+0.1
+
+−300
+
+0
+0
+
+A
+
+20
+
+30
+
+40
+
+50
+
+Time,t [h/J]
+
+Momentum distribution, f(k)
+
+B
+
+10
+
+3
+2.5
+2
+1.5
+1
+0.5
+0
+-300 -150
+
+initial
+after relaxation
+& fully constrained
+
+0
+
+150
+
+300
+
+Momentum, k [2πh
+/ /L]
+
+FIG. 2 (color online). Time evolution of the (quasi-)momentum distribution (a) and the (quasi-)momentum distribution after
+relaxation (b) of N  30 hard-core bosons undergoing a free
+expansion from an initial zero-temperature superlattice with
+period four of half-depth A  8J and bound by a hard-wall
+box of size L  600, to the final flat-bottom box (A  0) of
+the same size. The discrepancy between the result of time
+propagation and the prediction of the fully constrained ensemble
+(8) [also shown in (b)] is less than the width of the line.
+Momentum peaks remain well-resolved during the whole duration of propagation; tfin:  3000@=J for the subfigure (b). (An
+animation for the time evolution can also be found in [41].)
+
+Research No. N00014-03-1-0427, by grants from the
+National Science Foundation No. NSF-PHY-0301052,
+No. NSF-DMR-0240918, and No. NSF-DMR-0312261,
+and through the National Science Foundation grant for
+the Institute for Theoretical Atomic and Molecular
+Physics at Harvard University and Smithsonian
+Astrophysical Observatory.
+
+week ending
+2 FEBRUARY 2007
+
+[1] M. Girardeau, J. Math. Phys. (N.Y.) 1, 516 (1960).
+[2] A. Lenard, J. Math. Phys. (N.Y.) 5, 930 (1964).
+[3] H. G. Vaidya and C. A. Tracy, Phys. Rev. Lett. 42, 3
+(1979).
+[4] T. Kinoshita, T. Wenger, and D. S. Weiss, Science 305,
+1125 (2004).
+[5] M. Rigol and A. Muramatsu, Phys. Rev. A 70, 031603(R)
+(2004); 72, 013604 (2005).
+[6] B. Paredes et al., Nature (London) 429, 277 (2004).
+[7] E. H. Lieb and W. Liniger, Phys. Rev. 130, 1605 (1963).
+[8] J. B. McGuire, J. Math. Phys. (N.Y.) 5, 622 (1964).
+[9] A. Görlitz et al., Phys. Rev. Lett. 87, 130402 (2001).
+[10] F. Schreck et al., Phys. Rev. Lett. 87, 080403 (2001).
+[11] K. E. Strecker et al., Nature (London) 417, 150 (2002).
+[12] M. Köhl et al., Appl. Phys. B 79, 1009 (2004).
+[13] B. L. Tolra et al., Phys. Rev. Lett. 92, 190401 (2004).
+[14] M. Gaudin, Phys. Lett. A 24, 55 (1967); C. N. Yang, Phys.
+Rev. Lett. 19, 1312 (1967).
+[15] H. Moritz et al., Phys. Rev. Lett. 94, 210401 (2005).
+[16] B. E. Granger and D. Blume, Phys. Rev. Lett. 92, 133202
+(2004).
+[17] M. D. Girardeau, H. Nguyen, and M. Olshanii, Opt.
+Commun. 243, 3 (2004).
+[18] F. Calogero, J. Math. Phys. (N.Y.) 10, 2191 (1969); 10,
+2197 (1969).
+[19] B. Sutherland, J. Math. Phys. (N.Y.) 12, 246 (1971); 12,
+251 (1971).
+[20] J. Hubbard, Proc. R. Soc. A 276, 238 (1963).
+[21] D. Jaksch et al., Phys. Rev. Lett. 81, 3108 (1998).
+[22] M. Greiner et al., Phys. Rev. Lett. 87, 160405 (2001).
+[23] M. P. Fisher et al., Phys. Rev. B 40, 546 (1989).
+[24] M. Greiner et al., Nature (London) 415, 39 (2002); 419, 51
+(2002).
+[25] T. Stöferle et al., Phys. Rev. Lett. 92, 130403 (2004).
+[26] G. P. Berman and F. M. Izrailev, Chaos 15, 015104 (2005).
+[27] P. Mazur, Physica (Amsterdam) 43, 533 (1969).
+[28] M. Suzuki, Physica (Amsterdam) 51, 277 (1971).
+[29] H. Castella, X. Zotos, and P. Prelovšek, Phys. Rev. Lett.
+74, 972 (1995).
+[30] X. Zotos, F. Naef, and P. Prelovšek, Phys. Rev. B 55,
+11 029 (1997).
+[31] V. V. Flambaum and F. M. Izrailev, quant-ph/0108109.
+[32] V. V. Flambaum and F. M. Izrailev, Phys. Rev. E 64,
+036220 (2001).
+[33] G. P. Berman et al., Phys. Rev. Lett. 92, 030404 (2004).
+[34] T. Kinoshita, T. Wenger, and D. S. Weiss, Nature (London)
+440, 900 (2006).
+[35] E. T. Jaynes, Phys. Rev. 106, 620 (1957); 108, 171 (1957).
+[36] M. D. Girardeau, Phys. Lett. A 30, 442 (1969); 32, 67
+(1970).
+[37] E. Lieb, T. Shultz, and D. Mattis, Ann. Phys. (N.Y.) 16,
+407 (1961).
+[38] M. Rigol and A. Muramatsu, Phys. Rev. Lett. 93, 230404
+(2004); Mod. Phys. Lett. B 19, 861 (2005).
+[39] M. Rigol, Phys. Rev. A 72, 063607 (2005).
+[40] V. G. Rousseau et al., Phys. Rev. B 73, 174516 (2006).
+[41] http://physics.usc.edu/~olshanii/DIST/.
+
+*Electronic address: olshanii@physics.usc.edu
+
+050405-4
+
+

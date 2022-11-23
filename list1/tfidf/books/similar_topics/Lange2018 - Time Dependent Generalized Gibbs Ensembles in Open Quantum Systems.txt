@@ -1,0 +1,885 @@
+PHYSICAL REVIEW B 97, 165138 (2018)
+
+Time-dependent generalized Gibbs ensembles in open quantum systems
+Florian Lange, Zala Lenarčič, and Achim Rosch
+Institute for Theoretical Physics, University of Cologne, Zülpicher Straße 77a, D-50937 Cologne, Germany
+(Received 26 January 2018; published 26 April 2018)
+Generalized Gibbs ensembles have been used as powerful tools to describe the steady state of integrable
+many-particle quantum systems after a sudden change of the Hamiltonian. Here, we demonstrate numerically
+that they can be used for a much broader class of problems. We consider integrable systems in the presence of
+weak perturbations which break both integrability and drive the system to a state far from equilibrium. Under these
+conditions, we show that the steady state and the time evolution on long timescales can be accurately described
+by a (truncated) generalized Gibbs ensemble with time-dependent Lagrange parameters, determined from simple
+rate equations. We compare the numerically exact time evolutions of density matrices for small systems with a
+theory based on block-diagonal density matrices (diagonal ensemble) and a time-dependent generalized Gibbs
+ensemble containing only a small number of approximately conserved quantities, using the one-dimensional
+Heisenberg model with perturbations described by Lindblad operators as an example.
+DOI: 10.1103/PhysRevB.97.165138
+I. INTRODUCTION
+
+In recent years, the thermalization of closed quantum
+systems has been intensively studied [1–3]. A typical setup is
+the quantum quench: a system, initialized in the ground state of
+a Hamiltonian Hi , undergoes a nonequilibrium dynamics due
+to evolution with another Hamiltonian Hf . In the long-time
+limit, generic ergodic many-particle systems are expected [4]
+to reach a thermal Gibbs state ρ ∼ e−βHf . The approach to this
+state can, however, be slow and is generically characterized by
+power laws [5–7].
+In contrast, in integrable systems the existence of macroscopically many local conserved quantities restricts the dynamics and prohibits conventional thermalization [8–11]. It
+has, however, been conjectured [12] that generalized Gibbs
+ensembles (GGEs) provide an accurate thermodynamic description of steady states in this case, at least for local
+observables. For each (quasi)local conserved quantity, a Lagrange parameter is introduced, generalizing the concept of
+temperature or chemical potential. The Lagrange parameters
+are thereby determined from the value of conserved quantities
+in the initial state. Exact local equivalence of GGEs and
+diagonal ensembles can be proven only after a complete set
+of local conserved quantities is included into the GGE, and
+is for noninteracting models equivalent to including all mode
+occupation numbers [12,13]. For the Heisenberg model, as a
+prototypical interacting quantum integrable model, quenches
+were first studied by [14,15]. A vast improvement in agreement
+has been achieved [16] only after the discovery of additional
+quasilocal conserved quantities [17–19], by systematically
+including families of quasilocal conservation laws. Using
+the quenched action approach [20,21], it was possible to
+demonstrate that GGEs indeed describe the steady state at
+least for certain initial conditions [22–26]. It has also been
+suggested that convergent approximations to the steady state
+are obtained when more and more conservation laws are
+included [27].
+2469-9950/2018/97(16)/165138(8)
+
+Using ultracold atoms, integrable models can be realized
+with such a high precision, that one can neglect integrability
+breaking terms at least up to some time [28–31]. In spectacular
+experiments, Langen et al. [32] succeeded to demonstrate
+that a truncated GGE can describe high-order steady-state
+correlation functions of an interacting Bose gas after a quench
+with a high precision. Integrability breaking perturbations can
+also be controllably tuned [33] to display the crossover from
+integrable dynamics to thermalization.
+In condensed matter systems, for example, one can realize
+approximately integrable systems in spin-chain materials. In
+this case, however, one cannot neglect integrability breaking
+terms arising, e.g., from phonons, intrachain coupling, or other
+terms not described by simple spin- 21 one-dimensional Heisenberg model. Due to the proximity to integrable points, the heat
+conductivity in such systems can be strongly enhanced [34,35],
+but the steady state is expected to become thermal after a quantum quench. Nevertheless, it was shown that a static weak integrability breaking induces thermalization only on the longest
+timescale [36–43], while the transient dynamics dwells on the
+so-called prethermal plateaus [44,45] that can be described by
+a GGE with Lagrange multipliers fixed by the initial state using
+approximately conserved quantities, possibly perturbatively
+readjusted according to the weak integrability breaking [46].
+After a quantum quench, all exotic conserved quantities
+decay in the presence of integrability breaking perturbation.
+The situation is completely different for another class of
+problems: (weakly) driven systems. These are systems where
+time-dependent perturbations or the coupling to nonthermal
+reservoirs drive the system towards a nonequilibrium state.
+For example, we considered in Ref. [47] the coupling of a spin
+chain to laser light and phonons. In this case, the decay of conserved quantities due to integrability breaking can be balanced
+by gain terms arising from the driving terms. Generically, a
+macroscopic set of approximate conservation laws is activated
+despite the presence of integrability breaking. Contrary to the
+case of quench problems, the value of the conserved quantities
+
+165138-1
+
+©2018 American Physical Society
+
+FLORIAN LANGE, ZALA LENARČIČ, AND ACHIM ROSCH
+
+PHYSICAL REVIEW B 97, 165138 (2018)
+
+in the steady state is not determined by initial conditions but
+by the balance of driving terms, the coupling to thermal and
+nonthermal baths, and other integrability breaking terms. We
+argued in [47] that the resulting states are far from equilibrium
+and one can use a GGE to describe them quantitatively as long
+as all driving and integrability breaking terms are weak. These
+ideas lead to realization of novel spin or heat pumps.
+The main goal of this paper is to demonstrate numerically
+that GGEs with time-dependent Lagrange parameters accurately describe both the time evolution and the steady state of
+weakly driven approximately integrable many-particle quantum systems. As an example, we chose a one-dimensional spin1
+Heisenberg model coupled to a nonthermal bath described
+2
+by Lindblad operators. We have chosen this model because it
+is better suited for numerical analysis compared to the much
+more complicated case considered in Ref. [47]. Our approach
+based on time-dependent GGEs covers both the physics of
+prethermalization and the relaxation towards a steady state,
+potentially far from thermal equilibrium. The concept of timedependent GGE has been suggested earlier, to our knowledge
+in Refs. [3,38,48,49]. Reference [38] uses it only implicitly
+while constructing an effective quantum Boltzmann equation that captures prethermal-to-thermal regime for weakly
+interacting systems (a Boltzmann equation was also analyzed
+by us in Refs. [50,51]). Reference [48] addresses quenches
+from superintegrable (containing additional symmetries) to
+post-quench noninteracting integrable models (that weakly
+break those symmetries). Observed prethermalization and
+subsequent equilibration to a GGE spanned by the conservation
+laws of the final model was also captured by a time-dependent
+GGE. Unlike in our setup, in this case integrability is preserved
+throughout the whole evolution and the time dependence arises
+because the additional symmetries do not commute with the
+local conserved quantities of the final Hamiltonian. A similar
+condition also applies for [49], which studied weakly interacting integrable models with and without weak integrability
+breaking and showed that mean-field equation capture the
+dynamics at intermediate times. Reference [3] suggests to use
+time-dependent GGEs to describe the relaxation of a system
+with integrability breaking terms towards thermal equilibrium.
+Similar to our approach, they argue that one should track the
+equation of motion of approximately conserved quantities to
+describe equilibration.
+In the following, we will first introduce our model, a
+Heisenberg model with small perturbations described by Lindblad operators. Then, we derive equations of motion for a
+time-dependent GGE and similar equations for block-diagonal
+density matrices. We then compare three types of approaches:
+the exact evolution of the density matrix, an approximate time
+evolution in the subspace of block-diagonal density matrices,
+and the evolution described by truncated GGEs.
+II. MODEL
+
+We consider the one-dimensional spin- 21 Heisenberg model
+
+H0 = J
+Sj · Sj +1 ,
+(1)
+j
+
+arguably the most studied integrable system. In [47] we
+investigated the case where a Heisenberg model was coupled
+
+to Hamiltonian perturbations arising from phonons and oscillating fields. This situation is, however, too complicated
+for a detailed numerical study on the validity of GGEs.
+Therefore, we consider a numerically more tractable case and
+describe the (weak) integrability breaking by the coupling
+to nonequilibrium Markovian baths described by Lindblad
+dissipators D̂(i) acting on the density matrix ρ prepared at time
+t = 0 in ρ(0):
+∂t ρ = (L̂0 + L̂1 ) ρ,
+L̂0 ρ = −i[H0 ,ρ], L̂1 ρ = ((1 − γ )D̂(1) + γ D̂(2) )ρ
+with
+D̂(i) = J
+
+  (i) (i) † 1  (i) † (i) 
+Lk ρLk − Lk Lk ,ρ ,
+2
+k
+
+(2)
+
+(3)
+
+where Lk are so-called Lindblad operators and the prefactor
+J has been included to obtain a dimensionless . As Lindblad
+operators we chose
+(2)
++ −
+−
++
+z
+1
+L(1)
+k = Sk and Lk = 2 (Sk Sk+1 + iSk+1 Sk+2 ).
+
+(4)
+
+L(1)
+k represents dephasing and, considered alone, heats up the
+system to an infinite temperature state. L(2)
+k has been chosen
+to break all relevant symmetries (up to S z conservation) as we
+want to study below the generation of heat currents. It also
+provides a cooling mechanism. We have checked that similar
+agreement is also obtained for other Lindblad operators. Our
+analysis will be performed as a function of the relative strength
+of both terms, γ ∈ [0,1]. Using the conservation of the total
+magnetization S z , we study in the following only the sector
+with S z = 0.
+III. TIME-DEPENDENT GENERALIZED
+GIBBS ENSEMBLES
+
+The main goal of our paper is to provide numerical evidence
+for the following claim: The time evolution of a translationally
+invariant integrable many-particle system in the presence
+of weak integrability breaking perturbation is generically
+described by a time-dependent generalized Gibbs ensemble
+[3,38,48,49]
+loc
+
+lim ρ(t) = ρGGE (t) for t =
+
+→0
+
+
+
+e− i λi (t)Ci
+
+ρGGE (t) =
+,
+Tr[e− i λi (t)Ci ]
+
+1
+τ,
+J
+(5)
+
+where Ci are the (quasi)local conservation laws of the integrable system [19,52]. Equation (5) holds only in the thermodyloc
+namic limit and the = symbol is used to indicate that it applies
+only to local observables A for which lim→0 Tr[A ρ(t)] =
+Tr[A ρGGE (t)]. We assume that starting from an arbitrary local
+initial state ρ(0) (having cluster decomposition property [8])
+the dynamics is switched on at t = 0. We introduce the dimensionless time τ > 0 to indicate that the the time-dependent
+description (5) applies only for times t of the order of 1/ and
+larger. The λj (t) are determined from Eq. (7) derived below.
+For the validity of Eq. (5) we furthermore demand that Eq. (7)
+is well behaved, leading to a unique steady state (see below).
+
+165138-2
+
+TIME-DEPENDENT GENERALIZED GIBBS ENSEMBLES IN …
+
+PHYSICAL REVIEW B 97, 165138 (2018)
+
+In the limit τ  1 (with τ/  1 such that t  1/J ),
+the effect of the Lindblad perturbation can be ignored and
+one recovers the standard quench problem for an integrable
+system, for which the emergence of a GGE has been firmly
+established (see, e.g., [16]). The initial values Tr[Ci ρ(0)]
+determine the value of the initial Lagrange parameters λj (τ →
+!
+!
+0), Tr[Ci ρ(0)]=Tr[Ci ρGGE (τ → 0)]. The symbol = stands for
+“must be equal.” This regime is closely associated to the socalled prethermalization plateau, where approximate conservation laws fix a transient state before perturbations set in (see,
+e.g., [36]). The dynamics for τ > 0 is the focus of our study.
+The dynamics of the Lagrange parameters is obtained by
+demanding that
+
+The arguments given above strongly suggest that the GGE
+ansatz fulfills the time-evolution equation (2) projected on the
+conservation laws up to corrections of order  2 . This does,
+however, not yet guarantee the validity of the much stronger
+claim that the time-dependent GGE is also valid in the longtime limit. For this we have to demand that errors do not pile
+up during time evolution but decay exponentially. This is the
+case in situations where Eq. (7) predicts a unique and stable
+steady state (see Appendix B). In all examples considered by
+us so far, we have never found that this condition is violated.
+We will show that in practical implementations it is not
+necessary to take all O(N ) (quasi)local conservation laws
+into account. Accurate results can already be obtained for
+a truncated GGE (tGGE), including only a small number of
+approximately conserved quantities and Lagrange parameters.
+
+!
+
+Tr[Ci ρ̇(t)] = Tr[Ci ρ̇GGE (t)]
+
+(6)
+
+up to corrections which vanish for small . Approximating on the left-hand side of the equation
+)ρ ≈ (L̂0 + L̂1 )ρGGE = L̂1 ρGGE and using
+ρ̇ = (L̂0 + L̂1
+ρ̇GGE (t) = − j λ̇j ρGGE (t) (Cj − Cj GGE ) with A GGE =
+Tr[A ρGGE (t)] on the right-hand side, one obtains a simple
+differential equation
+λ̇i = Fi (t),
+
+(7)
+
+where the generalized forces Fi (t) are functions of λj (t)
+obtained from
+
+
+χ (t)−1 ij Tr[Cj L̂1 ρGGE (t)]
+Fi (t) ≈ −
+j
+
+=−
+
+
+
+(χ −1 )ij Ċj GGE ,
+
+j
+
+χij (t) = Ci Cj GGE − Ci GGE Cj GGE .
+
+(8)
+
+Note that the forces Fi are of order  [correction to Eq. (7)
+are of order  2 ]. Therefore, the time evolution after the initial
+prethermalization is slow and set by a timescale of order 1/.
+More precisely, this is valid for perturbations of the Lindblad
+type studied in this paper. For Hamiltonian perturbations, the
+linear order perturbation theory vanishes. As is well known
+from Fermi’s golden rule, transition rates arise only in secondorder perturbation theory. The formulas given above can easily
+be generalized to this case (see Methods section of Ref. [47]).
+An alternative, slightly more formal derivation of Eq. (7)
+is obtained by setting ρ(t) = ρGGE (t) + δρ(t) where ρGGE (t)
+has to be chosen in such a way that δρ ∼  vanishes in the
+limit  → 0. The essential idea is now to separate the slow
+dynamics within the GGE manifold arising from L̂1 ∼  from
+the fast dynamics in the perpendicular space. One therefore
+introduces a projection operator [51,53–57]
+ ∂ρGGE (t) 
+
+χ (t)−1 ij Tr[Cj X]
+P̂ (t)X := −
+(9)
+∂λi
+i,j
+which projects density matrices onto the space tangential to
+the GGE manifold, spanned by ∂ρGGE (t)/∂λi . We apply P̂ (t)
+to Eq. (2) and use that P̂ (t)ρ̇GGE (t) = ρ̇GGE (t), L̂0 ρGGE =
+0, P̂ (t)L̂0 δρ = 0, and L̂1 δρ ∼  2 . From this we obtain
+P̂ (t)δ ρ̇ + ρ̇GGE = P̂ (t)L̂1 ρGGE + O( 2 ).
+
+(10)
+
+Demanding that P̂ (t)δ ρ̇ is of order  2 leads to ρ̇GGE =
+P̂ (t)L̂1 ρGGE which is equivalent to Eq. (7).
+
+IV. TIME-DEPENDENT BLOCK-DIAGONAL
+DENSITY MATRICES
+
+The GGE approach is only valid in the thermodynamic limit
+where the (quasi)local approximately conserved Ci determine
+the dynamics. For smaller systems, one has, however, to take
+into account that the set of conservation laws of H0 is much
+larger, and given by Q = {|n m| with En0 = Em0 } where |n
+and |m are eigenstates of H0 with the same energy. Note that
+the elements of Q are in general noncommuting and highly
+nonlocal operators. In the limit of small , one can, however,
+derive the dynamics in the space spanned by the elements of Q.
+Such approaches are well described in literature [57] and we
+briefly sketch the relevant formulas, emphasizing the analogy
+to the GGE approach.
+The role of the GGE density matrix is taken over by the
+block-diagonal density matrix
+
+ρBD (t) =
+λnm (t) |n m|
+(11)
+
+
+En =Em
+
+n λnn = 1. In analogy to Eq. (6), we
+!
+demand that Tr[|m n| ρ̇(t)] = Tr[|m n| ρ̇BD (t)] up to correc-
+
+with normalization
+
+tions vanishing for  → 0. Using ρ̇(t) ≈ L̂1 ρBD (t), we obtain
+a linear differential equation for λnm (t):
+
+Mnm,n m λn m (t),
+(12)
+λ̇nm (t) =
+En =Em
+
+where M is an effective Liouvillian acting on the space of
+block-diagonal density matrices (En = Em , En = Em )
+Mnm,n m = Tr[ |m n| L̂1 |n m | ].
+
+(13)
+
+M is linear in  and therefore all  dependence can be absorbed
+in a rescaling of the time axis within this approximation
+which is valid only for small  and covers the dynamics after
+prethermalization. The initial condition for the time evolution
+is simply set by λnm (0) = n|ρ(0)|m .
+Compared to the GGE approach which uses only a few
+(maximally O(N )) Lagrange parameters, the block-diagonal
+matrix uses O(2N ) parameters and is therefore much less efficient. For N = 14 and S z = 0 we have to use 6752 parameters.
+The block-diagonal approach is, however, numerically much
+more efficient than an approach using the full density matrix
+which has O(4N ) parameters.
+
+165138-3
+
+FLORIAN LANGE, ZALA LENARČIČ, AND ACHIM ROSCH
+
+PHYSICAL REVIEW B 97, 165138 (2018)
+
+heat current,
+
+V. NUMERICAL RESULTS
+
+To test the validity of the GGE approach, we have to
+face the problem that the GGE approach is only valid in
+the thermodynamic limit while the exact results for driven
+nonequilibrium systems at finite  can only be obtained for tiny
+systems. We therefore use the following two-step approach:
+We first show numerically that for small systems (N = 8)
+the numerically exact results obtained from the exact timedependent density matrices for small  are well described
+by time-dependent block-diagonal density matrices. We then
+compare for larger systems (up to N = 14) the block-diagonal
+density matrices to truncated GGEs based on only a small
+number of approximately conserved quantities.
+A. Time evolution for small systems
+
+As an initial state, we consider a classical Néel configuration
+|ψN , ρ(0) = |ψN ψN |. In Fig. 1 we show the time evolution
+z
+and of the
+of the nearest-neighbor spin correlation σiz σi+1
+
+JH = J 2
+
+
+
+(Sj × Sj +1 ) · Sj +2
+
+(14)
+
+j
+
+for a small system with N = 8 sites. We compare the numerically exact results, calculated from the exact density
+matrix evolution, to the approximate results based on the
+block-diagonal density matrix. Starting from 1 at t = 0 the
+spin correlation rapidly decays on a timescale of order 1/J =
+1 to a value around −0.45. Due to the smallness of the
+system, rapid oscillations persist and are only slowly damped.
+Subsequently, both the average value of the spin correlation
+and the oscillations decay on a timescale set by 1/. The blockdiagonal density matrix correctly captures the decay of the spin
+correlations quantitatively. The time dependence of the heat
+current, in contrast, is much smoother as the heat current is a
+conserved quantity [JH ,H0 ] = 0. The expectation value of the
+heat current in the initial state is zero, however, a large current
+builds up on a timescale set by 1/. The heat current obtained
+in the long-time limit is large and the system is therefore far out
+of equilibrium. Its value is approximately independent of  for
+small  and is predicted by the time-dependent block-diagonal
+density matrices and the GGE approach (see below). The
+main result of this section is, however, that for small  the
+time evolution for times large compared to 1/J is accurately
+described by the block-diagonal ensemble.
+B. Time evolution of truncated GGE
+
+FIG. 1. Exact time evolution of a weakly perturbed Heisenberg
+model (N = 8, γ = 0.8, J = 1) for three small values of . The
+dashed lines show the result for the time evolution of the blockdiagonal density matrix using Eqs. (11) and (12). (a) Decay of the
+nearest-neighbor spin correlation. (b) For the heat current, rapid
+oscillations on a timescale of order 1/J = 1 are absent as JH is
+a conservation law of H0 . For the values of  shown in the plot,
+the dashed lines follow the solid lines: the block-diagonal density
+matrices correctly describe the time evolution with high precision.
+Inset: at large  = 1.0, discrepancies are visible.
+
+For a system with N = 14 sites, we compare in Fig. 2 the
+time evolution of the block-diagonal ensemble with the results
+obtained for a truncated GGE based on only Nc = 4 conserved
+quantities C2 , . . . ,C5 , where C2 = H0 is the Hamiltonian,
+C3 = JH is the heat current, and C4 = [Ob ,C3 ], C5 = [Ob ,C4 ]
+are conservation laws constructed as a sum of operators with
+maximal nontrivial
+ support on four and five sites, respectively.
+Here, Ob = −i j j Sj · Sj +1 is the so-called boost operator
+[52]. C1 = S z , the total spin in z direction, does not play a
+role in our study which focuses on the S z = 0 sector. The
+heat current operators C3 and C5 have the same symmetry
+properties. Despite of the rather small system size, the small
+number of conservation laws and the omission of quasilocal
+conservation laws [17,19], a surprisingly accurate description
+of the time evolution is obtained. Note that the block-diagonal
+matrix approach keeps track of 6752 approximately conserved
+quantities to be compared to just 4 approximately conserved
+quantities in the truncated GGE.
+The largest discrepancies are visible for the spin-spin correlation function at t = 0. Note that this limit is completely independent of the integrability breaking perturbations. It only tests
+whether diagonal ensemble and GGE coincide after a quantum
+quench of the pure Heisenberg model. It therefore tests the
+ability of the GGE to describe the steady state after a quantum
+quench in an integrable system. Many previous numerical and
+analytical studies have shown that for this problem the GGE
+approach applies, e.g., [16,23,26]. It is important to note that
+using our tGGE with only four Ci a stronger disagreement for
+less local observables, i.e., σiz σjz with |i − j | > 1, is expected
+at all times. Systematic improvement would be achieved by
+including further (quasi)local conservation laws, however, on
+
+165138-4
+
+TIME-DEPENDENT GENERALIZED GIBBS ENSEMBLES IN …
+
+PHYSICAL REVIEW B 97, 165138 (2018)
+
+FIG. 3. Expectation values of conservation laws in the stationary
+state (t → ∞) as a function of γ , which controls the nature of the
+dissipative terms (N = 14, J = 1). As in Fig. 2, a comparison of
+the truncated GGE (solid lines) the block-diagonal density matrix
+(dashed) is shown. For γ = 0, the system heats up to infinite
+temperature and all conservation laws vanish in the thermodynamic
+limit. Due to finite-size effects, small finite values are obtained from
+H and C4 .
+
+FIG. 2. Comparison of the results obtained from the truncated
+GGE (solid line) and the block-diagonal density matrix (dashed
+line). (a) Antiferromagnetic nearest-neighbor spin correlations.
+(b) Approximate conservation laws C5 ,−JH ,−H0 , and (2/3)C4 . All
+quantities change on a timescale of order 1/. Parameters: γ =
+0.8, J = 1, N = 14.
+
+small systems accessible by our approach this yields severe
+finite-size effects.
+The lower panel of Fig. 2 shows the time evolution of
+the conserved quantities. In this case, by construction the
+value at t = 0 are the same for the truncated GGE and the
+block-diagonal approach. All conserved quantities change on
+timescales of order 1/ compared to their prethermalized value
+and show an exponential decay towards their steady-state
+value. Note that features like the small overshooting of C5
+at intermediate times are well reproduced by the numerical
+approach.
+The agreement obtained for γ = 0.8 in Fig. 2 is also
+observed for other values of the parameter γ controlling the
+nature of the dissipative terms. This is shown in Fig. 3, where
+the steady-state value of the conservation laws is shown as
+function of γ . The largest deviations are visible for γ close to 1.
+
+In Fig. 4 the expectation value of the energy density and the
+heat current in the steady state (t → ∞) are shown as function
+of 1/N for the exact density matrix, for the block-diagonal
+ensemble (exact for  → 0) and for two truncated GGEs with
+Nc = 2 and 4. One clearly sees that in the thermodynamic limit,
+the truncated GGEs become more and more accurate. Already
+for the largest system (N = 14) for which we were able to
+evaluate the block-diagonal ensemble, a satisfactory agreement
+is obtained. Also, Nc = 4 is more accurate than Nc = 2 but
+the errors arising from finite-size effects are dominating.
+We are therefore not showing results for larger values of Nc as
+those are spoiled by finite-size effects which tend to become
+more severe for more complicated approximate conservation
+laws.
+The effects of finite  for steady-state expectation values are
+displayed in Fig. 5 for N = 8. We find that the  dependence
+of the steady state is not strongly pronounced and is described
+
+C. Finite-size, finite-, and truncation effects
+
+Formally, the description of the driven many-particle quantum system by a time-dependent GGE is only accurate in the
+limit of weak perturbations  → 0 for large systems N → ∞,
+and taking all (quasi)local conservation laws into account
+Nc → ∞. The results presented above already suggest that
+one can, nevertheless, obtain surprisingly accurate results for
+moderate values of , rather small system sizes and a tiny
+number of conservation laws.
+
+FIG. 4. Steady-state expectation value of the energy H0 and the
+heat current JH as function of the inverse system size 1/N (N =
+6,8,10,12,14), for the truncated GGE with 2 and 4 conservation laws
+and the block-diagonal ensemble. For the smallest system size N =
+6,8, we also show the exact results for  = 0.01, which practically
+coincides with the block-diagonal ensemble, and for  = 1.0 (γ = 1).
+
+165138-5
+
+FLORIAN LANGE, ZALA LENARČIČ, AND ACHIM ROSCH
+
+PHYSICAL REVIEW B 97, 165138 (2018)
+
+FIG. 5. Steady-state expectation value of the energy H0 and the
+heat current JH as function of the strength  of the integrability
+breaking Lindblad terms (N = 8, J = 1, γ = 1). For  → 0, the
+result of the block-diagonal ensemble (dashed line) is recovered.
+
+by a smooth function. In the  → 0 limit, the block-diagonal
+ensemble is exact (as expected from the analytical arguments).
+It also captures with high accuracy the properties for small .
+The results obtained in the limit  → 0 can be systematically improved using perturbation theory in , developed
+for the steady state in Ref. [51]. Here, it is important to
+distinguish the perturbation theory for finite-size systems (
+smaller than the dimensionless level spacing 1/N or even
+2−N ) from the perturbation theory in the thermodynamic limit
+(1/N    1). The numerical results show indeed a different
+behavior in the regime   0.1 and 0.1    1, but the system
+size is too small to extract reliable results for the perturbation
+theory in the thermodynamic limit. A more detailed discussion
+of this issue can be found in Appendix A.
+
+We have used exact diagonalization of Lindblad operators to
+be able to compare the time-dependent GGE approach to exact
+results. A key advantage of the time-dependent GGE approach
+is that it can be combined with other, more powerful numerical
+approaches. For Markovian dynamics, it is sufficient to evaluate simple expectation values of operators to calculate effective
+forces. Many different numerical or analytical methods can
+therefore be used to obtain the nonequilibrium dynamics.
+This includes Monte Carlo approaches, transfer-matrix DMRG
+methods, or high-temperature expansions. Using methods that
+are not restricted to small system sizes, one could study the
+accuracy of tGGE for expectation values of local operators with
+larger support. For the model considered by us, all Lagrange parameters remain rather small during time evolution. Therefore,
+it should be possible to calculate the dynamics of a truncated
+GGE using a rather straightforward high-temperature expansion (or, more precisely, small-Lagrange-parameter expansion)
+directly in the thermodynamic limit N = ∞.
+There are many interesting open questions. For example,
+for the Lindblad driving studied by us, the solution of the rate
+equation for Lagrange parameters, Eq. (7), shows a simple
+exponential relaxation to a single steady state. Out of equilibrium, however, other types of behavior can also occur: several
+steady states, cyclic solutions, or even chaotic solutions. It is
+an interesting open question as to how our approach has to be
+modified in these cases. Another interesting class of problems
+concern situations which are not translationally invariant and
+where Lagrange parameters depend on space and time. For
+exactly integrable models, such a hydrodynamics description
+has recently been developed [61–63], and we expect that it
+can be generalized in a straightforward way to models where
+integrability is broken by small perturbations which drive the
+system out of equilibrium.
+
+VI. CONCLUSION AND OUTLOOK
+
+ACKNOWLEDGMENTS
+
+We have demonstrated that time-dependent generalized
+Gibbs ensembles can be used to describe quantitatively the
+dynamics of approximately integrable systems where small
+perturbations drive the system far from equilibrium. While this
+study has focused on perturbations arising from Lindblad operators describing the coupling to Markovian baths, it can also be
+used to investigate Hamiltonian perturbations. Our example, a
+Heisenberg model coupled to two types of Lindblad dissipators, was chosen for numerical convenience but one can think
+of a wide range of experimental systems where our approach
+is applicable. In practically all cold-atom experiments, there
+are atomic loss processes. An interesting question is therefore
+how atomic loss processes affect experimental ultracold-atom
+realization integrable models, e.g., of the fermionic Hubbard
+model in one dimension. It is reasonable to assume that the loss
+processes will activate some of the exotic conservation laws of
+this model. An experimental setup, particularly suitable for our
+theoretical proposal, is also that of trapped ions where openness
+can be directly simulated [58] by realizing Lindblad driving
+[59], currently using a few tens of atoms [60]. Another interesting class of systems are spin-chain materials, well described
+by one-dimensional Heisenberg models. Here, phonons and the
+coupling to lasers take over the role of the integrability breaking
+perturbations. We have studied steady-state properties of such
+models in Ref. [47].
+
+We acknowledge useful discussions with B. Bertini and
+H. F. Legg for reading the manuscript and for financial support
+of the German Science Foundation under CRC 1238 (Project
+No. C04) and CRC TR 183 (Project No. A01).
+APPENDIX A: PERTURBATION THEORY
+FOR STEADY STATE
+
+We have argued that in the limit of small but finite perturbation strength  a time-dependent GGE or an approach based
+
+FIG. 6. Left panel: derivative of energy and heat current, dH
+d
+and dJdH , as function of the strength of perturbation  calculated for
+γ = 1, J = 1, and N = 8. Right panel: calculation of the coefficient
+linear in  from perturbation theory [51] as function of the broadening
+η for the same parameters.
+
+165138-6
+
+TIME-DEPENDENT GENERALIZED GIBBS ENSEMBLES IN …
+
+PHYSICAL REVIEW B 97, 165138 (2018)
+
+FIG. 7. Effective force field (F2 ,F3 ) in the vicinity of the steady
+state (red point) in the plane spanned by the Lagrange parameters
+λ2 = β and λ3 using e−βH −λ3 JH as an ansatz for ρGGE (N = 8). Left:
+for γ = 0 the system approaches an infinite temperature state since
+the Lindblad operator L(1) is constantly heating the system up. Right:
+at γ = 1 the system is attracted towards a nonequilibrium state with
+finite stationary values of both λ2 and λ3 .
+
+FIG. 8. Steady-state expectation values of the energy and the heat
+current JH as a function of γ parametrizing the type of Markovian
+coupling. For a system of N = 8 sites the steady state is shown at
+J = 1 for several values of  and also for the limit  → 0 where the
+block-diagonal ensemble becomes exact.
+
+on block-diagonal density matrices correctly describes both
+the dynamics and the steady state of the perturbed integrable
+model.
+In this Appendix we discuss the leading-order correction to
+the steady state for finite . In Ref. [51] we have shown how
+one can formulate a perturbation theory in powers of  around
+such a state. Here, it is important to distinguish the perturbation
+theory in the thermodynamic limit from the perturbation theory
+for finite-size systems. The latter is only valid for  small
+compared to the level spacing  = δJ of the system, where δ
+is the dimensionless level spacing. We are mainly interested in
+the opposite limit δ    1.
+As is well known from standard perturbation theory (Kubo
+formula), it is essential to include a small imaginary decay rate
+iη in all calculations. For η   one recovers the perturbation
+theory for a finite-size system, while in the thermodynamic
+limit one chooses η   but smaller than all other relevant
+energy scales.
+As our goal is to compare numerically exact results with
+the formulas of Ref. [51], we have to face the problem that
+exact results are only available for rather small system sizes
+and, therefore, the regimes δ    1 and   η  J are
+difficult to achieve.
+As we are interested in the correction linear in , we plot
+in Fig. 6 (left panel) the derivative of energy and heat current
+dH /d and dJH /d. This is compared to the perturbation
+theory result to linear order in  (based on the formulas derived
+in Ref. [51]), shown in the right panel as function of the
+broadening η. Both panels show that the linear slope vanishes
+in a finite-size system. For finite N and in the steady state the
+leading correction is of order  2 /δ. In the analytic treatment this
+
+can be shown by observing that the corrections to the steady
+state are proportional to the imaginary part of En −E1m −iη with
+En = Em [51] which vanishes for η  .
+In the thermodynamic limit 1    δ, we expect instead
+that a linear correction does exist. Unfortunately, we cannot
+extract a well-defined linear slope from the exact result shown
+in Fig. 6 (left panel) due to the small size of the system. The
+same issue arises also in the dependence of the perturbative
+result of η. The fact that qualitatively similar results are
+obtained for the η and  dependencies is not an accident
+but reflects that the Lindblad coupling effectively leads to a
+broadening of levels.
+In conclusion, our analysis has shown that it is very
+important to distinguish perturbations for finite-size systems
+and in the thermodynamics limit. At least semiquantitatively,
+the analysis also confirms the perturbative approach suggested
+in Ref. [51].
+
+[1] A. Polkovnikov, K. Sengupta, A. Silva, and M. Vengalattore,
+Rev. Mod. Phys. 83, 863 (2011).
+[2] C. Gogolin and J. Eisert, Rep. Prog. Phys. 79, 056001
+(2016).
+[3] L. D’Alessio, Y. Kafri, A. Polkovnikov, and M. Rigol, Adv. Phys.
+65, 239 (2016).
+
+[4] M. Rigol, V. Dunjko, and M. Olshanii, Nature (London) 452,
+854 (2008).
+[5] J. Lux, J. Müller, A. Mitra, and A. Rosch, Phys. Rev. A 89,
+053608 (2014).
+[6] A. Bohrdt, C. Mendl, M. Endres, and M. Knap, New J. Phys. (to
+be published).
+
+APPENDIX B: EFFECTIVE FORCES AND γ DEPENDENCE
+OF STEADY-STATE EXPECTATION VALUES
+
+In Fig. 7 we show the effective forces which determine the
+dynamics of the time-dependent GGE according to Eq. (7). For
+the chosen Lindblad dynamics we find that the system is always
+attracted to a unique, well-defined fixed point. Therefore, also
+small errors in, e.g., the initial state do not grow over time but
+are damped out.
+In Fig. 8 we show the steady-state expectation value of the
+energy and the heat current as function of γ . The figure shows
+that the block-diagonal density matrix quantitatively describes
+for all values of γ the steady state for moderate values of .
+
+165138-7
+
+FLORIAN LANGE, ZALA LENARČIČ, AND ACHIM ROSCH
+
+PHYSICAL REVIEW B 97, 165138 (2018)
+
+[7] E. Leviatan, F. Pollmann, J. H. Bardarson, D. A. Huse, and E.
+Altman, arXiv:1702.08894.
+[8] F. H. L. Essler and M. Fagotti, J. Stat. Mech.: Theory Exp. (2016)
+064002.
+[9] L. Vidmar and M. Rigol, J. Stat. Mech.: Theory Exp. (2016)
+064007.
+[10] P. Calabrese and J. Cardy, J. Stat. Mech.: Theory Exp. (2016)
+064003.
+[11] M. A. Cazalilla and M.-C. Chung, J. Stat. Mech.: Theory Exp.
+(2016) 064004.
+[12] M. Rigol, V. Dunjko, V. Yurovsky, and M. Olshanii, Phys. Rev.
+Lett. 98, 050405 (2007).
+[13] M. Fagotti and F. H. L. Essler, Phys. Rev. B 87, 245107 (2013).
+[14] B. Pozsgay, J. Stat. Mech.: Theory Exp. (2013) P07003.
+[15] M. Fagotti and F. H. Essler, J. Stat. Mech.: Theory Exp. (2013)
+P07012.
+[16] E. Ilievski, J. De Nardis, B. Wouters, J.-S. Caux, F. H. L. Essler,
+and T. Prosen, Phys. Rev. Lett. 115, 157201 (2015).
+[17] E. Ilievski, M. Medenjak, and T. Prosen, Phys. Rev. Lett. 115,
+120601 (2015).
+[18] M. Mierzejewski, P. Prelovšek, and T. Prosen, Phys. Rev. Lett.
+114, 140601 (2015).
+[19] E. Ilievski, M. Medenjak, T. Prosen, and L. Zadnik, J. Stat.
+Mech.: Theory Exp. (2016) 064008.
+[20] J.-S. Caux, J. Stat. Mech.: Theory Exp. (2016) 064006.
+[21] J.-S. Caux and F. H. L. Essler, Phys. Rev. Lett. 110, 257203
+(2013).
+[22] M. Brockmann, B. Wouters, D. Fioretto, J. De Nardis, R. Vlijm,
+and J.-S. Caux, J. Stat. Mech.: Theory Exp. (2014) P12009.
+[23] B. Wouters, J. De Nardis, M. Brockmann, D. Fioretto, M. Rigol,
+and J.-S. Caux, Phys. Rev. Lett. 113, 117202 (2014).
+[24] B. Pozsgay, M. Mestyán, M. A. Werner, M. Kormos, G. Zaránd,
+and G. Takács, Phys. Rev. Lett. 113, 117203 (2014).
+[25] M. Mestyán, B. Pozsgay, G. Takács, and M. A. Werner, J. Stat.
+Mech.: Theory Exp. (2015) P04001.
+[26] L. Piroli, E. Vernier, and P. Calabrese, Phys. Rev. B 94, 054313
+(2016).
+[27] B. Pozsgay, E. Vernier, and M. Werner, J. Stat. Mech. (2017)
+093103.
+[28] T. Kinoshita, T. Wenger, and D. S. Weiss, Nature (London) 440,
+900 (2006).
+[29] M. Gring, M. Kuhnert, T. Langen, T. Kitagawa, B. Rauer, M.
+Schreitl, I. Mazets, D. A. Smith, E. Demler, and J. Schmiedmayer, Science 337, 1318 (2012).
+[30] D. A. Smith, M. Gring, T. Langen, M. Kuhnert, B. Rauer, R.
+Geiger, T. Kitagawa, I. Mazets, E. Demler, and J. Schmiedmayer,
+New J. Phys. 15, 075011 (2013).
+[31] T. Langen, T. Gasenzer, and J. Schmiedmayer, J. Stat. Mech.:
+Theory Exp. (2016) 064009.
+[32] T. Langen, S. Erne, R. Geiger, B. Rauer, T. Schweigler, M.
+Kuhnert, W. Rohringer, I. E. Mazets, T. Gasenzer, and J.
+Schmiedmayer, Science 348, 207 (2015).
+
+[33] Y. Tang, W. Kao, K.-Y. Li, S. Seo, K. Mallayya, M. Rigol, S.
+Gopalakrishnan, and B. L. Lev, arXiv:1707.07031.
+[34] P. Jung, R. W. Helmes, and A. Rosch, Phys. Rev. Lett. 96, 067202
+(2006).
+[35] P. Jung and A. Rosch, Phys. Rev. B 76, 245108 (2007).
+[36] B. Bertini, F. H. L. Essler, S. Groha, and N. J. Robinson, Phys.
+Rev. Lett. 115, 180601 (2015).
+[37] M. Eckstein, M. Kollar, and P. Werner, Phys. Rev. Lett. 103,
+056403 (2009).
+[38] M. Stark and M. Kollar, arXiv:1308.1610.
+[39] J. Marino and A. Silva, Phys. Rev. B 86, 060408 (2012).
+[40] M. Marcuzzi, J. Marino, A. Gambassi, and A. Silva, Phys. Rev.
+Lett. 111, 197203 (2013).
+[41] B. Bertini, F. H. L. Essler, S. Groha, and N. J. Robinson, Phys.
+Rev. B 94, 245117 (2016).
+[42] M. Buchhold, M. Heyl, and S. Diehl, Phys. Rev. A 94, 013601
+(2016).
+[43] F. R. A. Biebl and S. Kehrein, Phys. Rev. B 95, 104304 (2017).
+[44] M. Moeckel and S. Kehrein, Phys. Rev. Lett. 100, 175702 (2008).
+[45] M. Kollar, F. A. Wolf, and M. Eckstein, Phys. Rev. B 84, 054304
+(2011).
+[46] F. H. L. Essler, S. Kehrein, S. R. Manmana, and N. J. Robinson,
+Phys. Rev. B 89, 165104 (2014).
+[47] F. Lange, Z. Lenarčič, and A. Rosch, Nat. Commun. 8, 15767
+(2017)
+[48] M. Fagotti, J. Stat. Mech.: Theory Exp. (2014) P03016.
+[49] B. Bertini and M. Fagotti, J. Stat. Mech.: Theory Exp. (2015)
+P07012.
+[50] M. Genske and A. Rosch, Phys. Rev. A 92, 062108 (2015).
+[51] Z. Lenarčič, F. Lange, and A. Rosch, Phys. Rev. B 97, 024302
+(2018).
+[52] M. P. Grabowski and P. Mathieu, J. Phys. A: Math. Gen. 29,
+7635 (1996).
+[53] B. Robertson, Phys. Rev. 144, 151 (1966).
+[54] B. Robertson, Phys. Rev. 160, 175 (1967); 166, 206(E) (1968).
+[55] K. Kawasaki and J. D. Gunton, Phys. Rev. A 8, 2048 (1973).
+[56] T. Koide, Prog. Theor. Phys. 107, 525 (2002).
+[57] H. P. Breuer and F. Petruccione, The Theory of Open Quantum
+Systems (Oxford University Press, New York, 2002).
+[58] J. T. Barreiro, M. Müller, P. Schindler, D. Nigg, T. Monz, M.
+Chwalla, M. Hennrich, C. F. Roos, P. Zoller, and R. Blatt, Nature
+(London) 470, 486 (2011).
+[59] F. Reiter and A. S. Sørensen, Phys. Rev. A 85, 032111 (2012).
+[60] N. Friis, O. Marty, C. Maier, C. Hempel, M. Holzäpfel, P.
+Jurcevic, M. Plenio, M. Huber, C. Roos, R. Blatt, and B. Lanyon,
+Phys. Rev. X 8, 021012 (2018).
+[61] B. Bertini, M. Collura, J. De Nardis, and M. Fagotti, Phys. Rev.
+Lett. 117, 207201 (2016).
+[62] O. A. Castro-Alvaredo, B. Doyon, and T. Yoshimura, Phys. Rev.
+X 6, 041065 (2016).
+[63] V. B. Bulchandani, R. Vasseur, C. Karrasch, and J. E. Moore,
+Phys. Rev. Lett. 119, 220604 (2017).
+
+165138-8
+
+
