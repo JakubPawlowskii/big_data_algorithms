@@ -31,3 +31,4 @@ hs_err_pid*
 
 # general
 *.class
+list2/node-degrees/src/main/scala/web-Stanford.txt
