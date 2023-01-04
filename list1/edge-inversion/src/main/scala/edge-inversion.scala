@@ -21,9 +21,9 @@ def reduce(edges: List[(Int, Int)]): List[(Int, List[Int])] = {
 
 
   val chunks = graph.grouped(2).toList
-  // println(chunks)
-  // println(chunks.map(map))
-  // println(chunks.map(map).map(reduce))
+  println(chunks)
+  println(chunks.map(map))
+  println(chunks.map(map).map(reduce))
   // println(chunks.map(map).map(reduce).flatten)
 
   val reversed_graph = chunks
