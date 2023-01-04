@@ -30,7 +30,6 @@ def jaccardSimilarity(set1: Set[String], set2: Set[String]): Double = {
   fileNames.foreach(println)
   
   val stopwords = Source.fromFile(pathToStopWords).getLines.toSet
-  // read files and remove stopwords
   val texts = fileList.map(f => 
     Source.fromFile(f)
     .getLines
@@ -50,7 +49,6 @@ def jaccardSimilarity(set1: Set[String], set2: Set[String]): Double = {
     jaccardMatrix
   })
   
-  // print all jaccard similarities formatted to 3 decimal places for each shingle size
   jaccardSimilarities.zip(shingleSizes).foreach(j => {
     println("Jaccard similarities for shingle size: " + j._2)
     j._1.foreach(row => {
