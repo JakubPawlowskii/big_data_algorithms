@@ -1,6 +1,7 @@
 import scala.io.Source
 import java.io.File
-
+import java.io.BufferedWriter
+import java.io.FileWriter
 
 // generate set of k-shingles for given text
 def generateShingles(text: String, k: Int): Set[String] = {
@@ -16,16 +17,21 @@ def jaccardSimilarity(set1: Set[String], set2: Set[String]): Double = {
 
 
 
-@main def main: Unit = 
+@main def exactJaccard: Unit = 
   val pathToBooks = "/home/jakubp/Code/Studies/semester_2/big_data_algorithms/list1/tfidf/books/"
   val pathToStopWords = pathToBooks + "stopwords.txt"
-  val folderPath = pathToBooks + "different_topics/"
-  val fileList = new File(folderPath).listFiles
-    .filter(_.isFile)
-    .toList
-    .map(_.getPath)  
+  
+  val fileList = new File(pathToBooks + "similar_topics").listFiles
+  .filter(_.isFile)
+  .toList
+  .map(_.getPath)
+  .take(3) ++ new File(pathToBooks + "different_topics").listFiles
+  .filter(_.isFile)
+  .toList
+  .map(_.getPath)
+  .take(3)
+  
   val fileNames = fileList.map(w => w.split("/").last)
-  println("Generating cloud for all files in folder: " + folderPath)
   println("The files are: ")
   fileNames.foreach(println)
   
@@ -57,6 +63,28 @@ def jaccardSimilarity(set1: Set[String], set2: Set[String]): Double = {
     })
     println()
   })
+
+  // save to file
+  val file = new File("jaccard_similarities.txt")
+  val bw = new BufferedWriter(new FileWriter(file))
+  // write file list to file
+  bw.write("The files are: ")
+  bw.newLine()
+  fileNames.foreach(f => {
+    bw.write(f)
+    bw.newLine()
+  })
+  bw.newLine()
+  jaccardSimilarities.zip(shingleSizes).foreach(j => {
+    bw.write("Jaccard similarities for shingle size: " + j._2)
+    bw.newLine()
+    j._1.foreach(row => {
+      row.foreach(col => bw.write(f"$col%1.6f "))
+      bw.newLine()
+    })
+    bw.newLine()
+  })
+  bw.close()
 
 
 
