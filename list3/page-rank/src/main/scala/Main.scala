@@ -9,7 +9,7 @@ import scala.collection.parallel.CollectionConverters._
 @main def pageRank(): Unit = {
   val wikipediaLink = "https://en.wikipedia.org/wiki/"
   
-  println("Weloome to the page rank calculator!")
+  println("Welcome to the page rank calculator!")
   println("To crawl a wikipedia article and calculate the page rank, enter 1")
   println("To calculate the page rank from collected data, enter 2")
   println("To perform link analysis, enter 3")
@@ -51,7 +51,7 @@ import scala.collection.parallel.CollectionConverters._
       // val pathToHashedEdges = folder + "/" + folderName + "/links_hashed.txt"
       val pathToEdges = folder + "/" + folderName + "/links.txt"
       
-      val pageRank = new PageRank(1.0f, 1e-8, 100)
+      val pageRank = new PageRank(0.85f, 1e-8, 100)
       
       val edgesFull = pageRank.readEdgeList(pathToEdges)
       val edgesString = edgesFull.map(x => (x._1, x._2))
@@ -126,6 +126,15 @@ import scala.collection.parallel.CollectionConverters._
         }
 
       }
+
+    }
+    if choice == "4" then{
+      val folder = "data"
+      val files = new java.io.File(folder).listFiles.filter(_.isDirectory).map(_.getName)
+      println("Choose the folder to search:")
+      files.zipWithIndex.foreach(x => println(x._2.toString() + " - " + x._1))
+      val choice = scala.io.StdIn.readLine()
+      val folderName = files(choice.toInt)
 
     }
 

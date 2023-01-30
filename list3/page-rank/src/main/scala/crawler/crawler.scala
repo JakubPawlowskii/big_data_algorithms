@@ -48,6 +48,25 @@ class Crawler(pageRoot: String){
             outLinks.toList.distinct
         }
 
+    // def scrapLinksWithWords(pagePath: String): (List[String], List[String]) = {
+    //     var relativePage = pagePath
+    //     if (pagePath.startsWith(pageRoot)) relativePage = pagePath.replace(pageRoot, "")
+        
+    //     val doc = Jsoup.connect(pageRoot + relativePage).get()
+    //     val links = doc.select("a[href]")
+    //     val words = doc.body().text().split("\\W+").map(_.toLowerCase()).toList
+
+    //     val outLinks = links
+    //     .toArray()
+    //     .map(link => link.asInstanceOf[org.jsoup.nodes.Element].attr("abs:href"))
+    //     .filter(link => link.startsWith(pageRoot))
+    //     .map(link => link.replace(pageRoot, ""))
+    //     .filterNot(containsExcludedTag(_))
+    //     .map(link => link.split("#")(0))
+        
+    //     (outLinks.toList.distinct, words)
+    // }
+
     // tail recursive function to crawl the web, given maximal number of pages to crawl
     // goes in horizontal direction, that is it first crawls all the pages in the same level
     @tailrec
@@ -68,7 +87,26 @@ class Crawler(pageRoot: String){
         else edges
     }
     
-                
+
+    // @tailrec
+    // final def crawlHorizontalWithWords(startingPages: List[String], visitedPages: List[String], edges: List[(String,String)], words: List[(String, String)], maxPages: Int): (List[(String, String)], List[(String, String)]) = 
+    // {
+    //     println(maxPages.toString() + " pages left to crawl...")
+    //     if (maxPages > 0 && startingPages.nonEmpty) then
+    //         {
+    //             val links = scrapLinks(startingPages.head)
+    //             val newPages = links.filterNot(visitedPages.contains(_)).filterNot(startingPages.contains(_))
+    //             newPages.foreach(link => link.replace(pageRoot,""))
+    //             val newEdges = newPages.map(page => (startingPages.head.replace(pageRoot,""), page)).filterNot(edges.contains(_))
+    //             crawlHorizontalWithWords((startingPages.tail ++ newPages).take(maxPages),
+    //                             visitedPages ++ startingPages,
+    //                             edges ++ newEdges,
+    //                             maxPages - 1)   
+    //         }
+    //     else edges
+    // }
+    
+
     
 }
 
