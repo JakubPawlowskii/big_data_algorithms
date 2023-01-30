@@ -22,7 +22,7 @@ import scala.collection.parallel.CollectionConverters._
       
       val pageURL = scala.io.StdIn.readLine()
       val crawler = new Crawler(wikipediaLink)
-      val res = crawler.crawlHorizontal(List(pageURL), List(), List(), 500)
+      val res = crawler.crawlHorizontal(List(pageURL), List(), List(), 5)
       val folder = crawler.createFolder("data/" + pageURL.replace(wikipediaLink, "").replace("/", "___"))
       
       val out = new java.io.PrintWriter(folder + "/links_hashed.txt")
@@ -51,7 +51,7 @@ import scala.collection.parallel.CollectionConverters._
       // val pathToHashedEdges = folder + "/" + folderName + "/links_hashed.txt"
       val pathToEdges = folder + "/" + folderName + "/links.txt"
       
-      val pageRank = new PageRank(0.85, 1e-8, 100)
+      val pageRank = new PageRank(1.0f, 1e-8, 100)
       
       val edgesFull = pageRank.readEdgeList(pathToEdges)
       val edgesString = edgesFull.map(x => (x._1, x._2))

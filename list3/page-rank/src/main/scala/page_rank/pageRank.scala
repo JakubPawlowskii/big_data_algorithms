@@ -60,7 +60,11 @@ class PageRank(taxation: Float = 0.0, epsilon: Float = 0.0001, maxIter: Int = 10
                 case None => 0.0f).sum
         }).par
         val newRank: ParSeq[Float] = rightRank.map(taxation*_ + (1.0f-taxation)/rankVec.size)
-        if (isConverged(newRank, rankVec, epsilon) || iter >= maxIter) then newRank
+        if (isConverged(newRank, rankVec, epsilon) || iter >= maxIter) 
+        then{
+            if(iter >= maxIter) println("Max iterations reached")
+            newRank
+        } 
         else calculatePageRank(newRank, P, iter + 1)
     }
 
