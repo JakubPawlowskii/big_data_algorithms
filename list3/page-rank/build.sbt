@@ -5,14 +5,11 @@ lazy val root = project
   .settings(
     name := "page-rank",
     scalaVersion := scala3Version,
-    libraryDependencies += "org.jsoup" % "jsoup" % "1.14.2",
-  
-    
+
+    libraryDependencies ++= Seq("org.jsoup" % "jsoup" % "1.14.2",
+                            "org.scala-lang.modules" %% "scala-parallel-collections" % "1.0.4"),
     scalacOptions ++= Seq(
       "-deprecation",
       "-explain")
     
-
-
-
   )

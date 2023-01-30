@@ -21,6 +21,13 @@ class Crawler(pageRoot: String){
         {
             excludedTags.exists(href.contains(_))
         }
+
+    def createFolder(path: String): String = 
+        {
+            val dir = new java.io.File(path)
+            if (!dir.exists()) dir.mkdirs()
+            path
+        }
     
     def scrapLinks(pagePath: String): List[String] = 
         {
@@ -53,7 +60,7 @@ class Crawler(pageRoot: String){
                 val newPages = links.filterNot(visitedPages.contains(_)).filterNot(startingPages.contains(_))
                 newPages.foreach(link => link.replace(pageRoot,""))
                 val newEdges = newPages.map(page => (startingPages.head.replace(pageRoot,""), page)).filterNot(edges.contains(_))
-                crawlHorizontal(startingPages.tail ++ newPages,
+                crawlHorizontal((startingPages.tail ++ newPages).take(maxPages),
                                 visitedPages ++ startingPages,
                                 edges ++ newEdges,
                                 maxPages - 1)   
